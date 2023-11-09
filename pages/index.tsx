@@ -1,7 +1,11 @@
 import { DotPattern } from "@/components/1 - atoms/dot-pattenr";
 import { HeroTexture } from "@/components/1 - atoms/hero-texture";
+import { PreSectionText } from "@/components/1 - atoms/pre-section-text";
+import { SectionText } from "@/components/1 - atoms/section-text";
+import { SectionTitle } from "@/components/1 - atoms/section-title";
+import { OurPrinciplesSection } from "@/components/2 - molecules/our-principles-section";
+import { CTASection } from "@/components/2 - molecules/our-principles-section copy";
 import { ServicesSection } from "@/components/2 - molecules/services-section";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -48,6 +52,34 @@ export default function Home() {
         </h3>
       </section>
       <ServicesSection />
+
+      <OurPrinciplesSection />
+
+      <section className="my-20">
+        <div className="flex flex-col max-[635px] items-center justify-center mb-[60px]">
+          <PreSectionText>WHO WE ARE</PreSectionText>
+          <SectionTitle className="my-3">Meet our team</SectionTitle>
+          <SectionText className="">
+            NameHash Labs is a technology organization founded by a team of
+            committed contributors from the ENS ecosystem.
+          </SectionText>
+        </div>
+
+        <div className="grid grid-cols-5 gap-auto gap-6">
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+          <div className="w-[212px] h-[212px] bg-slate-400" />
+        </div>
+      </section>
+
+      <CTASection />
     </main>
   );
 }
