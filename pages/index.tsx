@@ -1,8 +1,10 @@
 import { DotPattern } from "@/components/1 - atoms/dot-pattenr";
 import { HeroTexture } from "@/components/1 - atoms/hero-texture";
+import { NameHashLabsLogo } from "@/components/1 - atoms/icons/namehash-labs-logo";
 import { PreSectionText } from "@/components/1 - atoms/pre-section-text";
 import { SectionText } from "@/components/1 - atoms/section-text";
 import { SectionTitle } from "@/components/1 - atoms/section-title";
+import { Footer } from "@/components/2 - molecules/footer";
 import { OurPrinciplesSection } from "@/components/2 - molecules/our-principles-section";
 import { CTASection } from "@/components/2 - molecules/our-principles-section copy";
 import { ServicesSection } from "@/components/2 - molecules/services-section";
@@ -10,7 +12,17 @@ import { ServicesSection } from "@/components/2 - molecules/services-section";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
-      <section className="h-screen w-full flex items-center justify-center relative bg-gray-200">
+      <section className="h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 ">
+        {/* header  */}
+        <div className="px-[112px] w-full absolute top-0 left-0 border-b border-gray-300 z-20">
+          <div className="w-full flex items-center justify-between py-5">
+            <NameHashLabsLogo />
+            <button className="px-[16px] py-[9px] bg-black text-white border rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-900 transition-colors duration-200">
+              Schedule a call
+            </button>
+          </div>
+        </div>
+
         <div className="flex flex-col items-center gap-5 max-w-[728px] z-20">
           <h1 className="text-5xl font-bold leading-[60px] text-center">
             Core Infrastructure for the internet of identity
@@ -80,6 +92,8 @@ export default function Home() {
       </section>
 
       <CTASection />
+
+      <Footer />
     </main>
   );
 }

@@ -36,8 +36,8 @@ export const HeroTexture = (props: SVGProps<SVGSVGElement>) => {
           y2="838"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="white" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
         <image
           id="image0_2409_34574"
