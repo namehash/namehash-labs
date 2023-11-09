@@ -86,6 +86,14 @@ export const Service = ({
 export const ServicesSection = () => {
   return (
     <>
+      <div>
+        <p className="text-xs font-medium leading-4 uppercase tracking-tight text-gray-500 text-center">
+          What we{"’"}re building
+        </p>
+        <h3 className="text-4xl leading-10 font-bold text-center mt-3">
+          Our products
+        </h3>
+      </div>
       {services.map((service, index) => (
         <Service
           key={service.title}
