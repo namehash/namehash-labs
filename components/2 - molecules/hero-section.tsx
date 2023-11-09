@@ -1,7 +1,9 @@
-import { DotPattern } from "../1 - atoms/dot-pattenr";
-import { HeroTexture } from "../1 - atoms/hero-texture";
-import { NameHashLabsLogo } from "../1 - atoms/icons/namehash-labs-logo";
-import { ChevronDown } from "../1 - atoms/chevron-down";
+import {
+  ChevronDown,
+  DotPattern,
+  HeroTexture,
+  NameHashLabsLogo,
+} from "../1 - atoms";
 
 export const HeroSection = () => {
   return (

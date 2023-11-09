@@ -1,9 +1,3 @@
-import { CheckBadgeIcon, HeartIcon } from "@heroicons/react/24/solid";
-import { PreSectionText } from "../1 - atoms/pre-section-text";
-import { SectionTitle } from "../1 - atoms/section-title";
-import { SectionText } from "../1 - atoms/section-text";
-import { CSSProperties } from "react";
-
 export const CTASection = () => {
   return (
     <section className="pb-[50px]">

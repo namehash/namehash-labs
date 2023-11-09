@@ -2,17 +2,9 @@ import React from "react";
 import cc from "classcat";
 import {
   ChartBarSquareIcon,
-  RocketLaunchIcon,
   ShieldCheckIcon,
-  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import {
-  ChartBarIcon,
-  ClockIcon,
-  HeartIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/24/solid";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
 
 interface ServiceProps {

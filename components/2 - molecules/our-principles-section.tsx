@@ -1,7 +1,5 @@
 import { CheckBadgeIcon, HeartIcon } from "@heroicons/react/24/solid";
-import { PreSectionText } from "../1 - atoms/pre-section-text";
-import { SectionTitle } from "../1 - atoms/section-title";
-import { SectionText } from "../1 - atoms/section-text";
+import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 
 export const OurPrinciplesSection = () => {
   return (
