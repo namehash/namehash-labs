@@ -7,7 +7,7 @@ export const ColoredText = () => {
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
         }}
-        className="text-transparent text-4xl font-semibold text-center max-w-[1216px]"
+        className="text-transparent lg:text-4xl lg:leading-[52px] text-[24px] leading-[32px] font-semibold text-center max-w-[1216px]"
       >
         Founded in 2022, Namehash Labs is a technology organization dedicated to
         infrastructure-level solutions that helps the Ethereum Name Service

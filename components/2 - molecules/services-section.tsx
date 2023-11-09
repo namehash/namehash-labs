@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
+import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 
 interface ServiceProps {
   label: {
@@ -18,6 +19,7 @@ interface ServiceProps {
   gradient?: React.ReactElement;
   isInverted?: boolean;
   buttonUrl?: string;
+  greenLabelText?: string;
 }
 
 export const Service = ({
@@ -28,6 +30,7 @@ export const Service = ({
   gradient,
   isInverted,
   buttonUrl,
+  greenLabelText,
 }: ServiceProps) => {
   return (
     <section
@@ -43,16 +46,33 @@ export const Service = ({
           <div className="justify-center lg:justify-start flex">
             <div className="gap-2 bg-black inline-flex items-center bg-opacity-5 px-4 py-2 rounded-[20px]">
               {label.icon}
-              <p>{label.title}</p>
+              <p className="text-sm leading-5 font-medium">{label.title}</p>
             </div>
           </div>
 
-          <h2 className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center">
-            {title}
-          </h2>
-          <p className="text-gray-500 text-lg leading-7 font-normal lg:text-start text-center">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start">
+            <h2
+              className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              {title}
+            </h2>
+            {greenLabelText && (
+              <div className="ml-3">
+                <div
+                  className="px-3 py-0.5 bg-green-100 border rounded-full"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
+                    {greenLabelText}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+          <SectionText className="lg:text-start text-center">
             {subtitle}
-          </p>
+          </SectionText>
           {buttonUrl && (
             <div className="flex lg:justify-start justify-center">
               <a
@@ -61,7 +81,9 @@ export const Service = ({
                 className="border rounded-[8px] bg-black text-white px-4 py-2 transition-colors duration-200 hover:bg-gray-800 inline-flex items-center justify-center"
               >
                 Learn more
-                <ExternalLinkIcon className="ml-3" />
+                <div className="ml-3 w-5 h-5">
+                  <ExternalLinkIcon />
+                </div>
               </a>
             </div>
           )}
@@ -79,12 +101,8 @@ export const ServicesSection = () => {
   return (
     <>
       <div>
-        <p className="text-xs font-medium leading-4 uppercase tracking-tight text-gray-500 text-center">
-          What we{"’"}re building
-        </p>
-        <h3 className="text-4xl leading-10 font-bold text-center mt-3">
-          Our products
-        </h3>
+        <PreSectionText>What we{"’"}re building</PreSectionText>
+        <SectionTitle>Our products</SectionTitle>
       </div>
       {services.map((service, index) => (
         <Service
@@ -96,6 +114,7 @@ export const ServicesSection = () => {
           gradient={service.gradient}
           isInverted={index % 2 === 1}
           buttonUrl={service.buttonUrl}
+          greenLabelText={service.greenLabelText}
         />
       ))}
     </>
@@ -120,6 +139,7 @@ const services: ServiceProps[] = [
         alt="hero"
       />
     ),
+    greenLabelText: "COMING SOON",
   },
   {
     title: "ENS Ambassador Program",
@@ -138,6 +158,7 @@ const services: ServiceProps[] = [
         alt="hero"
       />
     ),
+    greenLabelText: "PROPOSAL PENDING",
   },
   {
     title: "NameGuard",
@@ -156,6 +177,8 @@ const services: ServiceProps[] = [
         alt="hero"
       />
     ),
+
+    buttonUrl: "https://www.nameguard.io/",
   },
   {
     title: "ENSNode",
@@ -174,5 +197,6 @@ const services: ServiceProps[] = [
         alt="hero"
       />
     ),
+    greenLabelText: "COMING SOON",
   },
 ];

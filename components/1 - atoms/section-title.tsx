@@ -10,7 +10,7 @@ export const SectionTitle = ({
 }: SectionTitleProps) => {
   return (
     <p
-      className={`text-4xl leading-10 font-bold text-center mt-3 ${className}`}
+      className={`lg:text-4xl text-3xl lg:leading-10 leading-9 font-bold text-center mt-3 ${className}`}
       {...props}
     >
       {children}
