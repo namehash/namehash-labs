@@ -1,3 +1,4 @@
+import { ChevronDown } from "@/components/1 - atoms/chevron-down";
 import { DotPattern } from "@/components/1 - atoms/dot-pattenr";
 import { HeroTexture } from "@/components/1 - atoms/hero-texture";
 import { NameHashLabsLogo } from "@/components/1 - atoms/icons/namehash-labs-logo";
@@ -40,8 +41,22 @@ export default function Home() {
         <HeroTexture className="absolute top-0 right-0 w-full h-full" />
         <DotPattern className="absolute top-0 right-0 w-full h-full" />
         <div className="bg-gradient-to-b from-transparent to-white h-1/2 w-full absolute bottom-0 left-0" />
+
+        <button
+          onClick={() => {
+            const targetDiv = document.getElementById("targetDiv");
+
+            if (targetDiv) {
+              targetDiv.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="px-20 py-2.5 border rounded-full border-gray-300 absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+        >
+          <ChevronDown />
+        </button>
       </section>
-      <section className="px-[110px] py-[122px]">
+
+      <section className="px-[110px] py-[122px]" id="targetDiv">
         <p
           style={{
             background: "linear-gradient(180deg, #289FB9 0%, #8740A0 100%)",

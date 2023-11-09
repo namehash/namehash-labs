@@ -50,7 +50,7 @@ const ctas: CtaProps[] = [
       "Work on the leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.  ",
     buttonText: "Open positions",
     buttonStyle:
-      "border border-gray-200 bg-white hover:bg-gray-200 transition-colors duration-200",
+      "border border-gray-200 bg-white hover:bg-gray-100 transition-colors duration-200",
     background:
       "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, #FFF 100%), linear-gradient(180deg, #FFAF00 10.85%, #2ED3C6 40.85%, #4C3FA0 70%, #F112D9 100%)",
   },
@@ -64,7 +64,7 @@ const Cta = ({
   background,
 }: CtaProps) => {
   return (
-    <div className="py-[60px] w-[588px] bg-transparent flex items-center justify-center border border-gray-200 rounded-[8px] relative overflow-hidden">
+    <div className="py-[60px] max-w-[588px] bg-transparent flex items-center justify-center border border-gray-200 rounded-[8px] relative overflow-hidden">
       <div className="flex flex-col items-center justify-center max-w-[508px] z-20">
         <h3 className="text-3xl leading-9 font-bold text-center">{title} </h3>
         <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center">
