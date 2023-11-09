@@ -1,25 +1,13 @@
-import {
-  ChevronDown,
-  DotPattern,
-  HeroTexture,
-  NameHashLabsLogo,
-} from "../1 - atoms";
+import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
+import { Header } from "./header";
 
 export const HeroSection = () => {
   return (
-    <section className="h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 ">
-      {/* header  */}
-      <div className="px-[112px] w-full absolute top-0 left-0 border-b border-gray-300 z-20">
-        <div className="w-full flex items-center justify-between py-5">
-          <NameHashLabsLogo />
-          <button className="px-[16px] py-[9px] bg-black text-white border rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-900 transition-colors duration-200">
-            Schedule a call
-          </button>
-        </div>
-      </div>
+    <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 ">
+      <Header />
 
       <div className="flex flex-col items-center gap-5 max-w-[728px] z-20">
-        <h1 className="text-5xl font-bold leading-[60px] text-center">
+        <h1 className="lg:text-5xl lg:leading-[60px] text-center text-4xl leading-10 font-bold">
           Core Infrastructure for the internet of identity
         </h1>
         <p className="text-lg text-center text-gray-500 font-normal leading-7">
@@ -27,8 +15,10 @@ export const HeroSection = () => {
           to drive global adoption of the ENS protocol
         </p>
         <div>
-          <button className="text-white bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex">
-            Schedule a call
+          <button className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex">
+            <p className="text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
+              Schedule a call
+            </p>
           </button>
         </div>
       </div>

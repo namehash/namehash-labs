@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <section className="px-[112px] w-full border-t border-gray-200">
+    <section className="lg:px-[112px] px-5 w-full border-t border-gray-200">
       <div className="py-5 flex items-center justify-between w-full">
         <div>
           <p className="text-gray-500 text-xs leading-5 font-normal">

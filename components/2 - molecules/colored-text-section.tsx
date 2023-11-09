@@ -1,6 +1,6 @@
 export const ColoredText = () => {
   return (
-    <section className="px-[110px] py-[122px]" id="targetDiv">
+    <section className="lg:px-[110px] px-5 py-[122px]" id="targetDiv">
       <p
         style={{
           background: "linear-gradient(180deg, #289FB9 0%, #8740A0 100%)",

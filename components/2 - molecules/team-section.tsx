@@ -14,7 +14,7 @@ export const TeamSection = () => {
         </SectionText>
       </div>
 
-      <div className="grid grid-cols-5 gap-auto gap-6">
+      <div className="grid lg:grid-cols-5 grid-cols-1 gap-auto gap-6">
         <div className="w-[212px] h-[212px] bg-slate-400" />
         <div className="w-[212px] h-[212px] bg-slate-400" />
         <div className="w-[212px] h-[212px] bg-slate-400" />
