@@ -1,7 +1,7 @@
 export const CTASection = () => {
   return (
-    <section className="pb-[50px]">
-      <div className="grid grid-cols-2 gap-10">
+    <section className="pb-[50px] px-5">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         {ctas.map((item) => {
           return (
             <Cta
