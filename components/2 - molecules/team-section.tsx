@@ -6,7 +6,7 @@ import { EnsIcon } from "../1 - atoms/icons/ens-icon";
 
 export const TeamSection = () => {
   return (
-    <section className="my-20">
+    <section className="my-20 px-5">
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px]">
         <PreSectionText>WHO WE ARE</PreSectionText>
         <SectionTitle className="my-3">Meet our team</SectionTitle>
@@ -15,7 +15,7 @@ export const TeamSection = () => {
           committed contributors from the ENS ecosystem.
         </SectionText>
       </div>
-      <div className="grid lg:grid-cols-5 grid-cols-1 gap-auto gap-6">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-auto gap-6">
         {team.map((member) => {
           return (
             <div className="flex flex-col gap-3" key={member.name}>
@@ -35,7 +35,7 @@ export const TeamSection = () => {
                   alt={member.name}
                   width={212}
                   height={212}
-                  className="border rounded-[12px]"
+                  className="border rounded-[12px] w-full"
                 />
                 <EnsIcon
                   className="absolute top-5 left-5"
@@ -59,7 +59,10 @@ export const TeamSection = () => {
           );
         })}
 
-        <div className="w-[212px] h-[212px] border rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center">
+        <div
+          className="w-full  border rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
+          style={{ aspectRatio: "1 / 1" }}
+        >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
           <p className="text-sm leading-5 font-normal text-gray-500">
             Check out our{" "}

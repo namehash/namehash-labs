@@ -1,9 +1,10 @@
+import Image from "next/image";
 import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
 
 export const HeroSection = () => {
   return (
-    <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 ">
+    <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 overflow-hidden">
       <Header />
 
       <div className="flex flex-col items-center gap-5 max-w-[728px] z-20">
@@ -34,10 +35,88 @@ export const HeroSection = () => {
             targetDiv.scrollIntoView({ behavior: "smooth" });
           }
         }}
-        className="px-20 py-2.5 border rounded-full border-gray-300 absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+        className="px-20 py-2.5 z-20 border rounded-full border-gray-300 absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
       >
         <ChevronDown />
       </button>
+
+      <Image
+        className="absolute invisible 2xl:visible top-[150px] left-[508px]"
+        alt="test"
+        src={"/images/hero-section/zeus.png"}
+        width={50}
+        height={50}
+      />
+      <Image
+        className="absolute invisible 2xl:visible top-[50px] left-[20px]"
+        alt="test"
+        src={"/images/hero-section/phoenix.png"}
+        width={250}
+        height={250}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[50px] left-[100px]"
+        alt="test"
+        src={"/images/hero-section/hidra.png"}
+        width={250}
+        height={250}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[200px] left-[450px]"
+        alt="test"
+        src={"/images/hero-section/run.png"}
+        width={150}
+        height={150}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[65px] left-[700px]"
+        alt="test"
+        src={"/images/hero-section/super-woman.png"}
+        width={250}
+        height={250}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[200px] right-[650px]"
+        alt="test"
+        src={"/images/hero-section/running-girl.png"}
+        width={150}
+        height={150}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[50px] right-[400px]"
+        alt="test"
+        src={"/images/hero-section/skeleton.png"}
+        width={200}
+        height={200}
+      />
+      <Image
+        className="absolute invisible 2xl:visible bottom-[200px] right-[100px]"
+        alt="test"
+        src={"/images/hero-section/dancing.png"}
+        width={250}
+        height={250}
+      />
+      <Image
+        className="absolute invisible 2xl:visible top-[0px] right-[650px]"
+        alt="test"
+        src={"/images/hero-section/eye.png"}
+        width={350}
+        height={350}
+      />
+      <Image
+        className="absolute invisible 2xl:visible top-[200px] right-[450px]"
+        alt="test"
+        src={"/images/hero-section/running.png"}
+        width={150}
+        height={150}
+      />
+      <Image
+        className="absolute invisible 2xl:visible top-[200px] right-[200px]"
+        alt="test"
+        src={"/images/hero-section/zeus-2.png"}
+        width={90}
+        height={90}
+      />
     </section>
   );
 };
