@@ -4,7 +4,7 @@ import {
   Footer,
   HeroSection,
   OurPrinciplesSection,
-  ServicesSection,
+  ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
 
@@ -13,7 +13,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between">
       <HeroSection />
       <ColoredText />
-      <ServicesSection />
+      <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
       <CTASection />

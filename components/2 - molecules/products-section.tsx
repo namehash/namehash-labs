@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 
-interface ServiceProps {
+interface ProductProps {
   label: {
     icon: React.ReactElement;
     title: string;
@@ -22,7 +22,7 @@ interface ServiceProps {
   greenLabelText?: string;
 }
 
-export const Service = ({
+export const Product = ({
   label,
   title,
   subtitle,
@@ -31,7 +31,7 @@ export const Service = ({
   isInverted,
   buttonUrl,
   greenLabelText,
-}: ServiceProps) => {
+}: ProductProps) => {
   return (
     <section
       className={cc([
@@ -50,7 +50,7 @@ export const Service = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center lg:justify-start">
+          <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
             <h2
               className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center"
               style={{ whiteSpace: "nowrap" }}
@@ -58,7 +58,7 @@ export const Service = ({
               {title}
             </h2>
             {greenLabelText && (
-              <div className="ml-3">
+              <div className="">
                 <div
                   className="px-3 py-0.5 bg-green-100 border rounded-full"
                   style={{ whiteSpace: "nowrap" }}
@@ -97,31 +97,31 @@ export const Service = ({
   );
 };
 
-export const ServicesSection = () => {
+export const ProductsSection = () => {
   return (
     <>
       <div>
         <PreSectionText>What we{"’"}re building</PreSectionText>
         <SectionTitle>Our products</SectionTitle>
       </div>
-      {services.map((service, index) => (
-        <Service
-          key={service.title}
-          label={service.label}
-          title={service.title}
-          subtitle={service.subtitle}
-          illustration={service.illustration}
-          gradient={service.gradient}
+      {products.map((product, index) => (
+        <Product
+          key={product.title}
+          label={product.label}
+          title={product.title}
+          subtitle={product.subtitle}
+          illustration={product.illustration}
+          gradient={product.gradient}
           isInverted={index % 2 === 1}
-          buttonUrl={service.buttonUrl}
-          greenLabelText={service.greenLabelText}
+          buttonUrl={product.buttonUrl}
+          greenLabelText={product.greenLabelText}
         />
       ))}
     </>
   );
 };
 
-const services: ServiceProps[] = [
+const products: ProductProps[] = [
   {
     title: "NameKit",
     subtitle:
