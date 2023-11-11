@@ -20,7 +20,7 @@ export const TeamSection = () => {
           return (
             <div className="flex flex-col gap-3" key={member.name}>
               <div
-                className="relative w-[212px]"
+                className="relative lg:max-w-[212px]"
                 style={{
                   borderRadius: "12.31px",
                   background:

@@ -1,3 +1,5 @@
+import CalButton from "../1 - atoms/CalButton";
+
 export const CTASection = () => {
   return (
     <section className="pb-[50px] px-5">
@@ -68,13 +70,11 @@ const Cta = ({
         <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center">
           {description}
         </p>
-        <a
-          href={buttonUrl ? buttonUrl : ""}
-          target={"_blank"}
+        <CalButton
           className={`text-base leading-6 font-medium px-[25px] py-[13px] rounded-[8px] ${buttonStyle}`}
         >
           {buttonText}
-        </a>
+        </CalButton>
       </div>
       <div
         style={{

@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
+import CalButton from "../1 - atoms/CalButton";
 
 export const HeroSection = () => {
   return (
     <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 overflow-hidden">
       <Header />
 
-      <div className="flex flex-col items-center gap-5 max-w-[728px] z-20">
+      <div className="flex flex-col items-centCalButtoner gap-5 max-w-[728px] z-20">
         <h1 className="lg:text-5xl lg:leading-[60px] text-center text-4xl leading-10 font-bold">
           Core Infrastructure for the internet of identity
         </h1>
@@ -15,15 +16,13 @@ export const HeroSection = () => {
           We are a relentlessly committed team building open source public goods
           to drive global adoption of the ENS protocol
         </p>
-        <a
-          href="https://cal.com/namehashlabs/namehashlabs"
-          target="_blank"
-          className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex"
-        >
-          <p className="text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
-            Schedule a call
-          </p>
-        </a>
+        <div className="flex items-center justify-center">
+          <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex">
+            <p className="text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
+              Schedule a call
+            </p>
+          </CalButton>
+        </div>
       </div>
       <HeroTexture className="absolute top-0 right-0 w-full h-full" />
       <DotPattern className="absolute top-0 right-0 w-full h-full" />
