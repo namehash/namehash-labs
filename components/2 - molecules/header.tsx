@@ -1,5 +1,5 @@
 import { NameHashLabsLogo } from "../1 - atoms";
-import CalButton from "../1 - atoms/CalButton";
+import CalButton from "../1 - atoms/cal-button";
 
 export const Header = () => {
   return (

@@ -1,4 +1,4 @@
-import CalButton from "../1 - atoms/CalButton";
+import CalButton from "../1 - atoms/cal-button";
 
 export const CTASection = () => {
   return (

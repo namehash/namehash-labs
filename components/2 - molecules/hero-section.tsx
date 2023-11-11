@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
-import CalButton from "../1 - atoms/CalButton";
+import CalButton from "../1 - atoms/cal-button";
 
 export const HeroSection = () => {
   return (
