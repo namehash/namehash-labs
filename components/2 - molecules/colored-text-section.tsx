@@ -9,9 +9,9 @@ export const ColoredText = () => {
         }}
         className="text-transparent lg:text-4xl lg:leading-[52px] text-[24px] leading-[32px] font-semibold text-center max-w-[1216px]"
       >
-        Founded in 2022, Namehash Labs is a technology organization dedicated to
-        infrastructure-level solutions that helps the Ethereum Name Service
-        (ENS) Protocol grow
+        Founded in 2022, NameHash Labs is a technology organization dedicated to
+        infrastructure-level solutions that help the Ethereum Name Service (ENS)
+        Protocol grow
       </p>
     </section>
   );

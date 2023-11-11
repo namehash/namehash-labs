@@ -11,6 +11,7 @@ export const CTASection = () => {
               buttonStyle={item.buttonStyle}
               buttonText={item.buttonText}
               background={item.background}
+              buttonUrl={item.buttonUrl}
             />
           );
         })}
@@ -25,6 +26,7 @@ interface CtaProps {
   buttonText: string;
   buttonStyle: string;
   background: string;
+  buttonUrl?: string;
 }
 
 const ctas: CtaProps[] = [
@@ -37,6 +39,7 @@ const ctas: CtaProps[] = [
       "text-white bg-black hover:bg-gray-900 transition-colors duration-200",
     background:
       "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, #FFF 100%), linear-gradient(180deg, #FFAF00 0%, #F112D9 32.29%, #4C3FA0 70.83%, #2ED3C6 95.83%)",
+    buttonUrl: "https://cal.com/namehashlabs/namehashlabs",
   },
   {
     title: "Build with us",
@@ -56,6 +59,7 @@ const Cta = ({
   buttonStyle,
   buttonText,
   background,
+  buttonUrl,
 }: CtaProps) => {
   return (
     <div className="py-[60px] max-w-[588px] bg-transparent flex items-center justify-center border border-gray-200 rounded-[8px] relative overflow-hidden">
@@ -64,11 +68,13 @@ const Cta = ({
         <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center">
           {description}
         </p>
-        <button
+        <a
+          href={buttonUrl ? buttonUrl : ""}
+          target={"_blank"}
           className={`text-base leading-6 font-medium px-[25px] py-[13px] rounded-[8px] ${buttonStyle}`}
         >
           {buttonText}
-        </button>
+        </a>
       </div>
       <div
         style={{

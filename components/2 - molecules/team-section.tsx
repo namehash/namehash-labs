@@ -15,12 +15,12 @@ export const TeamSection = () => {
           committed contributors from the ENS ecosystem.
         </SectionText>
       </div>
-      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-auto gap-6">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-auto gap-6 ">
         {team.map((member) => {
           return (
             <div className="flex flex-col gap-3" key={member.name}>
               <div
-                className="relative"
+                className="relative w-[212px]"
                 style={{
                   borderRadius: "12.31px",
                   background:
@@ -82,11 +82,11 @@ interface MemberProps {
 const team: MemberProps[] = [
   {
     name: "lightwalker.eth",
-    role: "Product",
+    role: "Founder",
   },
   {
     name: "caldonia.eth",
-    role: "Finance",
+    role: "Founder",
   },
   {
     name: "kwrobel.eth",
