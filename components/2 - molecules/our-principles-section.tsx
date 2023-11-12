@@ -6,7 +6,7 @@ export const OurPrinciplesSection = () => {
     <section className="lg:px-[112px] px-5 py-20 border-t border-b border-gray-200">
       <PreSectionText>What Guides us</PreSectionText>
       <SectionTitle>Our principles</SectionTitle>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-10 mt-20 place-items-center	">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1300px]">
         {principles.map((item) => {
           return (
             <div key={item.title}>
