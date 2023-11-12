@@ -7,9 +7,30 @@ import {
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import { getCalApi } from "@calcom/embed-react";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    console.log("open calendar");
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        cssVarsPerTheme: {
+          light: {
+            "--brand-color": "#000000",
+          },
+          dark: {
+            "--brand-color": "#000000",
+          },
+        },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+
   return (
     <main className="flex flex-col items-center justify-between">
       <Head>

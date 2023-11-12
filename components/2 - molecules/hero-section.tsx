@@ -17,10 +17,8 @@ export const HeroSection = () => {
           to drive global adoption of the ENS protocol
         </p>
         <div className="flex items-center justify-center">
-          <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex">
-            <p className="text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
-              Schedule a call
-            </p>
+          <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
+            Schedule a call
           </CalButton>
         </div>
       </div>
