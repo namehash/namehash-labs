@@ -7,10 +7,55 @@ import {
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
+      <Head>
+        <title>NameHash Labs - Open source public goods for ENS</title>
+        <meta
+          name="description"
+          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
+        />
+        <meta
+          name="keywords"
+          content="ens, web3, eth, nameguard, namegraph, namekit"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="NameHash Labs - Open source public goods for ENS"
+        />
+        <meta
+          property="og:description"
+          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
+        />
+        <meta property="og:url" content="https://namehashlabs.org" />
+        <meta
+          property="og:image"
+          content="https://namehashlabs.org/og-image.png"
+        />
+        <meta
+          property="og:image:alt"
+          content="NameHash Labs - Open source public goods for ENS"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@NamehashLabs" />
+        <meta property="twitter:creator" content="@NamehashLabs" />
+        <meta
+          property="twitter:description"
+          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
+        />
+        <meta
+          property="twitter:image"
+          content="https://namehashlabs.org/og-image-twitter.png"
+        />
+        <meta
+          property="twitter:image:alt"
+          content="NameHash Labs - Open source public goods for ENS"
+        />
+      </Head>
       <HeroSection />
       <ColoredText />
       <ProductsSection />
