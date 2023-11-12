@@ -46,7 +46,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/zeus.png"}
           width={50}
           height={50}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -57,7 +56,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/phoenix.png"}
           width={250}
           height={250}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -68,7 +66,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/hidra.png"}
           width={250}
           height={250}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -79,7 +76,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/run.png"}
           width={150}
           height={150}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -90,7 +86,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/super-woman.png"}
           width={250}
           height={250}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -101,7 +96,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/running-girl.png"}
           width={150}
           height={150}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -112,7 +106,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/skeleton.png"}
           width={200}
           height={200}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -123,7 +116,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/dancing.png"}
           width={250}
           height={250}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -134,7 +126,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/eye.png"}
           width={350}
           height={350}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -145,7 +136,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/running.png"}
           width={150}
           height={150}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
 
@@ -156,7 +146,6 @@ export const HeroSection = () => {
           src={"/images/hero-section/zeus-2.png"}
           width={90}
           height={90}
-          style={{ height: "100%", width: "100%" }}
         />
       </div>
     </section>

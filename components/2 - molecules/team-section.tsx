@@ -19,7 +19,9 @@ export const TeamSection = () => {
         {team.map((member) => {
           return (
             <div className="flex flex-col gap-3" key={member.name}>
-              <div
+              <a
+                href={` https://app.ens.domains/${member.name}`}
+                target="_blank"
                 className="relative lg:max-w-[212px]"
                 style={{
                   borderRadius: "12.31px",
@@ -27,7 +29,7 @@ export const TeamSection = () => {
                     "linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat, linear-gradient(332deg, #44BCF0 2.57%, #628BF3 65.63%, #A099FF 149.86%)",
 
                   boxShadow:
-                    " 0px -1.36782px 17.78168px 0px rgba(255, 255, 255, 0.20) inset, 0px 13.67822px 21.88514px -4.10346px rgba(87, 142, 231, 0.20), 0px 5.88889px 0px 0px #4D6482",
+                    " 0px -1.36782px 17.78168px 0px rgba(255, 255, 255, 0.20) inset, 0px 13.67822px 21.88514px -4.10346px rgba(87, 142, 231, 0.20), 0px 5.88889px 0px 0px #cbcbcb",
                 }}
               >
                 <Image
@@ -53,7 +55,7 @@ export const TeamSection = () => {
                 >
                   {member.name}
                 </p>
-              </div>
+              </a>
               <p className="text-lg leading-7 font-semibold">{member.role}</p>
             </div>
           );
@@ -93,10 +95,6 @@ const team: MemberProps[] = [
     role: "Engineering",
   },
   {
-    name: "alextnetto.eth",
-    role: "Engineering",
-  },
-  {
     name: "notrab.eth",
     role: "Engineering",
   },
@@ -129,7 +127,7 @@ const team: MemberProps[] = [
     role: "Engineering",
   },
   {
-    name: "jedrzej",
+    name: "y3drk.eth",
     role: "Engineering",
   },
   {
