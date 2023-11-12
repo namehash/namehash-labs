@@ -10,7 +10,7 @@ export const HeroSection = () => {
 
       <div className="flex flex-col items-centCalButtoner gap-5 max-w-[728px] z-20">
         <h1 className="lg:text-5xl lg:leading-[60px] text-center text-4xl leading-10 font-bold">
-          Core Infrastructure for the internet of identity
+          Core infrastructure for the internet of identity
         </h1>
         <p className="text-lg text-center text-gray-500 font-normal leading-7">
           We are a relentlessly committed team building open source public goods
