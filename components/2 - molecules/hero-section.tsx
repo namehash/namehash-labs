@@ -39,83 +39,116 @@ export const HeroSection = () => {
         <ChevronDown />
       </button>
 
-      <Image
-        className="absolute invisible lg:visible top-[150px] left-[508px]"
-        alt="test"
-        src={"/images/hero-section/zeus.png"}
-        width={50}
-        height={50}
-      />
-      <Image
-        className="absolute invisible lg:visible top-[50px] left-[20px]"
-        alt="test"
-        src={"/images/hero-section/phoenix.png"}
-        width={250}
-        height={250}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[50px] left-[100px]"
-        alt="test"
-        src={"/images/hero-section/hidra.png"}
-        width={250}
-        height={250}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[200px] left-[450px]"
-        alt="test"
-        src={"/images/hero-section/run.png"}
-        width={150}
-        height={150}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[65px] left-[700px]"
-        alt="test"
-        src={"/images/hero-section/super-woman.png"}
-        width={250}
-        height={250}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[200px] right-[650px]"
-        alt="test"
-        src={"/images/hero-section/running-girl.png"}
-        width={150}
-        height={150}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[50px] right-[400px]"
-        alt="test"
-        src={"/images/hero-section/skeleton.png"}
-        width={200}
-        height={200}
-      />
-      <Image
-        className="absolute invisible lg:visible bottom-[200px] right-[100px]"
-        alt="test"
-        src={"/images/hero-section/dancing.png"}
-        width={250}
-        height={250}
-      />
-      <Image
-        className="absolute invisible lg:visible top-[0px] right-[650px]"
-        alt="test"
-        src={"/images/hero-section/eye.png"}
-        width={350}
-        height={350}
-      />
-      <Image
-        className="absolute invisible lg:visible top-[200px] right-[450px]"
-        alt="test"
-        src={"/images/hero-section/running.png"}
-        width={150}
-        height={150}
-      />
-      <Image
-        className="absolute invisible lg:visible top-[200px] right-[200px]"
-        alt="test"
-        src={"/images/hero-section/zeus-2.png"}
-        width={90}
-        height={90}
-      />
+      <div className="absolute invisible  lg:visible top-[150px] left-[508px] w-[50px] h-[50px]">
+        <Image
+          className=""
+          alt="test"
+          src={"/images/hero-section/zeus.png"}
+          width={50}
+          height={50}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible top-[50px] left-[20px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/phoenix.png"}
+          width={250}
+          height={250}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[50px] left-[100px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/hidra.png"}
+          width={250}
+          height={250}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[200px] left-[450px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/run.png"}
+          width={150}
+          height={150}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[65px] left-[700px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/super-woman.png"}
+          width={250}
+          height={250}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[200px] right-[650px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/running-girl.png"}
+          width={150}
+          height={150}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[50px] right-[400px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/skeleton.png"}
+          width={200}
+          height={200}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible bottom-[200px] right-[100px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/dancing.png"}
+          width={250}
+          height={250}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible top-[0px] right-[650px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/eye.png"}
+          width={350}
+          height={350}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible top-[200px] right-[450px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/running.png"}
+          width={150}
+          height={150}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
+
+      <div className="absolute invisible  lg:visible top-[200px] right-[200px]">
+        <Image
+          alt="test"
+          src={"/images/hero-section/zeus-2.png"}
+          width={90}
+          height={90}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
     </section>
   );
 };
