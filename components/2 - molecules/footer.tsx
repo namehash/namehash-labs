@@ -61,9 +61,12 @@ export const Footer = () => {
         </div>
 
         <div>
-          <p>
+          <p className="text-gray-500 text-xs leading-5 font-normal">
             Made with <span className="text-red-500">❤</span> by{" "}
-            <a href="https://namehashlabs.org/" className="underline">
+            <a
+              href="https://namehashlabs.org/"
+              className="underline text-black"
+            >
               NameHash Labs
             </a>
           </p>
