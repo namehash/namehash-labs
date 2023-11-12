@@ -52,6 +52,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible top-[50px] left-[20px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/phoenix.png"}
           width={250}
@@ -62,6 +63,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[50px] left-[100px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/hidra.png"}
           width={250}
@@ -72,6 +74,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[200px] left-[450px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/run.png"}
           width={150}
@@ -82,6 +85,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[65px] left-[700px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/super-woman.png"}
           width={250}
@@ -92,6 +96,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[200px] right-[650px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/running-girl.png"}
           width={150}
@@ -102,6 +107,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[50px] right-[400px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/skeleton.png"}
           width={200}
@@ -112,6 +118,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible bottom-[200px] right-[100px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/dancing.png"}
           width={250}
@@ -122,6 +129,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible top-[0px] right-[650px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/eye.png"}
           width={350}
@@ -132,6 +140,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible top-[200px] right-[450px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/running.png"}
           width={150}
@@ -142,6 +151,7 @@ export const HeroSection = () => {
 
       <div className="absolute invisible  lg:visible top-[200px] right-[200px]">
         <Image
+          className="w-full h-full"
           alt="test"
           src={"/images/hero-section/zeus-2.png"}
           width={90}
