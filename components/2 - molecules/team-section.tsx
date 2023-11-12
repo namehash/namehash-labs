@@ -68,7 +68,12 @@ export const TeamSection = () => {
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
           <p className="text-sm leading-5 font-normal text-gray-500">
             Check out our{" "}
-            <span className="text-black underline">open roles</span>
+            <a
+              href="mailto:hello@namehashlabs.org"
+              className="text-black underline"
+            >
+              open roles
+            </a>
           </p>
         </div>
       </div>
