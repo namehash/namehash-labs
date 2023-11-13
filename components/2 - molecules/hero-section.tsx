@@ -119,13 +119,13 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  w-[350px] h-[350px]  lg:visible top-[0vh] right-[32.5vw]">
+      <div className="absolute invisible w-[250px] h-[250px]  lg:visible top-[7vh] right-[40vw]">
         <Image
           className="w-full h-full"
           alt="test"
           src={"/images/hero-section/eye.png"}
-          width={350}
-          height={350}
+          width={250}
+          height={250}
         />
       </div>
 
