@@ -1,6 +1,3 @@
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
-
 export default function CalButton({
   children,
   ...props
