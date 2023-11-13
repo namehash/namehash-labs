@@ -4,7 +4,7 @@ import CalButton from "../1 - atoms/cal-button";
 export const Header = () => {
   return (
     <div className="lg:px-[112px] px-5 w-full flex items-center justify-center absolute top-0 left-0 border-b border-gray-300 z-20">
-      <div className="w-full flex items-center justify-between py-5 max-w-[1300px]">
+      <div className="w-full flex items-center justify-between py-5 max-w-[1216px]">
         <a href="https://namehashlabs.org/">
           <NameHashLabsLogo />
         </a>

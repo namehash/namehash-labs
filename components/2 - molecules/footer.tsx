@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <section className="lg:px-[112px] px-5 flex items-center justify-center w-full border-t border-gray-200">
-      <div className="py-5 flex items-center justify-between w-full max-w-[1300px]">
+      <div className="py-5 flex items-center justify-between w-full max-w-[1216px]">
         <div>
           <p className="text-gray-500 text-xs leading-5 font-normal">
             © NameHash Labs. All Rights Reserved

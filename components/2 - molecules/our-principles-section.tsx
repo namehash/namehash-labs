@@ -3,10 +3,10 @@ import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 
 export const OurPrinciplesSection = () => {
   return (
-    <section className="lg:px-[112px] px-5 py-20 border-t border-b border-gray-200">
+    <section className="lg:px-[112px] w-full flex flex-col items-center justify-center px-5 py-20 border-t border-b border-gray-200">
       <PreSectionText>What Guides us</PreSectionText>
       <SectionTitle>Our principles</SectionTitle>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1300px]">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1216px]">
         {principles.map((item) => {
           return (
             <div key={item.title}>

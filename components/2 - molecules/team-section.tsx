@@ -15,7 +15,7 @@ export const TeamSection = () => {
           committed contributors from the ENS ecosystem.
         </SectionText>
       </div>
-      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-auto gap-6 ">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-6 lg:gap-x-auto gap-x-6 xl:w-[1216px] ">
         {team.map((member) => {
           return (
             <div className="flex flex-col gap-3" key={member.name}>
@@ -62,7 +62,7 @@ export const TeamSection = () => {
         })}
 
         <div
-          className="w-full  border rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
+          className="w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
           style={{ aspectRatio: "1 / 1" }}
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>

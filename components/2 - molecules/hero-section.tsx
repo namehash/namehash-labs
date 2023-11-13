@@ -39,7 +39,7 @@ export const HeroSection = () => {
         <ChevronDown />
       </button>
 
-      <div className="absolute invisible  lg:visible top-[150px] left-[508px] w-[50px] h-[50px]">
+      <div className="absolute invisible lg:visible w-[500px] h-[500px] top-[15vh] left-[25vw]">
         <Image
           className=""
           alt="test"
@@ -49,7 +49,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible top-[50px] left-[20px]">
+      <div className="absolute invisible w-[250px] h-[250px] lg:visible top-[15vh] left-[0.5vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -59,7 +59,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[50px] left-[100px]">
+      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[10vh] left-[5vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -69,7 +69,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[200px] left-[450px]">
+      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] left-[22.5vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -79,7 +79,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[65px] left-[700px]">
+      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[8vh] left-[35vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -89,7 +89,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[200px] right-[650px]">
+      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] right-[35vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -99,7 +99,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[50px] right-[400px]">
+      <div className="absolute invisible  w-[200px] h-[200px]  lg:visible bottom-[8vh] right-[20vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -109,7 +109,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible bottom-[200px] right-[100px]">
+      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[22vh] right-[6vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -119,7 +119,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible top-[0px] right-[650px]">
+      <div className="absolute invisible  w-[350px] h-[350px]  lg:visible top-[0vh] right-[32.5vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -129,7 +129,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible top-[200px] right-[450px]">
+      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible top-[20vh] right-[25vw]">
         <Image
           className="w-full h-full"
           alt="test"
@@ -139,7 +139,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="absolute invisible  lg:visible top-[200px] right-[200px]">
+      <div className="absolute invisible  w-[90px] h-[90px]  lg:visible top-[200px] right-[15vw]">
         <Image
           className="w-full h-full"
           alt="test"

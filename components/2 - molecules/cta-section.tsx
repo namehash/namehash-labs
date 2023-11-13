@@ -2,8 +2,8 @@ import CalButton from "../1 - atoms/cal-button";
 
 export const CTASection = () => {
   return (
-    <section className="pb-[50px] px-5">
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
+    <section className="pb-[50px] px-5  w-full flex items-center justify-center">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 place-items-center">
         {ctas.map((item) => {
           return (
             <Cta
@@ -64,7 +64,7 @@ const Cta = ({
   buttonUrl,
 }: CtaProps) => {
   return (
-    <div className="py-[60px] max-w-[588px] bg-transparent flex items-center justify-start border border-gray-200 rounded-[8px] relative overflow-hidden">
+    <div className="py-[60px] xl:w-[588px] bg-transparent inline-flex items-center justify-center border border-gray-200 rounded-[8px] relative overflow-hidden">
       <div className="flex flex-col items-center justify-between h-full max-w-[508px] z-20">
         <div className="w-full">
           <h3 className="text-3xl leading-9 font-bold text-center">{title} </h3>
