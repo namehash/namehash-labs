@@ -146,6 +146,7 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "COMING SOON",
+    buttonUrl: "https://www.namekit.io/",
   },
   {
     title: "ENS Ambassador Program",
