@@ -55,7 +55,7 @@ export default function Home() {
         <meta property="og:url" content="https://namehashlabs.org" />
         <meta
           property="og:image"
-          content="https://namehashlabs.org/og-image.png"
+          content="https://namehashlabs.org/images/og-image.png"
         />
         <meta
           property="og:image:alt"
@@ -70,7 +70,7 @@ export default function Home() {
         />
         <meta
           property="twitter:image"
-          content="https://namehashlabs.org/og-image-twitter.png"
+          content="https://namehashlabs.org/images/og-image-twitter.png"
         />
         <meta
           property="twitter:image:alt"
