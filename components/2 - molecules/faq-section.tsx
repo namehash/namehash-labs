@@ -43,7 +43,7 @@ export function Faq() {
                   <div>
                     <dt>
                       <Disclosure.Button className="flex p-6 w-full items-start justify-between text-left text-gray-900 hover:text-black group hover:bg-gray-100 transition-colors duration-500">
-                        <span className="text-2xl leading-8 font-semibold ">
+                        <span className="text-lg leading-7 font-semibold">
                           {faq.question}
                         </span>
                         <span className="ml-6 flex h-7 items-center">
