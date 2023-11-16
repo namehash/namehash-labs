@@ -1,6 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import { SectionText, SectionTitle } from "../1 - atoms";
+import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 
 const faqs = [
   {
@@ -27,52 +27,67 @@ const faqs = [
 
 export function Faq() {
   return (
-    <div className="w-full">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-7xl divide-y divide-gray-900/10">
-          <SectionTitle className="">Frequently asked questions</SectionTitle>
-          <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-            {faqs.map((faq) => (
-              <Disclosure
-                as="div"
-                key={faq.question}
-                className=" "
-                style={{ marginTop: 0 }}
-              >
-                {({ open }) => (
-                  <div>
-                    <dt>
-                      <Disclosure.Button className="flex p-6 w-full items-start justify-between text-left text-gray-900 hover:text-black group hover:bg-gray-100 transition-colors duration-500">
-                        <span className="text-lg leading-7 font-semibold">
-                          {faq.question}
-                        </span>
-                        <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <MinusSmallIcon
-                              className="h-6 w-6"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <PlusSmallIcon
-                              className="h-6 w-6"
-                              aria-hidden="true"
-                            />
-                          )}
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12 pb-6 px-6">
-                      <SectionText className="text-base leading-7 text-gray-600">
-                        {faq.answer}
-                      </SectionText>
-                    </Disclosure.Panel>
-                  </div>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
+    <section className="w-full bg-gray-50 py-20 lg:px-8">
+      <div className="w-full flex max-w-7xl items-start justify-center flex-col lg:flex-row m-auto gap-10">
+        <div className="lg:w-1/2 w-full">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-7xl divide-y divide-gray-900/10">
+              <dl className="space-y-6 divide-y divide-gray-900/10">
+                {faqs.map((faq) => (
+                  <Disclosure
+                    as="div"
+                    key={faq.question}
+                    className=" "
+                    style={{ marginTop: 0 }}
+                  >
+                    {({ open }) => (
+                      <div>
+                        <dt>
+                          <Disclosure.Button className="flex p-6 w-full items-start justify-between text-left text-gray-900 hover:text-black group hover:bg-gray-100 transition-colors duration-500">
+                            <span className="text-lg leading-7 font-semibold">
+                              {faq.question}
+                            </span>
+                            <span className="ml-6 flex h-7 items-center">
+                              {open ? (
+                                <MinusSmallIcon
+                                  className="h-6 w-6"
+                                  aria-hidden="true"
+                                />
+                              ) : (
+                                <PlusSmallIcon
+                                  className="h-6 w-6"
+                                  aria-hidden="true"
+                                />
+                              )}
+                            </span>
+                          </Disclosure.Button>
+                        </dt>
+                        <Disclosure.Panel
+                          as="dd"
+                          className="mt-2 pr-12 pb-6 px-6"
+                        >
+                          <SectionText className="text-base leading-7 text-gray-600">
+                            {faq.answer}
+                          </SectionText>
+                        </Disclosure.Panel>
+                      </div>
+                    )}
+                  </Disclosure>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-start lg:w-1/2 w-full gap-3">
+          <PreSectionText>have questions?</PreSectionText>
+          <SectionTitle className="">FAQ</SectionTitle>
+          <SectionText>
+            Proin volutpat consequat porttitor cras nullam gravida at. Orci
+            molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu
+            sed malesuada et magna.
+          </SectionText>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
