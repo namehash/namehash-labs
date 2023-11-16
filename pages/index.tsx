@@ -7,6 +7,7 @@ import {
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import { ContactSection } from "@/components/2 - molecules/contact-us-section";
 import { getCalApi } from "@calcom/embed-react";
 import Head from "next/head";
 import { useEffect } from "react";
@@ -82,6 +83,7 @@ export default function Home() {
       <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
+      <ContactSection />
       <CTASection />
       <Footer />
     </main>
