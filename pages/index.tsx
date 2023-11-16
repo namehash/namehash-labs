@@ -83,8 +83,8 @@ export default function Home() {
       <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
-      <CTASection />
       <Faq />
+      <CTASection />
       <Footer />
     </main>
   );
