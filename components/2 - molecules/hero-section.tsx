@@ -2,13 +2,14 @@ import Image from "next/image";
 import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
 import CalButton from "../1 - atoms/cal-button";
+import TranslateOnScroll from "./scroll-animation";
 
 export const HeroSection = () => {
   return (
     <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 overflow-hidden">
       <Header />
 
-      <div className="flex flex-col items-centCalButtoner gap-5 max-w-[728px] z-20">
+      <div className="flex flex-col items-centCalButtoner gap-5 max-w-[728px] z-20 animate-fadeIn">
         <h1 className="lg:text-5xl lg:leading-[60px] text-center text-4xl leading-10 font-bold">
           Core infrastructure for the internet of identity
         </h1>
@@ -22,7 +23,7 @@ export const HeroSection = () => {
           </CalButton>
         </div>
       </div>
-      <HeroTexture className="absolute top-0 right-0 w-full h-full" />
+      <HeroTexture className="absolute top-0 right-0 w-full h-full animate-fadeIn" />
       <DotPattern className="absolute top-0 right-0 w-full h-full" />
       <div className="bg-gradient-to-b from-transparent to-white h-1/2 w-full absolute bottom-0 left-0" />
 
@@ -39,114 +40,136 @@ export const HeroSection = () => {
         <ChevronDown />
       </button>
 
-      <div className="absolute invisible lg:visible w-[500px] h-[500px] top-[15vh] left-[25vw]">
-        <Image
-          className=""
-          alt="test"
-          src={"/images/hero-section/zeus.png"}
-          width={50}
-          height={50}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible lg:visible w-[500px] h-[500px] top-[15vh] left-[25vw]">
+        <TranslateOnScroll>
+          <Image
+            className=""
+            alt="test"
+            src={"/images/hero-section/zeus.png"}
+            width={50}
+            height={50}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible w-[250px] h-[250px] lg:visible top-[15vh] left-[0.5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/phoenix.png"}
-          width={250}
-          height={250}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible w-[250px] h-[250px] lg:visible top-[15vh] left-[0.5vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/phoenix.png"}
+            width={250}
+            height={250}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[10vh] left-[5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/hidra.png"}
-          width={250}
-          height={250}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[250px] h-[250px]  lg:visible bottom-[10vh] left-[5vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/hidra.png"}
+            width={250}
+            height={250}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] left-[22.5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/run.png"}
-          width={150}
-          height={150}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] left-[22.5vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/run.png"}
+            width={150}
+            height={150}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[8vh] left-[35vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/super-woman.png"}
-          width={250}
-          height={250}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[250px] h-[250px]  lg:visible bottom-[8vh] left-[35vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/super-woman.png"}
+            width={250}
+            height={250}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] right-[35vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/running-girl.png"}
-          width={150}
-          height={150}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] right-[35vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/running-girl.png"}
+            width={150}
+            height={150}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[200px] h-[200px]  lg:visible bottom-[8vh] right-[20vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/skeleton.png"}
-          width={200}
-          height={200}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[200px] h-[200px]  lg:visible bottom-[8vh] right-[20vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/skeleton.png"}
+            width={200}
+            height={200}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[22vh] right-[6vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/dancing.png"}
-          width={250}
-          height={250}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[250px] h-[250px]  lg:visible bottom-[22vh] right-[6vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/dancing.png"}
+            width={250}
+            height={250}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible w-[250px] h-[250px]  lg:visible top-[7vh] right-[40vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/eye.png"}
-          width={250}
-          height={250}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible w-[250px] h-[250px]  lg:visible top-[7vh] right-[40vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/eye.png"}
+            width={250}
+            height={250}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible top-[20vh] right-[25vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/running.png"}
-          width={150}
-          height={150}
-        />
+      <div className="absolute animate-fadeIn transition-all invisible  w-[150px] h-[150px]  lg:visible top-[20vh] right-[20vw]">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/running.png"}
+            width={150}
+            height={150}
+          />
+        </TranslateOnScroll>
       </div>
 
-      <div className="absolute invisible  w-[90px] h-[90px]  lg:visible top-[200px] right-[15vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/zeus-2.png"}
-          width={90}
-          height={90}
-        />
+      <div className="absolute transition-all invisible  w-[90px] h-[90px] lg:visible top-[200px] right-[5vw] animate-fadeIn">
+        <TranslateOnScroll>
+          <Image
+            className="w-full h-full"
+            alt="test"
+            src={"/images/hero-section/zeus-2.png"}
+            width={90}
+            height={90}
+          />
+        </TranslateOnScroll>
       </div>
     </section>
   );
