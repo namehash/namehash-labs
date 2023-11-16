@@ -7,6 +7,7 @@ import {
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import { VideoSection } from "@/components/2 - molecules/video-section";
 import { getCalApi } from "@calcom/embed-react";
 import Head from "next/head";
 import { useEffect } from "react";
@@ -82,6 +83,8 @@ export default function Home() {
       <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
+      <VideoSection className="lg:flex-row-reverse" />
+      <VideoSection videoId="JFFq8xgBQZI" />
       <CTASection />
       <Footer />
     </main>
