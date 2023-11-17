@@ -23,7 +23,14 @@ export const HeroSection = () => {
           </CalButton>
         </div>
       </div>
-      <HeroTexture className="absolute top-0 right-0 w-full h-full animate-fadeIn" />
+      <div
+        style={{
+          transform: "rotate(-90deg)",
+          background:
+            "linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 99.64%), linear-gradient(180deg, #FF9E00 0%, #F112D9 32.29%, #4C3FA0 70.83%, #2ED3C6 95.83%)",
+        }}
+        className="w-[100vh] h-[100vw] absolute opacity-20"
+      ></div>
       <DotPattern className="absolute top-0 right-0 w-full h-full" />
       <div className="bg-gradient-to-b from-transparent to-white h-1/2 w-full absolute bottom-0 left-0" />
 
