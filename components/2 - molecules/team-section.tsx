@@ -22,14 +22,11 @@ export const TeamSection = () => {
               <a
                 href={` https://app.ens.domains/${member.name}`}
                 target="_blank"
-                className="relative lg:max-w-[212px]"
+                className="relative lg:max-w-[212px] shadow-teamMemberShadow hover:shadow-teamMemberShadowHover transition-all duration-300"
                 style={{
                   borderRadius: "12.31px",
                   background:
                     "linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat, linear-gradient(332deg, #44BCF0 2.57%, #628BF3 65.63%, #A099FF 149.86%)",
-
-                  boxShadow:
-                    " 0px -1.36782px 17.78168px 0px rgba(255, 255, 255, 0.20) inset, 0px 13.67822px 21.88514px -4.10346px rgba(87, 142, 231, 0.20), 0px 5.88889px 0px 0px #cbcbcb",
                 }}
               >
                 <Image
@@ -67,7 +64,7 @@ export const TeamSection = () => {
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
           <p className="text-sm leading-5 font-normal text-gray-500">
-            Check out our{" "}
+            Check out our
             <a
               href="mailto:hello@namehashlabs.org"
               className="text-black underline"
