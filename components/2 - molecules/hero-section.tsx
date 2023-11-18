@@ -21,8 +21,8 @@ export const HeroSection = () => {
           </CalButton>
         </div>
       </div>
-      <HeroTexture className="absolute left-0 top-0 h-[115%] w-[30%]" />
-      <HeroTextureRight className="absolute right-0 top-0 h-[85%] w-[37%]" />
+      <HeroTexture className="absolute left-0 top-0 h-[130%] w-[40%]" />
+      <HeroTextureRight className="absolute right-0 top-0 h-[100%] w-[45%]" />
 
       <DotPattern className="absolute top-0 right-0 w-full h-full" />
       <button
