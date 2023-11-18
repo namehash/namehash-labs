@@ -17,7 +17,7 @@ export const DotPattern = (props: SVGProps<SVGSVGElement>) => {
           height="20" // distance between dots on the y-axis
           patternUnits="userSpaceOnUse"
         >
-          <circle cx="0.1" cy="0.1" r="3" fill="black" className="opacity-5" />{" "}
+          <circle cx="0.1" cy="0.1" r="3" fill="black" className="opacity-5" />
           {/* defines the dot itself */}
         </pattern>
       </defs>
