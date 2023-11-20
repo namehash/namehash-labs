@@ -2,7 +2,7 @@ import CalButton from "../1 - atoms/cal-button";
 
 export const CTASection = () => {
   return (
-    <section className="pb-[50px] px-5  w-full flex items-center justify-center">
+    <section className="py-[50px] px-5  w-full flex items-center justify-center">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 place-items-center">
         {ctas.map((item) => {
           return (
