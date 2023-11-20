@@ -1,7 +1,6 @@
 import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
 import CalButton from "../1 - atoms/cal-button";
-import TranslateOnScroll from "./scroll-animation";
 import { HeroTextureRight } from "../1 - atoms/hero-texture-2";
 
 export const HeroSection = () => {

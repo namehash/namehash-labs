@@ -20,8 +20,15 @@ export const HeroTextureRight = (props: SVGProps<SVGSVGElement>) => {
           y2="838"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F112D9" />
-          <stop offset="0.958333" stop-color="#2ED3C6" />
+          <stop
+            stop-color="#F112D9"
+            // style={{ animation: "colorTransition 3s infinite" }}
+          />
+          <stop
+            offset="0.958333"
+            stop-color="#2ED3C6"
+            // style={{ animation: "colorTransition2 2s infinite" }}
+          />
         </linearGradient>
         <radialGradient
           id="paint1_radial_3459_37794"
