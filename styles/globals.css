@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes colorTransition {
+  0%,
+  100% {
+    stop-color: #f112d9; /* Initial color */
+  }
+  50% {
+    stop-color: #2ed3c6; /* Transition color */
+  }
+}
+
+@keyframes colorTransition2 {
+  0%,
+  100% {
+    stop-color: #2ed3c6; /* Initial color */
+  }
+  50% {
+    stop-color: #f112d9; /* Transition color */
+  }
+}
