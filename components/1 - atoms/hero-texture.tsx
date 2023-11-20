@@ -1,4 +1,4 @@
-import React, { SVGProps, useEffect } from "react";
+import { SVGProps } from "react";
 
 export const HeroTexture = (props: SVGProps<SVGSVGElement>) => {
   return (
@@ -7,17 +7,20 @@ export const HeroTexture = (props: SVGProps<SVGSVGElement>) => {
       width="569"
       height="1133"
       viewBox="0 0 569 1133"
+      shapeRendering="crispEdges"
       fill="none"
       preserveAspectRatio="none"
       {...props}
     >
       <path
-        d="M-624 -60L569 -60L569 1133L-624 1133L-624 -60Z"
+        d="M-620 -60L560 -60L560 1130L-620 1130L-620 -60Z"
         fill="url(#paint0_linear_3459_37796)"
+        shape-rendering="crispEdges"
       />
       <path
         d="M-624 -60L569 -60L569 1133L-624 1133L-624 -60Z"
         fill="url(#paint1_radial_3459_37796)"
+        shape-rendering="crispEdges"
       />
       <defs>
         <linearGradient
@@ -28,15 +31,8 @@ export const HeroTexture = (props: SVGProps<SVGSVGElement>) => {
           y2="1133"
           gradientUnits="userSpaceOnUse"
         >
-          <stop
-            stop-color="#F112D9"
-            // style={{ animation: "colorTransition 3s infinite" }}
-          />
-          <stop
-            offset="0.958333"
-            stop-color="#3ED3C6"
-            // style={{ animation: "colorTransition2 5s infinite" }}
-          />
+          <stop stop-color="#F112D9" />
+          <stop offset="0.958333" stop-color="#2ED3C6" />
         </linearGradient>
         <radialGradient
           id="paint1_radial_3459_37796"

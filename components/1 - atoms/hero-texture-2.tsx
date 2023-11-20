@@ -7,6 +7,7 @@ export const HeroTextureRight = (props: SVGProps<SVGSVGElement>) => {
       width="692"
       height="838"
       viewBox="0 0 692 838"
+      shape-rendering="crispEdges"
       fill="none"
       preserveAspectRatio="none"
       {...props}
@@ -45,10 +46,12 @@ export const HeroTextureRight = (props: SVGProps<SVGSVGElement>) => {
       <path
         d="M0 -355L1193 -355L1193 838L0 838L0 -355Z"
         fill="url(#paint0_linear_3459_37794)"
+        shape-rendering="crispEdges"
       />
       <path
         d="M0 -355L1193 -355L1193 838L0 838L0 -355Z"
         fill="url(#paint1_radial_3459_37794)"
+        shape-rendering="crispEdges"
       />
     </svg>
   );
