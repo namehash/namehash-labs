@@ -62,7 +62,8 @@ const Item = ({ title, description, buttonText, buttonUrl }: ItemProps) => {
 const partners: ItemProps[] = [
   {
     title: <BlockfulLogo className="mt-3" />,
-    description: `When it came time to build smart contracts for NameKit we chose to collaborate with Blockful for their expertise in ENS. Together we designed a solution that creates more financial incentives for wallets and dApps to encourage registrations and renewals of .eth names and help ENS grow.`,
+    description: `When it came time to build smart contracts for NameKit, we chose to collaborate with Blockful for their expertise in ENS. Together we <a target="_blank" href="https://github.com/namehash/namekit-contracts" className="underline hover:text-black transition-colors duration-200">designed a solution</a> that creates more financial incentives for wallets and dApps to encourage registrations and renewals of .eth names and help ENS grow.
+`,
     buttonText: "Visit website",
     buttonUrl: "https://blockful.io/",
   },
