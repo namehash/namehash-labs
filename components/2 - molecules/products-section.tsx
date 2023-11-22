@@ -141,6 +141,7 @@ const products: ProductProps[] = [
         quality={100}
         width={568}
         height={360}
+        className="w-full h-auto"
         src="/images/namekit-improved.png"
         alt="hero"
       />
@@ -161,6 +162,7 @@ const products: ProductProps[] = [
         quality={100}
         width={568}
         height={360}
+        className="w-full h-auto"
         src="/images/ens-incentive.png"
         alt="hero"
       />
@@ -180,6 +182,7 @@ const products: ProductProps[] = [
         quality={100}
         width={568}
         height={360}
+        className="w-full h-auto"
         src="/images/nameguard-protect.png"
         alt="hero"
       />
@@ -200,6 +203,7 @@ const products: ProductProps[] = [
         quality={100}
         width={568}
         height={360}
+        className="w-full h-auto"
         src="/images/ensnode-developer.png"
         alt="hero"
       />
