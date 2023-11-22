@@ -61,6 +61,9 @@ export default function Home() {
           property="og:image:alt"
           content="NameHash Labs - Helping ENS Grow"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@NamehashLabs" />
         <meta property="twitter:creator" content="@NamehashLabs" />
@@ -76,8 +79,8 @@ export default function Home() {
           property="twitter:image:alt"
           content="NameHash Labs - Helping ENS Grow"
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="twitter:image:width" content="1200" />
+        <meta property="twitter:image:height" content="630" />
       </Head>
       <HeroSection />
       <ColoredText />
