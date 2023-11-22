@@ -1,7 +1,7 @@
 export const ColoredText = () => {
   return (
     <section
-      className="lg:px-[110px] px-5 py-[122px] border-b border-gray-200 w-full"
+      className="lg:px-[110px] px-5 py-[108px] border-b border-gray-200 w-full"
       id="targetDiv"
     >
       <p
