@@ -16,7 +16,7 @@ export const EllipseMedium = (props: SVGProps<SVGSVGElement>) => {
         <path
           d="M467.007 0.698242C261.739 0.698242 84.6308 121.12 2.631 295.092C-3.29241 307.659 6.15248 321.712 20.0457 321.712H913.968C927.862 321.712 937.306 307.659 931.383 295.092C849.383 121.12 672.275 0.698242 467.007 0.698242Z"
           fill="white"
-          fill-opacity="0.8"
+          fillOpacity="0.8"
         />
       </g>
       <defs>
@@ -28,8 +28,8 @@ export const EllipseMedium = (props: SVGProps<SVGSVGElement>) => {
           y2="321.712"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F113D9" />
-          <stop offset="1" stop-color="#4E3FA1" stop-opacity="0" />
+          <stop stopColor="#F113D9" />
+          <stop offset="1" stopColor="#4E3FA1" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

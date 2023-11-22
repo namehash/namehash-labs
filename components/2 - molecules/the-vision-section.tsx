@@ -13,6 +13,7 @@ export const TheVisionSection = () => {
       </div>
       <Image
         src={"/images/the-vision-image.png"}
+        className="h-auto"
         alt="the vision"
         width={1440}
         height={630}

@@ -24,7 +24,7 @@ export const IntroducingNamekit = () => {
           <EllipseSmall />
         </div>
         <Image
-          className="absolute bottom-0 left-1/2 translate-x-[-50%]"
+          className="absolute bottom-0 left-1/2 translate-x-[-50%] max-w-[690px] w-full h-auto"
           src={"/images/building-image.png"}
           alt="the vision"
           width={691}
