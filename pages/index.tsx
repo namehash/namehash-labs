@@ -7,6 +7,7 @@ import {
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import { IntroducingNamekit } from "@/components/2 - molecules/building-section";
 import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
 import { getCalApi } from "@calcom/embed-react";
@@ -79,6 +80,7 @@ export default function Home() {
       <HeroSection />
       <ColoredText />
       <TheVisionSection />
+      <IntroducingNamekit />
       <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
