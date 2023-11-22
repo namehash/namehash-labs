@@ -128,6 +128,14 @@ const team: MemberProps[] = [
     role: "Engineering",
   },
   {
+    name: "sebban.eth",
+    role: "Engineering",
+  },
+  {
+    name: "ilfurioso.eth",
+    role: "Engineering",
+  },
+  {
     name: "edulennert.eth",
     role: "Engineering",
   },
