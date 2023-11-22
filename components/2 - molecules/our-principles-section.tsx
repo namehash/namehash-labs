@@ -60,9 +60,9 @@ const principles: PrinciplesProps[] = [
         />
       </svg>
     ),
-    title: "ENS Infrastructure",
+    title: "ENS exclusivity",
     description:
-      "We are fully committed to crafting robust solutions tailored for the ENS ecosystem, ensuring the protocol’s  continued growth. ",
+      "We are exclusively committed to the ENS namespace. We also agree to uphold all articles in the ENS DAO constitution.",
   },
   {
     icon: (
@@ -80,8 +80,8 @@ const principles: PrinciplesProps[] = [
         />
       </svg>
     ),
-    title: "DAO Standards",
+    title: "ENS interoperability",
     description:
-      "We adhere to the ENSIP process and ENS standards for all innovations to the ENS protocol that we develop.",
+      "We support the ENSIP process and the goal of strong interoperable standards for the ENS protocol.",
   },
 ];
