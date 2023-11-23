@@ -42,7 +42,7 @@ export const HeroSection = () => {
       />
       <div className="border rounded-full w-[1832px] h-[1832px] opacity-50 absolute bottom-0 translate-y-[50%] bg-white" />
       <div
-        className="hidden md:block w-[1440px] h-[1440px] absolute bottom-0 translate-y-[50%]"
+        className="w-[1440px] h-[1440px] absolute bottom-0 translate-y-[50%]"
         style={{
           borderRadius: "1401.845px",
           background:
