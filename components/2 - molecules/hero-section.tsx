@@ -50,7 +50,6 @@ export const HeroSection = () => {
         }}
       />
 
-      <DotPattern className="absolute top-0 right-0 w-full h-full" />
       <button
         onClick={() => {
           const targetDiv = document.getElementById("targetDiv");
