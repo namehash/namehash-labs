@@ -12,7 +12,7 @@ export const Header = () => {
         <div className="flex items-center justify-center gap-3">
           <a
             href="mailto:hello@namehashlabs.org"
-            className="px-[16px] hidden sm:inline py-[9px] bg-white text-black border border-black rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-100 transition-colors duration-200"
+            className="px-[16px] hidden sm:inline py-[9px] bg-white text-black border border-gray-300 rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-100 transition-colors duration-200"
             style={{
               boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
             }}
