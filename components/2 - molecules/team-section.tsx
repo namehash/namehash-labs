@@ -12,7 +12,7 @@ export const TeamSection = () => {
         <SectionTitle className="my-3">Meet our team</SectionTitle>
         <SectionText className="">
           NameHash Labs is a technology organization founded by a team of
-          committed contributors from the ENS ecosystem.
+          committed contributors to the ENS ecosystem.
         </SectionText>
       </div>
       <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-6 lg:gap-x-auto gap-x-6 xl:w-[1216px] ">

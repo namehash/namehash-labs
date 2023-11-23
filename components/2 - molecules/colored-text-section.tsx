@@ -12,8 +12,9 @@ export const ColoredText = () => {
         }}
         className="text-transparent lg:text-4xl lg:leading-[52px] text-[24px] leading-[32px] font-semibold text-center max-w-[1216px] m-auto"
       >
-        We bring ENS onboarding directly into wallets and dApps that millions of
-        people use every day.
+        We bring ENS onboarding directly into wallets and dApps that{" "}
+        <span className="whitespace-nowrap">millions of people</span> use every
+        day.
       </p>
     </section>
   );

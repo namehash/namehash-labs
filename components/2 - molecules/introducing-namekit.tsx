@@ -7,7 +7,7 @@ import { EllipseSmall } from "../1 - atoms/ellispse-small";
 export const IntroducingNamekit = () => {
   return (
     <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
-      <div className="flex flex-col items-center justify-center gap-3 mb-[60px]">
+      <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px]">
         <PreSectionText>WHAT WE’RE BUILDING</PreSectionText>
         <SectionTitle>Introducing NameKit</SectionTitle>
         <SectionText className="text-center">

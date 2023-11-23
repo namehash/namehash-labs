@@ -106,10 +106,6 @@ export const Product = ({
 export const ProductsSection = () => {
   return (
     <>
-      <div>
-        <PreSectionText>What we{"’"}re building</PreSectionText>
-        <SectionTitle>Our products</SectionTitle>
-      </div>
       {products.map((product, index) => (
         <Product
           key={product.title}
