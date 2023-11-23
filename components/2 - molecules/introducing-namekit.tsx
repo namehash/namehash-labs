@@ -18,22 +18,13 @@ export const IntroducingNamekit = () => {
           </Balancer>
         </SectionText>
       </div>
-      <div className="relative flexw w-full max-w-[1216px]">
-        <EllipseBig className=" w-full" />
-        <div className="absolute bottom-0 left-1/2 w-[85%] translate-x-[-50%] ">
-          <EllipseMedium />
-        </div>
-        <div className="absolute bottom-0 left-1/2 w-[70%] translate-x-[-50%] ">
-          <EllipseSmall />
-        </div>
-        <Image
-          className="absolute bottom-0 left-1/2 translate-x-[-50%] max-w-[690px] w-full h-auto"
-          src={"/images/building-image.png"}
-          alt="the vision"
-          width={691}
-          height={253}
-        />
-      </div>
+      <Image
+        className="relative max-w-[1216px] w-full h-auto"
+        src={"/images/building-image.png"}
+        alt="the vision"
+        width={1216}
+        height={520}
+      />
     </section>
   );
 };

@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+import { Balancer } from "react-wrap-balancer";
 
 interface ProductProps {
   label: {
@@ -76,7 +77,7 @@ export const Product = ({
               )}
             </div>
             <SectionText className="lg:text-start text-center">
-              {subtitle}
+              <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
               <div className="flex lg:justify-start justify-center">

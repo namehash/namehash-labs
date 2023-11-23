@@ -51,7 +51,7 @@ const Item = ({
   blank = true,
 }: ItemProps) => {
   return (
-    <div className="flex flex-col gap-6 max-w-[548px]">
+    <div className="flex flex-col items-start gap-6 max-w-[548px]">
       {title}
       <SectionText>{description}</SectionText>
       <div>
@@ -69,7 +69,7 @@ const Item = ({
 
 const partners: ItemProps[] = [
   {
-    title: <BlockfulLogo className="mt-3" />,
+    title: <BlockfulLogo className="h-[40px] text-start mb-1" />,
     description: (
       <>
         When it came time to build smart contracts for NameKit, we chose to
