@@ -11,8 +11,41 @@ import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namek
 import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
 import { getCalApi } from "@calcom/embed-react";
-import Head from "next/head";
 import { useEffect } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "NameHash Labs - Helping ENS Grow",
+  description:
+    "Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS.",
+  keywords: ["namehashlabs", "ens", "web3", "eth"],
+  icons: [
+    { rel: "icon", url: "favicon.ico" },
+    { rel: "apple-touch-icon", url: "favicon.ico" },
+  ],
+  openGraph: {
+    type: "website",
+    title: "NameHash Labs - Helping ENS Grow",
+    description:
+      "Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS.",
+    url: "https://namehashlabs.org/",
+    images: {
+      url: "https://namehashlabs.org/images/og-image.png",
+      alt: "NameHash Labs - Helping ENS Grow",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@NamehashLabs",
+    creator: "@NamehashLabs",
+    description:
+      "Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS.",
+    images: {
+      url: "https://namehashlabs.org/images/og-image-twitter.png",
+      alt: "NameHash Labs - Helping ENS Grow",
+    },
+  },
+};
 
 export default function Home() {
   useEffect(() => {
@@ -36,52 +69,6 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between">
-      <Head>
-        <title>NameHash Labs - Helping ENS Grow</title>
-        <meta
-          name="description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta
-          name="keywords"
-          content="ens, web3, eth, nameguard, namegraph, namekit"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="NameHash Labs - Helping ENS Grow" />
-        <meta
-          property="og:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta property="og:url" content="https://namehashlabs.org" />
-        <meta
-          property="og:image"
-          content="https://namehashlabs.org/images/og-image.png"
-        />
-        <meta
-          property="og:image:alt"
-          content="NameHash Labs - Helping ENS Grow"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@NamehashLabs" />
-        <meta property="twitter:creator" content="@NamehashLabs" />
-        <meta
-          property="twitter:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta
-          property="twitter:image"
-          content="https://namehashlabs.org/images/og-image-twitter.png"
-        />
-        <meta
-          property="twitter:image:alt"
-          content="NameHash Labs - Helping ENS Grow"
-        />
-        <meta property="twitter:image:width" content="1200" />
-        <meta property="twitter:image:height" content="630" />
-      </Head>
       <HeroSection />
       <ColoredText />
       <TheVisionSection />
