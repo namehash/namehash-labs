@@ -2,6 +2,7 @@ import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
 import { Header } from "./header";
 import CalButton from "../1 - atoms/cal-button";
 import { HeroTextureRight } from "../1 - atoms/hero-texture-2";
+import { Balancer } from "react-wrap-balancer";
 
 export const HeroSection = () => {
   return (
@@ -12,8 +13,10 @@ export const HeroSection = () => {
           Helping ENS grow
         </h1>
         <p className="text-lg text-center text-gray-500 font-normal leading-7 mt-4">
-          Welcome to NameHash Labs, a team of builders dedicated to the growth
-          of ENS.
+          <Balancer>
+            Welcome to NameHash Labs, a team of builders dedicated to the growth
+            of ENS.
+          </Balancer>
         </p>
         <div className="flex items-center justify-center mt-10">
           <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">

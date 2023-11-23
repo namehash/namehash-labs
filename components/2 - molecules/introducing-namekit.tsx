@@ -3,6 +3,7 @@ import Image from "next/image";
 import { EllipseBig } from "../1 - atoms/ellispse-big";
 import { EllipseMedium } from "../1 - atoms/ellispse-medium";
 import { EllipseSmall } from "../1 - atoms/ellispse-small";
+import { Balancer } from "react-wrap-balancer";
 
 export const IntroducingNamekit = () => {
   return (
@@ -11,8 +12,10 @@ export const IntroducingNamekit = () => {
         <PreSectionText>WHAT WE’RE BUILDING</PreSectionText>
         <SectionTitle>Introducing NameKit</SectionTitle>
         <SectionText className="text-center">
-          Dedicated 100% to the growth of ENS. NameKit includes sub-modules such
-          as ENSNode or NameGuard that can also be used independently.
+          <Balancer>
+            Dedicated 100% to the growth of ENS. NameKit includes sub-modules
+            such as ENSNode or NameGuard that can also be used independently.
+          </Balancer>
         </SectionText>
       </div>
       <div className="relative flexw w-full max-w-[1216px]">
