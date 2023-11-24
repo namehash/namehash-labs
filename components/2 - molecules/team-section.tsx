@@ -3,6 +3,7 @@ import { PreSectionText } from "../1 - atoms/pre-section-text";
 import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
 import { EnsIcon } from "../1 - atoms/icons/ens-icon";
+import { Balancer } from "react-wrap-balancer";
 
 export const TeamSection = () => {
   return (
@@ -11,8 +12,10 @@ export const TeamSection = () => {
         <PreSectionText>WHO WE ARE</PreSectionText>
         <SectionTitle className="my-3">Meet our team</SectionTitle>
         <SectionText className="">
-          NameHash Labs is a technology organization founded by a team of
-          committed contributors from the ENS ecosystem.
+          <Balancer>
+            NameHash Labs is a technology organization founded by a team of
+            committed contributors to the ENS ecosystem.
+          </Balancer>
         </SectionText>
       </div>
       <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-6 lg:gap-x-auto gap-x-6 xl:w-[1216px] ">
@@ -64,10 +67,10 @@ export const TeamSection = () => {
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
           <p className="text-sm leading-5 font-normal text-gray-500">
-            Check out our
+            Check out our{" "}
             <a
               href="mailto:hello@namehashlabs.org"
-              className="text-black underline"
+              className="text-gray-500 underline hover:text-black transition-colors duration-200"
             >
               open roles
             </a>

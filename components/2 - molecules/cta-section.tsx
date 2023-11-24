@@ -45,7 +45,7 @@ const ctas: CtaProps[] = [
   {
     title: "Build with us",
     description:
-      "Work on the leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.  ",
+      "Work on leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.  ",
     buttonText: "Open positions",
     buttonStyle:
       "border border-gray-200 bg-white hover:bg-gray-100 transition-colors duration-200",

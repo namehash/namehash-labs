@@ -72,7 +72,7 @@ export const Footer = () => {
             Made with <span className="text-red-500">❤</span> by{" "}
             <a
               href="https://namehashlabs.org/"
-              className="underline text-black"
+              className="underline text-gray-500 hover:text-black transition-colors duration-200"
             >
               NameHash Labs
             </a>
