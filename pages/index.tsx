@@ -53,18 +53,16 @@ export default function Home() {
           content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
         />
         <meta property="og:url" content="https://namehashlabs.org" />
-
         <meta
           property="og:image"
           content="https://namehashlabs.org/images/og-image.png"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
           content="NameHash Labs - Helping ENS Grow"
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@NamehashLabs" />
         <meta property="twitter:creator" content="@NamehashLabs" />
@@ -80,9 +78,6 @@ export default function Home() {
           property="twitter:image:alt"
           content="NameHash Labs - Helping ENS Grow"
         />
-        <meta name="twitter:image:type" content="image/png" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="630" />
       </Head>
       <HeroSection />
       <ColoredText />
