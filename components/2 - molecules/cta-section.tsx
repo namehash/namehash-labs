@@ -1,3 +1,4 @@
+import { Balancer } from "react-wrap-balancer";
 import CalButton from "../1 - atoms/cal-button";
 
 export const CTASection = () => {
@@ -69,7 +70,7 @@ const Cta = ({
         <div className="w-full">
           <h3 className="text-3xl leading-9 font-bold text-center">{title} </h3>
           <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center max-w-[508px] px-6">
-            {description}
+            <Balancer>{description}</Balancer>
           </p>
         </div>
         {buttonUrl ? (
