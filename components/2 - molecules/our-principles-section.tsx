@@ -1,5 +1,5 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
-import { GithubIcon } from "../1 - atoms/icons/github-icon";
+import { OpenSourceIcon } from "../1 - atoms/icons/open-source-icon";
 import { LockIcon } from "../1 - atoms/icons/lock-icon";
 import { EnsIcon } from "../1 - atoms/icons/ens-icon-gray";
 
@@ -35,7 +35,7 @@ interface PrinciplesProps {
 
 const principles: PrinciplesProps[] = [
   {
-    icon: <GithubIcon className="text-gray-400 w-5 h-5 shrink-0" />,
+    icon: <OpenSourceIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "Open sourced",
     description:
       "Everything we create is open source, ensuring that our technology is accessible and adaptable.",
