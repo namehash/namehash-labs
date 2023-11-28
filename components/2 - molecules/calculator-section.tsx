@@ -6,17 +6,55 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("./chart"), {
-  ssr: false, // This line will only render the component on the client-side.
+  ssr: false,
 });
 const ChartRevenue = dynamic(() => import("./chart-revenue"), {
-  ssr: false, // This line will only render the component on the client-side.
+  ssr: false,
 });
 
+const WEB3_GROWTH_RATE = 0.1;
+const REGISTRATIONS_PER_USER = 1.5;
+const REVENUE_PER_REG_PER_YEAR = 5;
+const YEARS_PER_REGISTRATION = 2.5;
+
 export const CalculatorSection = () => {
-  const [seats, setSeats] = useState(16);
-  const wallets = [1, 5, 10, 15, 20];
-  const userbase = ["1M", "5M", "10M", "15M", "20M"];
-  const percentage = [1, 2, 5, 10, 15];
+  const [wallets, setWallets] = useState(15);
+  const [userbase, setUserbase] = useState(15);
+  const [percentage, setPercentage] = useState(15);
+
+  const convertPercentage = (value: number) => {
+    if (value === 1) {
+      return 1;
+    } else if (value === 5) {
+      return 2;
+    } else if (value === 10) {
+      return 5;
+    } else if (value === 15) {
+      return 10;
+    } else if (value === 20) {
+      return 15;
+    }
+    return 15;
+  };
+
+  const walletDisplayValues = [1, 5, 10, 15, 20];
+  const userbaseDisplayValues = [1, 5, 10, 15, 20];
+  const percentageDisplayValues = [1, 2, 5, 10, 15];
+
+  // console.log(
+  //   "wallets: ",
+  //   wallets,
+  //   " userbase: ",
+  //   userbase,
+  //   " percentage: ",
+  //   convertPercentage(percentage)
+  // );
+
+  const newRegThroughNamekit =
+    ((wallets * userbase * 1000000 * convertPercentage(percentage)) / 100) *
+    REGISTRATIONS_PER_USER;
+  const newEnsRevenue =
+    newRegThroughNamekit * YEARS_PER_REGISTRATION * REVENUE_PER_REG_PER_YEAR;
 
   return (
     <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden bg-gray-50">
@@ -51,9 +89,9 @@ export const CalculatorSection = () => {
               min={1}
               max={20}
               step={5}
-              value={seats}
-              defaultValue={seats}
-              // onChange={(value) => setSeats(value)}
+              value={wallets}
+              defaultValue={wallets}
+              onChange={(value) => setWallets(value === 1 ? 1 : value - 1)}
               renderThumb={(props, state) => (
                 <div
                   {...props}
@@ -72,10 +110,10 @@ export const CalculatorSection = () => {
                       cx="16"
                       cy="16.0002"
                       r="15"
-                      className="fill-[#10B981] hover:fill-[#00fafa] transition-colors duration-200 "
+                      className="fill-[#10B981] hover:fill-[#0B815A] transition-colors duration-200 "
                       fill="fill-current"
                       stroke="white"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                     <path
                       d="M14 12.0002L10 16.0002L14 20.0002"
@@ -87,7 +125,7 @@ export const CalculatorSection = () => {
                     />
                   </svg>
                   {state.valueNow === 21 && (
-                    <div className="w-4 h-1 bg-gray-50" />
+                    <div className="w-4 h-2 bg-gray-50" />
                   )}
                 </div>
               )}
@@ -102,7 +140,7 @@ export const CalculatorSection = () => {
               }}
             />
             <div className="mt-10 w-full flex justify-between">
-              {wallets.map((marker) => {
+              {walletDisplayValues.map((marker) => {
                 return (
                   <p className="w-4 -ml-1" key={marker}>
                     {marker}
@@ -123,9 +161,9 @@ export const CalculatorSection = () => {
               min={1}
               max={20}
               step={5}
-              value={seats}
-              defaultValue={seats}
-              // onChange={(value) => setSeats(value)}
+              value={userbase}
+              defaultValue={userbase}
+              onChange={(value) => setUserbase(value === 1 ? 1 : value - 1)}
               renderThumb={(props, state) => (
                 <div
                   {...props}
@@ -144,10 +182,10 @@ export const CalculatorSection = () => {
                       cx="16"
                       cy="16.0002"
                       r="15"
-                      className="fill-[#10B981] hover:fill-[#00fafa] transition-colors duration-200 "
+                      className="fill-[#10B981] hover:fill-[#0B815A] transition-colors duration-200 "
                       fill="fill-current"
                       stroke="white"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                     <path
                       d="M14 12.0002L10 16.0002L14 20.0002"
@@ -159,7 +197,7 @@ export const CalculatorSection = () => {
                     />
                   </svg>
                   {state.valueNow === 21 && (
-                    <div className="w-4 h-1 bg-gray-50" />
+                    <div className="w-4 h-2 bg-gray-50" />
                   )}
                 </div>
               )}
@@ -174,10 +212,10 @@ export const CalculatorSection = () => {
               }}
             />
             <div className="mt-10 w-full flex justify-between">
-              {userbase.map((marker) => {
+              {userbaseDisplayValues.map((marker) => {
                 return (
                   <p className="w-4 -ml-1" key={marker}>
-                    {marker}
+                    {marker}M
                   </p>
                 );
               })}
@@ -196,9 +234,9 @@ export const CalculatorSection = () => {
               min={1}
               max={20}
               step={5}
-              // value={seats}
-              defaultValue={seats}
-              // onChange={(value) => setSeats(value)}
+              value={percentage}
+              defaultValue={percentage}
+              onChange={(value) => setPercentage(value === 1 ? 1 : value - 1)}
               renderThumb={(props, state) => (
                 <div
                   {...props}
@@ -217,10 +255,10 @@ export const CalculatorSection = () => {
                       cx="16"
                       cy="16.0002"
                       r="15"
-                      className="fill-[#10B981] hover:fill-[#00fafa] transition-colors duration-200 "
+                      className="fill-[#10B981] hover:fill-[#0B815A] transition-colors duration-200 "
                       fill="fill-current"
                       stroke="white"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                     <path
                       d="M14 12.0002L10 16.0002L14 20.0002"
@@ -232,7 +270,7 @@ export const CalculatorSection = () => {
                     />
                   </svg>
                   {state.valueNow === 21 && (
-                    <div className="w-4 h-1 bg-gray-50" />
+                    <div className="w-4 h-2 bg-gray-50" />
                   )}
                 </div>
               )}
@@ -247,7 +285,7 @@ export const CalculatorSection = () => {
               }}
             />
             <div className="mt-10 w-full flex justify-between">
-              {percentage.map((marker) => {
+              {percentageDisplayValues.map((marker) => {
                 return (
                   <p className="w-4 -ml-1" key={marker}>
                     {marker}%
@@ -269,8 +307,14 @@ export const CalculatorSection = () => {
             </a>
             .
           </p>
-          <Chart />
-          <ChartRevenue />
+          <Chart
+            initialValue={newRegThroughNamekit}
+            growthPerYear={WEB3_GROWTH_RATE}
+          />
+          <ChartRevenue
+            initialValue={newEnsRevenue}
+            growthPerYear={WEB3_GROWTH_RATE}
+          />
           <p className="text-xs leading-5 font-normal text-gray-500">
             <Balancer>
               * Oversimplified assumptions include: Each “ENS user acquisition”
