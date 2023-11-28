@@ -13,6 +13,7 @@ import { TheVisionSection } from "@/components/2 - molecules/the-vision-section"
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import Head from "next/head";
+import { CalculatorSection } from "@/components/2 - molecules/calculator-section";
 
 export default function Home() {
   useEffect(() => {
@@ -81,6 +82,7 @@ export default function Home() {
       </Head>
       <HeroSection />
       <ColoredText />
+      <CalculatorSection />
       <TheVisionSection />
       <IntroducingNamekit />
       <ProductsSection />
