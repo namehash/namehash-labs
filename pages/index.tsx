@@ -38,47 +38,8 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between">
       <Head>
         <title>NameHash Labs - Helping ENS Grow</title>
-        <meta
-          name="description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta
-          name="keywords"
-          content="ens, web3, eth, nameguard, namegraph, namekit"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="NameHash Labs - Helping ENS Grow" />
-        <meta
-          property="og:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta property="og:url" content="https://namehashlabs.org" />
-        <meta
-          property="og:image"
-          content="https://namehashlabs.org/images/og-image.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="NameHash Labs - Helping ENS Grow"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@NamehashLabs" />
-        <meta property="twitter:creator" content="@NamehashLabs" />
-        <meta
-          property="twitter:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
-        />
-        <meta
-          property="twitter:image"
-          content="https://namehashlabs.org/images/og-image-twitter.png"
-        />
-        <meta
-          property="twitter:image:alt"
-          content="NameHash Labs - Helping ENS Grow"
-        />
       </Head>
+
       <HeroSection />
       <ColoredText />
       <TheVisionSection />
