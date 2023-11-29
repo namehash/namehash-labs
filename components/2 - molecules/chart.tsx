@@ -6,6 +6,34 @@ interface SimpleAreaChartProps {
   growthPerYear: number;
 }
 
+interface CustomTickProps {
+  x?: number;
+  y?: number;
+  payload?: {
+    value: number;
+  };
+}
+
+const CustomTick = (props: CustomTickProps) => {
+  const { x, y, payload } = props;
+  const value = payload?.value;
+  const formattedValue = value! >= 1000 ? `$${value! / 1000000}M` : value;
+
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text
+        className="text-gray-500 leading-[16px] text-[12px] font-medium"
+        x={0}
+        y={0}
+        dy={16}
+        fill="#6B7280"
+      >
+        {formattedValue}
+      </text>
+    </g>
+  );
+};
+
 function commafy(num: number) {
   var str = num.toString().split(".");
   if (str[0].length >= 5) {
@@ -47,6 +75,8 @@ const SimpleAreaChart = ({
     },
   ];
 
+  const chartKey = `chart-${initialValue}-${growthPerYear}`;
+
   return (
     <div className="relative border-b border-gray-200 pb-[60px]">
       <div className="flex flex-col items-start justify-start translate-y-[25%]">
@@ -58,7 +88,7 @@ const SimpleAreaChart = ({
         </h2>
       </div>
 
-      <ResponsiveContainer width={"100%"} height={80}>
+      <ResponsiveContainer width={"100%"} height={80} key={chartKey}>
         <AreaChart width={488} height={80} data={data}>
           <defs>
             <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
@@ -79,15 +109,24 @@ const SimpleAreaChart = ({
             fillOpacity={0.2}
           />
           <YAxis
-            hide={true}
+            tickFormatter={(value) => {
+              return value >= 1000 ? `${value / 1000000}M` : value;
+            }}
+            tickCount={2}
+            orientation="right"
             type="number"
-            domain={[0, 110000000]}
-            interval={0}
+            axisLine={false}
             tickLine={false}
             scale={"sequential"}
+            tick={<CustomTick />}
           />
         </AreaChart>
       </ResponsiveContainer>
+      <div className="w-full flex justify-end pr-[10%]">
+        <p className="text-gray-500 leading-[16px] text-[12px] font-medium">
+          5 yr
+        </p>
+      </div>
     </div>
   );
 };

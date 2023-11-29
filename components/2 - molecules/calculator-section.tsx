@@ -41,15 +41,6 @@ export const CalculatorSection = () => {
   const userbaseDisplayValues = [1, 5, 10, 15, 20];
   const percentageDisplayValues = [1, 2, 5, 10, 15];
 
-  // console.log(
-  //   "wallets: ",
-  //   wallets,
-  //   " userbase: ",
-  //   userbase,
-  //   " percentage: ",
-  //   convertPercentage(percentage)
-  // );
-
   const newRegThroughNamekit =
     ((wallets * userbase * 1000000 * convertPercentage(percentage)) / 100) *
     REGISTRATIONS_PER_USER;
