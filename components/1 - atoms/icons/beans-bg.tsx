@@ -50,7 +50,7 @@ export const BeansBg = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(720 418.5) rotate(90) scale(418.5 720)"
         >
-          <stop stop-opacity="0" />
+          <stop stopOpacity="0" />
           <stop offset="1" />
         </radialGradient>
         <image
