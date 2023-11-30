@@ -15,7 +15,7 @@ export const TheVisionSection = () => {
         </SectionTitle>
         <SectionText className="text-center">
           <Balancer>
-            Directly embed ENS onboarding into every wallet, app, and game.
+            Bring ENS to millions of people where they already are
           </Balancer>
         </SectionText>
       </div>
