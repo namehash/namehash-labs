@@ -15,7 +15,7 @@ export const TheVisionSection = () => {
         </SectionTitle>
         <SectionText className="text-center">
           <Balancer>
-            Bring ENS to millions of people where they already are
+            Bring ENS to millions of people where they already are.
           </Balancer>
         </SectionText>
       </div>
