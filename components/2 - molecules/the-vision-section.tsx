@@ -4,7 +4,10 @@ import Image from "next/image";
 
 export const TheVisionSection = () => {
   return (
-    <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
+    <section
+      id="targetDiv"
+      className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
+    >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px]">
         <PreSectionText>THE VISION</PreSectionText>
         <SectionTitle>

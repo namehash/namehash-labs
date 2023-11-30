@@ -34,9 +34,9 @@ interface CtaProps {
 
 const ctas: CtaProps[] = [
   {
-    title: "Get in touch",
+    title: "Let’s chat",
     description:
-      "NameHash Labs collaborates with teams across web3, and we’re always look forward to meeting new frens.",
+      "NameHash Labs collaborates with teams across web3, and we’re always looking forward to meeting new frens.",
     buttonText: "Schedule a call",
     buttonStyle:
       "text-white bg-black hover:bg-gray-900 transition-colors duration-200",
@@ -44,9 +44,9 @@ const ctas: CtaProps[] = [
       "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, #FFF 100%), linear-gradient(180deg, #FFAF00 0%, #F112D9 32.29%, #4C3FA0 70.83%, #2ED3C6 95.83%)",
   },
   {
-    title: "Build with us",
+    title: "Join our team",
     description:
-      "Work on leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.  ",
+      "Work on leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.",
     buttonText: "Open positions",
     buttonStyle:
       "border border-gray-200 bg-white hover:bg-gray-100 transition-colors duration-200",

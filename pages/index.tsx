@@ -1,6 +1,5 @@
 import {
   CTASection,
-  ColoredText,
   Footer,
   HeroSection,
   OurPrinciplesSection,
@@ -39,9 +38,7 @@ export default function Home() {
       <Head>
         <title>NameHash Labs - Helping ENS Grow</title>
       </Head>
-
       <HeroSection />
-      <ColoredText />
       <TheVisionSection />
       <IntroducingNamekit />
       <ProductsSection />

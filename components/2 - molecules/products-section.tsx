@@ -66,7 +66,7 @@ export const Product = ({
               {greenLabelText && (
                 <div className="">
                   <div
-                    className="px-3 py-0.5 bg-green-100 border rounded-full"
+                    className="px-3 py-0.5 bg-green-100 border border-green-100 rounded-full"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
@@ -76,7 +76,7 @@ export const Product = ({
                 </div>
               )}
             </div>
-            <SectionText className="lg:text-start text-center">
+            <SectionText className="lg:text-start text-center w-full">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
@@ -143,7 +143,6 @@ const products: ProductProps[] = [
         alt="hero"
       />
     ),
-    greenLabelText: "COMING SOON",
     buttonUrl: "https://www.namekit.io/",
   },
   {
