@@ -13,8 +13,7 @@ export const TeamSection = () => {
         <SectionTitle className="my-3">Meet our team</SectionTitle>
         <SectionText className="w-full flex items-center justify-center text-center">
           <Balancer>
-            NameHash Labs is a technology organization founded by a team of
-            committed contributors to the ENS ecosystem.
+            NameHash Labs is a team of builders dedicated to the growth of ENS.
           </Balancer>
         </SectionText>
       </div>

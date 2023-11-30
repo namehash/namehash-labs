@@ -38,7 +38,7 @@ const principles: PrinciplesProps[] = [
     icon: <OpenSourceIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "Open sourced",
     description:
-      "Everything we create is open source, ensuring that our technology is accessible and adaptable.",
+      "Everything we create will be open source, ensuring that our technology is accessible and adaptable.",
   },
   {
     icon: <LockIcon className="text-gray-400 w-5 h-5 shrink-0" />,

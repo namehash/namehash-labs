@@ -1,8 +1,8 @@
-import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
+import { ChevronDown } from "../1 - atoms";
 import { Header } from "./header";
 import CalButton from "../1 - atoms/cal-button";
-import { HeroTextureRight } from "../1 - atoms/hero-texture-2";
 import { Balancer } from "react-wrap-balancer";
+import { BeansBg } from "../1 - atoms/icons/beans-bg";
 
 export const HeroSection = () => {
   return (
@@ -12,10 +12,9 @@ export const HeroSection = () => {
         <h1 className="lg:text-[100px] text-5xl text-center font-bold lg:leading-[120px]">
           Helping ENS grow
         </h1>
-        <p className="text-lg text-center text-gray-500 font-normal leading-7 mt-4">
+        <p className="text-lg text-center text-gray-500 font-normal leading-7 mt-4 max-w-[500px]">
           <Balancer>
-            Welcome to NameHash Labs, a team of builders dedicated to the growth
-            of ENS.
+            We integrate ENS onboarding into web3 wallets, apps, and games
           </Balancer>
         </p>
         <div className="flex items-center justify-center mt-10">
@@ -24,8 +23,7 @@ export const HeroSection = () => {
           </CalButton>
         </div>
       </div>
-      <HeroTexture className="absolute left-0 top-0 h-[130%] w-[40%]" />
-      <HeroTextureRight className="absolute right-0 top-0 h-[100%] w-[45%]" />
+      <BeansBg className="absolute right-0 top-0 h-full w-full z-10" />
 
       <div
         className="absolute bottom-0 left-0 w-full h-[140px] bg-white z-10"
@@ -36,16 +34,16 @@ export const HeroSection = () => {
       />
 
       <div
-        className="w-[100vh] h-[100vw] absolute opacity-50"
+        className="w-[100vw] h-[100vh] absolute opacity-70"
         style={{
-          transform: "rotate(-90deg)",
           background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.80) 100%), linear-gradient(180deg, #FBA600 24.22%, #F112D9 48.69%, #4C3FA0 77.9%, #2ED3C6 96.84%)",
+            "linear-gradient(90deg, rgba(221, 160, 233, 0.00) -1.42%, rgba(93, 128, 219, 0.20) 100%), linear-gradient(180deg, #FDE8FB 0%, #DFA4EA 33.33%, #9981D4 64.06%, #9DB9DD 95.83%)",
         }}
       />
-      <div className="border rounded-full w-[1832px] h-[1832px] opacity-50 absolute bottom-0 translate-y-[50%] bg-white" />
+      <div className="border rounded-full min-w-[1832px] min-h-[1832px] w-[120vw] h-[120vw] opacity-50 absolute bottom-0 translate-y-[50%] bg-white" />
+
       <div
-        className="w-[1440px] h-[1440px] absolute bottom-0 translate-y-[50%]"
+        className="min-w-[1440px] min-h-[1440px] w-[95vw] h-[95vw] absolute bottom-0 translate-y-[50%]"
         style={{
           borderRadius: "1401.845px",
           background:
@@ -60,7 +58,7 @@ export const HeroSection = () => {
             targetDiv.scrollIntoView({ behavior: "smooth" });
           }
         }}
-        className="px-20 py-2.5 z-20 border rounded-full border-gray-300 absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+        className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
       >
         <ChevronDown />
       </button>

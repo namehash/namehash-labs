@@ -10,10 +10,10 @@ export const CollaborationPartnersSection = () => {
       <div className="m-auto flex flex-col items-center justify-center">
         <div className="flex flex-col gap-3 items-center max-w-[635px]">
           <PreSectionText>OUR PARTNERS</PreSectionText>
-          <SectionTitle>Collaboration partners</SectionTitle>
+          <SectionTitle>Let’s work together</SectionTitle>
           <SectionText className="text-center">
             We seek collaborations with other skilled teams and individuals who
-            are passionate about helping ENS grow
+            are passionate about helping ENS “grow”
           </SectionText>
         </div>
         <div className="grid lg:grid-cols-2 grid-cols-1 place-content-center	 gap-[120px] pt-[50px] mt-10">
