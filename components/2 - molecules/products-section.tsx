@@ -36,18 +36,18 @@ export const Product = ({
   return (
     <section
       className={cc([
-        "lg:py-20 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
+        "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
       ])}
     >
       <div
         className={cc([
-          "w-full flex flex-col items-center lg:flex-row max-w-[1300px]",
+          "w-full flex flex-col items-center lg:flex-row max-w-[1300px] bg-gray-50 rounded-[20px] p-[32px]",
           {
             "lg:flex-row-reverse": isInverted,
           },
         ])}
       >
-        <div className="lg:w-1/2 w-full flex items-start justify-center">
+        <div className="lg:w-1/2 w-full flex items-start justify-center ">
           <div className="flex-col inline-flex gap-5 lg:max-w-[568px]">
             <div className="justify-center lg:justify-start flex">
               <div className="gap-2 bg-black inline-flex items-center bg-opacity-5 px-4 py-2 rounded-[20px]">
@@ -76,7 +76,7 @@ export const Product = ({
                 </div>
               )}
             </div>
-            <SectionText className="lg:text-start text-center w-full">
+            <SectionText className="lg:text-start text-center w-full font-thin	">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
@@ -95,7 +95,7 @@ export const Product = ({
             )}
           </div>
         </div>
-        <div className="lg:w-1/2 w-full lg:mt-0 mt-5 relative flex items-center justify-center">
+        <div className="lg:w-1/2 w-full  lg:mt-0 mt-5 relative flex items-center justify-center">
           {gradient}
           {illustration}
         </div>
