@@ -39,8 +39,7 @@ export const TeamMemberComponent = (member: MemberProps) => {
         className="relative lg:max-w-[212px] transition-all duration-300"
         style={{
           borderRadius: "12.31px",
-          boxShadow: `0px ${isHovered ? "12px" : "6px"} 0px 0px ${shadowColor}`,
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat, linear-gradient(332deg, #44BCF0 2.57%, #628BF3 65.63%, #A099FF 149.86%)`,
+          boxShadow: `0 ${isHovered ? "8px 16px" : "6px 12px"} ${shadowColor}`,
         }}
       >
         <Image
@@ -48,7 +47,7 @@ export const TeamMemberComponent = (member: MemberProps) => {
           alt={member.name}
           width={212}
           height={212}
-          className="border rounded-[12px] w-full"
+          className="rounded-[12px] w-full border-0"
           ref={imageRef}
         />
         <EnsIcon
