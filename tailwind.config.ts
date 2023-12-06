@@ -8,12 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        teamMemberShadow:
-          "0px -1.36782px 17.78168px 0px rgba(255, 255, 255, 0.20) inset, 0px 13.67822px 21.88514px -4.10346px rgba(87, 142, 231, 0.20), 0px 5.88889px 0px 0px #cbcbcb",
-        teamMemberShadowHover:
-          "0px -1.36782px 17.78168px 0px rgba(255, 255, 255, 0.20) inset, 0px 13.67822px 21.88514px -4.10346px rgba(87, 142, 231, 0.20), 0px 5.88889px 0px 0px #a0a0a0",
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
