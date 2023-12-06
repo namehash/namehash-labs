@@ -26,7 +26,7 @@ export default function Document() {
         <meta property="og:url" content="https://namehashlabs.org" />
         <meta
           property="og:image"
-          content="https://namehashlabs.org/images/og-img.png"
+          content="https://namehashlabs.org/images/og-image.png"
         />
         <meta
           property="og:image:alt"
@@ -43,7 +43,7 @@ export default function Document() {
         />
         <meta
           name="twitter:image"
-          content="https://namehashlabs.org/images/og-img-twitter.png"
+          content="https://namehashlabs.org/images/og-image-twitter.png"
         />
         <meta
           name="twitter:image:alt"
