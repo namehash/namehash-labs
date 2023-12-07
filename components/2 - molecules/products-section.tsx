@@ -146,9 +146,9 @@ const products: ProductProps[] = [
     buttonUrl: "https://www.namekit.io/",
   },
   {
-    title: "ENS Ambassador Program",
+    title: "ENS Referral Program",
     subtitle:
-      "The power of a protocol lies not only in its technology,  but in the strength of its community. Passionate about ENS? Become an ambassador, help grow ENS, and start earning.",
+      "The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning.",
     label: {
       title: "Incentive program to help ENS grow",
       icon: <ChartBarSquareIcon className="h-5 w-5 text-gray-500" />,
