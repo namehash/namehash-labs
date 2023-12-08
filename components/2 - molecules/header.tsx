@@ -1,9 +1,12 @@
 import { NameHashLabsLogo } from "../1 - atoms";
 import CalButton from "../1 - atoms/cal-button";
 
-export const Header = () => {
+export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className="lg:px-[112px] px-5 w-full flex items-center justify-center absolute top-0 left-0 border-b border-black border-opacity-10 z-20">
+    <div
+      className="lg:px-[112px] px-5 w-full flex items-center justify-center absolute top-0 left-0 border-b border-black border-opacity-10 z-20"
+      {...props}
+    >
       <div className="w-full flex items-center justify-between py-5 max-w-[1216px]">
         <a href="https://namehashlabs.org/">
           <NameHashLabsLogo />
