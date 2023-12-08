@@ -62,7 +62,7 @@ export const Product = ({
             <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
               <a href={`#${sectionId}`}>
                 <h2
-                  className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center"
+                  className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] shadow-black transition-all duration-200"
                   style={{ whiteSpace: "nowrap" }}
                 >
                   {title}
