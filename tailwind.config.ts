@@ -35,7 +35,7 @@ const config: Config = {
     },
     animation: {
       fadeIn: "fadeIn 1s linear forwards",
-      spinSlow: "rotate360 60s linear infinite",
+      spinSlow: "rotate360 150s linear infinite",
     },
   },
   plugins: [],
