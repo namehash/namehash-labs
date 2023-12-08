@@ -45,11 +45,11 @@ export default function Home() {
           </h1>
           <p className="text-lg text-center text-gray-500 font-normal leading-7 max-w-[500px]">
             <Balancer>
-              Whoops! It looks like the page you're searching for is still a
-              work in progress. Our digital builders are on the job, laying down
-              the code bricks and painting the pixels to bring it to life. Check
-              back soon to see the finished masterpiece! In the meantime, feel
-              free to explore other parts of our site.
+              Whoops! It looks like the page you&apos;re searching for is still
+              a work in progress. Our digital builders are on the job, laying
+              down the code bricks and painting the pixels to bring it to life.
+              Check back soon to see the finished masterpiece! In the meantime,
+              feel free to explore other parts of our site.
             </Balancer>
           </p>
         </div>
