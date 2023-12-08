@@ -5,16 +5,18 @@ import Image from "next/image";
 export const TheVisionSection = () => {
   return (
     <section
-      id="targetDiv"
+      id="the-vision"
       className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
     >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px]">
         <PreSectionText>THE VISION</PreSectionText>
-        <SectionTitle>
-          <Balancer>
-            Bring ENS to millions of people where they already are
-          </Balancer>
-        </SectionTitle>
+        <a href="#the-vision">
+          <SectionTitle>
+            <Balancer>
+              Bring ENS to millions of people where they already are
+            </Balancer>
+          </SectionTitle>
+        </a>
         <SectionText className="text-center">
           <Balancer>
             Directly embed ENS onboarding into every wallet, app, and game.

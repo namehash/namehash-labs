@@ -7,10 +7,15 @@ import { Balancer } from "react-wrap-balancer";
 
 export const IntroducingNamekit = () => {
   return (
-    <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
+    <section
+      id="introducing-namekit"
+      className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
+    >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px]">
         <PreSectionText>WHAT WE’RE BUILDING</PreSectionText>
-        <SectionTitle>Introducing NameKit</SectionTitle>
+        <a href="#introducing-namekit">
+          <SectionTitle>Introducing NameKit</SectionTitle>
+        </a>
         <SectionText className="text-center">
           <Balancer>
             Dedicated 100% to the growth of ENS. NameKit includes sub-modules
