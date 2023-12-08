@@ -1,3 +1,5 @@
+// @ts-ignore
+
 export default function CalButton({
   children,
   ...props
