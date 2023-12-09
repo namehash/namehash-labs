@@ -1,6 +1,5 @@
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
-import Image from "next/image";
 import Lottie from "lottie-react";
 import appsAnimation from "./../../public/animation/apps-animation.json";
 
