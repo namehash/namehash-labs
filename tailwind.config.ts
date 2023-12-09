@@ -22,9 +22,14 @@ const config: Config = {
         "0%": { opacity: "0" },
         "100%": { opacity: "1" },
       },
+      rotate360: {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
+      },
     },
     animation: {
       fadeIn: "fadeIn 1s linear forwards",
+      spinSlow: "rotate360 150s linear infinite",
     },
   },
   plugins: [],

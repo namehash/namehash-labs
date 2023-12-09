@@ -23,7 +23,7 @@ export const HeroSection = () => {
           </CalButton>
         </div>
       </div>
-      <BeansBg className="absolute right-0 top-0 h-full w-full z-10" />
+      <BeansBg className="animate-spinSlow absolute right-[calc(50% - 50vw)] h-[100vw] min-h-[1000px] min-w-[1000px] w-[100vw] top-[calc(50% - 50vw)] z-10" />
 
       <div
         className="absolute bottom-0 left-0 w-full h-[140px] bg-white z-10"
