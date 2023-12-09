@@ -9,6 +9,7 @@ import cc from "classcat";
 import { ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
+import { ReferralBanner } from "@/components/2 - molecules/referral-banner";
 
 export default function Home() {
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between">
-      <Header className="lg:px-[112px] px-5 w-full flex items-center justify-center border-b border-black border-opacity-10 z-20" />
+      <Header className="w-full" />
       <section className="bg-gray-50 w-full">
         <Product2
           title="ENS Referral Program"
@@ -47,10 +48,6 @@ export default function Home() {
               alt="hero"
             />
           }
-          label={{
-            title: "Incentive program to help ENS grow",
-            icon: <ChartBarSquareIcon className="h-5 w-5 text-gray-500" />,
-          }}
           greenLabelText="Proposal pending"
           buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
         />
