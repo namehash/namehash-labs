@@ -21,3 +21,7 @@
     stopcolor: #f112d9; /* Transition color */
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

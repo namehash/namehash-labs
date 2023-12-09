@@ -21,9 +21,11 @@ interface ProductProps {
   isInverted?: boolean;
   buttonUrl?: string;
   greenLabelText?: string;
+  sectionId?: string;
 }
 
 export const Product = ({
+  sectionId,
   label,
   title,
   subtitle,
@@ -38,6 +40,7 @@ export const Product = ({
       className={cc([
         "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
       ])}
+      id={sectionId}
     >
       <div
         className={cc([
@@ -57,12 +60,15 @@ export const Product = ({
             </div>
 
             <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
-              <h2
-                className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center"
-                style={{ whiteSpace: "nowrap" }}
-              >
-                {title}
-              </h2>
+              <a href={`#${sectionId}`}>
+                <h2
+                  className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] shadow-black transition-all duration-200"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  {title}
+                </h2>
+              </a>
+
               {greenLabelText && (
                 <div className="">
                   <div
@@ -118,6 +124,7 @@ export const ProductsSection = () => {
           isInverted={index % 2 === 1}
           buttonUrl={product.buttonUrl}
           greenLabelText={product.greenLabelText}
+          sectionId={product.sectionId}
         />
       ))}
     </>
@@ -144,6 +151,7 @@ const products: ProductProps[] = [
       />
     ),
     buttonUrl: "https://www.namekit.io/",
+    sectionId: "namekit",
   },
   {
     title: "ENS Referral Program",
@@ -164,6 +172,7 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "PROPOSAL PENDING",
+    sectionId: "ens-referral-program",
   },
   {
     title: "NameGuard",
@@ -185,6 +194,7 @@ const products: ProductProps[] = [
     ),
 
     buttonUrl: "https://www.nameguard.io/",
+    sectionId: "nameguard",
   },
   {
     title: "ENSNode",
@@ -205,5 +215,6 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "COMING SOON",
+    sectionId: "ens-node",
   },
 ];

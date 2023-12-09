@@ -5,12 +5,14 @@ export const CollaborationPartnersSection = () => {
   return (
     <section
       className="lg:px-[110px] px-5 py-[122px] w-full bg-gray-50"
-      id="targetDiv"
+      id="collaboration-partners"
     >
       <div className="m-auto flex flex-col items-center justify-center">
         <div className="flex flex-col gap-3 items-center max-w-[635px]">
           <PreSectionText>OUR PARTNERS</PreSectionText>
-          <SectionTitle>Let’s work together</SectionTitle>
+          <a href="#collaboration-partners">
+            <SectionTitle>Let’s work together</SectionTitle>
+          </a>
           <SectionText className="text-center">
             We seek collaborations with other skilled teams and individuals who
             are passionate about helping ENS “grow”

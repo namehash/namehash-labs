@@ -7,10 +7,12 @@ import { TeamMemberComponent } from "./team-member-component";
 
 export const TeamSection = () => {
   return (
-    <section className="my-20 px-5">
+    <section id="our-team" className="my-20 px-5">
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px]">
         <PreSectionText>WHO WE ARE</PreSectionText>
-        <SectionTitle className="my-3">Meet our team</SectionTitle>
+        <a href="#our-team">
+          <SectionTitle className="my-3">Meet our team</SectionTitle>
+        </a>
         <SectionText className="w-full flex items-center justify-center text-center">
           <Balancer>
             NameHash Labs is a team of builders dedicated to the growth of ENS.
