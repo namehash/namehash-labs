@@ -1,6 +1,4 @@
 import { MegaphoneIcon } from "@heroicons/react/24/outline";
-import { NameHashLabsLogo } from "../1 - atoms";
-import CalButton from "../1 - atoms/cal-button";
 
 export const ReferralBanner = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (

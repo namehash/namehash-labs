@@ -9,7 +9,6 @@ import cc from "classcat";
 import { ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
-import { ReferralBanner } from "@/components/2 - molecules/referral-banner";
 
 export default function Home() {
   useEffect(() => {

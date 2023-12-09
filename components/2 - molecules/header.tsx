@@ -6,6 +6,7 @@ import { ReferralBanner } from "./referral-banner";
 export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className="absolute top-0 left-0 w-full z-20" {...props}>
+      <ReferralBanner />
       <div className="lg:px-[112px] px-5 w-full flex flex-col items-center justify-center  border-b border-black border-opacity-10 z-20">
         <div className="w-full flex items-center justify-between py-5 max-w-[1216px]">
           <a href="https://namehashlabs.org/">
@@ -34,7 +35,6 @@ export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
           </div>
         </div>
       </div>
-      <ReferralBanner />
     </div>
   );
 };
