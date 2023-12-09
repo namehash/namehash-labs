@@ -66,6 +66,7 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "PROPOSAL PENDING",
+    buttonUrl: "https://namehashlabs.org/ens-referral-program",
   },
   {
     title: "NameGuard",
