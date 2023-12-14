@@ -20,7 +20,7 @@ export default function Document() {
         <meta property="og:title" content="NameHash Labs - Helping ENS Grow" />
         <meta
           property="og:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
+          content="NameHash Labs builds open source public goods that drive the global adoption of ENS."
         />
         <meta property="og:url" content="https://namehashlabs.org" />
 
