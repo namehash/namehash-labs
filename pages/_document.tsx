@@ -31,7 +31,7 @@ export default function Document() {
         <meta name="twitter:title" content="NameHash Labs - Helping ENS Grow" />
         <meta
           name="twitter:description"
-          content="Our mission at NameHash Labs is building open source public goods that drive the global adoption of ENS."
+          content="NameHash Labs builds open source public goods that drive the global adoption of ENS."
         />
         <meta
           name="twitter:image:alt"
