@@ -1,6 +1,7 @@
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
-import Image from "next/image";
+import Lottie from "lottie-react";
+import appsAnimation from "./../../public/animation/apps-animation.json";
 
 export const TheVisionSection = () => {
   return (
@@ -23,13 +24,7 @@ export const TheVisionSection = () => {
           </Balancer>
         </SectionText>
       </div>
-      <Image
-        src={"/images/the-vision-image.png"}
-        className="h-auto"
-        alt="the vision"
-        width={1440}
-        height={630}
-      />
+      <Lottie className="h-auto" animationData={appsAnimation} loop={true} />
     </section>
   );
 };

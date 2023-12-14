@@ -5,6 +5,110 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Product, ProductProps } from "./product-component";
+import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
+import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+import { Balancer } from "react-wrap-balancer";
+
+interface ProductProps {
+  label: {
+    icon: React.ReactElement;
+    title: string;
+  };
+  title: string;
+  subtitle: string;
+  illustration: React.ReactElement;
+  gradient?: React.ReactElement;
+  isInverted?: boolean;
+  buttonUrl?: string;
+  greenLabelText?: string;
+  sectionId?: string;
+}
+
+export const Product = ({
+  sectionId,
+  label,
+  title,
+  subtitle,
+  illustration,
+  gradient,
+  isInverted,
+  buttonUrl,
+  greenLabelText,
+}: ProductProps) => {
+  return (
+    <section
+      className={cc([
+        "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
+      ])}
+      id={sectionId}
+    >
+      <div
+        className={cc([
+          "w-full flex flex-col items-center lg:flex-row max-w-[1300px] bg-gray-50 rounded-[20px] p-[32px]",
+          {
+            "lg:flex-row-reverse": isInverted,
+          },
+        ])}
+      >
+        <div className="lg:w-1/2 w-full flex items-start justify-center ">
+          <div className="flex-col inline-flex gap-5 lg:max-w-[568px]">
+            <div className="justify-center lg:justify-start flex">
+              <div className="gap-2 bg-black inline-flex items-center bg-opacity-5 px-4 py-2 rounded-[20px]">
+                {label.icon}
+                <p className="text-sm leading-5 font-medium">{label.title}</p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
+              <a href={`#${sectionId}`}>
+                <h2
+                  className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] shadow-black transition-all duration-200"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  {title}
+                </h2>
+              </a>
+
+              {greenLabelText && (
+                <div className="">
+                  <div
+                    className="px-3 py-0.5 bg-green-100 border border-green-100 rounded-full"
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                    <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
+                      {greenLabelText}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+            <SectionText className="lg:text-start text-center w-full font-thin	">
+              <Balancer>{subtitle}</Balancer>
+            </SectionText>
+            {buttonUrl && (
+              <div className="flex lg:justify-start justify-center">
+                <a
+                  href={buttonUrl}
+                  target="_blank"
+                  className="border rounded-[8px] bg-black text-white px-4 py-2 transition-colors duration-200 hover:bg-gray-800 inline-flex items-center justify-center"
+                >
+                  Learn more
+                  <div className="ml-3 w-5 h-5">
+                    <ExternalLinkIcon />
+                  </div>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="lg:w-1/2 w-full  lg:mt-0 mt-5 relative flex items-center justify-center">
+          {gradient}
+          {illustration}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export const ProductsSection = () => {
   return (
@@ -20,6 +124,7 @@ export const ProductsSection = () => {
           isInverted={index % 2 === 1}
           buttonUrl={product.buttonUrl}
           greenLabelText={product.greenLabelText}
+          sectionId={product.sectionId}
         />
       ))}
     </>
@@ -46,6 +151,7 @@ const products: ProductProps[] = [
       />
     ),
     buttonUrl: "https://www.namekit.io/",
+    sectionId: "namekit",
   },
   {
     title: "ENS Referral Program",
@@ -67,6 +173,7 @@ const products: ProductProps[] = [
     ),
     greenLabelText: "PROPOSAL PENDING",
     buttonUrl: "https://namehashlabs.org/ens-referral-program",
+    sectionId: "ens-referral-program",
   },
   {
     title: "NameGuard",
@@ -88,6 +195,7 @@ const products: ProductProps[] = [
     ),
 
     buttonUrl: "https://www.nameguard.io/",
+    sectionId: "nameguard",
   },
   {
     title: "ENSNode",
@@ -108,5 +216,6 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "COMING SOON",
+    sectionId: "ens-node",
   },
 ];
