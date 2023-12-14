@@ -4,10 +4,10 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { Product, ProductProps } from "./product-component";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
-import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+import { SectionText } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
+import cc from "classcat";
 
 interface ProductProps {
   label: {
