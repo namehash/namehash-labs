@@ -1,5 +1,5 @@
 import { Balancer } from "react-wrap-balancer";
-import CalButton from "../1 - atoms/cal-button";
+import { CalButton } from "../1 - atoms";
 
 export const CTASection = () => {
   return (

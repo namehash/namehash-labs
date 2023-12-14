@@ -1,16 +1,18 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import Image from "next/image";
-import { EllipseBig } from "../1 - atoms/ellispse-big";
-import { EllipseMedium } from "../1 - atoms/ellispse-medium";
-import { EllipseSmall } from "../1 - atoms/ellispse-small";
 import { Balancer } from "react-wrap-balancer";
 
 export const IntroducingNamekit = () => {
   return (
-    <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
+    <section
+      id="introducingNamekit"
+      className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
+    >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px]">
-        <PreSectionText>WHAT WE’RE BUILDING</PreSectionText>
-        <SectionTitle>Introducing NameKit</SectionTitle>
+        <PreSectionText>WHAT WE&apos;RE BUILDING</PreSectionText>
+        <a href="#introducingNamekit">
+          <SectionTitle>Introducing NameKit</SectionTitle>
+        </a>
         <SectionText className="text-center">
           <Balancer>
             Dedicated 100% to the growth of ENS. NameKit includes sub-modules

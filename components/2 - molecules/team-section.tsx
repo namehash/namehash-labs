@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PreSectionText } from "../1 - atoms/pre-section-text";
 import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
@@ -7,10 +6,12 @@ import { TeamMemberComponent } from "./team-member-component";
 
 export const TeamSection = () => {
   return (
-    <section className="my-20 px-5">
+    <section id="meetOurTeamSection" className="my-20 px-5">
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px]">
         <PreSectionText>WHO WE ARE</PreSectionText>
-        <SectionTitle className="my-3">Meet our team</SectionTitle>
+        <a href="#meetOurTeamSection">
+          <SectionTitle className="my-3">Meet our team</SectionTitle>
+        </a>
         <SectionText className="w-full flex items-center justify-center text-center">
           <Balancer>
             NameHash Labs is a team of builders dedicated to the growth of ENS.
@@ -29,18 +30,24 @@ export const TeamSection = () => {
         })}
 
         <div
-          className="w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
+          className="text-center w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
           style={{ aspectRatio: "1 / 1" }}
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
-          <p className="text-sm leading-5 font-normal text-gray-500">
+          <p className="text-sm text-center leading-5 font-normal text-gray-500">
             Check out our{" "}
-            <a
-              href="mailto:hello@namehashlabs.org"
+            <button
+              onClick={() => {
+                const el = document.getElementById("joinOurTeam");
+
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="text-gray-500 underline hover:text-black transition-colors duration-200"
             >
               open roles
-            </a>
+            </button>
           </p>
         </div>
       </div>

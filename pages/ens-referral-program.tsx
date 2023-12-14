@@ -3,12 +3,15 @@ import { getCalApi } from "@calcom/embed-react";
 import React, { useEffect } from "react";
 import { Header } from "@/components/2 - molecules/header";
 import Image from "next/image";
-import { ChartBarSquareIcon } from "@heroicons/react/24/outline";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
-import { ExternalLinkIcon } from "@/components/1 - atoms";
+import {
+  ENSServiceProviderBanner,
+  ExternalLinkIcon,
+} from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
+import Head from "next/head";
 
 export default function Home() {
   useEffect(() => {
@@ -31,45 +34,63 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-between">
-      <Header className="w-full" />
-      <section className="bg-gray-50 w-full">
-        <Product2
-          title="ENS Referral Program"
-          subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
-          illustration={
-            <Image
-              quality={100}
-              width={568}
-              height={360}
-              className="w-full h-auto"
-              src="/images/ens-incentive.png"
-              alt="hero"
-            />
-          }
-          greenLabelText="Proposal pending"
-          buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
+    <>
+      <Head>
+        <meta
+          name="twitter:image"
+          content="https://namehashlabs.org/images/ens-referral-program-og-image-twitter.png"
         />
-      </section>
-      <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
-        <div className="flex flex-col md:flex-row items-start justify-center max-w-[1216px]">
-          {items.map((item, index) => {
-            return (
-              <Item
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                text={item.text}
-                buttonUrl={item.buttonUrl}
-                greenLabelText={item.greenLabelText}
-                isInverted={index % 2 === 1}
+        <meta
+          property="og:image"
+          content="https://namehashlabs.org/images/ens-referral-program-og-image.png"
+        />
+        <meta
+          property="og:image:alt"
+          content="NameHash Labs - ENS Referral Program Proposal"
+        />
+      </Head>
+      <main className="flex flex-col items-center justify-between">
+        <ENSServiceProviderBanner />
+
+        <Header className="w-full" />
+        <section className="bg-gray-50 w-full">
+          <Product2
+            title="ENS Referral Program"
+            subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
+            illustration={
+              <Image
+                quality={100}
+                width={568}
+                height={360}
+                className="w-full h-auto"
+                src="/images/ens-incentive.png"
+                alt="hero"
               />
-            );
-          })}
-        </div>
-      </section>
-      <Footer />
-    </main>
+            }
+            greenLabelText="Proposal pending"
+            buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
+          />
+        </section>
+        <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
+          <div className="flex flex-col md:flex-row items-start justify-center max-w-[1216px]">
+            {items.map((item, index) => {
+              return (
+                <Item
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  text={item.text}
+                  buttonUrl={item.buttonUrl}
+                  greenLabelText={item.greenLabelText}
+                  isInverted={index % 2 === 1}
+                />
+              );
+            })}
+          </div>
+        </section>
+        <Footer />
+      </main>
+    </>
   );
 }
 
