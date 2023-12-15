@@ -21,15 +21,6 @@ export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
             ENS Referral Program
           </Link>
           <Link
-            onClick={(e) => {
-              e.preventDefault();
-
-              if (router.pathname === "/") {
-                window?.scrollTo(0, Number.MAX_SAFE_INTEGER);
-              } else {
-                router.push("/#joinOurTeam");
-              }
-            }}
             href={origin + "/#joinOurTeam"}
             className="px-[16px] py-[9px] bg-white text-black border border-gray-300 rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-100 transition-colors duration-200"
             style={{
