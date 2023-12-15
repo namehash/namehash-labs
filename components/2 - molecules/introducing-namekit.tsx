@@ -11,9 +11,7 @@ export const IntroducingNamekit = () => {
     >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px] md:pb-10">
         <PreSectionText>WHAT WE&apos;RE BUILDING</PreSectionText>
-        <a href="#introducingNamekit">
-          <SectionTitle>Introducing NameKit</SectionTitle>
-        </a>
+        <SectionTitle>Introducing NameKit</SectionTitle>
         <SectionText className="text-center">
           <Balancer>
             Dedicated 100% to the growth of ENS. NameKit includes sub-modules

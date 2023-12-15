@@ -11,13 +11,11 @@ export const TheVisionSection = () => {
     >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] lg:mx-10 md:pb-10">
         <PreSectionText>THE VISION</PreSectionText>
-        <a href="#theVisionSection">
-          <SectionTitle>
-            <Balancer>
-              Bring ENS to millions of people where they already are
-            </Balancer>
-          </SectionTitle>
-        </a>
+        <SectionTitle>
+          <Balancer>
+            Bring ENS to millions of people where they already are
+          </Balancer>
+        </SectionTitle>
         <SectionText className="text-center">
           <Balancer>
             Directly embed ENS onboarding into every wallet, app, and game.
