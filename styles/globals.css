@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .animated-white-underline {
+    @apply underline underline-offset-2 decoration-gray-400 decoration-1 hover:decoration-2 hover:decoration-white transition-all;
+  }
+  .animated-black-underline {
+    @apply underline underline-offset-2 decoration-gray-400 decoration-1 hover:decoration-2 hover:decoration-gray-600 transition-all;
+  }
+}
+
 @keyframes colorTransition {
   0%,
   100% {

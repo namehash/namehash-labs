@@ -5,12 +5,12 @@ export const CollaborationPartnersSection = () => {
   return (
     <section
       className="lg:px-[110px] px-5 py-[122px] w-full bg-gray-50"
-      id="collaboration-partners"
+      id="ourPartnersSection"
     >
       <div className="m-auto flex flex-col items-center justify-center">
         <div className="flex flex-col gap-3 items-center max-w-[635px]">
           <PreSectionText>OUR PARTNERS</PreSectionText>
-          <a href="#collaboration-partners">
+          <a href="#ourPartnersSection">
             <SectionTitle>Let’s work together</SectionTitle>
           </a>
           <SectionText className="text-center">

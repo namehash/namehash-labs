@@ -6,12 +6,12 @@ import appsAnimation from "./../../public/animation/apps-animation.json";
 export const TheVisionSection = () => {
   return (
     <section
-      id="the-vision"
+      id="theVisionSection"
       className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
     >
-      <div className="flex flex-col items-center justify-center gap-3 mb-[60px]">
+      <div className="flex flex-col items-center justify-center gap-3 mb-[60px] lg:mx-10 md:pb-10">
         <PreSectionText>THE VISION</PreSectionText>
-        <a href="#the-vision">
+        <a href="#theVisionSection">
           <SectionTitle>
             <Balancer>
               Bring ENS to millions of people where they already are
@@ -24,7 +24,11 @@ export const TheVisionSection = () => {
           </Balancer>
         </SectionText>
       </div>
-      <Lottie className="h-auto" animationData={appsAnimation} loop={true} />
+      <Lottie
+        className="w-[460px] h-[204px] xSmall:w-[552px] xSmall:h-[245px] small:w-[668px] small:h-[297px] sm:w-[735px] sm:h-[327px] md:w-[764px] md:h-[339px] medium2x:w-[801px] medium2x:h-[355px] lg:w-[984px] lg:h-[437px] xl:w-[1400px] xl:h-[622px]"
+        animationData={appsAnimation}
+        loop={true}
+      />
     </section>
   );
 };

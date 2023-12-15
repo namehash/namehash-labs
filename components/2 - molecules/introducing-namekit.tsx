@@ -6,12 +6,12 @@ import waveAnimation from "./../../public/animation/wave-animation.json";
 export const IntroducingNamekit = () => {
   return (
     <section
-      id="introducing-namekit"
+      id="introducingNamekit"
       className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
     >
-      <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px]">
-        <PreSectionText>WHAT WE’RE BUILDING</PreSectionText>
-        <a href="#introducing-namekit">
+      <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px] md:pb-10">
+        <PreSectionText>WHAT WE&apos;RE BUILDING</PreSectionText>
+        <a href="#introducingNamekit">
           <SectionTitle>Introducing NameKit</SectionTitle>
         </a>
         <SectionText className="text-center">
@@ -22,7 +22,7 @@ export const IntroducingNamekit = () => {
         </SectionText>
       </div>
       <Lottie
-        className="relative max-w-[1216px] w-full h-auto"
+        className="w-[480px] h-[212px] xSmall:w-[576px] xSmall:h-[255px] small:w-[634px] small:h-[281px] sm:w-[697px] sm:h-[309px] medium2x:w-[767px] medium2x:h-[340px] md:w-[728px] md:h-[323px] lg:w-[984px] lg:h-[437px] xl:w-[1400px] xl:h-[622px]"
         animationData={waveAnimation}
         loop={true}
       />

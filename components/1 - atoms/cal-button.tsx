@@ -1,9 +1,7 @@
-// @ts-ignore
-
-export default function CalButton({
+export const CalButton = ({
   children,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       data-cal-link="namehashlabs/namehashlabs"
@@ -13,4 +11,4 @@ export default function CalButton({
       {children}
     </button>
   );
-}
+};
