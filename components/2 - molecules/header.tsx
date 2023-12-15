@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NameHashLabsLogo, CalButton } from "../1 - atoms";
+import { origin } from "@/lib/shared/origin";
 import { useRouter } from "next/router";
 
 export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
@@ -19,25 +20,24 @@ export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
           >
             ENS Referral Program
           </Link>
-          <button
-            onClick={() => {
-              if (router.pathname === "/") {
-                const el = document.getElementById("joinOurTeam");
+          <Link
+            onClick={(e) => {
+              e.preventDefault();
 
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                }
+              if (router.pathname === "/") {
+                window?.scrollTo(0, Number.MAX_SAFE_INTEGER);
               } else {
                 router.push("/#joinOurTeam");
               }
             }}
+            href={origin + "/#joinOurTeam"}
             className="px-[16px] py-[9px] bg-white text-black border border-gray-300 rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-100 transition-colors duration-200"
             style={{
               boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
             }}
           >
             Open positions
-          </button>
+          </Link>
           <CalButton className="hidden sm:inline px-[16px] py-[9px] bg-black text-white border border-black rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-800 transition-colors duration-200">
             Schedule a call
           </CalButton>

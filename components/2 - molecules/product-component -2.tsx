@@ -48,7 +48,7 @@ export const Product2 = ({
                   className="px-4 py-2 bg-green-100 border border-green-100 rounded-full"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
+                  <p className="text-sm leading-[18px] font-medium text-green-800 font-variant-normal">
                     {greenLabelText}
                   </p>
                 </div>

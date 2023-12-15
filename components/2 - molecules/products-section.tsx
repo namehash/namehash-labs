@@ -7,8 +7,8 @@ import Image from "next/image";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
 import { SectionText } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
+import { origin } from "@/lib/shared/origin";
 import cc from "classcat";
-
 interface ProductProps {
   label: {
     icon: React.ReactElement;
@@ -22,6 +22,7 @@ interface ProductProps {
   buttonUrl?: string;
   greenLabelText?: string;
   sectionId?: string;
+  withoutExternalLinkIconInCTA?: boolean;
 }
 
 export const Product = ({
@@ -34,6 +35,7 @@ export const Product = ({
   isInverted,
   buttonUrl,
   greenLabelText,
+  withoutExternalLinkIconInCTA,
 }: ProductProps) => {
   return (
     <section
@@ -72,10 +74,10 @@ export const Product = ({
               {greenLabelText && (
                 <div className="">
                   <div
-                    className="px-3 py-0.5 bg-green-100 border border-green-100 rounded-full"
+                    className="px-3 bg-green-100 border border-green-100 rounded-full"
                     style={{ whiteSpace: "nowrap" }}
                   >
-                    <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
+                    <p className="text-sm leading-[22px] font-medium text-green-800 font-variant-normal">
                       {greenLabelText}
                     </p>
                   </div>
@@ -89,13 +91,15 @@ export const Product = ({
               <div className="flex lg:justify-start justify-center">
                 <a
                   href={buttonUrl}
-                  target="_blank"
+                  target={withoutExternalLinkIconInCTA ? undefined : "_blank"}
                   className="border rounded-[8px] bg-black text-white px-4 py-2 transition-colors duration-200 hover:bg-gray-800 inline-flex items-center justify-center"
                 >
                   Learn more
-                  <div className="ml-3 w-5 h-5">
-                    <ExternalLinkIcon />
-                  </div>
+                  {!withoutExternalLinkIconInCTA && (
+                    <div className="ml-3 w-5 h-5">
+                      <ExternalLinkIcon />
+                    </div>
+                  )}
                 </a>
               </div>
             )}
@@ -119,12 +123,13 @@ export const ProductsSection = () => {
           label={product.label}
           title={product.title}
           subtitle={product.subtitle}
-          illustration={product.illustration}
           gradient={product.gradient}
           isInverted={index % 2 === 1}
-          buttonUrl={product.buttonUrl}
-          greenLabelText={product.greenLabelText}
           sectionId={product.sectionId}
+          buttonUrl={product.buttonUrl}
+          illustration={product.illustration}
+          greenLabelText={product.greenLabelText}
+          withoutExternalLinkIconInCTA={product.withoutExternalLinkIconInCTA}
         />
       ))}
     </>
@@ -171,9 +176,10 @@ const products: ProductProps[] = [
         alt="hero"
       />
     ),
-    greenLabelText: "PROPOSAL PENDING",
-    buttonUrl: "https://namehashlabs.org/ens-referral-program",
+    greenLabelText: "Proposal pending",
+    buttonUrl: origin + "/ens-referral-program",
     sectionId: "ens-referral-program",
+    withoutExternalLinkIconInCTA: true,
   },
   {
     title: "NameGuard",
@@ -215,7 +221,7 @@ const products: ProductProps[] = [
         alt="hero"
       />
     ),
-    greenLabelText: "COMING SOON",
+    greenLabelText: "Coming soon",
     sectionId: "ens-node",
   },
 ];

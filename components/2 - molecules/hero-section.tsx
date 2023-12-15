@@ -58,18 +58,18 @@ export const HeroSection = () => {
           }}
         />
 
-      <button
-        onClick={() => {
-          const theVision = document.getElementById("theVisionSection");
-          if (theVision) {
-            theVision.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-        className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
-      >
-        <ChevronDown />
-      </button>
-    </section>
+        <button
+          onClick={() => {
+            const theVision = document.getElementById("theVisionSection");
+            if (theVision) {
+              theVision.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+        >
+          <ChevronDown />
+        </button>
+      </section>
     </>
   );
 };

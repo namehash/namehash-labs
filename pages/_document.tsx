@@ -22,7 +22,6 @@ export default function Document() {
           property="og:description"
           content="NameHash Labs builds open source public goods that drive the global adoption of ENS."
         />
-        <meta property="og:url" content="https://namehashlabs.org" />
 
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

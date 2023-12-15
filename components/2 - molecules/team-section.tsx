@@ -3,6 +3,7 @@ import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
 import { Balancer } from "react-wrap-balancer";
 import { TeamMemberComponent } from "./team-member-component";
+import Link from "next/link";
 
 export const TeamSection = () => {
   return (
@@ -36,18 +37,16 @@ export const TeamSection = () => {
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
           <p className="text-sm text-center leading-5 font-normal text-gray-500">
             Check out our{" "}
-            <button
-              onClick={() => {
-                const el = document.getElementById("joinOurTeam");
-
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                }
+            <Link
+              onClick={(e) => {
+                e.preventDefault();
+                window?.scrollTo(0, Number.MAX_SAFE_INTEGER);
               }}
+              href="/#joinOurTeam"
               className="text-gray-500 underline hover:text-black transition-colors duration-200"
             >
               open roles
-            </button>
+            </Link>
           </p>
         </div>
       </div>

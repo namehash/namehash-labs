@@ -1,11 +1,30 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export const JoinOurTeamSection = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.asPath.includes("#joinOurTeam")) {
+      window.scrollTo(0, Number.MAX_SAFE_INTEGER);
+
+      // The need of this timeout is due to
+      // the fact the first scrollTo is not
+      // actually working to the bottom of the
+      // page on page load. It might be related
+      // to the fact that the page is not fully
+      // loaded yet. This second scrollTo is
+      // here to fix this issue.
+      setTimeout(() => {
+        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
+      }, 500);
+    }
+  }, [router]);
+
   return (
-    <section
-      id="joinOurTeam"
-      className="flex flex-col lg:flex-row items-center px-5 pb-5 pt-[60px] mx-auto lg:max-w-[1024px] xl:max-w-[1280px] max-w-[500px] md:max-w-[700px] lg:py-[86px]"
-    >
+    <section className="flex flex-col lg:flex-row items-center px-5 pb-5 pt-[60px] mx-auto lg:max-w-[1024px] xl:max-w-[1280px] max-w-[500px] md:max-w-[700px] lg:py-[86px]">
       <div className="text-center lg:text-left">
         <h3 className="mb-3 text-xs font-medium text-gray-500">
           LOOKING FOR GROUP{" "}
@@ -21,7 +40,7 @@ export const JoinOurTeamSection = () => {
           <br />
           <div className="inline space-x-1">
             <p className="inline">
-              We&apos; actively seeking talented people of all backgrounds to
+              We&apos;re actively seeking talented people of all backgrounds to
               apply to join our team. Interested? Send an email with your
               details to
             </p>
@@ -39,9 +58,10 @@ export const JoinOurTeamSection = () => {
       </div>
       <div className="lg:ml-[85px] mt-6 mx-auto flex justify-center">
         <Image
+          quality={100}
           alt="Join our team image"
-          src="/images/our-team.svg"
-          className="md:min-w-[502px] xl:min-w-[588px]"
+          src="/images/our-team.png"
+          className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
           height={231}
           width={335}
         />

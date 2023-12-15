@@ -12,6 +12,8 @@ import {
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { origin } from "@/lib/shared/origin";
 
 export default function Home() {
   useEffect(() => {
@@ -33,6 +35,8 @@ export default function Home() {
     })();
   }, []);
 
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -48,6 +52,8 @@ export default function Home() {
           property="og:image:alt"
           content="NameHash Labs - ENS Referral Program Proposal"
         />
+
+        <meta property="og:url" content={origin + router.pathname} />
       </Head>
       <main className="flex flex-col items-center justify-between">
         <ENSServiceProviderBanner />
