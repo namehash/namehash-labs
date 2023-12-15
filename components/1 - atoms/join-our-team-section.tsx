@@ -19,7 +19,7 @@ export const JoinOurTeamSection = () => {
       // here to fix this issue.
       setTimeout(() => {
         window.scrollTo(0, Number.MAX_SAFE_INTEGER);
-      }, 500);
+      }, 1000);
     }
   }, [router]);
 
