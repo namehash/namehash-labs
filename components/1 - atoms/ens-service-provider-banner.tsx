@@ -11,7 +11,7 @@ export const ENSServiceProviderBanner = () => {
       </div>
       <a
         target="_blank"
-        href="https://t.me/namehash"
+        href="https://twitter.com/NamehashLabs"
         className="animated-white-underline"
       >
         <p className="hidden sm:block">Follow us on Twitter</p>
