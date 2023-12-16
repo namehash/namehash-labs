@@ -19,6 +19,7 @@ interface ProductProps {
   illustration: React.ReactElement;
   gradient?: React.ReactElement;
   isInverted?: boolean;
+  buttonLabel?: string;
   buttonUrl?: string;
   greenLabelText?: string;
   sectionId?: string;
@@ -33,6 +34,7 @@ export const Product = ({
   illustration,
   gradient,
   isInverted,
+  buttonLabel,
   buttonUrl,
   greenLabelText,
   withoutExternalLinkIconInCTA,
@@ -61,15 +63,16 @@ export const Product = ({
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
-              <a href={`#${sectionId}`}>
-                <h2
-                  className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] shadow-black transition-all duration-200"
-                  style={{ whiteSpace: "nowrap" }}
-                >
-                  {title}
-                </h2>
-              </a>
+            <div
+              id={sectionId}
+              className="flex flex-wrap gap-3 items-center justify-center lg:justify-start"
+            >
+              <h2
+                className="text-2xl leading-8 lg:text-4xl lg:leading-10 font-bold lg:text-start text-center"
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {title}
+              </h2>
 
               {greenLabelText && (
                 <div className="">
@@ -94,7 +97,7 @@ export const Product = ({
                   target={withoutExternalLinkIconInCTA ? undefined : "_blank"}
                   className="border rounded-[8px] bg-black text-white px-4 py-2 transition-colors duration-200 hover:bg-gray-800 inline-flex items-center justify-center"
                 >
-                  Learn more
+                  {buttonLabel || "Learn more"}
                   {!withoutExternalLinkIconInCTA && (
                     <div className="ml-3 w-5 h-5">
                       <ExternalLinkIcon />
@@ -127,6 +130,7 @@ export const ProductsSection = () => {
           isInverted={index % 2 === 1}
           sectionId={product.sectionId}
           buttonUrl={product.buttonUrl}
+          buttonLabel={product.buttonLabel}
           illustration={product.illustration}
           greenLabelText={product.greenLabelText}
           withoutExternalLinkIconInCTA={product.withoutExternalLinkIconInCTA}
@@ -184,7 +188,7 @@ const products: ProductProps[] = [
   {
     title: "NameGuard",
     subtitle:
-      "Provide a fully secure environment for ENS names in your Web3 app, eliminate hidden risks for your users, and encourage optimal use of ENS. ",
+      "Provide a safer environment for ENS names in your Web3 app, eliminate hidden risks for your users, and encourage optimal use of ENS.",
     label: {
       title: "Protect the ENS community",
       icon: <ShieldCheckIcon className="h-5 w-5 text-gray-500" />,
@@ -199,7 +203,7 @@ const products: ProductProps[] = [
         alt="hero"
       />
     ),
-
+    buttonLabel: "Try it now",
     buttonUrl: "https://www.nameguard.io/",
     sectionId: "nameguard",
   },

@@ -29,9 +29,7 @@ export const JoinOurTeamSection = () => {
         <h3 className="mb-3 text-xs font-medium text-gray-500">
           LOOKING FOR GROUP{" "}
         </h3>
-        <a href="#joinOurTeam">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-3">Join our team</h2>
-        </a>
+        <h2 className="text-3xl lg:text-4xl font-bold mb-3">Join our team</h2>
         <div className="mb-6 text-lg text-gray-500">
           <p>
             Work on leading open-source technologies for the ENS Protocol and
@@ -60,7 +58,7 @@ export const JoinOurTeamSection = () => {
         <Image
           quality={100}
           alt="Join our team image"
-          src="/images/our-team.png"
+          src="/images/join-our-team.png"
           className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
           height={231}
           width={335}

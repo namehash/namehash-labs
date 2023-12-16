@@ -10,9 +10,7 @@ export const TeamSection = () => {
     <section id="meetOurTeamSection" className="my-20 px-5">
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px]">
         <PreSectionText>WHO WE ARE</PreSectionText>
-        <a href="#meetOurTeamSection">
-          <SectionTitle className="my-3">Meet our team</SectionTitle>
-        </a>
+        <SectionTitle className="my-3">Meet our team</SectionTitle>
         <SectionText className="w-full flex items-center justify-center text-center">
           <Balancer>
             NameHash Labs is a team of builders dedicated to the growth of ENS.
@@ -31,11 +29,11 @@ export const TeamSection = () => {
         })}
 
         <div
-          className="text-center w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
+          className="px-2 text-center w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
           style={{ aspectRatio: "1 / 1" }}
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
-          <p className="text-sm text-center leading-5 font-normal text-gray-500">
+          <p className="text-sm text-center leading-5 font-normal text-gray-500 px-2">
             Check out our{" "}
             <Link
               onClick={(e) => {

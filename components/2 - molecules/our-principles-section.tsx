@@ -10,9 +10,7 @@ export const OurPrinciplesSection = () => {
       className="lg:px-[112px] w-full flex flex-col items-center justify-center px-5 py-20 border-t border-b border-gray-200"
     >
       <PreSectionText>What Guides us</PreSectionText>
-      <a href="#ourPrinciplesSection">
-        <SectionTitle>Our principles</SectionTitle>
-      </a>
+      <SectionTitle>Our principles</SectionTitle>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1216px]">
         {principles.map((item) => {
           return (
