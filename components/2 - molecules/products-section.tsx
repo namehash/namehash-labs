@@ -7,7 +7,6 @@ import Image from "next/image";
 import { ExternalLinkIcon } from "../1 - atoms/icons/external-link-icon";
 import { SectionText } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { origin } from "@/lib/shared/origin";
 import cc from "classcat";
 interface ProductProps {
   label: {
@@ -181,7 +180,7 @@ const products: ProductProps[] = [
       />
     ),
     greenLabelText: "Proposal pending",
-    buttonUrl: origin + "/ens-referral-program",
+    buttonUrl: "https://namehashlabs.org/ens-referral-program",
     sectionId: "ens-referral-program",
     withoutExternalLinkIconInCTA: true,
   },
