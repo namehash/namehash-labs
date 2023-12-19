@@ -60,8 +60,8 @@ export const JoinOurTeamSection = () => {
           alt="Join our team image"
           src="/images/join-our-team.png"
           className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
-          height={231}
-          width={335}
+          height={800}
+          width={1166}
         />
       </div>
     </section>
