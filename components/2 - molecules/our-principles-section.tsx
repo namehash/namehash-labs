@@ -48,7 +48,7 @@ const principles: PrinciplesProps[] = [
           target="_blank"
           className="underline hover:text-black transition-colors duration-200 cursor-pointer"
         >
-          open source
+          open sourced
         </a>
         , ensuring that our technology is accessible and adaptable.
       </>
