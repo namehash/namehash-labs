@@ -1,7 +1,7 @@
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import Lottie from "lottie-react";
-import appsAnimation from "./../../public/animation/apps-animation.json";
+import appsAnimation from "./../../public/static/animation/apps-animation.json";
 
 export const TheVisionSection = () => {
   return (
