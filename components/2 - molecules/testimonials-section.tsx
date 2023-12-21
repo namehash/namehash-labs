@@ -7,15 +7,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import Image from "next/image";
 
 const testimonials: Testimonial[] = [
   {
     text: (
       <>
         “<span className="font-semibold">Namehash Labs</span> have a track
-        record of building useful infrastructure, and furthermore of giving
-        careful thought to what needs are not being served well by existing
-        solutions.”
+        record of building <span className="font-semibold">useful</span>{" "}
+        infrastructure, and furthermore of giving careful thought to what needs
+        are not being served well by existing solutions.”
       </>
     ),
     author: {
@@ -26,22 +27,98 @@ const testimonials: Testimonial[] = [
   {
     text: (
       <>
-        “<span className="font-semibold">Super Cool</span> have a track record
-        of building useful infrastructure, and furthermore of giving careful
-        thought to what needs are not being served well by existing solutions.”
+        &quot;I have been following{" "}
+        <span className="font-semibold">NameHash development</span>
+        closely for over a year and was lucky enough to have a demo of their ENS
+        registration website last year and{" "}
+        <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
     author: {
-      name: "Vitalik",
-      ensName: "vitalik.eth",
+      name: "Alex Van de Sande",
+      ensName: "avsa.eth",
+    },
+  },
+  {
+    text: (
+      <>
+        &quot;NameHash Labs have already shown themselves to be{" "}
+        <span className="font-semibold">very capable</span> with the
+        contributions they&apos;ve already made, with{" "}
+        <span className="font-semibold">lots of great work planned</span> going
+        into the future.&quot;
+      </>
+    ),
+    author: {
+      name: "Brantly Millegan",
+      ensName: "brantly.eth",
+    },
+  },
+  {
+    text: (
+      <>
+        &quot;The NameHash team have{" "}
+        <span className="font-semibold">
+          already shipped a significant amount of impact
+        </span>{" "}
+        to ENS through different services & infrastructure and have a
+        <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
+      </>
+    ),
+    author: {
+      name: "James",
+      ensName: "james.eth",
+    },
+  },
+  {
+    text: (
+      <>
+        &quot;The team has made{" "}
+        <span className="font-semibold">many contributions</span> on various ENS
+        related toolsets ...&quot;
+      </>
+    ),
+    author: {
+      name: "Makoto Inoue",
+      ensName: "matoken.eth",
+    },
+  },
+  {
+    text: (
+      <>
+        &quot;... notable of course are the modular tools like NameKit and
+        NameGuard that create a broader application potential within the ENS
+        ecosystem.{" "}
+        <span className="font-semibold">Solid delivery track record</span>{" "}
+        ...&quot;
+      </>
+    ),
+    author: {
+      name: "Simona Pop",
+      ensName: "simona.eth",
+    },
+  },
+  {
+    text: (
+      <>
+        &quot;... this is a{" "}
+        <span className="font-semibold">strong support</span> because they are
+        <span className="font-semibold">100% focused on improving ENS</span>. I
+        would like to see them continue developing NameGuard ... and develop a
+        method for ENS referrals.&quot;
+      </>
+    ),
+    author: {
+      name: "Coltron",
+      ensName: "coltron.eth",
     },
   },
 ];
 
 interface Testimonial {
   author: {
-    name: String;
-    ensName: String;
+    name: string;
+    ensName: string;
   };
   text: React.ReactNode;
 }
@@ -95,7 +172,14 @@ export const TestimonialsSection = () => {
                     <div
                       className={`flex gap-5 w-full items-center justify-center`}
                     >
-                      <div className="w-[60px] h-[60px] bg-yellow-500"></div>
+                      <Image
+                        src={`https://metadata.ens.domains/mainnet/avatar/${testimonial.author.ensName}`}
+                        alt={testimonial.author.ensName}
+                        width={60}
+                        height={60}
+                        className="w-[60px] h-[60px] border-0"
+                        priority={true}
+                      />
                       <div className="flex flex-col">
                         <p className="text-2xl leading-8 font-semibold">
                           {testimonial.author.ensName}
