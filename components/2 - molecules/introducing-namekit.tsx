@@ -1,7 +1,7 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 import Lottie from "lottie-react";
-import waveAnimation from "./../../public/static/animation/wave-animation.json";
+import waveAnimation from "./../../public/animation/wave-animation.json";
 
 export const IntroducingNamekit = () => {
   return (
