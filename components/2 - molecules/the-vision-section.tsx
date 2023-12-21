@@ -9,9 +9,7 @@ export const TheVisionSection = () => {
 
   useEffect(() => {
     fetch("/api/apps-animation")
-      .then((animation) => {
-        return animation.json();
-      })
+      .then((animation) => animation.json())
       .then((animationJSON) => setAnimationData(animationJSON))
       .catch((err) => {
         console.log(err);
