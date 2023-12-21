@@ -1,8 +1,12 @@
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionTitle } from "../1 - atoms";
 import { QuoteIcon } from "../1 - atoms/icons/quote-icon";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 const testimonials: Testimonial[] = [
   {
@@ -29,8 +33,8 @@ const testimonials: Testimonial[] = [
       </>
     ),
     author: {
-      name: "Eduardo Lennert Ramme",
-      ensName: "edulennert.eth",
+      name: "Vitalik",
+      ensName: "vitalik.eth",
     },
   },
 ];
@@ -45,27 +49,9 @@ interface Testimonial {
 
 export const TestimonialsSection = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState("right");
-  const [animate, setAnimate] = useState(false);
 
-  const handlePrevClick = () => {
-    setSlideDirection("left");
-    setAnimate(true);
-    setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) =>
-        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-      );
-    }, 250);
-  };
-
-  const handleNextClick = () => {
-    setSlideDirection("right");
-    setAnimate(true);
-    setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) =>
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 250);
+  const handleSlideChange = (swiper: any) => {
+    setCurrentTestimonialIndex(swiper.activeIndex);
   };
 
   return (
@@ -78,7 +64,6 @@ export const TestimonialsSection = () => {
           <PreSectionText>WHAT PEOPLE ARE SAYING</PreSectionText>
           <SectionTitle>Testimonials</SectionTitle>
         </div>
-
         <div className="flex flex-col gap-10 items-center w-full relative">
           <div
             className="absolute w-full h-full"
@@ -90,69 +75,57 @@ export const TestimonialsSection = () => {
           ></div>
 
           <QuoteIcon />
+          <Swiper
+            navigation={true}
+            modules={[Navigation]}
+            onSlideChange={handleSlideChange}
+            className="rewind w-full"
+          >
+            {testimonials.map((testimonial, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <div className="w-full flex flex-col gap-10">
+                    <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
+                      <p
+                        className={`text-[30px] font-light text-center leading-[44px] m-auto`}
+                      >
+                        <Balancer>{testimonial.text}</Balancer>
+                      </p>
+                    </div>
 
-          <div className="flex justify-between gap-10 items-center w-full lg:px-20 relative">
-            <div
-              onClick={handlePrevClick}
-              className="hidden lg:flex  items-center justify-center w-10 h-10 rounded-full border border-gray-200 cursor-pointer transition-colors duration-200 hover:bg-gray-50 absolute left-0"
-            >
-              <ChevronLeftIcon className="w-5 h-5 text-black" />
+                    <div
+                      className={`flex gap-5 w-full items-center justify-center`}
+                    >
+                      <div className="w-[60px] h-[60px] bg-yellow-500"></div>
+                      <div className="flex flex-col">
+                        <p className="text-2xl leading-8 font-semibold">
+                          {testimonial.author.ensName}
+                        </p>
+                        <p className="text-lg leading-7 font-normal text-gray-500">
+                          {testimonial.author.name}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+
+            <div className="flex items-center justify-center mt-[64px] gap-1 m-auto w-full">
+              {testimonials.map((_, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`w-[77px] h-1 transition-all duration-200 ${
+                      index === currentTestimonialIndex
+                        ? "bg-black"
+                        : "bg-gray-300"
+                    }`}
+                  ></div>
+                );
+              })}
             </div>
-
-            <p
-              className={`text-[30px] font-light text-center leading-[44px] m-auto ${
-                animate
-                  ? slideDirection === "left"
-                    ? "animate-slideIn"
-                    : "animate-slideOut"
-                  : ""
-              }`}
-              onAnimationEnd={() => setAnimate(false)}
-            >
-              <Balancer>{testimonials[currentTestimonialIndex].text}</Balancer>
-            </p>
-
-            <div
-              onClick={handleNextClick}
-              className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 cursor-pointer transition-colors duration-200 hover:bg-gray-50 absolute right-0"
-            >
-              <ChevronRightIcon className="w-5 h-5 text-black" />
-            </div>
-          </div>
-
-          <div className="w-full px-20">
-            <div
-              className={`flex gap-5 w-full items-center justify-center ${
-                animate
-                  ? slideDirection === "left"
-                    ? "animate-slideIn"
-                    : "animate-slideOut"
-                  : ""
-              }`}
-            >
-              <div className="w-[60px] h-[60px] bg-yellow-500"></div>
-              <div className="flex flex-col">
-                <p className="text-2xl leading-8 font-semibold">
-                  {testimonials[currentTestimonialIndex].author.ensName}
-                </p>
-                <p className="text-lg leading-7 font-normal text-gray-500">
-                  {testimonials[currentTestimonialIndex].author.name}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex gap-1">
-          {testimonials.map((_, index) => {
-            return (
-              <div
-                key={index}
-                className={`w-[77px] h-1 transition-all duration-200 ${
-                  index === currentTestimonialIndex ? "bg-black" : "bg-gray-300"
-                }`}
-              ></div>
-            );
-          })}
+          </Swiper>
         </div>
       </div>
     </section>
