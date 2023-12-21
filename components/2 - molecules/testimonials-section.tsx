@@ -45,17 +45,27 @@ interface Testimonial {
 
 export const TestimonialsSection = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState("right");
+  const [animate, setAnimate] = useState(false);
 
   const handlePrevClick = () => {
-    setCurrentTestimonialIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+    setSlideDirection("left");
+    setAnimate(true);
+    setTimeout(() => {
+      setCurrentTestimonialIndex((prevIndex) =>
+        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      );
+    }, 250);
   };
 
   const handleNextClick = () => {
-    setCurrentTestimonialIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
+    setSlideDirection("right");
+    setAnimate(true);
+    setTimeout(() => {
+      setCurrentTestimonialIndex((prevIndex) =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 250);
   };
 
   return (
@@ -69,7 +79,16 @@ export const TestimonialsSection = () => {
           <SectionTitle>Testimonials</SectionTitle>
         </div>
 
-        <div className="flex flex-col gap-10 items-center w-full">
+        <div className="flex flex-col gap-10 items-center w-full relative">
+          <div
+            className="absolute w-full h-full"
+            style={{
+              opacity: "8%",
+              background:
+                "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, #FFF 100%), linear-gradient(180deg, #FBA600 24.22%, #F112D9 48.69%, #4C3FA0 77.9%, #2ED3C6 96.84%)",
+            }}
+          ></div>
+
           <QuoteIcon />
 
           <div className="flex justify-between gap-10 items-center w-full lg:px-20 relative">
@@ -80,7 +99,16 @@ export const TestimonialsSection = () => {
               <ChevronLeftIcon className="w-5 h-5 text-black" />
             </div>
 
-            <p className="text-[30px] font-light text-center leading-[44px] m-auto">
+            <p
+              className={`text-[30px] font-light text-center leading-[44px] m-auto ${
+                animate
+                  ? slideDirection === "left"
+                    ? "animate-slideIn"
+                    : "animate-slideOut"
+                  : ""
+              }`}
+              onAnimationEnd={() => setAnimate(false)}
+            >
               <Balancer>{testimonials[currentTestimonialIndex].text}</Balancer>
             </p>
 
@@ -92,15 +120,25 @@ export const TestimonialsSection = () => {
             </div>
           </div>
 
-          <div className="flex gap-5">
-            <div className="w-[60px] h-[60px] bg-yellow-500"></div>
-            <div className="flex flex-col">
-              <p className="text-2xl leading-8 font-semibold">
-                {testimonials[currentTestimonialIndex].author.ensName}
-              </p>
-              <p className="text-lg leading-7 font-normal text-gray-500">
-                {testimonials[currentTestimonialIndex].author.name}
-              </p>
+          <div className="w-full px-20">
+            <div
+              className={`flex gap-5 w-full items-center justify-center ${
+                animate
+                  ? slideDirection === "left"
+                    ? "animate-slideIn"
+                    : "animate-slideOut"
+                  : ""
+              }`}
+            >
+              <div className="w-[60px] h-[60px] bg-yellow-500"></div>
+              <div className="flex flex-col">
+                <p className="text-2xl leading-8 font-semibold">
+                  {testimonials[currentTestimonialIndex].author.ensName}
+                </p>
+                <p className="text-lg leading-7 font-normal text-gray-500">
+                  {testimonials[currentTestimonialIndex].author.name}
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -28,6 +28,18 @@ const config: Config = {
       },
     },
     keyframes: {
+      slideIn: {
+        "0%": { transform: "translateX(0)", opacity: "1" },
+        "33%": { transform: "translateX(15%)", opacity: "0" },
+        "66%": { transform: "translateX(-15%)", opacity: "0" },
+        "100%": { transform: "translateX(0%)", opacity: "1" },
+      },
+      slideOut: {
+        "0%": { transform: "translateX(0)", opacity: "1" },
+        "33%": { transform: "translateX(-15%)", opacity: "0" },
+        "66%": { transform: "translateX(15%)", opacity: "0" },
+        "100%": { transform: "translateX(0%)", opacity: "1" },
+      },
       fadeIn: {
         "0%": { opacity: "0" },
         "100%": { opacity: "1" },
@@ -40,6 +52,8 @@ const config: Config = {
     animation: {
       fadeIn: "fadeIn 1s linear forwards",
       spinSlow: "rotate360 150s linear infinite",
+      slideIn: "slideIn 0.5s ease-out",
+      slideOut: "slideOut 0.5s ease-in",
     },
   },
   plugins: [],
