@@ -13,9 +13,10 @@
     "@heroicons/react": "^2.0.18",
     "@vercel/analytics": "^1.1.1",
     "classcat": "^5.0.4",
-    "lottie-react": "^2.4.0",
     "fast-average-color": "^9.4.0",
-    "next": "14.0.1",
+    "lottie-react": "^2.4.0",
+    "next": "13.4.9",
+    "nextjs-cors": "^2.1.2",
     "react": "^18",
     "react-dom": "^18",
     "react-wrap-balancer": "^1.1.0"

@@ -17,7 +17,6 @@ import { origin } from "@/lib/shared/origin";
 
 export default function Home() {
   useEffect(() => {
-    console.log("open calendar");
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
