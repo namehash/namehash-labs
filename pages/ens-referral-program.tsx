@@ -1,6 +1,6 @@
 import { Footer } from "@/components/2 - molecules";
-import { getCalApi } from "@calcom/embed-react";
 import React, { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { Header } from "@/components/2 - molecules/header";
 import Image from "next/image";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
@@ -17,7 +17,6 @@ import { origin } from "@/lib/shared/origin";
 
 export default function Home() {
   useEffect(() => {
-    console.log("open calendar");
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
