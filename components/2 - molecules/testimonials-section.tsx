@@ -23,7 +23,6 @@ const testimonials: Testimonial[] = [
       ensName: "nick.eth",
     },
   },
-
   {
     text: (
       <>
