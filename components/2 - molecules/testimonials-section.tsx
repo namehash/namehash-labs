@@ -201,7 +201,7 @@ export const TestimonialsSection = () => {
               );
             })}
 
-            <div className="flex items-center justify-center mt-[64px] gap-1 m-auto w-full">
+            <div className="flex items-center justify-center lg:mt-[64px] mt-8 gap-1 m-auto w-full">
               {testimonials.map((_, index) => {
                 return (
                   <div
