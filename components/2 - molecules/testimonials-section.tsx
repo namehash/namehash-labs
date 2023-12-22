@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
 const testimonials: Testimonial[] = [
@@ -155,10 +155,14 @@ export const TestimonialsSection = () => {
           <QuoteIcon />
           <Swiper
             navigation={true}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             onSlideChange={handleSlideChange}
             className="rewind w-full"
             loop
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
           >
             {testimonials.map((testimonial, index) => {
               return (
