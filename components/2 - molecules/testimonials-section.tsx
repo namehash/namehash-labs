@@ -14,13 +14,14 @@ const testimonials: Testimonial[] = [
     text: (
       <>
         “<span className="font-semibold">Namehash Labs</span> have a track
-        record of building <span className="font-semibold">useful</span>{" "}
-        infrastructure, and furthermore of giving careful thought to what needs
-        are not being served well by existing solutions.”
+        record of building{" "}
+        <span className="font-semibold">useful infrastructure</span>, and
+        furthermore of giving careful thought to what needs are not being served
+        well by existing solutions.”
       </>
     ),
     author: {
-      name: "Nick Johnson",
+      title: "Lead developer of ENS & EF Alumni",
       ensName: "nick.eth",
     },
   },
@@ -28,14 +29,14 @@ const testimonials: Testimonial[] = [
     text: (
       <>
         &quot;I have been following{" "}
-        <span className="font-semibold">NameHash development</span>
-        closely for over a year and was lucky enough to have a demo of their ENS
+        <span className="font-semibold">NameHash development</span> closely for
+        over a year and was lucky enough to have a demo of their ENS
         registration website last year and{" "}
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
     author: {
-      name: "Alex Van de Sande",
+      title: "Co-founder of ENS & EF Alumni",
       ensName: "avsa.eth",
     },
   },
@@ -50,7 +51,7 @@ const testimonials: Testimonial[] = [
       </>
     ),
     author: {
-      name: "Brantly Millegan",
+      title: "Founder of EFP & Creator of SIWE",
       ensName: "brantly.eth",
     },
   },
@@ -61,12 +62,12 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">
           already shipped a significant amount of impact
         </span>{" "}
-        to ENS through different services & infrastructure and have a
+        to ENS through different services & infrastructure and have a{" "}
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
     author: {
-      name: "James",
+      title: "DAO Governance",
       ensName: "james.eth",
     },
   },
@@ -79,7 +80,7 @@ const testimonials: Testimonial[] = [
       </>
     ),
     author: {
-      name: "Makoto Inoue",
+      title: "Developer at ENS Labs",
       ensName: "matoken.eth",
     },
   },
@@ -94,7 +95,7 @@ const testimonials: Testimonial[] = [
       </>
     ),
     author: {
-      name: "Simona Pop",
+      title: "ENS DAO Steward",
       ensName: "simona.eth",
     },
   },
@@ -102,14 +103,14 @@ const testimonials: Testimonial[] = [
     text: (
       <>
         &quot;... this is a{" "}
-        <span className="font-semibold">strong support</span> because they are
+        <span className="font-semibold">strong support</span> because they are{" "}
         <span className="font-semibold">100% focused on improving ENS</span>. I
         would like to see them continue developing NameGuard ... and develop a
         method for ENS referrals.&quot;
       </>
     ),
     author: {
-      name: "Coltron",
+      title: "ENS DAO Steward",
       ensName: "coltron.eth",
     },
   },
@@ -117,7 +118,7 @@ const testimonials: Testimonial[] = [
 
 interface Testimonial {
   author: {
-    name: string;
+    title: string;
     ensName: string;
   };
   text: React.ReactNode;
@@ -127,7 +128,8 @@ export const TestimonialsSection = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const handleSlideChange = (swiper: any) => {
-    setCurrentTestimonialIndex(swiper.activeIndex);
+    const nextIndex = swiper.realIndex;
+    setCurrentTestimonialIndex(nextIndex);
   };
 
   return (
@@ -156,6 +158,7 @@ export const TestimonialsSection = () => {
             modules={[Navigation]}
             onSlideChange={handleSlideChange}
             className="rewind w-full"
+            loop
           >
             {testimonials.map((testimonial, index) => {
               return (
@@ -185,7 +188,7 @@ export const TestimonialsSection = () => {
                           {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
-                          {testimonial.author.name}
+                          {testimonial.author.title}
                         </p>
                       </div>
                     </div>
