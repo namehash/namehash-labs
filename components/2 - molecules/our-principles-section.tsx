@@ -33,32 +33,77 @@ export const OurPrinciplesSection = () => {
 interface PrinciplesProps {
   icon: React.ReactNode;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }
 
 const principles: PrinciplesProps[] = [
   {
     icon: <OpenSourceIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "Open sourced",
-    description:
-      "Everything we create will be open source, ensuring that our technology is accessible and adaptable.",
+    description: (
+      <>
+        Everything we create will be{" "}
+        <a
+          href="https://github.com/namehash/"
+          target="_blank"
+          className="underline hover:text-black transition-colors duration-200 cursor-pointer"
+        >
+          open sourced
+        </a>
+        , ensuring that our technology is accessible and adaptable.
+      </>
+    ),
   },
   {
     icon: <LockIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "Freely licensed",
-    description:
-      "All our work will be released freely under the MIT license. This license ensures the freedom to use, modify, and redistribute.",
+    description: (
+      <>
+        All our work will be released freely under the{" "}
+        <a
+          href="https://en.wikipedia.org/wiki/MIT_License"
+          target="_blank"
+          className="underline hover:text-black transition-colors duration-200 cursor-pointer"
+        >
+          MIT license
+        </a>
+        . This license ensures the freedom to use, modify, and redistribute.
+      </>
+    ),
   },
   {
     icon: <EnsIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "ENS exclusivity",
-    description:
-      "We are exclusively committed to the ENS namespace. We also agree to uphold all articles in the ENS DAO constitution.",
+    description: (
+      <>
+        We are exclusively committed to the ENS namespace. We also agree to
+        uphold all articles in the{" "}
+        <a
+          href="https://docs.ens.domains/v/governance/ens-dao-constitution"
+          target="_blank"
+          className="underline hover:text-black transition-colors duration-200 cursor-pointer"
+        >
+          ENS DAO constitution
+        </a>
+        .
+      </>
+    ),
   },
   {
     icon: <EnsIcon className="text-gray-400 w-5 h-5 shrink-0" />,
     title: "ENS interoperability",
-    description:
-      "We support the ENSIP process and the goal of strong interoperable standards for the ENS protocol.",
+    description: (
+      <>
+        We support the{" "}
+        <a
+          href="https://docs.ens.domains/ens-improvement-proposals/"
+          target="_blank"
+          className="underline hover:text-black transition-colors duration-200 cursor-pointer"
+        >
+          ENSIP process
+        </a>{" "}
+        and the goal of strong interoperable standards for the ENS protocol.
+      </>
+    ),
   },
 ];

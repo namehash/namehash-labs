@@ -18,7 +18,6 @@ import { TestimonialsSection } from "@/components/2 - molecules/testimonials-sec
 
 export default function Home() {
   useEffect(() => {
-    console.log("open calendar");
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
