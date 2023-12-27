@@ -135,6 +135,28 @@ export const TestimonialsSection = () => {
   };
 
   useEffect(() => {
+    if (swiperRef.current) {
+      const swiperInstance = swiperRef.current;
+
+      const onAutoplayStop = () => {
+        setIsAutoplayRunning(false);
+      };
+
+      const onAutoplayStart = () => {
+        setIsAutoplayRunning(true);
+      };
+
+      swiperInstance.on("autoplayStop", onAutoplayStop);
+      swiperInstance.on("autoplayStart", onAutoplayStart);
+
+      return () => {
+        swiperInstance.off("autoplayStop", onAutoplayStop);
+        swiperInstance.off("autoplayStart", onAutoplayStart);
+      };
+    }
+  }, [swiperRef]);
+
+  useEffect(() => {
     const slider = document.querySelector("#slider-projects");
     swiperRef.current?.autoplay.stop();
     if (slider) {
@@ -159,9 +181,12 @@ export const TestimonialsSection = () => {
   const handlePillClick = (index: number) => {
     setCurrentTestimonialIndex(index);
     if (swiperRef.current) {
+      swiperRef.current.autoplay.stop();
+      setIsAutoplayRunning(false);
       swiperRef.current.slideToLoop(index);
     }
   };
+
   const swiperContainerRef = useRef(null);
 
   return (
