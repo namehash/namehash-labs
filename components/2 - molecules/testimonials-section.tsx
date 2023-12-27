@@ -1,8 +1,8 @@
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionTitle } from "../1 - atoms";
 import { QuoteIcon } from "../1 - atoms/icons/quote-icon";
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useRef, useState } from "react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -126,11 +126,39 @@ interface Testimonial {
 
 export const TestimonialsSection = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const swiperRef = useRef<SwiperClass | null>(null);
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: SwiperClass) => {
     const nextIndex = swiper.realIndex;
     setCurrentTestimonialIndex(nextIndex);
   };
+
+  useEffect(() => {
+    const slider = document.querySelector("#slider-projects");
+    if (slider) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          swiperRef.current?.autoplay.start();
+          observer.disconnect();
+        }
+      });
+      observer.observe(slider);
+
+      return () => {
+        if (slider) {
+          observer.unobserve(slider);
+        }
+      };
+    }
+  }, []);
+
+  const handlePillClick = (index: number) => {
+    setCurrentTestimonialIndex(index);
+    if (swiperRef.current) {
+      swiperRef.current.slideToLoop(index);
+    }
+  };
+  const swiperContainerRef = useRef(null); // Ref for the swiper container
 
   return (
     <section
@@ -154,15 +182,17 @@ export const TestimonialsSection = () => {
 
           <QuoteIcon />
           <Swiper
+            id="slider-projects"
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
             navigation={true}
             modules={[Navigation, Autoplay]}
             onSlideChange={handleSlideChange}
             className="rewind w-full"
             loop
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
+            autoplay={false}
+            watchSlidesProgress={true}
           >
             {testimonials.map((testimonial, index) => {
               return (
@@ -201,17 +231,23 @@ export const TestimonialsSection = () => {
               );
             })}
 
-            <div className="flex items-center justify-center lg:mt-[64px] mt-8 gap-1 m-auto w-full">
+            <div className="navigation-pills flex items-center justify-center lg:mt-[64px] mt-8 gap-1 m-auto w-full">
               {testimonials.map((_, index) => {
                 return (
                   <div
                     key={index}
-                    className={`w-[77px] h-1 transition-all duration-200 ${
-                      index === currentTestimonialIndex
-                        ? "bg-black"
-                        : "bg-gray-300"
-                    }`}
-                  ></div>
+                    onClick={() => handlePillClick(index)}
+                    className="flex h-10 items-center justify-center group cursor-pointer"
+                  >
+                    <div
+                      key={index}
+                      className={`lg:w-20 w-10 h-2 transition duration-200 transform-all ${
+                        index === currentTestimonialIndex
+                          ? "bg-black"
+                          : "bg-gray-300"
+                      } group-hover:scale-y-250 cursor-pointer`}
+                    />
+                  </div>
                 );
               })}
             </div>

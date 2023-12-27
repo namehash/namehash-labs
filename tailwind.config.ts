@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      scale: {
+        "250": "2.5", // Add a '250' key for 2.5 times scaling
+      },
       screens: {
         xSmall: "425px",
         small: "550px",
