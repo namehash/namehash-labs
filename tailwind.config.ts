@@ -31,6 +31,10 @@ const config: Config = {
       },
     },
     keyframes: {
+      widen: {
+        "0%": { width: "0%" },
+        "100%": { width: "100%" },
+      },
       slideIn: {
         "0%": { transform: "translateX(0)", opacity: "1" },
         "33%": { transform: "translateX(15%)", opacity: "0" },
@@ -57,6 +61,7 @@ const config: Config = {
       spinSlow: "rotate360 150s linear infinite",
       slideIn: "slideIn 0.5s ease-out",
       slideOut: "slideOut 0.5s ease-in",
+      widen: "widen 5s linear forwards",
     },
   },
   plugins: [],

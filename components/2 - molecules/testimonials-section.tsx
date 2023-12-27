@@ -127,6 +127,7 @@ interface Testimonial {
 export const TestimonialsSection = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const swiperRef = useRef<SwiperClass | null>(null);
+  const [isAutoplayRunning, setIsAutoplayRunning] = useState(false);
 
   const handleSlideChange = (swiper: SwiperClass) => {
     const nextIndex = swiper.realIndex;
@@ -135,10 +136,12 @@ export const TestimonialsSection = () => {
 
   useEffect(() => {
     const slider = document.querySelector("#slider-projects");
+    swiperRef.current?.autoplay.stop();
     if (slider) {
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           swiperRef.current?.autoplay.start();
+          setIsAutoplayRunning(true);
           observer.disconnect();
         }
       });
@@ -147,6 +150,7 @@ export const TestimonialsSection = () => {
       return () => {
         if (slider) {
           observer.unobserve(slider);
+          setIsAutoplayRunning(false);
         }
       };
     }
@@ -158,7 +162,7 @@ export const TestimonialsSection = () => {
       swiperRef.current.slideToLoop(index);
     }
   };
-  const swiperContainerRef = useRef(null); // Ref for the swiper container
+  const swiperContainerRef = useRef(null);
 
   return (
     <section
@@ -191,7 +195,10 @@ export const TestimonialsSection = () => {
             onSlideChange={handleSlideChange}
             className="rewind w-full"
             loop
-            autoplay={false}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: true,
+            }}
             watchSlidesProgress={true}
           >
             {testimonials.map((testimonial, index) => {
@@ -243,10 +250,18 @@ export const TestimonialsSection = () => {
                       key={index}
                       className={`lg:w-20 w-10 h-2 transition duration-200 transform-all ${
                         index === currentTestimonialIndex
-                          ? "bg-black"
+                          ? "bg-gray-300"
                           : "bg-gray-300"
                       } group-hover:scale-y-250 cursor-pointer`}
-                    />
+                    >
+                      {index === currentTestimonialIndex && (
+                        <div
+                          className={`bg-black h-2 ${
+                            isAutoplayRunning ? "animate-widen" : "w-full"
+                          }`}
+                        />
+                      )}
+                    </div>
                   </div>
                 );
               })}
