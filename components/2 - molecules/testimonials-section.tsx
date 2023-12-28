@@ -7,7 +7,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
-import Image from "next/image";
+import { ProfilePicture } from "./authorProfilePicture";
 
 const testimonials: Testimonial[] = [
   {
@@ -116,12 +116,14 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-interface Testimonial {
-  author: {
-    title: string;
-    ensName: string;
-  };
+export interface Testimonial {
+  author: Author;
   text: React.ReactNode;
+}
+
+export interface Author {
+  title: string;
+  ensName: string;
 }
 
 export const TestimonialsSection = () => {
@@ -241,14 +243,8 @@ export const TestimonialsSection = () => {
                     <div
                       className={`flex gap-5 w-full items-center justify-center`}
                     >
-                      <Image
-                        src={`https://metadata.ens.domains/mainnet/avatar/${testimonial.author.ensName}`}
-                        alt={testimonial.author.ensName}
-                        width={60}
-                        height={60}
-                        className="w-[60px] h-[60px] rounded-[8px] border-black border bg-white border-opacity-10"
-                        priority={true}
-                      />
+                      <ProfilePicture author={testimonial.author} />
+
                       <div className="flex flex-col">
                         <p className="text-2xl leading-8 font-semibold">
                           {testimonial.author.ensName}
