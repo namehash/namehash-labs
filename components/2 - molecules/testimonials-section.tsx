@@ -246,7 +246,7 @@ export const TestimonialsSection = () => {
                         alt={testimonial.author.ensName}
                         width={60}
                         height={60}
-                        className="w-[60px] h-[60px] rounded-[8px] border-black border border-opacity-10"
+                        className="w-[60px] h-[60px] rounded-[8px] border-black border bg-white border-opacity-10"
                         priority={true}
                       />
                       <div className="flex flex-col">
