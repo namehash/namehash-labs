@@ -14,8 +14,8 @@ export const ENSServiceProviderBanner = () => {
         href="https://twitter.com/NamehashLabs"
         className="animated-white-underline"
       >
-        <p className="hidden sm:block">Follow us on Twitter</p>
-        <p className="block sm:hidden w-max">Follow us</p>
+        <p className="hidden sm:block underline ">Follow us on Twitter</p>
+        <p className="block sm:hidden w-max underline ">Follow us</p>
       </a>
     </div>
   );
