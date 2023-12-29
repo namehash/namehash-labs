@@ -15,11 +15,12 @@
     "classcat": "^5.0.4",
     "fast-average-color": "^9.4.0",
     "lottie-react": "^2.4.0",
-    "next": "13.4.9",
-    "nextjs-cors": "^2.1.2",
+    "next": "14.0.1",
+    "nextjs-cors": "^2.2.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-wrap-balancer": "^1.1.0"
+    "react-wrap-balancer": "^1.1.0",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",
