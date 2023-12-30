@@ -15,6 +15,7 @@ import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section
 import { useRouter } from "next/router";
 import { origin } from "@/lib/shared/origin";
 import { TestimonialsSection } from "@/components/2 - molecules/testimonials-section";
+import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 
 export default function Home() {
   useEffect(() => {
@@ -63,6 +64,7 @@ export default function Home() {
       <OurPrinciplesSection />
       <TeamSection />
       <TestimonialsSection />
+      <OurSuportersSection />
       <CollaborationPartnersSection />
       <JoinOurTeamSection />
       <Footer />
