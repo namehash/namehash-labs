@@ -63,8 +63,8 @@ export default function Home() {
       <ProductsSection />
       <OurPrinciplesSection />
       <TeamSection />
-      <TestimonialsSection />
       <OurSuportersSection />
+      <TestimonialsSection />
       <CollaborationPartnersSection />
       <JoinOurTeamSection />
       <Footer />
