@@ -73,7 +73,9 @@ const TextContainter = () => {
   return (
     <div className="flex items-center justify-center flex-col gap-4 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
       <p className="text-lg leading-6 font-semibold text-center ">ENS DAO</p>
-      <p className="leading-6 font-semibold text-center text-2xl">💖</p>
+      <p className="font-semibold text-center text-[40px] leading-[30px] ">
+        💖
+      </p>
       <p className="text-lg leading-6 font-normal">and hundreds of others</p>
       <a
         target="_blank"
