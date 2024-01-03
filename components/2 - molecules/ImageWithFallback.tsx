@@ -20,7 +20,6 @@ export const ImageWithGallback = ({
     ? "/images/no-avatar.png"
     : `https://metadata.ens.domains/mainnet/avatar/${profile.ethName}`;
 
-
   const imageSizeString = width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto "
 
   return (
@@ -38,23 +37,23 @@ export const ImageWithGallback = ({
           onError={() => setImageFailed(true)}
         />
       </a>
-        <Tooltip  clickable id={profile.ethName} place="top" delayShow={300} delayHide={300} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
-          openEvents={{ mouseenter: true, focus: true }}
-          closeEvents={{ mouseleave: true, blur: true }}
-        >
-          <div className="flex gap-4 max-w-[400px] p-4">
-            <Image
-              src={imgSrc}
-              alt={profile.ethName}
-              width={width}
-              height={width}
-              className={`rounded-[12px] w-20 h-20`}
-              onError={() => setImageFailed(true)}
-            />
-            <div className="flex flex-col">
-              <div className="flex gap-2 items-center ">
-                <div className="font-bold">{profile.ethName}</div>
-                <a href={profile.twitterUrl} target="_blank">
+      <Tooltip clickable id={profile.ethName} place="top" delayShow={300} delayHide={300} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
+        openEvents={{ mouseenter: true, focus: true }}
+        closeEvents={{ mouseleave: true, blur: true }}
+      >
+        <div className="flex gap-4 max-w-[400px] p-4">
+          <Image
+            src={imgSrc}
+            alt={profile.ethName}
+            width={width}
+            height={width}
+            className={`rounded-[12px] w-20 h-20`}
+            onError={() => setImageFailed(true)}
+          />
+          <div className="flex flex-col">
+            <div className="flex gap-2 items-center ">
+              <div className="font-bold">{profile.ethName}</div>
+              <a href={profile.twitterUrl} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -69,13 +68,12 @@ export const ImageWithGallback = ({
                     className="fill-current text-gray-500 group-hover:text-white transition-color duration-200"
                   />
                 </svg>
-                </a>
-              </div>
-              <div className="">{profile.role}</div>
+              </a>
             </div>
+            <div className="">{profile.role}</div>
           </div>
-        </Tooltip>
-      </div>
-
+        </div>
+      </Tooltip>
+    </div>
   );
 };
