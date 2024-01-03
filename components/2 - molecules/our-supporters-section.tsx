@@ -1,8 +1,4 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
-import { OpenSourceIcon } from "../1 - atoms/icons/open-source-icon";
-import { LockIcon } from "../1 - atoms/icons/lock-icon";
-import { EnsIcon } from "../1 - atoms/icons/ens-icon-gray";
-import Image from "next/image";
 import { Balancer } from "react-wrap-balancer";
 import { ImageWithGallback } from "./ImageWithFallback";
 
