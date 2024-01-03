@@ -1,6 +1,6 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { ImageWithGallback } from "./ImageWithFallback";
+import { ImageWithFallback } from "./ImageWithFallback";
 
 export const OurSuportersSection = () => {
   return (
@@ -87,16 +87,16 @@ const TextContainter = () => {
 const FourImagesContainer = ({ profiles }: ImagesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-        <ImageWithGallback
+        <ImageWithFallback
           profile={profiles[1]}
           className="absolute top-0 right-[122px] z-10"
         />
-        <ImageWithGallback
+        <ImageWithFallback
           profile={profiles[3]}
           className="absolute top-0 right-0 z-20"
         />
-        <ImageWithGallback profile={profiles[0]}  className="absolute bottom-0 left-0 "/>
-        <ImageWithGallback profile={profiles[2]}  className="absolute bottom-0 left-[122px] z-10"/>
+        <ImageWithFallback profile={profiles[0]}  className="absolute bottom-0 left-0 "/>
+        <ImageWithFallback profile={profiles[2]}  className="absolute bottom-0 left-[122px] z-10"/>
     </div>
   );
 };
@@ -105,8 +105,8 @@ const TwoImagesContainer = ({ profiles }: ImagesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <ImageWithGallback profile={profiles[0]} width={120} className="w-20 h-20" />
-        <ImageWithGallback profile={profiles[1]} width={120} />
+        <ImageWithFallback profile={profiles[0]} width={120} className="w-20 h-20" />
+        <ImageWithFallback profile={profiles[1]} width={120} />
       </div>
     </div>
   );

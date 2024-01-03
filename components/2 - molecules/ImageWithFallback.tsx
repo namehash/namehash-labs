@@ -9,7 +9,7 @@ interface ImageWithGallbackProps {
   width?: number;
 }
 
-export const ImageWithGallback = ({
+export const ImageWithFallback = ({
   profile,
   className = "",
   width = 80,
@@ -18,7 +18,7 @@ export const ImageWithGallback = ({
 
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
-    : `https://metadata.ens.domains/mainnet/avatar/${profile.ethName}`;
+    : `/images/our-supporters/${profile.ethName}.png`;
 
   const imageSizeString = width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto "
 
