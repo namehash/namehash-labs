@@ -62,10 +62,10 @@ export default function Home() {
       <TheVisionSection />
       <IntroducingNamekit />
       <ProductsSection />
-      <OurPrinciplesSection />
-      <TeamSection />
       <OurSuportersSection />
       <TestimonialsSection />
+      <OurPrinciplesSection />
+      <TeamSection />
       <CollaborationPartnersSection />
       <JoinOurTeamSection />
       <FinancialSupportSection />

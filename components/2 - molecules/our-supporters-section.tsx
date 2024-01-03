@@ -71,12 +71,12 @@ interface ImagesContainerProps {
 
 const TextContainter = () => {
   return (
-    <div className="flex items-center justify-center flex-col gap-4 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
+    <div className="flex items-center justify-center flex-col gap-4 bg-white py-8 px-10 border border-gray-200 rounded-[8px] order-last lg:order-none">
       <p className="text-lg leading-6 font-semibold text-center ">ENS DAO</p>
-      <p className="font-semibold text-center text-[40px] leading-[30px] ">
+      <p className="font-semibold text-center text-[50px] leading-[30px] ">
         💖
       </p>
-      <p className="text-lg leading-6 font-normal">and hundreds of others</p>
+      <p className="text-lg leading-6 font-normal text-gray-500">and so many others</p>
       <a
         target="_blank"
         href="https://snapshot.org/#/ens.eth/proposal/0x6ba81cd2997288cc49ae1b95921ec8f107e8ffb9733321d53d488e2b30710b86"
@@ -90,22 +90,17 @@ const TextContainter = () => {
 
 const FourImagesContainer = ({ profiles }: ImagesContainerProps) => {
   return (
-    <div className="flex relative pr-[62px] b w-[265px] items-center justify-center">
-      <div className="flex absolute top-0 right-0 gap-[42px] ">
+    <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
         <ImageWithGallback
           profile={profiles[1]}
-          className="border-4 border-white"
+          className="absolute top-0 right-[122px] z-10"
         />
         <ImageWithGallback
           profile={profiles[3]}
-          className="border-4 border-white"
+          className="absolute top-0 right-0 z-20"
         />
-      </div>
-
-      <div className="flex gap-[42px] mt-10">
-        <ImageWithGallback profile={profiles[0]} />
-        <ImageWithGallback profile={profiles[2]} />
-      </div>
+        <ImageWithGallback profile={profiles[0]}  className="absolute bottom-0 left-0 "/>
+        <ImageWithGallback profile={profiles[2]}  className="absolute bottom-0 left-[122px] z-10"/>
     </div>
   );
 };
@@ -114,7 +109,7 @@ const TwoImagesContainer = ({ profiles }: ImagesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <ImageWithGallback profile={profiles[0]} width={120} />
+        <ImageWithGallback profile={profiles[0]} width={120} className="w-20 h-20" />
         <ImageWithGallback profile={profiles[1]} width={120} />
       </div>
     </div>
@@ -146,11 +141,6 @@ const walletBuilders: CardComponentProps = {
       twitterUrl: "https://twitter.com/rainbowdotme",
     },
     {
-      ethName: "spencecoin.eth",
-      role: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
-      twitterUrl: "https://twitter.com/spencecoin",
-    },
-    {
       ethName: "mikedemarais.eth",
       role: "Co-founder of Rainbow Wallet",
       twitterUrl: "https://twitter.com/mikedemarais",
@@ -160,6 +150,13 @@ const walletBuilders: CardComponentProps = {
       role: "Independent startup working on smart mobile wallet for Ethereum",
       twitterUrl: "https://twitter.com/inzhoop",
     },
+    {
+      ethName: "spencecoin.eth",
+      role: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
+      twitterUrl: "https://twitter.com/spencecoin",
+    },
+    
+    
   ],
 };
 
@@ -193,6 +190,11 @@ const publicGoodsAdvocates: CardComponentProps = {
   title: "Public Goods Advocates",
   profiles: [
     {
+      ethName: "griff.eth",
+      role: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
+      twitterUrl: "https://twitter.com/thegrifft",
+    },
+    {
       ethName: "coltron.eth",
       role: "ENS Public Goods Steward",
       twitterUrl: "https://twitter.com/Coltron_eth",
@@ -202,11 +204,7 @@ const publicGoodsAdvocates: CardComponentProps = {
       role: "ENS Public Goods Steward, Governance at DELV & Optimism",
       twitterUrl: "https://twitter.com/Sim_Pop",
     },
-    {
-      ethName: "griff.eth",
-      role: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
-      twitterUrl: "https://twitter.com/thegrifft",
-    },
+    
     {
       ethName: "ceresstation.eth",
       role: "Co-founder Gitcoin & Kernel",
@@ -219,24 +217,26 @@ const decentralizationAdvocates: CardComponentProps = {
   title: "Decentralization Advocates",
   profiles: [
     {
-      ethName: "superphiz.eth",
-      role: "Ethereum Decentralized Staking Advocate  ",
-      twitterUrl: "https://twitter.com/superphiz",
+      ethName: "liubenben.eth",
+      role: "Building ensuser.com for the Chinese ENS Community",
+      twitterUrl: "https://twitter.com/forlbb",
     },
+    
     {
       ethName: "garypalmerjr.eth",
       role: "ENS Advocate and Founder of Web3Domains",
       twitterUrl: "https://twitter.com/garypalmerjr",
     },
-    {
-      ethName: "liubenben.eth",
-      role: "Building ensuser.com for the Chinese ENS Community",
-      twitterUrl: "https://twitter.com/forlbb",
-    },
+    
     {
       ethName: "master.eth",
       role: "ENS Advocate",
       twitterUrl: "https://twitter.com/seekmine",
+    },
+    {
+      ethName: "superphiz.eth",
+      role: "Ethereum Decentralized Staking Advocate  ",
+      twitterUrl: "https://twitter.com/superphiz",
     },
   ],
 };
@@ -250,19 +250,20 @@ const daoAdvocates: CardComponentProps = {
       twitterUrl: "https://twitter.com/fireeyesgov",
     },
     {
-      ethName: "elbagococina.eth",
-      role: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
-      twitterUrl: "https://twitter.com/elbagococina",
+      ethName: "spikewatanabe.eth",
+      role: "ENS Delegate & experienced investment banker",
+      twitterUrl: "https://twitter.com/spikewatanabe",
     },
     {
       ethName: "alextnetto.eth",
       role: "Co-founder of Blockful, building public goods for DAOs",
       twitterUrl: "https://twitter.com/alextnetto",
     },
+   
     {
-      ethName: "spikewatanabe.eth",
-      role: "ENS Delegate & experienced investment banker",
-      twitterUrl: "https://twitter.com/spikewatanabe",
+      ethName: "elbagococina.eth",
+      role: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
+      twitterUrl: "https://twitter.com/elbagococina",
     },
   ],
 };
@@ -297,15 +298,12 @@ const ensLabsStaff: CardComponentProps = {
   title: "ENS Labs Staff",
   profiles: [
     {
-      ethName: "matoken.eth",
-      role: "Developer at ENS Labs",
-      twitterUrl: "https://twitter.com/makoto_inoue",
-    },
-    {
       ethName: "gregskril.eth",
       role: "Developer at ENS Labs",
       twitterUrl: "https://twitter.com/gregskril",
     },
+    
+    
     {
       ethName: "taytems.eth",
       role: "Developer at ENS Labs",
@@ -315,6 +313,11 @@ const ensLabsStaff: CardComponentProps = {
       ethName: "184.eth",
       role: "Support at ENS Labs & ENS Ecosystem Steward",
       twitterUrl: "https://twitter.com/184eth",
+    },
+    {
+      ethName: "matoken.eth",
+      role: "Developer at ENS Labs",
+      twitterUrl: "https://twitter.com/makoto_inoue",
     },
   ],
 };

@@ -15,13 +15,17 @@ export const ImageWithGallback = ({
   width = 80,
 }: ImageWithGallbackProps) => {
   const [imageFailed, setImageFailed] = useState(false);
+  const [isHovered, setIshovered] = useState(false);
 
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
     : `https://metadata.ens.domains/mainnet/avatar/${profile.ethName}`;
 
+
+  const imageSizeString = width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto "
+
   return (
-    <>
+    <div className="group">
       <a target="_blank" href={profile.twitterUrl}>
         <Image
           src={imgSrc}
@@ -31,12 +35,12 @@ export const ImageWithGallback = ({
           data-tooltip-id={profile.ethName}
           width={width}
           height={width}
-          className={`rounded-[12px] w-[${width}] h-[${width}] border-4 border-white ${className} tooltip-target`}
+          className={`rounded-[12px] ${imageSizeString} bg-white ${className} tooltip-target border-gray-300 border`}
           onError={() => setImageFailed(true)}
         />
       </a>
 
-      <Tooltip id={profile.ethName} place="top" className="bg-white">
+      <Tooltip id={profile.ethName} place="top" className="z-50 group-hover:!opacity-100 bg-black !rounded-[8px] !p-4" >
         <div className="flex gap-4 max-w-[400px] ">
           <Image
             src={imgSrc}
@@ -70,6 +74,6 @@ export const ImageWithGallback = ({
           </div>
         </div>
       </Tooltip>
-    </>
+    </ div>
   );
 };
