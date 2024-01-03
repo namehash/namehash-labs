@@ -1,10 +1,4 @@
-import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
-import { OpenSourceIcon } from "../1 - atoms/icons/open-source-icon";
-import { LockIcon } from "../1 - atoms/icons/lock-icon";
-import { EnsIcon } from "../1 - atoms/icons/ens-icon-gray";
-import Image from "next/image";
 import { Balancer } from "react-wrap-balancer";
-import { ImageWithGallback } from "./ImageWithFallback";
 
 export const FinancialSupportSection = () => {
   return (
@@ -25,7 +19,7 @@ export const FinancialSupportSection = () => {
         <a
           target="_blank"
           href="https://ensdao.org/"
-          className="py-[9px] px-[25px] bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+          className="py-[9px] px-[25px] bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-200 rounded-[8px] border border-gray-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
