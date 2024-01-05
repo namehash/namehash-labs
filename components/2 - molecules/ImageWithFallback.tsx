@@ -1,13 +1,15 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { Profile } from "./our-supporters-section";
+import { FastAverageColor } from "fast-average-color";
 
 interface ImageWithGallbackProps {
   profile: Profile;
   className?: string;
   width?: number;
 }
+const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
 export const ImageWithFallback = ({
   profile,
@@ -15,6 +17,24 @@ export const ImageWithFallback = ({
   width = 80,
 }: ImageWithGallbackProps) => {
   const [imageFailed, setImageFailed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
+  const imageRef = useRef(null);
+  const fac = new FastAverageColor();
+
+  useEffect(() => {
+    if (imageRef.current) {
+      fac
+        .getColorAsync(imageRef.current)
+        .then((color) => {
+          setShadowColor(color.rgba);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+  }, [imageRef]);
+
 
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
@@ -24,7 +44,8 @@ export const ImageWithFallback = ({
 
   return (
     <div >
-      <a target="_blank" href={`https://app.ens.domains/${profile.ethName}`}>
+      <a target="_blank" href={`https://app.ens.domains/${profile.ethName}`}
+      >
         <Image
           src={imgSrc}
           alt={profile.ethName}
@@ -33,11 +54,18 @@ export const ImageWithFallback = ({
           data-tooltip-id={profile.ethName}
           width={width}
           height={width}
-          className={`rounded-[12px] ${imageSizeString} bg-white ${className} tooltip-target border-gray-300 border`}
+          onMouseEnter={() => { setIsHovered(true) }}
+          onMouseLeave={() => { setIsHovered(false) }}
+          className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
           onError={() => setImageFailed(true)}
+          style={{
+            borderRadius: "12.31px",
+            boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
+          }}
+          ref={imageRef}
         />
       </a>
-      <Tooltip clickable id={profile.ethName} place="top" delayShow={300} delayHide={300} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
+      <Tooltip clickable id={profile.ethName} place="top" delayShow={200} delayHide={0} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
       >
