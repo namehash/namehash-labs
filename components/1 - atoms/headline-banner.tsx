@@ -1,6 +1,6 @@
 import { MegaphoneIcon } from "@heroicons/react/24/outline";
 
-export const ENSServiceProviderBanner = () => {
+export const HeadlineBanner = () => {
   return (
     <div className="px-5 text-white flex justify-center items-center w-full bg-[#3B0D48] space-x-4 py-4 text-sm">
       <div className="flex space-x-3 items-center">

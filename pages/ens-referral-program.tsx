@@ -6,7 +6,7 @@ import Image from "next/image";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import {
-  ENSServiceProviderBanner,
+  HeadlineBanner,
   ExternalLinkIcon,
 } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
@@ -55,7 +55,7 @@ export default function Home() {
         <meta property="og:url" content={origin + router.pathname} />
       </Head>
       <main className="flex flex-col items-center justify-between">
-        <ENSServiceProviderBanner />
+        <HeadlineBanner />
 
         <Header className="w-full" />
         <section className="bg-gray-50 w-full">

@@ -6,6 +6,6 @@ export * from "./section-text";
 export * from "./section-title";
 export * from "./icons/external-link-icon";
 export * from "./icons/namehash-labs-logo";
-export * from "./ens-service-provider-banner";
+export * from "./headline-banner";
 export * from "./cal-button";
 export * from "./icons/beans-bg";
