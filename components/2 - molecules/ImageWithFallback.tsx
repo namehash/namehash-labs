@@ -56,7 +56,7 @@ export const ImageWithFallback = ({
           height={width}
           onMouseEnter={() => { setIsHovered(true) }}
           onMouseLeave={() => { setIsHovered(false) }}
-          className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+          className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
           onError={() => setImageFailed(true)}
           style={{
             borderRadius: "12.31px",
