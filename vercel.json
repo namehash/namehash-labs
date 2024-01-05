@@ -1,5 +1,4 @@
 {
-    "_comment": "Some images previously located at /public have been moved to other locations as part of a reorganization to better reflect the structure of ENS proposals. This redirect ensures continuous access to the image, especially for historical links and references. This change was made to maintain the integrity of user access and experience, ensuring that resources are logically organized while still accessible through legacy paths.",
     "redirects": [
         {
             "source": "/referral-hero.png",
