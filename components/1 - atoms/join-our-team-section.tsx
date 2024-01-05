@@ -58,7 +58,7 @@ export const JoinOurTeamSection = () => {
         <Image
           quality={100}
           alt="Join our team image"
-          src="/referral-hero.png"
+          src="/images/join-our-team.png"
           className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
           height={800}
           width={1166}
