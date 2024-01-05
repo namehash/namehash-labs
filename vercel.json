@@ -1,0 +1,9 @@
+{
+    "redirects": [
+        {
+            "source": "/referral-hero.png",
+            "destination": "/proposals/ens/small-grants/round-32/referral-hero.png",
+            "permanent": true
+        }
+    ]
+}
