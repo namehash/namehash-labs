@@ -1,6 +1,7 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 import { ImageWithFallback } from "./ImageWithFallback";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 export const OurSuportersSection = () => {
   return (
@@ -76,9 +77,10 @@ const TextContainter = () => {
       <a
         target="_blank"
         href="https://snapshot.org/#/ens.eth/proposal/0x6ba81cd2997288cc49ae1b95921ec8f107e8ffb9733321d53d488e2b30710b86"
-        className="cursor-pointer px-[17px] py-[9px] text-white text-base leading-6 font-medium bg-black rounded-[8px] hover:bg-gray-800 transition-colors"
+        className="flex items-center justify-center gap-3 cursor-pointer px-[17px] py-[9px] text-white text-base leading-6 font-medium bg-black rounded-[8px] hover:bg-gray-800 transition-colors"
       >
-        View all
+        View more 
+        <ArrowTopRightOnSquareIcon className="text-white w-4 h-4" />
       </a>
     </div>
   );
