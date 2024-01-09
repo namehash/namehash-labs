@@ -4,7 +4,7 @@ import { Tooltip } from "react-tooltip";
 import { Profile } from "./our-supporters-section";
 import { FastAverageColor } from "fast-average-color";
 
-interface ImageWithGallbackProps {
+interface ImageWithFallbackProps {
   profile: Profile;
   className?: string;
   width?: number;
@@ -15,7 +15,7 @@ export const ImageWithFallback = ({
   profile,
   className = "",
   width = 80,
-}: ImageWithGallbackProps) => {
+}: ImageWithFallbackProps) => {
   const [imageFailed, setImageFailed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
@@ -38,20 +38,20 @@ export const ImageWithFallback = ({
 
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
-    : `/images/our-supporters/${profile.ethName}.png`;
+    : `/images/our-supporters/${profile.ensName}.png`;
 
   const imageSizeString = width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto "
 
   return (
     <div >
-      <a target="_blank" href={`https://app.ens.domains/${profile.ethName}`}
+      <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}
       >
         <Image
           src={imgSrc}
-          alt={profile.ethName}
+          alt={profile.ensName}
           data-tip
-          data-for={profile.ethName}
-          data-tooltip-id={profile.ethName}
+          data-for={profile.ensName}
+          data-tooltip-id={profile.ensName}
           width={width}
           height={width}
           onMouseEnter={() => { setIsHovered(true) }}
@@ -65,14 +65,14 @@ export const ImageWithFallback = ({
           ref={imageRef}
         />
       </a>
-      <Tooltip clickable id={profile.ethName} place="top" delayShow={200} delayHide={0} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
+      <Tooltip clickable id={profile.ensName} place="top" delayShow={200} delayHide={0} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
       >
         <div className="flex gap-4 max-w-[400px] p-4">
           <Image
             src={imgSrc}
-            alt={profile.ethName}
+            alt={profile.ensName}
             width={width}
             height={width}
             className={`rounded-[12px] w-20 h-20`}
@@ -80,8 +80,8 @@ export const ImageWithFallback = ({
           />
           <div className="flex flex-col">
             <div className="flex gap-2 items-center ">
-              <div className="font-bold">{profile.ethName}</div>
-              <a href={profile.twitterUrl} target="_blank">
+              <div className="font-bold">{profile.ensName}</div>
+              <a href={profile.twitterProfile} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -98,7 +98,7 @@ export const ImageWithFallback = ({
                 </svg>
               </a>
             </div>
-            <div className="">{profile.role}</div>
+            <div className="">{profile.title}</div>
           </div>
         </div>
       </Tooltip>

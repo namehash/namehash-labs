@@ -1,12 +1,12 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { ImageWithFallback } from "./ImageWithFallback";
+import { ImageWithFallback } from "./image-with-fallback";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 export const OurSuportersSection = () => {
   return (
     <section
-      id="ourPrinciplesSection"
+      id="ourSuportersSection"
       className="lg:px-[112px] w-full flex flex-col items-center bg-gray-50 justify-center px-5 py-20 border-t border-b border-gray-200"
     >
       <div className="flex flex-col gap-3">
@@ -21,52 +21,52 @@ export const OurSuportersSection = () => {
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
-        <CardComponent {...ensFoundation} />
-        <CardComponent {...walletBuilders} />
-        <CardComponent {...web3ProtocolBuilders} />
-        <CardComponent {...publicGoodsAdvocates} />
-        <TextContainter />
-        <CardComponent {...decentralizationAdvocates} />
-        <CardComponent {...daoAdvocates} />
-        <CardComponent {...dAppBuilders} />
-        <CardComponent {...ensLabsStaff} />
+        <SupporterCategory {...ensFoundation} />
+        <SupporterCategory {...walletBuilders} />
+        <SupporterCategory {...web3ProtocolBuilders} />
+        <SupporterCategory {...publicGoodsAdvocates} />
+        <AdditionalSupportersContainer />
+        <SupporterCategory {...decentralizationAdvocates} />
+        <SupporterCategory {...daoAdvocates} />
+        <SupporterCategory {...dAppBuilders} />
+        <SupporterCategory {...ensLabsStaff} />
       </div>
     </section>
   );
 };
 
 export interface Profile {
-  ethName: string;
-  role: string;
-  twitterUrl: string;
+  ensName: string;
+  title: string;
+  twitterProfile: string;
 }
 
-interface CardComponentProps {
-  title?: string;
+interface SupporterCategoryProps {
+  title: string;
   profiles: Profile[];
 }
 
-export const CardComponent = ({
-  title = "Web3 Protocol Builders",
+export const SupporterCategory = ({
+  title,
   profiles,
-}: CardComponentProps) => {
+}: SupporterCategoryProps) => {
   return (
     <div className="flex items-center justify-center flex-col gap-7 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
       <p className="text-lg leading-6 font-semibold text-center ">{title}</p>
       {profiles.length === 4 ? (
-        <FourImagesContainer profiles={profiles} />
+        <FourSupportersContainer profiles={profiles} />
       ) : (
-        <TwoImagesContainer profiles={profiles} />
+        <TwoSupportersContainer profiles={profiles} />
       )}
     </div>
   );
 };
 
-interface ImagesContainerProps {
+interface ProfilesContainerProps {
   profiles: Profile[];
 }
 
-const TextContainter = () => {
+const AdditionalSupportersContainer = () => {
   return (
     <div className="flex items-center justify-center flex-col gap-4 bg-white py-8 px-10 border border-gray-200 rounded-[8px] order-last lg:order-none">
       <p className="text-lg leading-6 font-semibold text-center ">ENS DAO</p>
@@ -79,31 +79,31 @@ const TextContainter = () => {
         href="https://snapshot.org/#/ens.eth/proposal/0x6ba81cd2997288cc49ae1b95921ec8f107e8ffb9733321d53d488e2b30710b86"
         className="flex items-center justify-center gap-3 cursor-pointer px-[17px] py-[9px] text-white text-base leading-6 font-medium bg-black rounded-[8px] hover:bg-gray-800 transition-colors"
       >
-        View more 
+        View more
         <ArrowTopRightOnSquareIcon className="text-white w-4 h-4" />
       </a>
     </div>
   );
 };
 
-const FourImagesContainer = ({ profiles }: ImagesContainerProps) => {
+const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-        <ImageWithFallback
-          profile={profiles[1]}
-          className="absolute top-0 right-[122px] z-10"
-        />
-        <ImageWithFallback
-          profile={profiles[3]}
-          className="absolute top-0 right-0 z-20"
-        />
-        <ImageWithFallback profile={profiles[0]}  className="absolute bottom-0 left-0 "/>
-        <ImageWithFallback profile={profiles[2]}  className="absolute bottom-0 left-[122px] z-10"/>
+      <ImageWithFallback
+        profile={profiles[1]}
+        className="absolute top-0 right-[122px] z-10"
+      />
+      <ImageWithFallback
+        profile={profiles[3]}
+        className="absolute top-0 right-0 z-20"
+      />
+      <ImageWithFallback profile={profiles[0]} className="absolute bottom-0 left-0 " />
+      <ImageWithFallback profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
     </div>
   );
 };
 
-const TwoImagesContainer = ({ profiles }: ImagesContainerProps) => {
+const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
@@ -114,208 +114,206 @@ const TwoImagesContainer = ({ profiles }: ImagesContainerProps) => {
   );
 };
 
-const ensFoundation: CardComponentProps = {
+const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
   profiles: [
     {
-      ethName: "nick.eth",
-      role: "Lead developer of ENS & Ethereum Foundation alum",
-      twitterUrl: "https://twitter.com/nicksdjohnson",
+      ensName: "nick.eth",
+      title: "Lead developer of ENS & Ethereum Foundation alum",
+      twitterProfile: "https://twitter.com/nicksdjohnson",
     },
     {
-      ethName: "avsa.eth",
-      role: "Ethereum Foundation Alumni & Co-founder of ENS",
-      twitterUrl: "https://twitter.com/avsa",
+      ensName: "avsa.eth",
+      title: "Ethereum Foundation Alumni & Co-founder of ENS",
+      twitterProfile: "https://twitter.com/avsa",
     },
   ],
 };
 
-const walletBuilders: CardComponentProps = {
+const walletBuilders: SupporterCategoryProps = {
   title: "Wallet Builders",
   profiles: [
     {
-      ethName: "rainbowwallet.eth",
-      role: "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
-      twitterUrl: "https://twitter.com/rainbowdotme",
+      ensName: "rainbowwallet.eth",
+      title: "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
+      twitterProfile: "https://twitter.com/rainbowdotme",
     },
     {
-      ethName: "mikedemarais.eth",
-      role: "Co-founder of Rainbow Wallet",
-      twitterUrl: "https://twitter.com/mikedemarais",
+      ensName: "mikedemarais.eth",
+      title: "Co-founder of Rainbow Wallet",
+      twitterProfile: "https://twitter.com/mikedemarais",
     },
     {
-      ethName: "inzhoop.eth",
-      role: "Independent startup working on smart mobile wallet for Ethereum",
-      twitterUrl: "https://twitter.com/inzhoop",
+      ensName: "inzhoop.eth",
+      title: "Independent startup working on smart mobile wallet for Ethereum",
+      twitterProfile: "https://twitter.com/inzhoop",
     },
     {
-      ethName: "spencecoin.eth",
-      role: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
-      twitterUrl: "https://twitter.com/spencecoin",
+      ensName: "spencecoin.eth",
+      title: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
+      twitterProfile: "https://twitter.com/spencecoin",
     },
-    
-    
   ],
 };
 
-const web3ProtocolBuilders: CardComponentProps = {
+const web3ProtocolBuilders: SupporterCategoryProps = {
   title: "Web3 Protocol Builders",
   profiles: [
     {
-      ethName: "brantly.eth",
-      role: "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
-      twitterUrl: "https://twitter.com/BrantlyMillegan",
+      ensName: "brantly.eth",
+      title: "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
+      twitterProfile: "https://twitter.com/BrantlyMillegan",
     },
     {
-      ethName: "chainlinkgod.eth",
-      role: "Chainlink Community Ambassador",
-      twitterUrl: "https://twitter.com/ChainLinkGod",
+      ensName: "chainlinkgod.eth",
+      title: "Chainlink Community Ambassador",
+      twitterProfile: "https://twitter.com/ChainLinkGod",
     },
     {
-      ethName: "cory.eth",
-      role: "Founder OpenAvatar & Co-founder of Ethereum Follow Protocol",
-      twitterUrl: "https://twitter.com/cory_eth",
+      ensName: "cory.eth",
+      title: "Founder OpenAvatar & Co-founder of Ethereum Follow Protocol",
+      twitterProfile: "https://twitter.com/cory_eth",
     },
     {
-      ethName: "poap.eth",
-      role: "Proof of Attendance Protocol - bookmarks for your life",
-      twitterUrl: "https://twitter.com/poapxyz",
+      ensName: "poap.eth",
+      title: "Proof of Attendance Protocol - bookmarks for your life",
+      twitterProfile: "https://twitter.com/poapxyz",
     },
   ],
 };
 
-const publicGoodsAdvocates: CardComponentProps = {
+const publicGoodsAdvocates: SupporterCategoryProps = {
   title: "Public Goods Advocates",
   profiles: [
     {
-      ethName: "griff.eth",
-      role: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
-      twitterUrl: "https://twitter.com/thegrifft",
+      ensName: "griff.eth",
+      title: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
+      twitterProfile: "https://twitter.com/thegrifft",
     },
     {
-      ethName: "coltron.eth",
-      role: "ENS Public Goods Steward",
-      twitterUrl: "https://twitter.com/Coltron_eth",
+      ensName: "coltron.eth",
+      title: "ENS Public Goods Steward",
+      twitterProfile: "https://twitter.com/Coltron_eth",
     },
     {
-      ethName: "simona.eth",
-      role: "ENS Public Goods Steward, Governance at DELV & Optimism",
-      twitterUrl: "https://twitter.com/Sim_Pop",
+      ensName: "simona.eth",
+      title: "ENS Public Goods Steward, Governance at DELV & Optimism",
+      twitterProfile: "https://twitter.com/Sim_Pop",
     },
-    
+
     {
-      ethName: "ceresstation.eth",
-      role: "Co-founder Gitcoin & Kernel",
-      twitterUrl: "https://twitter.com/notscottmoore",
+      ensName: "ceresstation.eth",
+      title: "Co-founder Gitcoin & Kernel",
+      twitterProfile: "https://twitter.com/notscottmoore",
     },
   ],
 };
 
-const decentralizationAdvocates: CardComponentProps = {
+const decentralizationAdvocates: SupporterCategoryProps = {
   title: "Decentralization Advocates",
   profiles: [
     {
-      ethName: "liubenben.eth",
-      role: "Building ensuser.com for the Chinese ENS Community",
-      twitterUrl: "https://twitter.com/forlbb",
+      ensName: "liubenben.eth",
+      title: "Building ensuser.com for the Chinese ENS Community",
+      twitterProfile: "https://twitter.com/forlbb",
     },
-    
+
     {
-      ethName: "garypalmerjr.eth",
-      role: "ENS Advocate and Founder of Web3Domains",
-      twitterUrl: "https://twitter.com/garypalmerjr",
+      ensName: "garypalmerjr.eth",
+      title: "ENS Advocate and Founder of Web3Domains",
+      twitterProfile: "https://twitter.com/garypalmerjr",
     },
-    
+
     {
-      ethName: "master.eth",
-      role: "ENS Advocate",
-      twitterUrl: "https://twitter.com/seekmine",
+      ensName: "master.eth",
+      title: "ENS Advocate",
+      twitterProfile: "https://twitter.com/seekmine",
     },
     {
-      ethName: "superphiz.eth",
-      role: "Ethereum Decentralized Staking Advocate  ",
-      twitterUrl: "https://twitter.com/superphiz",
+      ensName: "superphiz.eth",
+      title: "Ethereum Decentralized Staking Advocate  ",
+      twitterProfile: "https://twitter.com/superphiz",
     },
   ],
 };
 
-const daoAdvocates: CardComponentProps = {
+const daoAdvocates: SupporterCategoryProps = {
   title: "DAO Advocates",
   profiles: [
     {
-      ethName: "fireeyesdao.eth",
-      role: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
-      twitterUrl: "https://twitter.com/fireeyesgov",
+      ensName: "fireeyesdao.eth",
+      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
+      twitterProfile: "https://twitter.com/fireeyesgov",
     },
     {
-      ethName: "spikewatanabe.eth",
-      role: "ENS Delegate & experienced investment banker",
-      twitterUrl: "https://twitter.com/spikewatanabe",
+      ensName: "spikewatanabe.eth",
+      title: "ENS Delegate & experienced investment banker",
+      twitterProfile: "https://twitter.com/spikewatanabe",
     },
     {
-      ethName: "alextnetto.eth",
-      role: "Co-founder of Blockful, building public goods for DAOs",
-      twitterUrl: "https://twitter.com/alextnetto",
+      ensName: "alextnetto.eth",
+      title: "Co-founder of Blockful, building public goods for DAOs",
+      twitterProfile: "https://twitter.com/alextnetto",
     },
-   
+
     {
-      ethName: "elbagococina.eth",
-      role: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
-      twitterUrl: "https://twitter.com/elbagococina",
+      ensName: "elbagococina.eth",
+      title: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
+      twitterProfile: "https://twitter.com/elbagococina",
     },
   ],
 };
 
-const dAppBuilders: CardComponentProps = {
+const dAppBuilders: SupporterCategoryProps = {
   title: "dApp Builders",
   profiles: [
     {
-      ethName: "nimi.eth",
-      role: "Your personal web3 page",
-      twitterUrl: "https://twitter.com/0xNimi",
+      ensName: "nimi.eth",
+      title: "Your personal web3 page",
+      twitterProfile: "https://twitter.com/0xNimi",
     },
     {
-      ethName: "lefteris.eth",
-      role: "Founder of Rotki, the portfolio tracker that protects your privacy",
-      twitterUrl: "https://twitter.com/LefterisJP",
+      ensName: "lefteris.eth",
+      title: "Founder of Rotki, the portfolio tracker that protects your privacy",
+      twitterProfile: "https://twitter.com/LefterisJP",
     },
     {
-      ethName: "mihal.eth",
-      role: "Blockchain Engineer",
-      twitterUrl: "https://twitter.com/dmihal",
+      ensName: "mihal.eth",
+      title: "Blockchain Engineer",
+      twitterProfile: "https://twitter.com/dmihal",
     },
     {
-      ethName: "ethlimo.eth",
-      role: "Privacy-preserving ENS gateway",
-      twitterUrl: "https://twitter.com/eth_limo",
+      ensName: "ethlimo.eth",
+      title: "Privacy-preserving ENS gateway",
+      twitterProfile: "https://twitter.com/eth_limo",
     },
   ],
 };
 
-const ensLabsStaff: CardComponentProps = {
+const ensLabsStaff: SupporterCategoryProps = {
   title: "ENS Labs Staff",
   profiles: [
     {
-      ethName: "gregskril.eth",
-      role: "Developer at ENS Labs",
-      twitterUrl: "https://twitter.com/gregskril",
+      ensName: "gregskril.eth",
+      title: "Developer at ENS Labs",
+      twitterProfile: "https://twitter.com/gregskril",
     },
-    
-    
+
+
     {
-      ethName: "taytems.eth",
-      role: "Developer at ENS Labs",
-      twitterUrl: "https://twitter.com/taytemss",
-    },
-    {
-      ethName: "184.eth",
-      role: "Support at ENS Labs & ENS Ecosystem Steward",
-      twitterUrl: "https://twitter.com/184eth",
+      ensName: "taytems.eth",
+      title: "Developer at ENS Labs",
+      twitterProfile: "https://twitter.com/taytemss",
     },
     {
-      ethName: "matoken.eth",
-      role: "Developer at ENS Labs",
-      twitterUrl: "https://twitter.com/makoto_inoue",
+      ensName: "184.eth",
+      title: "Support at ENS Labs & ENS Ecosystem Steward",
+      twitterProfile: "https://twitter.com/184eth",
+    },
+    {
+      ensName: "matoken.eth",
+      title: "Developer at ENS Labs",
+      twitterProfile: "https://twitter.com/makoto_inoue",
     },
   ],
 };
