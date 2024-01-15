@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { Profile } from "./our-supporters-section";
 import { FastAverageColor } from "fast-average-color";
+import Link from "next/link";
 
 interface ImageWithFallbackProps {
   profile: Profile;
@@ -69,18 +70,26 @@ export const ImageWithFallback = ({
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
       >
-        <div className="flex gap-4 max-w-[400px] p-4">
-          <Image
-            src={imgSrc}
-            alt={profile.ensName}
-            width={width}
-            height={width}
-            className={`rounded-[12px] w-20 h-20`}
-            onError={() => setImageFailed(true)}
-          />
+        <div className="flex gap-4 max-w-[400px] p-4 items-stretch">
+          <a className="flex flex-grow items-center" target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
+            <Image
+              src={imgSrc}
+              alt={profile.ensName}
+              width={width}
+              height={width}
+              className={`h-20 w-20`}
+              onError={() => setImageFailed(true)}
+            />
+          </a>
+
+
+
           <div className="flex flex-col">
             <div className="flex gap-2 items-center ">
-              <div className="font-bold">{profile.ensName}</div>
+              <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
+                <div className="font-bold">{profile.ensName}</div>
+              </a>
+
               <a href={profile.twitterProfile} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +107,7 @@ export const ImageWithFallback = ({
                 </svg>
               </a>
             </div>
-            <div className="">{profile.title}</div>
+            <div className="max-w-[300px]">{profile.title}</div>
           </div>
         </div>
       </Tooltip>
