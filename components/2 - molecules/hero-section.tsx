@@ -1,6 +1,6 @@
 import {
   ChevronDown,
-  ENSServiceProviderBanner,
+  HeadlineBanner,
   CalButton,
   BeansBg,
 } from "../1 - atoms";
@@ -10,7 +10,7 @@ import { Balancer } from "react-wrap-balancer";
 export const HeroSection = () => {
   return (
     <>
-      <ENSServiceProviderBanner />
+      <HeadlineBanner />
       <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center overflow-hidden">
         <div className="absolute top-0 left-0 w-screen z-40">
           <Header />
