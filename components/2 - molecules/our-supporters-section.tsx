@@ -2,6 +2,7 @@ import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 import { ImageWithFallback } from "./image-with-fallback";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
 
 export const OurSuportersSection = () => {
   return (
@@ -37,6 +38,7 @@ export const OurSuportersSection = () => {
 
 export interface Profile {
   ensName: string;
+  displayName?: string;
   title: string;
   twitterProfile: string;
 }
@@ -50,11 +52,18 @@ export const SupporterCategory = ({
   title,
   profiles,
 }: SupporterCategoryProps) => {
+  
+  const [profilesDisplay, setProfilesDisplay] = useState(profiles);
+
+  useEffect(() => {
+    setProfilesDisplay(getRandomProfiles(profiles))
+  }, [profiles])
+
   return (
     <div className="flex items-center justify-center flex-col gap-7 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
       <p className="text-lg leading-6 font-semibold text-center ">{title}</p>
-      {profiles.length === 4 ? (
-        <FourSupportersContainer profiles={profiles} />
+      {profiles.length >= 4 ? (
+        <FourSupportersContainer profiles={profilesDisplay} />
       ) : (
         <TwoSupportersContainer profiles={profiles} />
       )}
@@ -85,6 +94,38 @@ const AdditionalSupportersContainer = () => {
     </div>
   );
 };
+
+function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profile[] {
+  // Shallow copy the array to avoid modifying the original array
+  if (array.length === 4) {
+    return array
+  }
+
+  let tempArray = [...array];
+
+  // The result array
+  let result: Profile[] = [];
+
+  for (let i = 0; i < count; i++) {
+      if (tempArray.length === 0) {
+          break;
+      }
+
+      // Get a random index
+      let randomIndex = Math.floor(Math.random() * tempArray.length);
+
+      // Select the object at the random index
+      let selected = tempArray[randomIndex];
+
+      // Add the selected object to the result array
+      result.push(selected);
+
+      // Remove the selected object from the temp array
+      tempArray.splice(randomIndex, 1);
+  }
+
+  return result;
+}
 
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
@@ -119,11 +160,13 @@ const ensFoundation: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "nick.eth",
+      displayName: "Nick Johnson",
       title: "Lead developer of ENS & Ethereum Foundation alum",
       twitterProfile: "https://twitter.com/nicksdjohnson",
     },
     {
       ensName: "avsa.eth",
+      displayName: "Alex Van de Sande",
       title: "Ethereum Foundation Alumni & Co-founder of ENS",
       twitterProfile: "https://twitter.com/avsa",
     },
@@ -135,11 +178,13 @@ const walletBuilders: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "rainbowwallet.eth",
+      displayName: "Rainbow",
       title: "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
       twitterProfile: "https://twitter.com/rainbowdotme",
     },
     {
       ensName: "mikedemarais.eth",
+      displayName: "Mike Demarais",
       title: "Co-founder of Rainbow Wallet",
       twitterProfile: "https://twitter.com/mikedemarais",
     },
@@ -150,6 +195,7 @@ const walletBuilders: SupporterCategoryProps = {
     },
     {
       ensName: "spencecoin.eth",
+      displayName:"Jordan Spence",
       title: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
       twitterProfile: "https://twitter.com/spencecoin",
     },
@@ -161,6 +207,7 @@ const web3ProtocolBuilders: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "brantly.eth",
+      displayName: "Brantly Millegan",
       title: "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
       twitterProfile: "https://twitter.com/BrantlyMillegan",
     },
@@ -171,11 +218,13 @@ const web3ProtocolBuilders: SupporterCategoryProps = {
     },
     {
       ensName: "cory.eth",
+      displayName: "Cory Gabrielsen",
       title: "Founder OpenAvatar & Co-founder of Ethereum Follow Protocol",
       twitterProfile: "https://twitter.com/cory_eth",
     },
     {
       ensName: "poap.eth",
+      displayName: "Proof of Attendance Protocol",
       title: "Proof of Attendance Protocol - bookmarks for your life",
       twitterProfile: "https://twitter.com/poapxyz",
     },
@@ -187,6 +236,7 @@ const publicGoodsAdvocates: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "griff.eth",
+      displayName: "Griff Green",
       title: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
       twitterProfile: "https://twitter.com/thegrifft",
     },
@@ -203,6 +253,7 @@ const publicGoodsAdvocates: SupporterCategoryProps = {
 
     {
       ensName: "ceresstation.eth",
+      displayName:"Scott Moore",
       title: "Co-founder Gitcoin & Kernel",
       twitterProfile: "https://twitter.com/notscottmoore",
     },
@@ -223,7 +274,6 @@ const decentralizationAdvocates: SupporterCategoryProps = {
       title: "ENS Advocate and Founder of Web3Domains",
       twitterProfile: "https://twitter.com/garypalmerjr",
     },
-
     {
       ensName: "master.eth",
       title: "ENS Advocate",
@@ -231,8 +281,36 @@ const decentralizationAdvocates: SupporterCategoryProps = {
     },
     {
       ensName: "superphiz.eth",
-      title: "Ethereum Decentralized Staking Advocate  ",
+      title: "Ethereum Decentralized Staking Advocate",
       twitterProfile: "https://twitter.com/superphiz",
+    },
+    {
+      ensName: "jalil.eth",
+      displayName: "Jalil Wahdatehagh",
+      title: "Intangible things at Visualize Value.",
+      twitterProfile: "https://twitter.com/jalil_eth",
+    },
+    {
+      ensName: "bosco.eth",
+      title: "Love Freedom and Public Goods 💚",
+      twitterProfile: "https://twitter.com/amboscoboinik",
+    },
+    {
+      ensName: "krypto.eth",
+      title: "Poland ENS Master",
+      twitterProfile: "https://twitter.com/CryptoDodoPL",
+    },
+    {
+      ensName: "wslyvh.eth",
+      displayName: "Wesley",
+      title: "Events at Ethereum Foundation",
+      twitterProfile: "https://twitter.com/wslyvh",
+    },
+    {
+      ensName: "premm.eth",
+      displayName: "Prem Makeig",
+      title: "Founder at Unruggable Labs, ENS Fellow",
+      twitterProfile: "https://twitter.com/nxt3d",
     },
   ],
 };
@@ -242,7 +320,7 @@ const daoAdvocates: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "fireeyesdao.eth",
-      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
+      displayName: "Fire Eyes DAO",      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
       twitterProfile: "https://twitter.com/fireeyesgov",
     },
     {
@@ -255,11 +333,21 @@ const daoAdvocates: SupporterCategoryProps = {
       title: "Co-founder of Blockful, building public goods for DAOs",
       twitterProfile: "https://twitter.com/alextnetto",
     },
-
     {
       ensName: "elbagococina.eth",
       title: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
       twitterProfile: "https://twitter.com/elbagococina",
+    },
+    {
+      ensName: "she256.eth",
+      title: "Nonprofit dedicated to increasing diversity in the blockchain space",
+      twitterProfile: "https://twitter.com/she_256",
+    },
+
+    {
+      ensName: "limes.eth",
+      title: "ENS DAO Steward & Secretary - Growth at Layer3",
+      twitterProfile: "https://twitter.com/limes_eth",
     },
   ],
 };
@@ -279,6 +367,7 @@ const dAppBuilders: SupporterCategoryProps = {
     },
     {
       ensName: "mihal.eth",
+      displayName:"David Mihal",
       title: "Blockchain Engineer",
       twitterProfile: "https://twitter.com/dmihal",
     },
@@ -295,11 +384,10 @@ const ensLabsStaff: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "gregskril.eth",
+      displayName:"Greg Skriloff",
       title: "Developer at ENS Labs",
       twitterProfile: "https://twitter.com/gregskril",
     },
-
-
     {
       ensName: "taytems.eth",
       title: "Developer at ENS Labs",
@@ -312,8 +400,15 @@ const ensLabsStaff: SupporterCategoryProps = {
     },
     {
       ensName: "matoken.eth",
+      displayName: "Makoto Inoue",
       title: "Developer at ENS Labs",
       twitterProfile: "https://twitter.com/makoto_inoue",
+    },
+    {
+      ensName: "jefflau.eth",
+      displayName: "Jeff Lau",
+      title: "Core Team Leader - ENS Labs",
+      twitterProfile: "https://twitter.com/_jefflau",
     },
   ],
 };

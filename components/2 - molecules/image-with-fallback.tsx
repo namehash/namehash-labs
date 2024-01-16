@@ -71,7 +71,7 @@ export const ImageWithFallback = ({
         closeEvents={{ mouseleave: true, blur: true }}
       >
         <div className="flex gap-4 max-w-[400px] p-4 items-stretch">
-          <a className="flex flex-grow items-center" target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
+          <a className="flex flex-grow hover:-translate-y-0.5 transition-all duration-200" target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
             <Image
               src={imgSrc}
               alt={profile.ensName}
@@ -84,11 +84,13 @@ export const ImageWithFallback = ({
 
 
 
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-1">
             <div className="flex gap-2 items-center ">
               <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
-                <div className="font-bold">{profile.ensName}</div>
+                <div className="font-bold hover:-translate-y-0.5 transition-all duration-200">{profile.ensName}</div>
               </a>
+
+              
 
               <a href={profile.twitterProfile} target="_blank">
                 <svg
@@ -107,7 +109,10 @@ export const ImageWithFallback = ({
                 </svg>
               </a>
             </div>
-            <div className="max-w-[300px]">{profile.title}</div>
+            {profile.displayName && <div>
+                {profile.displayName}
+              </div>}
+            <div className="max-w-[300px] text-gray-400">{profile.title}</div>
           </div>
         </div>
       </Tooltip>
