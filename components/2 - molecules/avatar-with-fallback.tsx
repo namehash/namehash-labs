@@ -3,20 +3,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { Profile } from "./our-supporters-section";
 import { FastAverageColor } from "fast-average-color";
-import Link from "next/link";
 
-interface ImageWithFallbackProps {
+interface AvatarWithFallbackProps {
   profile: Profile;
   className?: string;
   width?: number;
 }
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
-export const ImageWithFallback = ({
+export const AvatarWithFallback = ({
   profile,
   className = "",
   width = 80,
-}: ImageWithFallbackProps) => {
+}: AvatarWithFallbackProps) => {
   const [imageFailed, setImageFailed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
@@ -81,17 +80,11 @@ export const ImageWithFallback = ({
               onError={() => setImageFailed(true)}
             />
           </a>
-
-
-
           <div className="flex flex-col gap-1">
             <div className="flex gap-2 items-center ">
               <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
                 <div className="font-bold hover:-translate-y-0.5 transition-all duration-200">{profile.ensName}</div>
               </a>
-
-              
-
               <a href={profile.twitterProfile} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,8 +103,8 @@ export const ImageWithFallback = ({
               </a>
             </div>
             {profile.displayName && <div>
-                {profile.displayName}
-              </div>}
+              {profile.displayName}
+            </div>}
             <div className="max-w-[300px] text-gray-400">{profile.title}</div>
           </div>
         </div>

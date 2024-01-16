@@ -1,6 +1,6 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { ImageWithFallback } from "./image-with-fallback";
+import { AvatarWithFallback } from "./avatar-with-fallback";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
@@ -52,7 +52,7 @@ export const SupporterCategory = ({
   title,
   profiles,
 }: SupporterCategoryProps) => {
-  
+
   const [profilesDisplay, setProfilesDisplay] = useState(profiles);
 
   useEffect(() => {
@@ -107,21 +107,21 @@ function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profil
   let result: Profile[] = [];
 
   for (let i = 0; i < count; i++) {
-      if (tempArray.length === 0) {
-          break;
-      }
+    if (tempArray.length === 0) {
+      break;
+    }
 
-      // Get a random index
-      let randomIndex = Math.floor(Math.random() * tempArray.length);
+    // Get a random index
+    let randomIndex = Math.floor(Math.random() * tempArray.length);
 
-      // Select the object at the random index
-      let selected = tempArray[randomIndex];
+    // Select the object at the random index
+    let selected = tempArray[randomIndex];
 
-      // Add the selected object to the result array
-      result.push(selected);
+    // Add the selected object to the result array
+    result.push(selected);
 
-      // Remove the selected object from the temp array
-      tempArray.splice(randomIndex, 1);
+    // Remove the selected object from the temp array
+    tempArray.splice(randomIndex, 1);
   }
 
   return result;
@@ -130,16 +130,16 @@ function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profil
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-      <ImageWithFallback
+      <AvatarWithFallback
         profile={profiles[1]}
         className="absolute top-0 right-[122px] z-10"
       />
-      <ImageWithFallback
+      <AvatarWithFallback
         profile={profiles[3]}
         className="absolute top-0 right-0 z-20"
       />
-      <ImageWithFallback profile={profiles[0]} className="absolute bottom-0 left-0 " />
-      <ImageWithFallback profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
+      <AvatarWithFallback profile={profiles[0]} className="absolute bottom-0 left-0 " />
+      <AvatarWithFallback profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
     </div>
   );
 };
@@ -148,8 +148,8 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <ImageWithFallback profile={profiles[0]} width={120} className="w-20 h-20" />
-        <ImageWithFallback profile={profiles[1]} width={120} />
+        <AvatarWithFallback profile={profiles[0]} width={120} className="w-20 h-20" />
+        <AvatarWithFallback profile={profiles[1]} width={120} />
       </div>
     </div>
   );
@@ -195,7 +195,7 @@ const walletBuilders: SupporterCategoryProps = {
     },
     {
       ensName: "spencecoin.eth",
-      displayName:"Jordan Spence",
+      displayName: "Jordan Spence",
       title: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
       twitterProfile: "https://twitter.com/spencecoin",
     },
@@ -225,7 +225,7 @@ const web3ProtocolBuilders: SupporterCategoryProps = {
     {
       ensName: "poap.eth",
       displayName: "Proof of Attendance Protocol",
-      title: "Proof of Attendance Protocol - bookmarks for your life",
+      title: "Bookmarks for your life",
       twitterProfile: "https://twitter.com/poapxyz",
     },
   ],
@@ -237,7 +237,7 @@ const publicGoodsAdvocates: SupporterCategoryProps = {
     {
       ensName: "griff.eth",
       displayName: "Griff Green",
-      title: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode, & DECENTRAL",
+      title: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode & DECENTRAL",
       twitterProfile: "https://twitter.com/thegrifft",
     },
     {
@@ -253,7 +253,7 @@ const publicGoodsAdvocates: SupporterCategoryProps = {
 
     {
       ensName: "ceresstation.eth",
-      displayName:"Scott Moore",
+      displayName: "Scott Moore",
       title: "Co-founder Gitcoin & Kernel",
       twitterProfile: "https://twitter.com/notscottmoore",
     },
@@ -320,7 +320,8 @@ const daoAdvocates: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "fireeyesdao.eth",
-      displayName: "Fire Eyes DAO",      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
+      displayName: "Fire Eyes DAO", 
+      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
       twitterProfile: "https://twitter.com/fireeyesgov",
     },
     {
@@ -330,6 +331,7 @@ const daoAdvocates: SupporterCategoryProps = {
     },
     {
       ensName: "alextnetto.eth",
+      displayName: "Alex Netto",
       title: "Co-founder of Blockful, building public goods for DAOs",
       twitterProfile: "https://twitter.com/alextnetto",
     },
@@ -362,12 +364,13 @@ const dAppBuilders: SupporterCategoryProps = {
     },
     {
       ensName: "lefteris.eth",
+      displayName: "Lefteris Karapetsas",
       title: "Founder of Rotki, the portfolio tracker that protects your privacy",
       twitterProfile: "https://twitter.com/LefterisJP",
     },
     {
       ensName: "mihal.eth",
-      displayName:"David Mihal",
+      displayName: "David Mihal",
       title: "Blockchain Engineer",
       twitterProfile: "https://twitter.com/dmihal",
     },
@@ -384,7 +387,7 @@ const ensLabsStaff: SupporterCategoryProps = {
   profiles: [
     {
       ensName: "gregskril.eth",
-      displayName:"Greg Skriloff",
+      displayName: "Greg Skriloff",
       title: "Developer at ENS Labs",
       twitterProfile: "https://twitter.com/gregskril",
     },

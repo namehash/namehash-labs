@@ -1,5 +1,5 @@
 import { Balancer } from "react-wrap-balancer";
-import { EnsLogoColored } from "../1 - atoms/icons/external-link-icon copy";
+import { EnsLogoColored } from "../1 - atoms/icons/ens-logo-colored";
 
 export const FinancialSupportSection = () => {
   return (
