@@ -38,3 +38,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Link Redirection in vercel.json
+
+In our vercel.json file, we've set up redirects so different URLs still correctly direct to specific images. Our aim is to ensure these redirects work flawlessly, preventing any broken links on external websites. Our goal is to avoid breaking any images referenced from the following proposals
+
+https://ensgrants.xyz/rounds/32/proposals/919
+https://discuss.ens.domains/t/service-provider-stream-nomination-thread/18142/39
+https://discuss.octant.app/t/namehash-labs-accelerating-decentralized-identity-for-everyone/169
