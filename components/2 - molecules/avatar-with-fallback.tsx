@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { Profile } from "./our-supporters-section";
 import { FastAverageColor } from "fast-average-color";
+import { EnsSolidIcon } from "../1 - atoms/icons/ens-solid-icon";
 
 interface AvatarWithFallbackProps {
   profile: Profile;
@@ -35,56 +36,65 @@ export const AvatarWithFallback = ({
     }
   }, [imageRef]);
 
-
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
     : `/images/our-supporters/${profile.ensName}.png`;
 
-  const imageSizeString = width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto "
+  const imageSizeString =
+    width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto ";
 
   return (
-    <div >
-      <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}
-      >
-        <Image
-          src={imgSrc}
-          alt={profile.ensName}
-          data-tip
-          data-for={profile.ensName}
-          data-tooltip-id={profile.ensName}
-          width={width}
-          height={width}
-          onMouseEnter={() => { setIsHovered(true) }}
-          onMouseLeave={() => { setIsHovered(false) }}
-          className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
-          onError={() => setImageFailed(true)}
-          style={{
-            borderRadius: "12.31px",
-            boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
-          }}
-          ref={imageRef}
-        />
-      </a>
-      <Tooltip clickable id={profile.ensName} place="top" delayShow={200} delayHide={0} opacity={1} className="z-50 bg-black !rounded-[8px] !p-0"
+    <div>
+      <Image
+        src={imgSrc}
+        alt={profile.ensName}
+        data-tip
+        data-for={profile.ensName}
+        data-tooltip-id={profile.ensName}
+        width={width}
+        height={width}
+        onMouseEnter={() => {
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+        }}
+        className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+        onError={() => setImageFailed(true)}
+        style={{
+          borderRadius: "12.31px",
+          boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
+        }}
+        ref={imageRef}
+      />
+      <Tooltip
+        clickable
+        id={profile.ensName}
+        place="top"
+        delayShow={200}
+        delayHide={0}
+        opacity={1}
+        className="z-50 bg-black !rounded-[8px] !p-0"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
       >
         <div className="flex gap-4 max-w-[400px] p-4 items-stretch">
-          <a className="flex flex-grow hover:-translate-y-0.5 transition-all duration-200" target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
+          <div className="flex flex-grow transition-all duration-200">
             <Image
               src={imgSrc}
-              alt={profile.ensName}
               width={width}
               height={width}
+              alt={profile.ensName}
               className={`h-20 w-20`}
               onError={() => setImageFailed(true)}
             />
-          </a>
+          </div>
           <div className="flex flex-col gap-1">
             <div className="flex gap-2 items-center ">
-              <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
-                <div className="font-bold hover:-translate-y-0.5 transition-all duration-200">{profile.ensName}</div>
-              </a>
+              <p className="font-bold transition-all duration-200">
+                {profile.ensName}
+              </p>
+
               <a href={profile.twitterProfile} target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,10 +111,20 @@ export const AvatarWithFallback = ({
                   />
                 </svg>
               </a>
+              <a
+                className="-ml-2"
+                href={`https://app.ens.domains/${profile.ensName}`}
+                target="_blank"
+              >
+                <EnsSolidIcon
+                  fill="#666"
+                  className="hover:brightness-200 transition"
+                  width={24}
+                  height={24}
+                />
+              </a>
             </div>
-            {profile.displayName && <div>
-              {profile.displayName}
-            </div>}
+            {profile.displayName && <div>{profile.displayName}</div>}
             <div className="max-w-[300px] text-gray-400">{profile.title}</div>
           </div>
         </div>
