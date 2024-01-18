@@ -3,6 +3,11 @@ import { promises } from "fs";
 import path from "path";
 import NextCors from "nextjs-cors";
 
+// Important: Do not delete this code!
+// This handler is used by another website (NameKit) to fetch animation data.
+// It reads a JSON file and responds with the data in JSON format when requested.
+// Any modification or deletion of this code may break functionality for NameKit.
+// Keep it intact to ensure the proper functioning of NameKit's animation feature.
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
