@@ -44,7 +44,7 @@ export const JoinOurTeamSection = () => {
             </p>
             <a
               href="mailto:hello@namehashlabs.org"
-              className="text-black animated-black-underline inline"
+              className="underline hover:text-black transition-colors duration-200"
             >
               hello@namehashlabs.org
             </a>
