@@ -1,34 +1,28 @@
-import { ENSServiceProviderBanner } from '@/components/1 - atoms';
-import { Title404 } from '@/components/1 - atoms/404-title';
-import { Footer } from '@/components/2 - molecules';
-import { Header } from '@/components/2 - molecules/header';
-import Link from 'next/link';
-import React from 'react';
-import Balancer from 'react-wrap-balancer';
+import { Title404 } from "@/components/1 - atoms/404-title";
+import { Layout } from "@/components/4 - templates/layout";
+import Balancer from "react-wrap-balancer";
+import Link from "next/link";
+import React from "react";
 
 const Custom404 = () => {
   return (
-    <>
-      <ENSServiceProviderBanner />
-      <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center overflow-hidden">
-        <div className="absolute top-0 left-0 w-screen z-40">
-          <Header />
-        </div>
+    <Layout>
+      <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center overflow-hidden landscape:mt-20 tall:landscape:mt-0">
         <div className="flex flex-col items-center  max-w-[600px] z-20 animate-fadeIn">
-          <Title404
-            className='w-full max-w-]500px] mb-[60px]'
-          />
-          <h3 className='text-4xl leading-10 font-bold mb-4'>Page not found</h3>
+          <Title404 className="w-full max-w-[500px] mb-[60px] landscape:mb-0 tall:landscape:mb-0" />
+          <h3 className="text-4xl leading-10 font-bold mb-4 ">
+            Page not found
+          </h3>
           <p className="text-sm leading-6 font-normal text-gray-500">
             <Balancer>
-              We can’t seem to find the page you’re looking for
+              We can&apos;t seem to find the page you&apos;re looking for
             </Balancer>
           </p>
           <div className="flex items-center justify-center mt-5">
             <Link
-              href='/'
-
-              className="py-[9px] hover:bg-gray-200 transition-colors duration-200 px-[17px] border rounded-[8px] flex bg-white border-gray-300 lg:leading-6">
+              href="/"
+              className="py-[9px] hover:bg-gray-50 transition-colors duration-200 px-[17px] border rounded-[8px] flex bg-white border-gray-300 lg:leading-6"
+            >
               Back to homepage
             </Link>
           </div>
@@ -57,8 +51,7 @@ const Custom404 = () => {
           }}
         />
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

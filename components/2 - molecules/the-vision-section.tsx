@@ -22,7 +22,7 @@ export const TheVisionSection = () => {
   return (
     <section
       id="theVisionSection"
-      className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
+      className="z-20 bg-white px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
     >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] lg:mx-10 md:pb-10">
         <PreSectionText>THE VISION</PreSectionText>

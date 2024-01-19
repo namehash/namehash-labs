@@ -7,7 +7,7 @@ export const IntroducingNamekit = () => {
   return (
     <section
       id="introducingNamekit"
-      className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
+      className="bg-white z-20 px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden"
     >
       <div className="flex flex-col items-center justify-center gap-3 mb-[60px] max-w-[650px] md:pb-10">
         <PreSectionText>WHAT WE&apos;RE BUILDING</PreSectionText>
