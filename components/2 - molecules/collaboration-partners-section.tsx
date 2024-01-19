@@ -19,7 +19,7 @@ export const CollaborationPartnersSection = () => {
         <div className="grid lg:grid-cols-2 grid-cols-1 place-content-center	 gap-[120px] pt-[50px] mt-10">
           {partners.map((partner) => {
             return (
-              <Item
+              <PartnersCTASection
                 key={partner.buttonText}
                 title={partner.title}
                 description={partner.description}
@@ -35,7 +35,7 @@ export const CollaborationPartnersSection = () => {
   );
 };
 
-interface ItemProps {
+interface PartnersCTASectionProps {
   title: React.ReactNode;
   description: React.ReactNode;
   buttonText: string;
@@ -43,13 +43,13 @@ interface ItemProps {
   blank?: boolean;
 }
 
-const Item = ({
+const PartnersCTASection = ({
   title,
   description,
   buttonText,
   buttonUrl,
   blank = true,
-}: ItemProps) => {
+}: PartnersCTASectionProps) => {
   return (
     <div className="flex flex-col items-start gap-6 max-w-[548px]">
       {title}
@@ -57,7 +57,7 @@ const Item = ({
       <div>
         <a
           target={blank ? "_blank" : ""}
-          className="px-[17px] py-[9px] text-base leading-6 font-medium border border-gray-300 rounded-[8px] bg-white hover:bg-gray-200 transition-colors duration-200"
+          className="px-[17px] py-[9px] text-base leading-6 font-medium border border-gray-300 rounded-[8px] bg-white hover:bg-gray-50 transition-colors duration-200"
           href={buttonUrl}
         >
           {buttonText}
@@ -67,7 +67,7 @@ const Item = ({
   );
 };
 
-const partners: ItemProps[] = [
+const partners: PartnersCTASectionProps[] = [
   {
     title: <BlockfulLogo className="h-[40px] text-start mb-1" />,
     description: (

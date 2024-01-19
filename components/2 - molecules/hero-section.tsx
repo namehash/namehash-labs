@@ -1,9 +1,4 @@
-import {
-  ChevronDown,
-  HeadlineBanner,
-  CalButton,
-  BeansBg,
-} from "../1 - atoms";
+import { ChevronDown, HeadlineBanner, CalButton, BeansBg } from "../1 - atoms";
 import { Header } from "./header";
 import { Balancer } from "react-wrap-balancer";
 
@@ -65,7 +60,7 @@ export const HeroSection = () => {
               theVision.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+          className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-50 transition-colors duration-200"
         >
           <ChevronDown />
         </button>

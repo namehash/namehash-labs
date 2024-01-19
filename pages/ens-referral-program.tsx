@@ -5,10 +5,7 @@ import { Header } from "@/components/2 - molecules/header";
 import Image from "next/image";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
-import {
-  HeadlineBanner,
-  ExternalLinkIcon,
-} from "@/components/1 - atoms";
+import { HeadlineBanner, ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
 import Head from "next/head";
@@ -147,7 +144,7 @@ const Item = ({
       </div>
       {!!buttonUrl && (
         <a
-          className="px-4 py-2 flex items-center justify-center gap-3 border border-gray-200 rounded-[8px] hover:bg-gray-100 transition-colors duration-200"
+          className="px-4 py-2 flex items-center justify-center gap-3 border border-gray-200 rounded-[8px] hover:bg-gray-50 transition-colors duration-200"
           target="_blank"
           href={buttonUrl}
         >
