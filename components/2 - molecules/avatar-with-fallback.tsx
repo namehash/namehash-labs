@@ -90,8 +90,8 @@ export const AvatarWithFallback = ({
             />
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex gap-2 items-center ">
-              <p className="font-semibold text-lg transition-all duration-200">
+            <div className="flex gap-1 items-center ">
+              <p className="font-semibold text-lg transition-all duration-200 mr-1">
                 {profile.ensName}
               </p>
 
@@ -112,7 +112,6 @@ export const AvatarWithFallback = ({
                 </svg>
               </a>
               <a
-                className="-ml-2"
                 href={`https://app.ens.domains/${profile.ensName}`}
                 target="_blank"
               >
