@@ -1,153 +1,75 @@
-import Image from "next/image";
-import { ChevronDown, DotPattern, HeroTexture } from "../1 - atoms";
+import {
+  ChevronDown,
+  HeadlineBanner,
+  CalButton,
+  BeansBg,
+} from "../1 - atoms";
 import { Header } from "./header";
-import CalButton from "../1 - atoms/cal-button";
+import { Balancer } from "react-wrap-balancer";
 
 export const HeroSection = () => {
   return (
-    <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center bg-gray-200 overflow-hidden">
-      <Header />
-
-      <div className="flex flex-col items-centCalButtoner gap-5 max-w-[728px] z-20">
-        <h1 className="lg:text-5xl lg:leading-[60px] text-center text-4xl leading-10 font-bold">
-          Core infrastructure for the internet of identity
-        </h1>
-        <p className="text-lg text-center text-gray-500 font-normal leading-7">
-          We are a relentlessly committed team building open source public goods
-          to drive global adoption of the ENS protocol
-        </p>
-        <div className="flex items-center justify-center">
-          <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
-            Schedule a call
-          </CalButton>
+    <>
+      <HeadlineBanner />
+      <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center overflow-hidden">
+        <div className="absolute top-0 left-0 w-screen z-40">
+          <Header />
         </div>
-      </div>
-      <HeroTexture className="absolute top-0 right-0 w-full h-full" />
-      <DotPattern className="absolute top-0 right-0 w-full h-full" />
-      <div className="bg-gradient-to-b from-transparent to-white h-1/2 w-full absolute bottom-0 left-0" />
+        <div className="flex flex-col items-center  max-w-[600px] z-20 animate-fadeIn">
+          <h1 className="lg:text-[100px] text-5xl text-center font-bold lg:leading-[120px]">
+            Helping ENS grow
+          </h1>
+          <p className="text-lg text-center text-gray-500 font-normal leading-7 mt-4 max-w-[500px]">
+            <Balancer>
+              We integrate ENS onboarding into web3 wallets, apps, and games
+            </Balancer>
+          </p>
+          <div className="flex items-center justify-center mt-10">
+            <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
+              Schedule a call
+            </CalButton>
+          </div>
+        </div>
+        <BeansBg className="absolute right-0 top-0 h-full w-full z-10 animate-spinSlow" />
 
-      <button
-        onClick={() => {
-          const targetDiv = document.getElementById("targetDiv");
-
-          if (targetDiv) {
-            targetDiv.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-        className="px-20 py-2.5 z-20 border rounded-full border-gray-300 absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
-      >
-        <ChevronDown />
-      </button>
-
-      <div className="absolute invisible lg:visible w-[500px] h-[500px] top-[15vh] left-[25vw]">
-        <Image
-          className=""
-          alt="test"
-          src={"/images/hero-section/zeus.png"}
-          width={50}
-          height={50}
+        <div
+          className="absolute bottom-0 left-0 w-full h-[140px] bg-white z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%)",
+          }}
         />
-      </div>
 
-      <div className="absolute invisible w-[250px] h-[250px] lg:visible top-[15vh] left-[0.5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/phoenix.png"}
-          width={250}
-          height={250}
+        <div
+          className="w-[100vw] h-[100vh] absolute opacity-70"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(221, 160, 233, 0.00) -1.42%, rgba(93, 128, 219, 0.20) 100%), linear-gradient(180deg, #FDE8FB 0%, #DFA4EA 33.33%, #9981D4 64.06%, #9DB9DD 95.83%)",
+          }}
         />
-      </div>
+        <div className="border rounded-full min-w-[1832px] min-h-[1832px] w-[120vw] h-[120vw] opacity-50 absolute bottom-0 translate-y-[50%] bg-white" />
 
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[10vh] left-[5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/hidra.png"}
-          width={250}
-          height={250}
+        <div
+          className="min-w-[1440px] min-h-[1440px] w-[95vw] h-[95vw] absolute bottom-0 translate-y-[50%]"
+          style={{
+            borderRadius: "1401.845px",
+            background:
+              "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.50) 48.96%)",
+          }}
         />
-      </div>
 
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] left-[22.5vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/run.png"}
-          width={150}
-          height={150}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[8vh] left-[35vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/super-woman.png"}
-          width={250}
-          height={250}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible bottom-[20vh] right-[35vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/running-girl.png"}
-          width={150}
-          height={150}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[200px] h-[200px]  lg:visible bottom-[8vh] right-[20vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/skeleton.png"}
-          width={200}
-          height={200}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[250px] h-[250px]  lg:visible bottom-[22vh] right-[6vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/dancing.png"}
-          width={250}
-          height={250}
-        />
-      </div>
-
-      <div className="absolute invisible w-[250px] h-[250px]  lg:visible top-[7vh] right-[40vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/eye.png"}
-          width={250}
-          height={250}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[150px] h-[150px]  lg:visible top-[20vh] right-[25vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/running.png"}
-          width={150}
-          height={150}
-        />
-      </div>
-
-      <div className="absolute invisible  w-[90px] h-[90px]  lg:visible top-[200px] right-[15vw]">
-        <Image
-          className="w-full h-full"
-          alt="test"
-          src={"/images/hero-section/zeus-2.png"}
-          width={90}
-          height={90}
-        />
-      </div>
-    </section>
+        <button
+          onClick={() => {
+            const theVision = document.getElementById("theVisionSection");
+            if (theVision) {
+              theVision.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 hover:bg-gray-100 transition-colors duration-200"
+        >
+          <ChevronDown />
+        </button>
+      </section>
+    </>
   );
 };

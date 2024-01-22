@@ -1,20 +1,25 @@
 import {
-  CTASection,
-  ColoredText,
   Footer,
   HeroSection,
   OurPrinciplesSection,
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
-import { ContactSection } from "@/components/2 - molecules/contact-us-section";
 import { getCalApi } from "@calcom/embed-react";
-import Head from "next/head";
 import { useEffect } from "react";
+import Head from "next/head";
+import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
+import { useRouter } from "next/router";
+import { origin } from "@/lib/shared/origin";
+import { TestimonialsSection } from "@/components/2 - molecules/testimonials-section";
+import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
+import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
+import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
+import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
+import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
 
 export default function Home() {
   useEffect(() => {
-    console.log("open calendar");
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
@@ -32,59 +37,38 @@ export default function Home() {
     })();
   }, []);
 
+  const router = useRouter();
+
   return (
     <main className="flex flex-col items-center justify-between">
       <Head>
-        <title>NameHash Labs - Open source public goods for ENS</title>
         <meta
-          name="description"
-          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
+          name="twitter:image"
+          content="https://namehashlabs.org/images/og-image-twitter.png"
         />
-        <meta
-          name="keywords"
-          content="ens, web3, eth, nameguard, namegraph, namekit"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="NameHash Labs - Open source public goods for ENS"
-        />
-        <meta
-          property="og:description"
-          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
-        />
-        <meta property="og:url" content="https://namehashlabs.org" />
         <meta
           property="og:image"
           content="https://namehashlabs.org/images/og-image.png"
         />
         <meta
           property="og:image:alt"
-          content="NameHash Labs - Open source public goods for ENS"
+          content="NameHash Labs - Helping ENS Grow"
         />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@NamehashLabs" />
-        <meta property="twitter:creator" content="@NamehashLabs" />
-        <meta
-          property="twitter:description"
-          content="Our mission at NameHash Labs is to build open source infrastructure and tooling that drives global adoption of ENS."
-        />
-        <meta
-          property="twitter:image"
-          content="https://namehashlabs.org/images/og-image-twitter.png"
-        />
-        <meta
-          property="twitter:image:alt"
-          content="NameHash Labs - Open source public goods for ENS"
-        />
+
+        <meta property="og:url" content={origin + router.pathname} />
+        <title>NameHash Labs - Helping ENS Grow</title>
       </Head>
       <HeroSection />
-      <ColoredText />
+      <TheVisionSection />
+      <IntroducingNamekit />
       <ProductsSection />
+      <OurSuportersSection />
+      <TestimonialsSection />
       <OurPrinciplesSection />
       <TeamSection />
-      <ContactSection />
-      <CTASection />
+      <CollaborationPartnersSection />
+      <JoinOurTeamSection />
+      <FinancialSupportSection />
       <Footer />
     </main>
   );

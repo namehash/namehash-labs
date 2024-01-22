@@ -1,8 +1,9 @@
-import CalButton from "../1 - atoms/cal-button";
+import { Balancer } from "react-wrap-balancer";
+import { CalButton } from "../1 - atoms";
 
 export const CTASection = () => {
   return (
-    <section className="pb-[50px] px-5  w-full flex items-center justify-center">
+    <section className="py-[50px] px-5  w-full flex items-center justify-center">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 place-items-center">
         {ctas.map((item) => {
           return (
@@ -33,9 +34,9 @@ interface CtaProps {
 
 const ctas: CtaProps[] = [
   {
-    title: "Get in touch",
+    title: "Let’s chat",
     description:
-      "NameHash Labs collaborates with teams across web3, and we’re always look forward to meeting new frens.",
+      "NameHash Labs collaborates with teams across web3, and we’re always looking forward to meeting new frens.",
     buttonText: "Schedule a call",
     buttonStyle:
       "text-white bg-black hover:bg-gray-900 transition-colors duration-200",
@@ -43,9 +44,9 @@ const ctas: CtaProps[] = [
       "radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.00) 0%, #FFF 100%), linear-gradient(180deg, #FFAF00 0%, #F112D9 32.29%, #4C3FA0 70.83%, #2ED3C6 95.83%)",
   },
   {
-    title: "Build with us",
+    title: "Join our team",
     description:
-      "Work on the leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.  ",
+      "Work on leading open-source technologies for the ENS Protocol, and make an impact on the future of identity.",
     buttonText: "Open positions",
     buttonStyle:
       "border border-gray-200 bg-white hover:bg-gray-100 transition-colors duration-200",
@@ -69,7 +70,7 @@ const Cta = ({
         <div className="w-full">
           <h3 className="text-3xl leading-9 font-bold text-center">{title} </h3>
           <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center max-w-[508px] px-6">
-            {description}
+            <Balancer>{description}</Balancer>
           </p>
         </div>
         {buttonUrl ? (

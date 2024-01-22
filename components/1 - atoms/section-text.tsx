@@ -10,7 +10,7 @@ export const SectionText = ({
 }: SectionTextProps) => {
   return (
     <p
-      className={`text-gray-500 text-lg leading-7 font-normal  ${className}`}
+      className={`text-gray-500 text-lg leading-7 font-light  ${className}`}
       {...props}
     >
       {children}
