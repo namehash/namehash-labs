@@ -1,97 +1,230 @@
-import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+/* eslint-disable @next/next/no-img-element */
+import { FormEvent, useState } from "react";
+import { SectionText, SectionTitle } from "../1 - atoms";
+import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import cc from "classcat";
+
+enum FormFields {
+  Name = "name",
+  Email = "email",
+  Telegram = "telegram",
+  Message = "message",
+}
+
+const invalidFieldsInitialState = {
+  [FormFields.Name]: false,
+  [FormFields.Email]: false,
+  [FormFields.Telegram]: false,
+  [FormFields.Message]: false,
+};
 
 export const ContactSection = () => {
+  const isValidEmail = (email: string) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  const [invalidFields, setInvalidFields] = useState<
+    Record<FormFields, boolean>
+  >(invalidFieldsInitialState);
+
+  const [successfulFormSubmit, setSuccessfulFormSubmit] = useState(false);
+
+  const validateForm = (e: FormEvent) => {
+    e.preventDefault();
+
+    const formData: FormData = new FormData(e.target as HTMLFormElement);
+
+    const nameInput = formData.get(FormFields.Name);
+    const emailInput = formData.get(FormFields.Email);
+    const telegramInput = formData.get(FormFields.Telegram);
+    const messageInput = formData.get(FormFields.Message);
+
+    let invalidFormFields = invalidFieldsInitialState;
+
+    if (!nameInput) {
+      invalidFormFields = { ...invalidFormFields, [FormFields.Name]: true };
+    }
+
+    if (!emailInput || !isValidEmail(emailInput.toString())) {
+      invalidFormFields = { ...invalidFormFields, [FormFields.Email]: true };
+    }
+
+    if (!messageInput) {
+      invalidFormFields = { ...invalidFormFields, [FormFields.Message]: true };
+    }
+
+    setInvalidFields(invalidFormFields);
+
+    if (Object.values(invalidFormFields).some((val) => !!val)) {
+      return;
+    } else {
+      setSuccessfulFormSubmit(true);
+    }
+  };
+
   return (
     <section className="w-full py-20 px-5">
       <div className="w-full flex flex-col lg:flex-row m-auto gap-10 max-w-7xl">
         <div className="lg:w-1/2 w-full flex flex-col gap-3 items-start">
-          <PreSectionText>Let’s talk</PreSectionText>
-          <SectionTitle>Get in touch</SectionTitle>
-          <SectionText>
+          <SectionTitle className="text-3xl lg:text-4xl font-bold">
+            Let&apos;s talk
+          </SectionTitle>
+          <SectionText className="text-gray-500 text-lg">
             If you have questions, ideas, or share a passion for advancing ENS
             growth and would like to explore collaboration, please don&apos;t
             hesitate to get reach out.{" "}
           </SectionText>
+          <img
+            className="hidden lg:block"
+            src="/images/paper-airplane.png"
+            alt="Paper Airplane Icon"
+          />
         </div>
         <div className="lg:w-1/2 w-full bg-gray-50 py-8 px-10 border rounded-[8px] flex justify-center items-center">
-          <form action="#" method="POST" className="w-full">
-            <div className="mx-auto lg:mr-0 gap-x-8 gap-y-6 w-full gap-5 flex flex-col">
-              <div className="">
-                <label
-                  htmlFor="name"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Name
-                </label>
-                <div className="mt-1 w-full">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    autoComplete="given-name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
-                  />
-                </div>
+          <form onSubmit={validateForm} className="h-full w-full">
+            <div className="mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col">
+              <div>
+                <h3 className="text-2xl font-semibold">Send a message</h3>
               </div>
-              <div className="">
-                <label
-                  htmlFor="email"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Email
-                </label>
-                <div className="mt-1">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    autoComplete="email"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
-                  />
+
+              {successfulFormSubmit ? (
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                  <div className="p-3 bg-green-100 rounded-full mb-6">
+                    <CheckIcon className="text-green-400 w-6 h-6" />
+                  </div>
+                  <p className="text-lg font-semibold">Your message was sent</p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    We have received your message and will get back to you soon.
+                  </p>
+                  <button
+                    onClick={() => setSuccessfulFormSubmit(false)}
+                    className="mt-5 bg-black px-4 py-2 rounded-md shadow-sm text-white text-sm font-medium"
+                  >
+                    Send another message
+                  </button>
                 </div>
-              </div>
-              <div className="">
-                <label
-                  htmlFor="phone-number"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Telegram (optional)
-                </label>
-                <div className="mt-1">
-                  <input
-                    type="tel"
-                    name="phone-number"
-                    id="phone-number"
-                    autoComplete="tel"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div className="">
-                <label
-                  htmlFor="message"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Message
-                </label>
-                <div className="mt-1">
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows={4}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-end">
-              <button
-                type="submit"
-                className="rounded-md bg-black px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-800  transition-colors duration-300"
-              >
-                Send message
-              </button>
+              ) : (
+                <>
+                  {Object.values(invalidFields).some((val) => !!val) && (
+                    <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
+                      <XCircleIcon className="text-red-400 w-5 h-5" />
+
+                      <p className="text-red-800 font-medium text-sm">
+                        Fill in missing fields and try again
+                      </p>
+                    </span>
+                  )}
+
+                  <div className="gap-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm leading-5 font-medium text-gray-500"
+                    >
+                      Name
+                    </label>
+                    <div className="w-full">
+                      <input
+                        id="name"
+                        type="text"
+                        name={FormFields.Name}
+                        autoComplete="given-name"
+                        className={cc([
+                          "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                          {
+                            "ring-red-300": invalidFields[FormFields.Name],
+                          },
+                        ])}
+                      />
+                    </div>
+
+                    {invalidFields[FormFields.Name] && (
+                      <span className="mt-2 text-sm font-normal text-red-600">
+                        Name is required
+                      </span>
+                    )}
+                  </div>
+                  <div className="gap-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm leading-5 font-medium text-gray-500"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="text"
+                      autoComplete="email"
+                      name={FormFields.Email}
+                      className={cc([
+                        "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                        {
+                          "ring-red-300": invalidFields[FormFields.Email],
+                        },
+                      ])}
+                    />
+
+                    {invalidFields[FormFields.Email] && (
+                      <span className="mt-2 text-sm font-normal text-red-600">
+                        Email is required
+                      </span>
+                    )}
+                  </div>
+                  <div className="gap-1">
+                    <label
+                      htmlFor="telegram"
+                      className="block text-sm leading-5 font-medium text-gray-500"
+                    >
+                      Telegram (optional)
+                    </label>
+                    <div className="relative">
+                      <span className="text-sm leading-5 font-medium text-gray-500 absolute left-2 top-2.5">
+                        @
+                      </span>
+                      <input
+                        type="tel"
+                        id="telegram"
+                        autoComplete="tel"
+                        name={FormFields.Telegram}
+                        className="block w-full rounded-md border-0 pr-3.5 pl-6 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+                  <div className="gap-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm leading-5 font-medium text-gray-500"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      rows={4}
+                      id="message"
+                      defaultValue={""}
+                      name={FormFields.Message}
+                      className={cc([
+                        "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                        {
+                          "ring-red-300": invalidFields[FormFields.Message],
+                        },
+                      ])}
+                    />
+
+                    {invalidFields[FormFields.Message] && (
+                      <span className="mt-2 text-sm font-normal text-red-600">
+                        Message is required
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex justify-end">
+                    <button
+                      type="submit"
+                      className="rounded-lg bg-black px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto transition-colors duration-300"
+                    >
+                      Send message
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </form>
         </div>
