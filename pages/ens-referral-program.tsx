@@ -3,7 +3,7 @@ import { getCalApi } from "@calcom/embed-react";
 import Image from "next/image";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
-import { ExternalLinkIcon } from "@/components/1 - atoms";
+import { HeadlineBanner, ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
 import Head from "next/head";
