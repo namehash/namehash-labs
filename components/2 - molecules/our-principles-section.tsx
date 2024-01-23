@@ -7,7 +7,7 @@ export const OurPrinciplesSection = () => {
   return (
     <section
       id="ourPrinciplesSection"
-      className="lg:px-[112px] w-full flex flex-col items-center justify-center px-5 py-20 border-t border-b border-gray-200"
+      className="lg:px-[112px] w-full flex flex-col items-center justify-center px-5 py-20"
     >
       <PreSectionText>What Guides us</PreSectionText>
       <SectionTitle>Our principles</SectionTitle>
