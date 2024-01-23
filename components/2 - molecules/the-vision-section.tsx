@@ -38,7 +38,7 @@ export const TheVisionSection = () => {
         </SectionText>
       </div>
       <Lottie
-        className="w-[460px] h-[204px] xSmall:w-[552px] xSmall:h-[245px] small:w-[668px] small:h-[297px] sm:w-[735px] sm:h-[327px] md:w-[764px] md:h-[339px] medium2x:w-[801px] medium2x:h-[355px] lg:w-[984px] lg:h-[437px] xl:w-[1400px] xl:h-[622px]"
+        className="w-[460px] h-[204px] xSmall:w-[552px] xSmall:h-[245px] small:w-[668px] small:h-[297px] sm:w-[735px] sm:h-[327px] md:w-[764px] md:h-[339px] medium2x:w-[801px] medium2x:h-[355px] lg:!w-[984px] lg:!h-[437px] xl:!w-[1400px] xl:!h-[622px]"
         animationData={animationData}
         loop={true}
       />

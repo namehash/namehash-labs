@@ -20,7 +20,7 @@ export const IntroducingNamekit = () => {
         </SectionText>
       </div>
       <Lottie
-        className="w-[480px] h-[212px] xSmall:w-[576px] xSmall:h-[255px] small:w-[634px] small:h-[281px] sm:w-[697px] sm:h-[309px] medium2x:w-[767px] medium2x:h-[340px] md:w-[728px] md:h-[323px] lg:w-[984px] lg:h-[437px] xl:w-[1400px] xl:h-[622px]"
+        className="w-[480px] h-[212px] xSmall:w-[576px] xSmall:h-[255px] small:w-[634px] small:h-[281px] sm:w-[697px] sm:h-[309px] md:w-[728px] md:h-[323px] medium2x:w-[767px] medium2x:h-[340px] lg:!w-[984px] lg:!h-[437px] xl:!w-[1400px] xl:!h-[622px]"
         animationData={waveAnimation}
         loop={true}
       />
