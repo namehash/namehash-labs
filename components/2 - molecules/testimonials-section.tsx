@@ -193,7 +193,7 @@ export const TestimonialsSection = () => {
 
   return (
     <section
-      className="lg:px-[110px] px-5 py-[108px] border-b border-gray-200 w-full"
+      className="lg:px-[110px] px-5 py-[108px] w-full"
       id="ensOnboardingSection"
     >
       <div className="w-full flex flex-col items-center gap-20 max-w-[1216px] m-auto">
