@@ -2,7 +2,7 @@ import Link from "next/link";
 import { NameHashLabsLogo, CalButton } from "../1 - atoms";
 import { origin } from "@/lib/shared/origin";
 
-export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
+export const Header = () => {
   return (
     <nav className="lg:px-[112px] px-5 w-full flex items-center justify-center border-b border-black border-opacity-10 z-20">
       <div className="w-full flex items-center justify-between py-5 max-w-[1216px]">

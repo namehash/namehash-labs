@@ -15,6 +15,7 @@ import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section
 import { useRouter } from "next/router";
 import { origin } from "@/lib/shared/origin";
 import { TestimonialsSection } from "@/components/2 - molecules/testimonials-section";
+import { Layout } from "@/components/4 - templates/layout";
 import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
 
@@ -40,7 +41,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="flex flex-col items-center justify-between">
+    <main className="w-full flex flex-col items-center justify-between">
       <Head>
         <meta
           name="twitter:image"
@@ -58,18 +59,18 @@ export default function Home() {
         <meta property="og:url" content={origin + router.pathname} />
         <title>NameHash Labs - Helping ENS Grow</title>
       </Head>
-      <HeroSection />
-      <TheVisionSection />
-      <IntroducingNamekit />
-      <ProductsSection />
-      <OurSuportersSection />
-      <TestimonialsSection />
-      <OurPrinciplesSection />
-      <TeamSection />
-      <CollaborationPartnersSection />
-      <JoinOurTeamSection />
-      <FinancialSupportSection />
-      <Footer />
+      <Layout>
+        <HeroSection />
+        <TheVisionSection />
+        <IntroducingNamekit />
+        <ProductsSection />
+        <OurSuportersSection />
+        <TestimonialsSection />
+        <OurPrinciplesSection />
+        <TeamSection />
+        <JoinOurTeamSection />
+        <FinancialSupportSection />
+      </Layout>
     </main>
   );
 }
