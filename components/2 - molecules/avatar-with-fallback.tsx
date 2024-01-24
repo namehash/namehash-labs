@@ -79,22 +79,22 @@ export const AvatarWithFallback = ({
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
       >
-        <div className="flex gap-4 max-w-[400px] p-4 items-stretch">
+        <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <a
-            className="flex flex-grow hover:-translate-y-0.5 transition-all duration-200"
+            className="shrink-0 flex flex-grow hover:-translate-y-0.5 transition-all duration-200"
             target="_blank"
             href={`https://app.ens.domains/${profile.ensName}`}
           >
             <Image
               src={imgSrc}
-              alt={profile.ensName}
               width={width}
               height={width}
-              className={`h-20 w-20`}
+              alt={profile.ensName}
+              className="h-20 w-20"
               onError={() => setImageFailed(true)}
             />
           </a>
-          <div className="flex flex-col gap-1">
+          <div className="shrink flex flex-col gap-1">
             <div className="flex gap-2 items-center ">
               <a
                 target="_blank"

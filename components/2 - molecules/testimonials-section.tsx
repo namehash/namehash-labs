@@ -228,12 +228,12 @@ export const TestimonialsSection = () => {
                       </p>
                     </div>
 
-                    <div
-                      className={`flex gap-5 w-full items-center justify-center`}
-                    >
-                      <AvatarWithTooltip profile={testimonial.profile} />
+                    <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
+                      <div className="shrink-0">
+                        <AvatarWithTooltip profile={testimonial.profile} />
+                      </div>
 
-                      <div className="flex flex-col">
+                      <div className="flex flex-col shrink">
                         <p className="text-2xl leading-8 font-semibold">
                           {testimonial.profile.ensName}
                         </p>
