@@ -19,6 +19,13 @@ const invalidFieldsInitialState = {
   [FormFields.Message]: false,
 };
 
+interface FormDataProps {
+  name: string,
+  email: string,
+  telegram: string,
+  message: string,
+}
+
 export const ContactSection = () => {
   const isValidEmail = (email: string) => {
     return /\S+@\S+\.\S+/.test(email);
@@ -30,7 +37,87 @@ export const ContactSection = () => {
 
   const [successfulFormSubmit, setSuccessfulFormSubmit] = useState(false);
 
-  const validateForm = (e: FormEvent) => {
+  const alo = process.env.NEXT_PUBLIC_SLACK_URL;
+  console.log("form url: ", alo)
+
+  
+
+
+  async function submitForm(url: string, data: FormDataProps) {
+
+    const nameDisplay = `*Name*: ${data.name}`
+    const emailDisplay = `*Email*: ${data.email}`
+    const telegramDisplay = `*Telegram*: ${data.telegram}`
+    const messageDisplay = `*Message*: ${data.message}`
+
+
+    const payload = {
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "plain_text",
+            "text": ":memo: New message from NameHashLabs contact page",
+            "emoji": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": nameDisplay
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": emailDisplay
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": telegramDisplay
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": messageDisplay
+          }
+        }
+      ]
+    }
+
+
+    console.log("url", process.env.NEXT_PUBLIC_SLACK_URL)
+    console.log("payload", JSON.stringify(payload))
+    try {
+        const response = await fetch(process.env.NEXT_PUBLIC_SLACK_URL as string, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        setSuccessfulFormSubmit(true);
+        return result;
+    } catch (error) {
+        console.error('There was an error!', error);
+    }
+}
+
+  const validateForm = async (e: FormEvent) => {
     e.preventDefault();
 
     const formData: FormData = new FormData(e.target as HTMLFormElement);
@@ -40,6 +127,16 @@ export const ContactSection = () => {
     const telegramInput = formData.get(FormFields.Telegram);
     const messageInput = formData.get(FormFields.Message);
 
+
+    const data: FormDataProps = {
+      name: nameInput?.toString() || "",
+      email: emailInput?.toString() || "",
+      telegram: telegramInput?.toString() || "",
+      message: messageInput?.toString() || "",
+    }
+
+    console.log(data)
+    
     let invalidFormFields = invalidFieldsInitialState;
 
     if (!nameInput) {
@@ -59,7 +156,7 @@ export const ContactSection = () => {
     if (Object.values(invalidFormFields).some((val) => !!val)) {
       return;
     } else {
-      setSuccessfulFormSubmit(true);
+      await submitForm(alo as string, data);
     }
   };
 

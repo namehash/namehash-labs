@@ -9,14 +9,14 @@ export const ColorfulBg = (props: SVGProps<SVGSVGElement>) => {
       </g>
       <defs>
         <linearGradient id="paint0_linear_4888_38355" x1="185" y1="370" x2="185" y2="1810" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FFAF00" />
-          <stop offset="0.322917" stop-color="#F112D9" />
-          <stop offset="0.708333" stop-color="#4C3FA0" />
-          <stop offset="0.958333" stop-color="#2ED3C6" />
+          <stop stopColor="#FFAF00" />
+          <stop offset="0.322917" stopColor="#F112D9" />
+          <stop offset="0.708333" stopColor="#4C3FA0" />
+          <stop offset="0.958333" stopColor="#2ED3C6" />
         </linearGradient>
         <linearGradient id="paint1_linear_4888_38355" x1="370" y1="1810" x2="92.9625" y2="1810" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F9FAFB" stop-opacity="0" />
-          <stop offset="1" stop-color="#F9FAFB" />
+          <stop stopColor="#F9FAFB" stopOpacity="0" />
+          <stop offset="1" stopColor="#F9FAFB" />
         </linearGradient>
       </defs>
     </svg>
