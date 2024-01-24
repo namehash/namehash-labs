@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    profile: EnsProfiles.nick,
+    author: EnsProfiles.nick,
   },
   {
     text: (
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    profile: EnsProfiles.avsa,
+    author: EnsProfiles.avsa,
   },
   {
     text: (
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    profile: EnsProfiles.brantly,
+    author: EnsProfiles.brantly,
   },
   {
     text: (
@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    profile: EnsProfiles.james,
+    author: EnsProfiles.james,
   },
   {
     text: (
@@ -68,7 +68,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    profile: EnsProfiles.matoken,
+    author: EnsProfiles.matoken,
   },
   {
     text: (
@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    profile: EnsProfiles.simona,
+    author: EnsProfiles.simona,
   },
   {
     text: (
@@ -92,12 +92,12 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    profile: EnsProfiles.coltron,
+    author: EnsProfiles.coltron,
   },
 ];
 
 export interface Testimonial {
-  profile: Profile;
+  author: Profile;
   text: React.ReactNode;
 }
 
@@ -221,14 +221,14 @@ export const TestimonialsSection = () => {
                     <div
                       className={`flex gap-5 w-full items-center justify-center`}
                     >
-                      <AvatarWithTooltip profile={testimonial.profile} />
+                      <AvatarWithTooltip profile={testimonial.author} />
 
                       <div className="flex flex-col">
                         <p className="text-2xl leading-8 font-semibold">
-                          {testimonial.profile.ensName}
+                          {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
-                          {testimonial.profile.title}
+                          {testimonial.author.title}
                         </p>
                       </div>
                     </div>
