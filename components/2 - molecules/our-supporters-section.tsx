@@ -1,8 +1,9 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { AvatarWithFallback } from "./avatar-with-fallback";
+import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import { EnsProfiles, Profile } from "@/data/ensProfiles";
 
 export const OurSuportersSection = () => {
   return (
@@ -35,13 +36,6 @@ export const OurSuportersSection = () => {
     </section>
   );
 };
-
-export interface Profile {
-  ensName: string;
-  displayName?: string;
-  title: string;
-  twitterProfile: string;
-}
 
 interface SupporterCategoryProps {
   title: string;
@@ -130,16 +124,16 @@ function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profil
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-      <AvatarWithFallback
+      <AvatarWithTooltip
         profile={profiles[1]}
         className="absolute top-0 right-[122px] z-10"
       />
-      <AvatarWithFallback
+      <AvatarWithTooltip
         profile={profiles[3]}
         className="absolute top-0 right-0 z-20"
       />
-      <AvatarWithFallback profile={profiles[0]} className="absolute bottom-0 left-0 " />
-      <AvatarWithFallback profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
+      <AvatarWithTooltip profile={profiles[0]} className="absolute bottom-0 left-0 " />
+      <AvatarWithTooltip profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
     </div>
   );
 };
@@ -148,8 +142,8 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <AvatarWithFallback profile={profiles[0]} width={120} className="w-20 h-20" />
-        <AvatarWithFallback profile={profiles[1]} width={120} />
+        <AvatarWithTooltip profile={profiles[0]} width={120} className="w-20 h-20" />
+        <AvatarWithTooltip profile={profiles[1]} width={120} />
       </div>
     </div>
   );
@@ -158,260 +152,85 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
   profiles: [
-    {
-      ensName: "nick.eth",
-      displayName: "Nick Johnson",
-      title: "Lead developer of ENS & Ethereum Foundation alum",
-      twitterProfile: "https://twitter.com/nicksdjohnson",
-    },
-    {
-      ensName: "avsa.eth",
-      displayName: "Alex Van de Sande",
-      title: "Ethereum Foundation Alumni & Co-founder of ENS",
-      twitterProfile: "https://twitter.com/avsa",
-    },
+    EnsProfiles.nick,
+    EnsProfiles.avsa,
   ],
 };
 
 const walletBuilders: SupporterCategoryProps = {
   title: "Wallet Builders",
   profiles: [
-    {
-      ensName: "rainbowwallet.eth",
-      displayName: "Rainbow",
-      title: "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
-      twitterProfile: "https://twitter.com/rainbowdotme",
-    },
-    {
-      ensName: "mikedemarais.eth",
-      displayName: "Mike Demarais",
-      title: "Co-founder of Rainbow Wallet",
-      twitterProfile: "https://twitter.com/mikedemarais",
-    },
-    {
-      ensName: "inzhoop.eth",
-      title: "Independent startup working on smart mobile wallet for Ethereum",
-      twitterProfile: "https://twitter.com/inzhoop",
-    },
-    {
-      ensName: "spencecoin.eth",
-      displayName: "Jordan Spence",
-      title: "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
-      twitterProfile: "https://twitter.com/spencecoin",
-    },
+    EnsProfiles.rainbowwallet,
+    EnsProfiles.mikedemarais,
+    EnsProfiles.inzhoop,
+    EnsProfiles.spencecoin
   ],
 };
 
 const web3ProtocolBuilders: SupporterCategoryProps = {
   title: "Web3 Protocol Builders",
   profiles: [
-    {
-      ensName: "brantly.eth",
-      displayName: "Brantly Millegan",
-      title: "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
-      twitterProfile: "https://twitter.com/BrantlyMillegan",
-    },
-    {
-      ensName: "chainlinkgod.eth",
-      title: "Chainlink Community Ambassador",
-      twitterProfile: "https://twitter.com/ChainLinkGod",
-    },
-    {
-      ensName: "cory.eth",
-      displayName: "Cory Gabrielsen",
-      title: "Founder OpenAvatar & Co-founder of Ethereum Follow Protocol",
-      twitterProfile: "https://twitter.com/cory_eth",
-    },
-    {
-      ensName: "poap.eth",
-      displayName: "Proof of Attendance Protocol",
-      title: "Bookmarks for your life",
-      twitterProfile: "https://twitter.com/poapxyz",
-    },
+    EnsProfiles.brantly,
+    EnsProfiles.chainlinkgod,
+    EnsProfiles.cory,
+    EnsProfiles.poap
   ],
 };
 
 const publicGoodsAdvocates: SupporterCategoryProps = {
   title: "Public Goods Advocates",
   profiles: [
-    {
-      ensName: "griff.eth",
-      displayName: "Griff Green",
-      title: "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode & DECENTRAL",
-      twitterProfile: "https://twitter.com/thegrifft",
-    },
-    {
-      ensName: "coltron.eth",
-      title: "ENS Public Goods Steward",
-      twitterProfile: "https://twitter.com/Coltron_eth",
-    },
-    {
-      ensName: "simona.eth",
-      title: "ENS Public Goods Steward, Governance at DELV & Optimism",
-      twitterProfile: "https://twitter.com/Sim_Pop",
-    },
-
-    {
-      ensName: "ceresstation.eth",
-      displayName: "Scott Moore",
-      title: "Co-founder Gitcoin & Kernel",
-      twitterProfile: "https://twitter.com/notscottmoore",
-    },
+    EnsProfiles.griff,
+    EnsProfiles.coltron,
+    EnsProfiles.simona,
+    EnsProfiles.ceresstation
   ],
 };
 
 const decentralizationAdvocates: SupporterCategoryProps = {
   title: "Decentralization Advocates",
   profiles: [
-    {
-      ensName: "liubenben.eth",
-      title: "Building ensuser.com for the Chinese ENS Community",
-      twitterProfile: "https://twitter.com/forlbb",
-    },
-
-    {
-      ensName: "garypalmerjr.eth",
-      title: "ENS Advocate and Founder of Web3Domains",
-      twitterProfile: "https://twitter.com/garypalmerjr",
-    },
-    {
-      ensName: "master.eth",
-      title: "ENS Advocate",
-      twitterProfile: "https://twitter.com/seekmine",
-    },
-    {
-      ensName: "superphiz.eth",
-      title: "Ethereum Decentralized Staking Advocate",
-      twitterProfile: "https://twitter.com/superphiz",
-    },
-    {
-      ensName: "jalil.eth",
-      displayName: "Jalil Wahdatehagh",
-      title: "Intangible things at Visualize Value.",
-      twitterProfile: "https://twitter.com/jalil_eth",
-    },
-    {
-      ensName: "bosco.eth",
-      title: "Love Freedom and Public Goods 💚",
-      twitterProfile: "https://twitter.com/amboscoboinik",
-    },
-    {
-      ensName: "krypto.eth",
-      title: "Poland ENS Master",
-      twitterProfile: "https://twitter.com/CryptoDodoPL",
-    },
-    {
-      ensName: "wslyvh.eth",
-      displayName: "Wesley",
-      title: "Events at Ethereum Foundation",
-      twitterProfile: "https://twitter.com/wslyvh",
-    },
-    {
-      ensName: "premm.eth",
-      displayName: "Prem Makeig",
-      title: "Founder at Unruggable Labs, ENS Fellow",
-      twitterProfile: "https://twitter.com/nxt3d",
-    },
+    EnsProfiles.liubenben,
+    EnsProfiles.garypalmerjr,
+    EnsProfiles.master,
+    EnsProfiles.superphiz,
+    EnsProfiles.jalil,
+    EnsProfiles.bosco,
+    EnsProfiles.krypto,
+    EnsProfiles.wslyvh,
+    EnsProfiles.premm,
   ],
 };
 
 const daoAdvocates: SupporterCategoryProps = {
   title: "DAO Advocates",
   profiles: [
-    {
-      ensName: "fireeyesdao.eth",
-      displayName: "Fire Eyes DAO", 
-      title: "Delegate for Optimism, ENS, GitCoin, Rocket Pool, & Safe",
-      twitterProfile: "https://twitter.com/fireeyesgov",
-    },
-    {
-      ensName: "spikewatanabe.eth",
-      title: "ENS Delegate & experienced investment banker",
-      twitterProfile: "https://twitter.com/spikewatanabe",
-    },
-    {
-      ensName: "alextnetto.eth",
-      displayName: "Alex Netto",
-      title: "Co-founder of Blockful, building public goods for DAOs",
-      twitterProfile: "https://twitter.com/alextnetto",
-    },
-    {
-      ensName: "elbagococina.eth",
-      title: "Co-founder Karpatkey, Core Treasury for GnosisDAO, Balancer, ENS, CoWSwap, and Lido",
-      twitterProfile: "https://twitter.com/elbagococina",
-    },
-    {
-      ensName: "she256.eth",
-      title: "Nonprofit dedicated to increasing diversity in the blockchain space",
-      twitterProfile: "https://twitter.com/she_256",
-    },
-
-    {
-      ensName: "limes.eth",
-      title: "ENS DAO Steward & Secretary - Growth at Layer3",
-      twitterProfile: "https://twitter.com/limes_eth",
-    },
+    EnsProfiles.fireeyesdao,
+    EnsProfiles.spikewatanabe,
+    EnsProfiles.alextnetto,
+    EnsProfiles.elbagococina,
+    EnsProfiles.she256,
+    EnsProfiles.limes
   ],
 };
 
 const dAppBuilders: SupporterCategoryProps = {
   title: "dApp Builders",
   profiles: [
-    {
-      ensName: "nimi.eth",
-      title: "Your personal web3 page",
-      twitterProfile: "https://twitter.com/0xNimi",
-    },
-    {
-      ensName: "lefteris.eth",
-      displayName: "Lefteris Karapetsas",
-      title: "Founder of Rotki, the portfolio tracker that protects your privacy",
-      twitterProfile: "https://twitter.com/LefterisJP",
-    },
-    {
-      ensName: "mihal.eth",
-      displayName: "David Mihal",
-      title: "Blockchain Engineer",
-      twitterProfile: "https://twitter.com/dmihal",
-    },
-    {
-      ensName: "ethlimo.eth",
-      title: "Privacy-preserving ENS gateway",
-      twitterProfile: "https://twitter.com/eth_limo",
-    },
+    EnsProfiles.nimi,
+    EnsProfiles.lefteris,
+    EnsProfiles.mihal,
+    EnsProfiles.ethlimo
   ],
 };
 
 const ensLabsStaff: SupporterCategoryProps = {
   title: "ENS Labs Staff",
   profiles: [
-    {
-      ensName: "gregskril.eth",
-      displayName: "Greg Skriloff",
-      title: "Developer at ENS Labs",
-      twitterProfile: "https://twitter.com/gregskril",
-    },
-    {
-      ensName: "taytems.eth",
-      title: "Developer at ENS Labs",
-      twitterProfile: "https://twitter.com/taytemss",
-    },
-    {
-      ensName: "184.eth",
-      title: "Support at ENS Labs & ENS Ecosystem Steward",
-      twitterProfile: "https://twitter.com/184eth",
-    },
-    {
-      ensName: "matoken.eth",
-      displayName: "Makoto Inoue",
-      title: "Developer at ENS Labs",
-      twitterProfile: "https://twitter.com/makoto_inoue",
-    },
-    {
-      ensName: "jefflau.eth",
-      displayName: "Jeff Lau",
-      title: "Core Team Leader - ENS Labs",
-      twitterProfile: "https://twitter.com/_jefflau",
-    },
+    EnsProfiles.gregskril,
+    EnsProfiles.taytems,
+    EnsProfiles.oneEightFour,
+    EnsProfiles.matoken,
+    EnsProfiles.jefflau,
   ],
 };

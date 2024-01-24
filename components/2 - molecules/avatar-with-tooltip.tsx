@@ -1,21 +1,21 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
-import { Profile } from "./our-supporters-section";
 import { FastAverageColor } from "fast-average-color";
+import { Profile } from "@/data/ensProfiles";
 
-interface AvatarWithFallbackProps {
+interface AvatarWithTooltipProps {
   profile: Profile;
   className?: string;
   width?: number;
 }
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
-export const AvatarWithFallback = ({
+export const AvatarWithTooltip = ({
   profile,
   className = "",
   width = 80,
-}: AvatarWithFallbackProps) => {
+}: AvatarWithTooltipProps) => {
   const [imageFailed, setImageFailed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
@@ -44,8 +44,7 @@ export const AvatarWithFallback = ({
 
   return (
     <div >
-      <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}
-      >
+      <a target="_blank" href={`https://app.ens.domains/${profile.ensName}`}>
         <Image
           src={imgSrc}
           alt={profile.ensName}
@@ -76,7 +75,7 @@ export const AvatarWithFallback = ({
               alt={profile.ensName}
               width={width}
               height={width}
-              className={`h-20 w-20`}
+              className={`h-20 w-20 rounded-[8px]`}
               onError={() => setImageFailed(true)}
             />
           </a>
