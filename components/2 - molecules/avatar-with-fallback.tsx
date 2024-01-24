@@ -4,18 +4,18 @@ import { Tooltip } from "react-tooltip";
 import { FastAverageColor } from "fast-average-color";
 import { Profile } from "@/data/ensProfiles";
 
-interface AvatarWithTooltipProps {
+interface AvatarWithFallbackProps {
   profile: Profile;
   className?: string;
   width?: number;
 }
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
-export const AvatarWithTooltip = ({
+export const AvatarWithFallback = ({
   profile,
   className = "",
   width = 80,
-}: AvatarWithTooltipProps) => {
+}: AvatarWithFallbackProps) => {
   const [imageFailed, setImageFailed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
@@ -90,7 +90,7 @@ export const AvatarWithTooltip = ({
               alt={profile.ensName}
               width={width}
               height={width}
-              className={`h-20 w-20 rounded-[8px]`}
+              className={`h-20 w-20`}
               onError={() => setImageFailed(true)}
             />
           </a>

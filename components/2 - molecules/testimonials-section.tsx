@@ -8,7 +8,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import { AvatarWithTooltip } from "./avatar-with-tooltip";
-import { EnsProfiles, Profile } from "@/data/ensProfiles";
+import {
+  EnsProfiles,
+  Profile,
+  avsa_address,
+  brantly_address,
+  coltron_address,
+  james_address,
+  matoken_address,
+  nick_address,
+  simona_address,
+} from "@/data/ensProfiles";
 
 const testimonials: Testimonial[] = [
   {
@@ -21,7 +31,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    profile: EnsProfiles.nick,
+    profile: EnsProfiles[nick_address],
   },
   {
     text: (
@@ -33,7 +43,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    profile: EnsProfiles.avsa,
+    profile: EnsProfiles[avsa_address],
   },
   {
     text: (
@@ -45,7 +55,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    profile: EnsProfiles.brantly,
+    profile: EnsProfiles[brantly_address],
   },
   {
     text: (
@@ -58,7 +68,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    profile: EnsProfiles.james,
+    profile: EnsProfiles[james_address],
   },
   {
     text: (
@@ -68,7 +78,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    profile: EnsProfiles.matoken,
+    profile: EnsProfiles[matoken_address],
   },
   {
     text: (
@@ -80,7 +90,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    profile: EnsProfiles.simona,
+    profile: EnsProfiles[simona_address],
   },
   {
     text: (
@@ -92,7 +102,7 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    profile: EnsProfiles.coltron,
+    profile: EnsProfiles[coltron_address],
   },
 ];
 

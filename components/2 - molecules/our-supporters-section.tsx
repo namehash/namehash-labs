@@ -3,7 +3,48 @@ import { Balancer } from "react-wrap-balancer";
 import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { EnsProfiles, Profile } from "@/data/ensProfiles";
+import {
+  EnsProfiles,
+  Profile,
+  alextnetto_address,
+  avsa_address,
+  bosco_address,
+  brantly_address,
+  ceresstation_address,
+  chainlinkgod_address,
+  coltron_address,
+  cory_address,
+  elbagococina_address,
+  ethlimo_address,
+  fireeyesdao_address,
+  garypalmerjr_address,
+  gregskril_address,
+  griff_address,
+  inzhoop_address,
+  jalil_address,
+  jefflau_address,
+  krypto_address,
+  lefteris_address,
+  limes_address,
+  liubenben_address,
+  master_address,
+  matoken_address,
+  mihal_address,
+  mikedemarais_address,
+  nick_address,
+  nimi_address,
+  oneEightFour_address,
+  poap_address,
+  premm_address,
+  rainbowwallet_address,
+  she256_address,
+  simona_address,
+  spencecoin_address,
+  spikewatanabe_address,
+  superphiz_address,
+  taytems_address,
+  wslyvh_address,
+} from "@/data/ensProfiles";
 
 export const OurSuportersSection = () => {
   return (
@@ -46,12 +87,11 @@ export const SupporterCategory = ({
   title,
   profiles,
 }: SupporterCategoryProps) => {
-
   const [profilesDisplay, setProfilesDisplay] = useState(profiles);
 
   useEffect(() => {
-    setProfilesDisplay(getRandomProfiles(profiles))
-  }, [profiles])
+    setProfilesDisplay(getRandomProfiles(profiles));
+  }, [profiles]);
 
   return (
     <div className="flex items-center justify-center flex-col gap-7 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
@@ -76,7 +116,9 @@ const AdditionalSupportersContainer = () => {
       <p className="font-semibold text-center text-[50px] leading-[30px] ">
         💖
       </p>
-      <p className="text-lg leading-6 font-normal text-gray-500">and so many others</p>
+      <p className="text-lg leading-6 font-normal text-gray-500">
+        and so many others
+      </p>
       <a
         target="_blank"
         href="https://snapshot.org/#/ens.eth/proposal/0x6ba81cd2997288cc49ae1b95921ec8f107e8ffb9733321d53d488e2b30710b86"
@@ -89,10 +131,13 @@ const AdditionalSupportersContainer = () => {
   );
 };
 
-function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profile[] {
+function getRandomProfiles<Profile>(
+  array: Profile[],
+  count: number = 4
+): Profile[] {
   // Shallow copy the array to avoid modifying the original array
   if (array.length === 4) {
-    return array
+    return array;
   }
 
   let tempArray = [...array];
@@ -132,8 +177,14 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
         profile={profiles[3]}
         className="absolute top-0 right-0 z-20"
       />
-      <AvatarWithTooltip profile={profiles[0]} className="absolute bottom-0 left-0 " />
-      <AvatarWithTooltip profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
+      <AvatarWithTooltip
+        profile={profiles[0]}
+        className="absolute bottom-0 left-0 "
+      />
+      <AvatarWithTooltip
+        profile={profiles[2]}
+        className="absolute bottom-0 left-[122px] z-10"
+      />
     </div>
   );
 };
@@ -142,7 +193,11 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <AvatarWithTooltip profile={profiles[0]} width={120} className="w-20 h-20" />
+        <AvatarWithTooltip
+          profile={profiles[0]}
+          width={120}
+          className="w-20 h-20"
+        />
         <AvatarWithTooltip profile={profiles[1]} width={120} />
       </div>
     </div>
@@ -151,86 +206,83 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
-  profiles: [
-    EnsProfiles.nick,
-    EnsProfiles.avsa,
-  ],
+  profiles: [EnsProfiles[nick_address], EnsProfiles[avsa_address]],
 };
 
 const walletBuilders: SupporterCategoryProps = {
   title: "Wallet Builders",
   profiles: [
-    EnsProfiles.rainbowwallet,
-    EnsProfiles.mikedemarais,
-    EnsProfiles.inzhoop,
-    EnsProfiles.spencecoin
+    EnsProfiles[rainbowwallet_address],
+    EnsProfiles[mikedemarais_address],
+    EnsProfiles[inzhoop_address],
+    EnsProfiles[spencecoin_address],
   ],
 };
 
 const web3ProtocolBuilders: SupporterCategoryProps = {
   title: "Web3 Protocol Builders",
   profiles: [
-    EnsProfiles.brantly,
-    EnsProfiles.chainlinkgod,
-    EnsProfiles.cory,
-    EnsProfiles.poap
+    EnsProfiles[brantly_address],
+    EnsProfiles[chainlinkgod_address],
+    EnsProfiles[cory_address],
+    EnsProfiles[poap_address],
   ],
 };
 
 const publicGoodsAdvocates: SupporterCategoryProps = {
   title: "Public Goods Advocates",
   profiles: [
-    EnsProfiles.griff,
-    EnsProfiles.coltron,
-    EnsProfiles.simona,
-    EnsProfiles.ceresstation
+    EnsProfiles[griff_address],
+    EnsProfiles[coltron_address],
+    EnsProfiles[simona_address],
+    EnsProfiles[ceresstation_address],
   ],
 };
 
 const decentralizationAdvocates: SupporterCategoryProps = {
   title: "Decentralization Advocates",
   profiles: [
-    EnsProfiles.liubenben,
-    EnsProfiles.garypalmerjr,
-    EnsProfiles.master,
-    EnsProfiles.superphiz,
-    EnsProfiles.jalil,
-    EnsProfiles.bosco,
-    EnsProfiles.krypto,
-    EnsProfiles.wslyvh,
-    EnsProfiles.premm,
+    EnsProfiles[liubenben_address],
+    EnsProfiles[garypalmerjr_address],
+    EnsProfiles[master_address],
+    EnsProfiles[superphiz_address],
+    EnsProfiles[jalil_address],
+    EnsProfiles[bosco_address],
+    EnsProfiles[krypto_address],
+    EnsProfiles[wslyvh_address],
+    EnsProfiles[premm_address],
   ],
 };
 
 const daoAdvocates: SupporterCategoryProps = {
   title: "DAO Advocates",
   profiles: [
-    EnsProfiles.fireeyesdao,
-    EnsProfiles.spikewatanabe,
-    EnsProfiles.alextnetto,
-    EnsProfiles.elbagococina,
-    EnsProfiles.she256,
-    EnsProfiles.limes
+    EnsProfiles[fireeyesdao_address],
+    EnsProfiles[spikewatanabe_address],
+    EnsProfiles[alextnetto_address],
+    EnsProfiles[elbagococina_address],
+    EnsProfiles[she256_address],
+    EnsProfiles[limes_address],
   ],
 };
 
 const dAppBuilders: SupporterCategoryProps = {
   title: "dApp Builders",
   profiles: [
-    EnsProfiles.nimi,
-    EnsProfiles.lefteris,
-    EnsProfiles.mihal,
-    EnsProfiles.ethlimo
+    EnsProfiles[nimi_address],
+    EnsProfiles[lefteris_address],
+    EnsProfiles[mihal_address],
+    EnsProfiles[ethlimo_address],
   ],
 };
 
 const ensLabsStaff: SupporterCategoryProps = {
   title: "ENS Labs Staff",
   profiles: [
-    EnsProfiles.gregskril,
-    EnsProfiles.taytems,
-    EnsProfiles.oneEightFour,
-    EnsProfiles.matoken,
-    EnsProfiles.jefflau,
+    EnsProfiles[gregskril_address],
+    EnsProfiles[taytems_address],
+    EnsProfiles[oneEightFour_address],
+    EnsProfiles[matoken_address],
+    EnsProfiles[jefflau_address],
   ],
 };
