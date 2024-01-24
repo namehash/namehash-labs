@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    profile: EnsProfiles[nick_address],
+    author: EnsProfiles[nick_address],
   },
   {
     text: (
@@ -43,7 +43,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    profile: EnsProfiles[avsa_address],
+    author: EnsProfiles[avsa_address],
   },
   {
     text: (
@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    profile: EnsProfiles[brantly_address],
+    author: EnsProfiles[brantly_address],
   },
   {
     text: (
@@ -68,7 +68,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    profile: EnsProfiles[james_address],
+    author: EnsProfiles[james_address],
   },
   {
     text: (
@@ -78,7 +78,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    profile: EnsProfiles[matoken_address],
+    author: EnsProfiles[matoken_address],
   },
   {
     text: (
@@ -90,7 +90,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    profile: EnsProfiles[simona_address],
+    author: EnsProfiles[simona_address],
   },
   {
     text: (
@@ -102,12 +102,12 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    profile: EnsProfiles[coltron_address],
+    author: EnsProfiles[coltron_address],
   },
 ];
 
 export interface Testimonial {
-  profile: Profile;
+  author: Profile;
   text: React.ReactNode;
 }
 
@@ -230,15 +230,15 @@ export const TestimonialsSection = () => {
 
                     <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
                       <div className="shrink-0">
-                        <AvatarWithTooltip profile={testimonial.profile} />
+                        <AvatarWithTooltip profile={testimonial.author} />
                       </div>
 
                       <div className="flex flex-col shrink">
                         <p className="text-2xl leading-8 font-semibold">
-                          {testimonial.profile.ensName}
+                          {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
-                          {testimonial.profile.title}
+                          {testimonial.author.title}
                         </p>
                       </div>
                     </div>
