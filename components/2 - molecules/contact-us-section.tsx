@@ -38,7 +38,7 @@ export const ContactSection = () => {
           <SectionText className="text-gray-500 text-lg">
             If you have questions, ideas, or share a passion for advancing ENS
             growth and would like to explore collaboration, please don&apos;t
-            hesitate to get reach out.{" "}
+            hesitate to reach out.{" "}
           </SectionText>
           <img
             className="hidden lg:block"

@@ -93,8 +93,8 @@ export const ContactUsForm = () => {
     };
 
     const sendData = async (data: FormDataProps) => {
-        const slackUrl = process.env.NEXT_PUBLIC_SLACK_URL;
-        const payload = returnPayload(data);
+        const slackUrl = process.env.NEXT_PUBLIC_FORM_SUBMISSION_SLACK_WEBHOOK;
+        const payload = slackWebhookPayload(data);
 
         try {
             const response = await fetch(slackUrl as string, {
@@ -284,7 +284,7 @@ export const ContactUsForm = () => {
     );
 };
 
-const returnPayload = (data: FormDataProps) => {
+const slackWebhookPayload = (data: FormDataProps) => {
     const nameDisplay = `*Name*: ${data.name}`
     const emailDisplay = `*Email*: ${data.email}`
     const telegramDisplay = `*Telegram*: ${data.telegram}`
