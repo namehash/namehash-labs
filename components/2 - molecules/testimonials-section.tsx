@@ -190,6 +190,8 @@ export const TestimonialsSection = () => {
           ></div>
 
           <QuoteIcon />
+
+          {/* Part of the styles of the below component lives inside styles/globals.css */}
           <Swiper
             id="slider-projects"
             onSwiper={(swiper) => {
