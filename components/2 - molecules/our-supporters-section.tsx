@@ -3,48 +3,7 @@ import { Balancer } from "react-wrap-balancer";
 import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import {
-  EnsProfiles,
-  Profile,
-  alextnetto_address,
-  avsa_address,
-  bosco_address,
-  brantly_address,
-  ceresstation_address,
-  chainlinkgod_address,
-  coltron_address,
-  cory_address,
-  elbagococina_address,
-  ethlimo_address,
-  fireeyesdao_address,
-  garypalmerjr_address,
-  gregskril_address,
-  griff_address,
-  inzhoop_address,
-  jalil_address,
-  jefflau_address,
-  krypto_address,
-  lefteris_address,
-  limes_address,
-  liubenben_address,
-  master_address,
-  matoken_address,
-  mihal_address,
-  mikedemarais_address,
-  nick_address,
-  nimi_address,
-  oneEightFour_address,
-  poap_address,
-  premm_address,
-  rainbowwallet_address,
-  she256_address,
-  simona_address,
-  spencecoin_address,
-  spikewatanabe_address,
-  superphiz_address,
-  taytems_address,
-  wslyvh_address,
-} from "@/data/ensProfiles";
+import { Profile, getCachedProfile } from "@/data/ensProfiles";
 
 export const OurSuportersSection = () => {
   return (
@@ -206,83 +165,82 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
-  profiles: [EnsProfiles[nick_address], EnsProfiles[avsa_address]],
+  profiles: [getCachedProfile("nick.eth"), getCachedProfile("avsa.eth")],
 };
 
 const walletBuilders: SupporterCategoryProps = {
   title: "Wallet Builders",
   profiles: [
-    EnsProfiles[rainbowwallet_address],
-    EnsProfiles[mikedemarais_address],
-    EnsProfiles[inzhoop_address],
-    EnsProfiles[spencecoin_address],
+    getCachedProfile("rainbowwallet.eth"),
+    getCachedProfile("mikedemarais.eth"),
+    getCachedProfile("inzhoop.eth"),
+    getCachedProfile("spencecoin.eth"),
   ],
 };
 
 const web3ProtocolBuilders: SupporterCategoryProps = {
   title: "Web3 Protocol Builders",
   profiles: [
-    EnsProfiles[brantly_address],
-    EnsProfiles[chainlinkgod_address],
-    EnsProfiles[cory_address],
-    EnsProfiles[poap_address],
+    getCachedProfile("brantly.eth"),
+    getCachedProfile("chainlinkgod.eth"),
+    getCachedProfile("cory.eth"),
+    getCachedProfile("poap.eth"),
   ],
 };
 
 const publicGoodsAdvocates: SupporterCategoryProps = {
   title: "Public Goods Advocates",
   profiles: [
-    EnsProfiles[griff_address],
-    EnsProfiles[coltron_address],
-    EnsProfiles[simona_address],
-    EnsProfiles[ceresstation_address],
+    getCachedProfile("griff.eth"),
+    getCachedProfile("coltron.eth"),
+    getCachedProfile("simona.eth"),
+    getCachedProfile("ceresstation.eth"),
   ],
 };
 
 const decentralizationAdvocates: SupporterCategoryProps = {
   title: "Decentralization Advocates",
   profiles: [
-    EnsProfiles[liubenben_address],
-    EnsProfiles[garypalmerjr_address],
-    EnsProfiles[master_address],
-    EnsProfiles[superphiz_address],
-    EnsProfiles[jalil_address],
-    EnsProfiles[bosco_address],
-    EnsProfiles[krypto_address],
-    EnsProfiles[wslyvh_address],
-    EnsProfiles[premm_address],
+    getCachedProfile("liubenben.eth"),
+    getCachedProfile("garypalmerjr.eth"),
+    getCachedProfile("master.eth"),
+    getCachedProfile("superphiz.eth"),
+    getCachedProfile("jalil.eth"),
+    getCachedProfile("bosco.eth"),
+    getCachedProfile("krypto.eth"),
+    getCachedProfile("wslyvh.eth"),
+    getCachedProfile("premm.eth"),
   ],
 };
 
 const daoAdvocates: SupporterCategoryProps = {
   title: "DAO Advocates",
   profiles: [
-    EnsProfiles[fireeyesdao_address],
-    EnsProfiles[spikewatanabe_address],
-    EnsProfiles[alextnetto_address],
-    EnsProfiles[elbagococina_address],
-    EnsProfiles[she256_address],
-    EnsProfiles[limes_address],
+    getCachedProfile("fireeyesdao.eth"),
+    getCachedProfile("spikewatanabe.eth"),
+    getCachedProfile("alextnetto.eth"),
+    getCachedProfile("elbagococina.eth"),
+    getCachedProfile("she256.eth"),
+    getCachedProfile("limes.eth"),
   ],
 };
 
 const dAppBuilders: SupporterCategoryProps = {
   title: "dApp Builders",
   profiles: [
-    EnsProfiles[nimi_address],
-    EnsProfiles[lefteris_address],
-    EnsProfiles[mihal_address],
-    EnsProfiles[ethlimo_address],
+    getCachedProfile("nimi.eth"),
+    getCachedProfile("lefteris.eth"),
+    getCachedProfile("mihal.eth"),
+    getCachedProfile("ethlimo.eth"),
   ],
 };
 
 const ensLabsStaff: SupporterCategoryProps = {
   title: "ENS Labs Staff",
   profiles: [
-    EnsProfiles[gregskril_address],
-    EnsProfiles[taytems_address],
-    EnsProfiles[oneEightFour_address],
-    EnsProfiles[matoken_address],
-    EnsProfiles[jefflau_address],
+    getCachedProfile("gregskril.eth"),
+    getCachedProfile("taytems.eth"),
+    getCachedProfile("matoken.eth"),
+    getCachedProfile("jefflau.eth"),
   ],
 };
