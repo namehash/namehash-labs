@@ -15,6 +15,7 @@ const config: Config = {
         xSmall: "425px",
         small: "550px",
         medium2x: "889px",
+        tall: { raw: "(min-height: 600px)" },
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
