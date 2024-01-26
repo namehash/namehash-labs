@@ -7,7 +7,8 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
-import { ProfilePicture } from "./authorProfilePicture";
+import { AvatarWithTooltip } from "./avatar-with-tooltip";
+import { EnsProfiles, Profile } from "@/data/ensProfiles";
 
 const testimonials: Testimonial[] = [
   {
@@ -20,10 +21,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    author: {
-      title: "Lead developer of ENS & EF Alumni",
-      ensName: "nick.eth",
-    },
+    author: EnsProfiles.nick,
   },
   {
     text: (
@@ -35,10 +33,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    author: {
-      title: "Co-founder of ENS & EF Alumni",
-      ensName: "avsa.eth",
-    },
+    author: EnsProfiles.avsa,
   },
   {
     text: (
@@ -50,10 +45,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    author: {
-      title: "Founder of EFP & Creator of SIWE",
-      ensName: "brantly.eth",
-    },
+    author: EnsProfiles.brantly,
   },
   {
     text: (
@@ -66,10 +58,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    author: {
-      title: "DAO Governance",
-      ensName: "james.eth",
-    },
+    author: EnsProfiles.james,
   },
   {
     text: (
@@ -79,10 +68,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    author: {
-      title: "Developer at ENS Labs",
-      ensName: "matoken.eth",
-    },
+    author: EnsProfiles.matoken,
   },
   {
     text: (
@@ -94,10 +80,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    author: {
-      title: "ENS DAO Steward",
-      ensName: "simona.eth",
-    },
+    author: EnsProfiles.simona,
   },
   {
     text: (
@@ -109,15 +92,12 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    author: {
-      title: "ENS DAO Steward",
-      ensName: "coltron.eth",
-    },
+    author: EnsProfiles.coltron,
   },
 ];
 
 export interface Testimonial {
-  author: Author;
+  author: Profile;
   text: React.ReactNode;
 }
 
@@ -189,8 +169,6 @@ export const TestimonialsSection = () => {
     }
   };
 
-  const swiperContainerRef = useRef(null);
-
   return (
     <section
       className="lg:px-[110px] px-5 py-[108px] w-full"
@@ -245,7 +223,7 @@ export const TestimonialsSection = () => {
                     <div
                       className={`flex gap-5 w-full items-center justify-center`}
                     >
-                      <ProfilePicture author={testimonial.author} />
+                      <AvatarWithTooltip profile={testimonial.author} />
 
                       <div className="flex flex-col">
                         <p className="text-2xl leading-8 font-semibold">
