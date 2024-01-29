@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
+import { showErrorToast, showSuccessToast } from "@/utils/toast";
 
 const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -70,6 +71,7 @@ export const ContactUsForm = () => {
 
             // Proceed with form submission if validation is successful
             await sendData(data);
+            
         } catch (validationError) {
             if (validationError instanceof Yup.ValidationError) {
                 const errors: ValidationErrors = {
@@ -85,6 +87,7 @@ export const ContactUsForm = () => {
                     }
                 }
 
+                showErrorToast("Fill in missing fields and try again")
                 setValidationErrors(errors);
             }
         } finally {
@@ -93,7 +96,7 @@ export const ContactUsForm = () => {
     };
 
     const sendData = async (data: FormDataProps) => {
-        const slackUrl = process.env.NEXT_PUBLIC_FORM_SUBMISSION_SLACK_WEBHOOK;
+        const slackUrl = process.env.NEXT_PUBLIC_FORM_SUBMISSION_SLACK_WEBHOOKa;
         const payload = slackWebhookPayload(data);
 
         try {
@@ -109,8 +112,10 @@ export const ContactUsForm = () => {
                 throw new Error(`Error! status: ${response.status}`);
             }
             setSuccessfulFormSubmit(true);
+            showSuccessToast("Your message was sent!");
         } catch (error) {
             console.error('There was an error!', error);
+            showErrorToast("Something went wrong, try again later")
         }
     }
 
