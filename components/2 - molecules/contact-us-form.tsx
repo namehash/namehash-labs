@@ -5,7 +5,7 @@ import cc from "classcat";
 import * as Yup from 'yup';
 import { showErrorToast, showSuccessToast } from "@/utils/toast";
 
-const formSchema = Yup.object().shape({
+export const formSchema = Yup.object().shape({
     name: Yup.string()
         .required('Name is required'),
     email: Yup.string()
@@ -25,7 +25,7 @@ enum FormFields {
     Message = "message",
 }
 
-interface FormDataProps {
+export interface FormDataProps {
     name: string,
     email: string,
     telegram: string,
@@ -96,8 +96,7 @@ export const ContactUsForm = () => {
     };
 
     const sendData = async (data: FormDataProps) => {
-        const slackUrl = process.env.NEXT_PUBLIC_FORM_SUBMISSION_SLACK_WEBHOOKa;
-        const payload = slackWebhookPayload(data);
+        const slackUrl = `${window.location.origin}/api/contact-form`;
 
         try {
             const response = await fetch(slackUrl as string, {
@@ -105,7 +104,7 @@ export const ContactUsForm = () => {
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(data)
             });
 
             if (!response.ok) {
@@ -125,7 +124,6 @@ export const ContactUsForm = () => {
     };
 
     return (
-
         <form onSubmit={submitForm} className="h-full w-full">
             <div className="mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative">
                 <div>
@@ -288,51 +286,3 @@ export const ContactUsForm = () => {
 
     );
 };
-
-const slackWebhookPayload = (data: FormDataProps) => {
-    const nameDisplay = `*Name*: ${data.name}`
-    const emailDisplay = `*Email*: ${data.email}`
-    const telegramDisplay = `*Telegram*: ${data.telegram}`
-    const messageDisplay = `*Message*: ${data.message}`
-
-    return {
-        "blocks": [
-            {
-                "type": "section",
-                "text": {
-                    "type": "plain_text",
-                    "text": ":memo: New message from NameHashLabs contact page",
-                    "emoji": true
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": nameDisplay
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": emailDisplay
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": telegramDisplay
-                }
-            },
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": messageDisplay
-                }
-            }
-        ]
-    }
-}
