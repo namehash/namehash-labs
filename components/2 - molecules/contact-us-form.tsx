@@ -46,7 +46,7 @@ interface ValidationErrors {
 
 export const ContactUsForm = () => {
     const [isLoading, setIsLoading] = useState(false);
-
+    const [errorMessage, setErrorMessage] = useState("")
     const [successfulFormSubmit, setSuccessfulFormSubmit] = useState(false);
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>(validationErrorsInitialState);
 
@@ -71,7 +71,7 @@ export const ContactUsForm = () => {
 
             // Proceed with form submission if validation is successful
             await sendData(data);
-            
+
         } catch (validationError) {
             if (validationError instanceof Yup.ValidationError) {
                 const errors: ValidationErrors = {
@@ -88,6 +88,7 @@ export const ContactUsForm = () => {
                 }
 
                 showErrorToast("Fill in missing fields and try again")
+                setErrorMessage("One or more fields have an error. Please check and try again.")
                 setValidationErrors(errors);
             }
         } finally {
@@ -98,25 +99,41 @@ export const ContactUsForm = () => {
     const sendData = async (data: FormDataProps) => {
         const apiUrl = `${window.location.origin}/api/contact-form`;
 
+        const fetchPromise = fetch(apiUrl as string, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+            },
+            body: JSON.stringify(data)
+        });
+
+        const timeoutPromise = new Promise<Response>((resolve, reject) => {
+            setTimeout(() => {
+                setErrorMessage("It seems your search is taking a long time to load. Try again later.")
+                reject(new Error('Request timed out'));
+            }, 10000);
+        });
+
         try {
-            const response = await fetch(apiUrl as string, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                },
-                body: JSON.stringify(data)
-            });
+            const response = await Promise.race([fetchPromise, timeoutPromise]);
 
             if (!response.ok) {
-                throw new Error(`Error! status: ${response.status}`);
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+
             setSuccessfulFormSubmit(true);
             showSuccessToast("Your message was sent!");
         } catch (error) {
-            console.error('There was an error!', error);
-            showErrorToast("Something went wrong, try again later")
+            if (error instanceof Error) {
+                console.error(error.message);
+                setErrorMessage(error.message);
+            } else {
+                console.error("An unexpected error occurred");
+                setErrorMessage("An unexpected error occurred");
+            }
+            showErrorToast("Something went wrong, try again later");
         }
-    }
+    };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name } = e.target;
@@ -155,9 +172,9 @@ export const ContactUsForm = () => {
                                     <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
                                         <XCircleIcon className="text-red-400 w-5 h-5" />
 
-                                        <p className="text-red-800 font-medium text-sm">
-                                            Fill in missing fields and try again
-                                        </p>
+                                        {errorMessage && <p className="text-red-800 font-medium text-sm">
+                                            {errorMessage}
+                                        </p>}
                                     </span>
                                 )}
 
