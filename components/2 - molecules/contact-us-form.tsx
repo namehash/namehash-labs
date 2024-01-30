@@ -97,7 +97,7 @@ export const ContactUsForm = () => {
 
     const sendData = async (data: FormDataProps) => {
         const slackUrl = `${window.location.origin}/api/contact-form`;
-
+        console.log("url ", slackUrl)
         try {
             const response = await fetch(slackUrl as string, {
                 method: 'POST',
