@@ -3,7 +3,6 @@ import { FormEvent, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
-import { showErrorToast, showSuccessToast } from "@/utils/toast";
 
 export const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -50,7 +49,6 @@ export const ContactUsForm = () => {
     const [successfulFormSubmit, setSuccessfulFormSubmit] = useState(false);
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>(validationErrorsInitialState);
 
-
     const submitForm = async (e: FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
@@ -87,7 +85,6 @@ export const ContactUsForm = () => {
                     }
                 }
 
-                showErrorToast("Fill in missing fields and try again")
                 setErrorMessage("One or more fields have an error. Please check and try again.")
                 setValidationErrors(errors);
             }
@@ -109,8 +106,7 @@ export const ContactUsForm = () => {
 
         const timeoutPromise = new Promise<Response>((resolve, reject) => {
             setTimeout(() => {
-                setErrorMessage("It seems your search is taking a long time to load. Try again later.")
-                reject(new Error('Request timed out'));
+                reject(new Error('It seems your search is taking a long time to load. Try again later.'));
             }, 10000);
         });
 
@@ -118,20 +114,20 @@ export const ContactUsForm = () => {
             const response = await Promise.race([fetchPromise, timeoutPromise]);
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`Connection lost. Please check your connection and try again.`);
             }
 
             setSuccessfulFormSubmit(true);
-            showSuccessToast("Your message was sent!");
         } catch (error) {
-            if (error instanceof Error) {
-                console.error(error.message);
+            if (error instanceof TypeError) {
+                // Likely a network error
+                console.error("Network error: ", error.message);
+                setErrorMessage("Connection lost. Please check your connection and try again.");
+            } else if (error instanceof Error) {
                 setErrorMessage(error.message);
             } else {
-                console.error("An unexpected error occurred");
                 setErrorMessage("An unexpected error occurred");
             }
-            showErrorToast("Something went wrong, try again later");
         }
     };
 
@@ -168,13 +164,13 @@ export const ContactUsForm = () => {
                         <>
                             {isLoading && <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2">Loading...</div>}
                             <div className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative ${isLoading && "opacity-0"}`}>
-                                {Object.values(validationErrors).some((val) => !!val) && (
+                                {errorMessage && (
                                     <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
                                         <XCircleIcon className="text-red-400 w-5 h-5" />
 
-                                        {errorMessage && <p className="text-red-800 font-medium text-sm">
+                                        <p className="text-red-800 font-medium text-sm">
                                             {errorMessage}
-                                        </p>}
+                                        </p>
                                     </span>
                                 )}
 
@@ -296,7 +292,6 @@ export const ContactUsForm = () => {
                                 </div>
                             </ div>
                         </>
-
                     )}
             </div>
         </form>
