@@ -18,10 +18,10 @@ export default async function handler(
       return;
     }
 
-    const formattedData = await formatDataForService(parsedFormData);
+    const formattedData = await buildSlackWebhookRequest(parsedFormData);
 
     // Send the data to slack
-    const destinationResponse = await sendToDestinationService(formattedData);
+    const destinationResponse = await sendToSlackWebhook(formattedData);
 
     // Check if the response from the service is successful
     if (destinationResponse.ok) {
@@ -49,7 +49,7 @@ async function validateFormData(data: FormDataProps): Promise<Yup.ValidationErro
   }
 }
 
-const formatDataForService = (data: FormDataProps) => {
+const buildSlackWebhookRequest = (data: FormDataProps) => {
   const nameDisplay = `*Name*: ${data.name}`
   const emailDisplay = `*Email*: ${data.email}`
   const telegramDisplay = `*Telegram*: ${data.telegram}`
@@ -97,7 +97,7 @@ const formatDataForService = (data: FormDataProps) => {
   }
 }
 
-async function sendToDestinationService(data: any) {
+async function sendToSlackWebhook(data: any) {
   const slackWebhookUrl = process.env.FORM_SUBMISSION_SLACK_WEBHOOK;
   return await fetch(slackWebhookUrl as string, {
     method: 'POST',
