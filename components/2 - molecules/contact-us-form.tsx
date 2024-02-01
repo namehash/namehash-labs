@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
@@ -23,6 +23,7 @@ enum FormFields {
     Email = "email",
     Telegram = "telegram",
     Message = "message",
+    Source = "source",
 }
 
 export interface FormDataProps {
@@ -30,6 +31,7 @@ export interface FormDataProps {
     email: string,
     telegram: string,
     message: string,
+    source: string,
 }
 
 const validationErrorsInitialState = {
@@ -37,6 +39,7 @@ const validationErrorsInitialState = {
     [FormFields.Email]: '',
     [FormFields.Telegram]: '',
     [FormFields.Message]: '',
+    [FormFields.Source]: '',
 };
 
 interface ValidationErrors {
@@ -61,6 +64,7 @@ export const ContactUsForm = () => {
             email: formData.get(FormFields.Email)?.toString().trim() || "",
             telegram: formData.get(FormFields.Telegram)?.toString().trim() || "",
             message: formData.get(FormFields.Message)?.toString().trim() || "",
+            source: formData.get("source")?.toString().trim() || "",
         };
 
         try {
@@ -136,6 +140,14 @@ export const ContactUsForm = () => {
         const { name } = e.target;
         setValidationErrors({ ...validationErrors, [name]: '' });
     };
+
+    useEffect(() => {
+        const sourceInput = document.getElementById('source') as HTMLInputElement;
+        if (sourceInput) {
+            sourceInput.value = window.location.href;
+        }
+    });
+
 
     return (
         <form onSubmit={submitForm} className="h-full w-full">
@@ -283,6 +295,7 @@ export const ContactUsForm = () => {
                                         </span>
                                     )}
                                 </div>
+                                <input type="hidden" id="source" name="source" value="" />
                                 <div className="flex h-full justify-end items-end">
                                     <button
                                         type="submit"

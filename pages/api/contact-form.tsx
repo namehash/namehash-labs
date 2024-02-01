@@ -54,6 +54,7 @@ const buildSlackWebhookRequest = (data: FormDataProps) => {
   const emailDisplay = `*Email*: ${data.email}`
   const telegramDisplay = `*Telegram*: ${data.telegram}`
   const messageDisplay = `*Message*: ${data.message}`
+  const sourceDisplay = `:memo: New message from: ${data.source}`
 
   return {
     "blocks": [
@@ -61,7 +62,7 @@ const buildSlackWebhookRequest = (data: FormDataProps) => {
         "type": "section",
         "text": {
           "type": "plain_text",
-          "text": ":memo: New message from NameHashLabs contact page using API",
+          "text": sourceDisplay,
           "emoji": true
         }
       },
