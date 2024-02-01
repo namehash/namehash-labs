@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
+import LoadingIndicator from "../1 - atoms/loading-indicator";
 
 export const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -155,14 +156,14 @@ export const ContactUsForm = () => {
                             </p>
                             <button
                                 onClick={() => setSuccessfulFormSubmit(false)}
-                                className="mt-5 bg-black px-4 py-2 rounded-md shadow-sm text-white text-sm font-medium"
+                                className="mt-5 bg-black hover:bg-gray-800 transition-colors duration-200 px-4 py-2 rounded-md shadow-sm text-white text-sm font-medium"
                             >
                                 Send another message
                             </button>
                         </div>
                     ) : (
                         <>
-                            {isLoading && <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2">Loading...</div>}
+                            {isLoading && <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"><LoadingIndicator /></div>}
                             <div className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative ${isLoading && "opacity-0"}`}>
                                 {errorMessage && (
                                     <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
@@ -189,9 +190,9 @@ export const ContactUsForm = () => {
                                             autoComplete="given-name"
                                             onChange={handleInputChange}
                                             className={cc([
-                                                "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                                                "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
                                                 {
-                                                    "ring-red-300": validationErrors[FormFields.Name],
+                                                    "border-red-300": validationErrors[FormFields.Name],
                                                 },
                                             ])}
                                         />
@@ -217,9 +218,9 @@ export const ContactUsForm = () => {
                                         autoComplete="email"
                                         name={FormFields.Email}
                                         className={cc([
-                                            "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                                            "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border focus:border-gray-600 hover:border-gray-400 border-gray-300 placeholder:text-gray-400 outline-none sm:text-sm sm:leading-6",
                                             {
-                                                "ring-red-300": validationErrors[FormFields.Email],
+                                                "border-red-300": validationErrors[FormFields.Email],
                                             },
                                         ])}
                                     />
@@ -246,7 +247,7 @@ export const ContactUsForm = () => {
                                             onChange={handleInputChange}
                                             autoComplete="tel"
                                             name={FormFields.Telegram}
-                                            className="block w-full rounded-md border-0 pr-3.5 pl-6 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6"
+                                            className="block w-full rounded-md pr-3.5 pl-6 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6"
                                         />
                                         {validationErrors[FormFields.Telegram] && (
                                             <span className="mt-2 text-sm font-normal text-red-600">
@@ -269,9 +270,9 @@ export const ContactUsForm = () => {
                                         defaultValue={""}
                                         name={FormFields.Message}
                                         className={cc([
-                                            "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 outline-none sm:text-sm sm:leading-6",
+                                            "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
                                             {
-                                                "ring-red-300": validationErrors[FormFields.Message],
+                                                "border-red-300": validationErrors[FormFields.Message],
                                             },
                                         ])}
                                     />
