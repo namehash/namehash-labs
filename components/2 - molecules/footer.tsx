@@ -93,7 +93,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
         <p className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
           <p>
             Made with
-            <span className="text-red-400 mx-1">{"❤️"}</span>
+            <span className="text-[#EF4444] mx-1">{"❤️"}</span>
             by
           </p>
           <a
