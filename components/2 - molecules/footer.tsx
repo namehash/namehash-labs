@@ -51,11 +51,9 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
         </div>
 
         <div className="lg:border-t lg:border-gray-200 w-full flex flex-col lg:flex-row lg:justify-between gap-5 pt-5">
-          <div>
-            <p className="text-gray-500 text-xs leading-5 font-normal">
-              © NameHash Labs. All Rights Reserved
-            </p>
-          </div>
+          <p className="text-gray-500 text-sm leading-5 font-normal">
+            © NameHash Labs. All Rights Reserved
+          </p>
 
           <div className="flex gap-3">
             <a href="https://twitter.com/NamehashLabs" target="_blank">
