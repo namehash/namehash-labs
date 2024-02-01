@@ -213,7 +213,7 @@ export const ContactUsForm = () => {
                                     </label>
                                     <input
                                         id="email"
-                                        type="text"
+                                        type="email"
                                         onChange={handleInputChange}
                                         autoComplete="email"
                                         name={FormFields.Email}
@@ -242,7 +242,7 @@ export const ContactUsForm = () => {
                                             @
                                         </span>
                                         <input
-                                            type="tel"
+                                            type="text"
                                             id="telegram"
                                             onChange={handleInputChange}
                                             autoComplete="tel"
