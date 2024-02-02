@@ -41,7 +41,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
               return (
                 <li
                   key={product.name}
-                  className="my-2 text-sm font-light text-gray-500"
+                  className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                 >
                   <a href={product.href}>{product.name}</a>
                 </li>
