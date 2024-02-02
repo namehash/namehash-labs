@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import { EnsIcon } from "../1 - atoms/icons/ens-icon";
 import { FastAverageColor } from "fast-average-color";

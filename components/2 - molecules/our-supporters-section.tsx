@@ -3,7 +3,7 @@ import { Balancer } from "react-wrap-balancer";
 import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { EnsProfiles, Profile } from "@/data/ensProfiles";
+import { Profile, getCachedProfile } from "@/data/ensProfiles";
 
 export const OurSuportersSection = () => {
   return (
@@ -22,7 +22,7 @@ export const OurSuportersSection = () => {
         </SectionText>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
         <SupporterCategory {...ensFoundation} />
         <SupporterCategory {...walletBuilders} />
         <SupporterCategory {...web3ProtocolBuilders} />
@@ -46,12 +46,11 @@ export const SupporterCategory = ({
   title,
   profiles,
 }: SupporterCategoryProps) => {
-
   const [profilesDisplay, setProfilesDisplay] = useState(profiles);
 
   useEffect(() => {
-    setProfilesDisplay(getRandomProfiles(profiles))
-  }, [profiles])
+    setProfilesDisplay(getRandomProfiles(profiles));
+  }, [profiles]);
 
   return (
     <div className="flex items-center justify-center flex-col gap-7 bg-white py-8 px-10 border border-gray-200 rounded-[8px]">
@@ -76,7 +75,9 @@ const AdditionalSupportersContainer = () => {
       <p className="font-semibold text-center text-[50px] leading-[30px] ">
         💖
       </p>
-      <p className="text-lg leading-6 font-normal text-gray-500">and so many others</p>
+      <p className="text-lg leading-6 font-normal text-gray-500">
+        and so many others
+      </p>
       <a
         target="_blank"
         href="https://snapshot.org/#/ens.eth/proposal/0x6ba81cd2997288cc49ae1b95921ec8f107e8ffb9733321d53d488e2b30710b86"
@@ -89,10 +90,13 @@ const AdditionalSupportersContainer = () => {
   );
 };
 
-function getRandomProfiles<Profile>(array: Profile[], count: number = 4): Profile[] {
+function getRandomProfiles<Profile>(
+  array: Profile[],
+  count: number = 4
+): Profile[] {
   // Shallow copy the array to avoid modifying the original array
   if (array.length === 4) {
-    return array
+    return array;
   }
 
   let tempArray = [...array];
@@ -132,8 +136,14 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
         profile={profiles[3]}
         className="absolute top-0 right-0 z-20"
       />
-      <AvatarWithTooltip profile={profiles[0]} className="absolute bottom-0 left-0 " />
-      <AvatarWithTooltip profile={profiles[2]} className="absolute bottom-0 left-[122px] z-10" />
+      <AvatarWithTooltip
+        profile={profiles[0]}
+        className="absolute bottom-0 left-0 "
+      />
+      <AvatarWithTooltip
+        profile={profiles[2]}
+        className="absolute bottom-0 left-[122px] z-10"
+      />
     </div>
   );
 };
@@ -142,7 +152,11 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-8">
-        <AvatarWithTooltip profile={profiles[0]} width={120} className="w-20 h-20" />
+        <AvatarWithTooltip
+          profile={profiles[0]}
+          width={120}
+          className="w-20 h-20"
+        />
         <AvatarWithTooltip profile={profiles[1]} width={120} />
       </div>
     </div>
@@ -151,86 +165,82 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
-  profiles: [
-    EnsProfiles.nick,
-    EnsProfiles.avsa,
-  ],
+  profiles: [getCachedProfile("nick.eth"), getCachedProfile("avsa.eth")],
 };
 
 const walletBuilders: SupporterCategoryProps = {
   title: "Wallet Builders",
   profiles: [
-    EnsProfiles.rainbowwallet,
-    EnsProfiles.mikedemarais,
-    EnsProfiles.inzhoop,
-    EnsProfiles.spencecoin
+    getCachedProfile("rainbowwallet.eth"),
+    getCachedProfile("mikedemarais.eth"),
+    getCachedProfile("inzhoop.eth"),
+    getCachedProfile("spencecoin.eth"),
   ],
 };
 
 const web3ProtocolBuilders: SupporterCategoryProps = {
   title: "Web3 Protocol Builders",
   profiles: [
-    EnsProfiles.brantly,
-    EnsProfiles.chainlinkgod,
-    EnsProfiles.cory,
-    EnsProfiles.poap
+    getCachedProfile("brantly.eth"),
+    getCachedProfile("chainlinkgod.eth"),
+    getCachedProfile("cory.eth"),
+    getCachedProfile("poap.eth"),
   ],
 };
 
 const publicGoodsAdvocates: SupporterCategoryProps = {
   title: "Public Goods Advocates",
   profiles: [
-    EnsProfiles.griff,
-    EnsProfiles.coltron,
-    EnsProfiles.simona,
-    EnsProfiles.ceresstation
+    getCachedProfile("griff.eth"),
+    getCachedProfile("coltron.eth"),
+    getCachedProfile("simona.eth"),
+    getCachedProfile("ceresstation.eth"),
   ],
 };
 
 const decentralizationAdvocates: SupporterCategoryProps = {
   title: "Decentralization Advocates",
   profiles: [
-    EnsProfiles.liubenben,
-    EnsProfiles.garypalmerjr,
-    EnsProfiles.master,
-    EnsProfiles.superphiz,
-    EnsProfiles.jalil,
-    EnsProfiles.bosco,
-    EnsProfiles.krypto,
-    EnsProfiles.wslyvh,
-    EnsProfiles.premm,
+    getCachedProfile("liubenben.eth"),
+    getCachedProfile("garypalmerjr.eth"),
+    getCachedProfile("master.eth"),
+    getCachedProfile("superphiz.eth"),
+    getCachedProfile("jalil.eth"),
+    getCachedProfile("bosco.eth"),
+    getCachedProfile("krypto.eth"),
+    getCachedProfile("wslyvh.eth"),
+    getCachedProfile("premm.eth"),
   ],
 };
 
 const daoAdvocates: SupporterCategoryProps = {
   title: "DAO Advocates",
   profiles: [
-    EnsProfiles.fireeyesdao,
-    EnsProfiles.spikewatanabe,
-    EnsProfiles.alextnetto,
-    EnsProfiles.elbagococina,
-    EnsProfiles.she256,
-    EnsProfiles.limes
+    getCachedProfile("fireeyesdao.eth"),
+    getCachedProfile("spikewatanabe.eth"),
+    getCachedProfile("alextnetto.eth"),
+    getCachedProfile("elbagococina.eth"),
+    getCachedProfile("she256.eth"),
+    getCachedProfile("limes.eth"),
   ],
 };
 
 const dAppBuilders: SupporterCategoryProps = {
   title: "dApp Builders",
   profiles: [
-    EnsProfiles.nimi,
-    EnsProfiles.lefteris,
-    EnsProfiles.mihal,
-    EnsProfiles.ethlimo
+    getCachedProfile("nimi.eth"),
+    getCachedProfile("lefteris.eth"),
+    getCachedProfile("mihal.eth"),
+    getCachedProfile("ethlimo.eth"),
   ],
 };
 
 const ensLabsStaff: SupporterCategoryProps = {
   title: "ENS Labs Staff",
   profiles: [
-    EnsProfiles.gregskril,
-    EnsProfiles.taytems,
-    EnsProfiles.oneEightFour,
-    EnsProfiles.matoken,
-    EnsProfiles.jefflau,
+    getCachedProfile("gregskril.eth"),
+    getCachedProfile("taytems.eth"),
+    getCachedProfile("matoken.eth"),
+    getCachedProfile("jefflau.eth"),
   ],
 };

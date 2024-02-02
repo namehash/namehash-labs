@@ -37,9 +37,23 @@ export const AvatarWithTooltip = ({
     }
   }, [imageRef]);
 
+  /*
+    Whenever we render more than one AvatarWithTooltip component, 
+    we need to make sure that the randomIdIntegrator is unique for each component.
+    Otherwise, the tooltips will confuse themselves because they will have the same ID.
+  */
+  const [randomIdIntegrator, setRandomIdGenerated] = useState("");
+  useEffect(() => {
+    const now = new Date();
+
+    const veryUnlikeRandomId = now.getTime() * Math.random();
+
+    setRandomIdGenerated(veryUnlikeRandomId.toString());
+  }, [imageFailed]);
+
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
-    : `/images/our-supporters/${profile.ensName}.png`;
+    : `/images/avatars/${profile.ensName}.png`;
 
   const imageSizeString =
     width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto ";
@@ -51,7 +65,7 @@ export const AvatarWithTooltip = ({
         alt={profile.ensName}
         data-tip
         data-for={profile.ensName}
-        data-tooltip-id={profile.ensName}
+        data-tooltip-id={`${profile.ensName}-${randomIdIntegrator}`}
         width={width}
         height={width}
         onMouseEnter={() => {
@@ -60,7 +74,7 @@ export const AvatarWithTooltip = ({
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+        className={`ml-[2.5%] rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
         onError={() => setImageFailed(true)}
         style={{
           borderRadius: "12.31px",
@@ -70,17 +84,17 @@ export const AvatarWithTooltip = ({
       />
       <Tooltip
         clickable
-        id={profile.ensName}
         place="top"
+        id={`${profile.ensName}-${randomIdIntegrator}`}
         delayShow={200}
         delayHide={0}
         opacity={1}
         className="z-50 bg-black !rounded-[8px] !p-0"
-        openEvents={{ mouseenter: true, focus: true }}
-        closeEvents={{ mouseleave: true, blur: true }}
+        openEvents={{ mouseenter: true, focus: true, click: true }}
+        closeEvents={{ mouseleave: true, blur: true, click: true }}
       >
-        <div className="flex gap-4 max-w-[400px] p-4 items-stretch">
-          <div className="flex flex-grow transition-all duration-200">
+        <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
+          <div className="shrink-0 flex flex-grow transition-all duration-200">
             <Image
               src={imgSrc}
               width={width}

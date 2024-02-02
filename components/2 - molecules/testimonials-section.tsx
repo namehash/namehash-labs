@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import { AvatarWithTooltip } from "./avatar-with-tooltip";
-import { EnsProfiles, Profile } from "@/data/ensProfiles";
+import { Profile, getCachedProfile } from "@/data/ensProfiles";
 
 const testimonials: Testimonial[] = [
   {
@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    author: EnsProfiles.nick,
+    author: getCachedProfile("nick.eth"),
   },
   {
     text: (
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    author: EnsProfiles.avsa,
+    author: getCachedProfile("avsa.eth"),
   },
   {
     text: (
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    author: EnsProfiles.brantly,
+    author: getCachedProfile("brantly.eth"),
   },
   {
     text: (
@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    author: EnsProfiles.james,
+    author: getCachedProfile("james.eth"),
   },
   {
     text: (
@@ -68,7 +68,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    author: EnsProfiles.matoken,
+    author: getCachedProfile("matoken.eth"),
   },
   {
     text: (
@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    author: EnsProfiles.simona,
+    author: getCachedProfile("simona.eth"),
   },
   {
     text: (
@@ -92,7 +92,7 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    author: EnsProfiles.coltron,
+    author: getCachedProfile("coltron.eth"),
   },
 ];
 
@@ -220,12 +220,12 @@ export const TestimonialsSection = () => {
                       </p>
                     </div>
 
-                    <div
-                      className={`flex gap-5 w-full items-center justify-center`}
-                    >
-                      <AvatarWithTooltip profile={testimonial.author} />
+                    <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
+                      <div className="shrink-0">
+                        <AvatarWithTooltip profile={testimonial.author} />
+                      </div>
 
-                      <div className="flex flex-col">
+                      <div className="flex flex-col shrink">
                         <p className="text-2xl leading-8 font-semibold">
                           {testimonial.author.ensName}
                         </p>
