@@ -9,3 +9,4 @@ export * from "./icons/namehash-labs-logo";
 export * from "./headline-banner";
 export * from "./cal-button";
 export * from "./icons/beans-bg";
+export * from "./icons/service-provider-badge";
