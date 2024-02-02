@@ -47,7 +47,7 @@ export const ContactSection = () => {
           />
         </div>
         <div className="lg:w-1/2 w-full bg-gray-50 py-8 px-10 border rounded-[8px] flex justify-center items-center">
-          <ContactUsForm />
+          <ContactUsForm title="Send a message"/>
         </div>
       </div>
     </section>
