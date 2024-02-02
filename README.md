@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment Variables
+
+This project requires environment variables to run correctly. These variables are used to configure various aspects of the application, such as external API connections and application settings.
+
+Below is a list of the required environment variables:
+
+- `FORM_SUBMISSION_SLACK_WEBHOOK`: This variable holds the URL for the Slack webhook used for form submission notifications.
+
+### Setting Up Environment Variables
+
+To set these environment variables, create a `.env.local` file in the root of the project and add the variables like so:
+
+FORM_SUBMISSION_SLACK_WEBHOOK=https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+
+
+Replace the webhook URL with the actual Slack webhook URL.
+
 ## Getting Started
 
 First, run the development server:

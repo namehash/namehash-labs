@@ -49,6 +49,23 @@ async function validateFormData(data: FormDataProps): Promise<Yup.ValidationErro
   }
 }
 
+async function sendToSlackWebhook(data: any) {
+  const slackWebhookUrl = process.env.FORM_SUBMISSION_SLACK_WEBHOOK;
+
+  // Check if the environment variable is defined
+  if (!slackWebhookUrl) {
+    throw new Error('The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined.');
+  }
+
+  return await fetch(slackWebhookUrl as string, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+    },
+    body: JSON.stringify(data)
+  });
+}
+
 const buildSlackWebhookRequest = (data: FormDataProps) => {
   const nameDisplay = `*Name*: ${data.name}`
   const emailDisplay = `*Email*: ${data.email}`
@@ -98,13 +115,4 @@ const buildSlackWebhookRequest = (data: FormDataProps) => {
   }
 }
 
-async function sendToSlackWebhook(data: any) {
-  const slackWebhookUrl = process.env.FORM_SUBMISSION_SLACK_WEBHOOK;
-  return await fetch(slackWebhookUrl as string, {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json, text/plain, */*',
-    },
-    body: JSON.stringify(data)
-  });
-}
+
