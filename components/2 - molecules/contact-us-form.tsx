@@ -4,9 +4,6 @@ import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
 import LoadingIndicator from "../1 - atoms/loading-indicator";
-import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig();
-const { contactFormApiUrl } = publicRuntimeConfig;
 
 
 export const formSchema = Yup.object().shape({
@@ -103,9 +100,14 @@ export const ContactUsForm = () => {
     };
 
     const sendData = async (data: FormDataProps) => {
-        const apiUrl = contactFormApiUrl;
+        const apiUrl = process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL;
 
-        const fetchPromise = fetch(apiUrl as string, {
+        // Check if the environment variable is defined
+        if (!apiUrl) {
+            throw new Error('The NEXT_PUBLIC_CONTACT_FORM_API_URL environment variable is not defined.');
+        }
+
+        const fetchPromise = fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
