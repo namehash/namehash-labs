@@ -2,22 +2,10 @@
 import { FormEvent, useEffect, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
-import * as Yup from 'yup';
 import LoadingIndicator from "../1 - atoms/loading-indicator";
-
-
-export const formSchema = Yup.object().shape({
-    name: Yup.string()
-        .required('Name is required'),
-    email: Yup.string()
-        .email('Invalid email format')
-        .required('Email is required'),
-    telegram: Yup.string()
-        .matches(/^$|^[A-Za-z0-9_]+$/, "Invalid Telegram username")
-        .optional(),
-    message: Yup.string()
-        .required('Message is required'),
-});
+import { FormDataProps } from "@/lib/types/FormDataProps";
+import { formSchema } from "@/lib/schemas/formSchema";
+import * as Yup from 'yup';
 
 enum FormFields {
     Name = "name",
@@ -25,14 +13,6 @@ enum FormFields {
     Telegram = "telegram",
     Message = "message",
     Source = "source",
-}
-
-export interface FormDataProps {
-    name: string,
-    email: string,
-    telegram: string,
-    message: string,
-    source: string,
 }
 
 const validationErrorsInitialState = {

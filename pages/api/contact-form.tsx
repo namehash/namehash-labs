@@ -1,4 +1,5 @@
-import { FormDataProps, formSchema } from "@/components/2 - molecules/contact-us-form";
+import { formSchema } from "@/lib/schemas/formSchema";
+import { FormDataProps } from "@/lib/types/FormDataProps";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as Yup from 'yup';
 
