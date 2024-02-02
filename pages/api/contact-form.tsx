@@ -68,13 +68,13 @@ async function sendToSlackWebhook(data: any) {
 }
 
 const buildSlackWebhookRequest = (data: FormDataProps) => {
-  const envInfo = process.env.DEPLOY_ENV || 'development';
+  const backendUrl = `https://${process.env.VERCEL_URL}`;
 
   const nameDisplay = `*Name*: ${data.name}`
   const emailDisplay = `*Email*: ${data.email}`
   const telegramDisplay = `*Telegram*: ${data.telegram}`
   const messageDisplay = `*Message*: ${data.message}`
-  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${envInfo}.`
+  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${backendUrl}.`
 
   return {
     "blocks": [
