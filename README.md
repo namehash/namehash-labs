@@ -4,19 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This project requires environment variables to run correctly. These variables are used to configure various aspects of the application, such as external API connections and application settings.
 
-Below is a list of the required environment variables:
+Check .example.env for more details
 
-- `FORM_SUBMISSION_SLACK_WEBHOOK`: This variable holds the URL for the Slack webhook used for form submission notifications.
-- `NEXT_PUBLIC_API_URL`: URL for the contact form API used for form submission notifications.
 
 ### Setting Up Environment Variables
 
-To set these environment variables, create a `.env.local` file in the root of the project and add the variables like so:
-
-FORM_SUBMISSION_SLACK_WEBHOOK=https://hooks.slack.com/services/x/y/z
-NEXT_PUBLIC_API_URL=https://namehashlabs.org/x/y
-
-Replace the URLs with the actual ones.
+To set these environment variables, make a copy of the `.example.env` named .env.local and to fill in the real environment variable values.
 
 ## Getting Started
 
