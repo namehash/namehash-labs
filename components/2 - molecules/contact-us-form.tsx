@@ -4,6 +4,10 @@ import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import * as Yup from 'yup';
 import LoadingIndicator from "../1 - atoms/loading-indicator";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+const { contactFormApiUrl } = publicRuntimeConfig;
+
 
 export const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -99,7 +103,7 @@ export const ContactUsForm = () => {
     };
 
     const sendData = async (data: FormDataProps) => {
-        const apiUrl = `${window.location.origin}/api/contact-form`;
+        const apiUrl = contactFormApiUrl;
 
         const fetchPromise = fetch(apiUrl as string, {
             method: 'POST',

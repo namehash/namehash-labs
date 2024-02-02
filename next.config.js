@@ -5,6 +5,13 @@ const nextConfig = {
     domains: ["metadata.ens.domains"],
     formats: ['image/avif', 'image/webp'],
   },
+  publicRuntimeConfig: {
+    contactFormApiUrl: process.env.VERCEL_ENV === 'preview'
+      ? `https://${process.env.VERCEL_URL}/api/contact-form`
+      : (process.env.VERCEL_ENV === 'development' || !process.env.VERCEL_ENV)
+        ? 'http://localhost:3000/api/contact-form'
+        : process.env.NEXT_PUBLIC_API_URL
+  },
   async headers() {
     return [
         {

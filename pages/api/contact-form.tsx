@@ -57,7 +57,7 @@ async function sendToSlackWebhook(data: any) {
     throw new Error('The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined.');
   }
 
-  return await fetch(slackWebhookUrl as string, {
+  return await fetch(slackWebhookUrl, {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',
