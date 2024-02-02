@@ -242,5 +242,6 @@ const ensLabsStaff: SupporterCategoryProps = {
     getCachedProfile("taytems.eth"),
     getCachedProfile("matoken.eth"),
     getCachedProfile("jefflau.eth"),
+    getCachedProfile("184.eth"),
   ],
 };
