@@ -90,8 +90,8 @@ export const AvatarWithTooltip = ({
         delayHide={0}
         opacity={1}
         className="z-50 bg-black !rounded-[8px] !p-0"
-        openEvents={{ mouseenter: true, focus: true, click: true }}
-        closeEvents={{ mouseleave: true, blur: true, click: true }}
+        openEvents={{ mouseenter: true, focus: true }}
+        closeEvents={{ mouseleave: true, blur: true }}
       >
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
