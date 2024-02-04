@@ -20,8 +20,8 @@ export const AvatarWithTooltip = ({
   width = 80,
 }: AvatarWithTooltipProps) => {
   const [imageFailed, setImageFailed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
+  const [isHovered, setIsHovered] = useState(false);
   const imageRef = useRef(null);
   const fac = new FastAverageColor();
 
@@ -36,7 +36,7 @@ export const AvatarWithTooltip = ({
           console.error(e);
         });
     }
-  }, [imageRef]);
+  }, [imageRef, fac]);
 
   const tooltipID = useId();
 
