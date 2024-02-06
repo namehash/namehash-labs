@@ -58,7 +58,7 @@ export const SupporterCategory = ({
       {profiles.length >= 4 ? (
         <FourSupportersContainer profiles={profilesDisplay} />
       ) : (
-        <TwoSupportersContainer profiles={profiles} />
+        <ThreeSupportersContainer profiles={profiles} />
       )}
     </div>
   );
@@ -148,16 +148,13 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   );
 };
 
-const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
+const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
-      <div className="flex gap-8">
-        <AvatarWithTooltip
-          profile={profiles[0]}
-          width={120}
-          className="w-20 h-20"
-        />
-        <AvatarWithTooltip profile={profiles[1]} width={120} />
+      <div className="flex gap-4">
+        <AvatarWithTooltip profile={profiles[0]} width={80} />
+        <AvatarWithTooltip profile={profiles[1]} width={80} />
+        <AvatarWithTooltip profile={profiles[2]} width={80} />
       </div>
     </div>
   );
@@ -165,7 +162,11 @@ const TwoSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ensFoundation: SupporterCategoryProps = {
   title: "ENS Foundation",
-  profiles: [getCachedProfile("nick.eth"), getCachedProfile("avsa.eth")],
+  profiles: [
+    getCachedProfile("nick.eth"),
+    getCachedProfile("avsa.eth"),
+    getCachedProfile("validator.eth"),
+  ],
 };
 
 const walletBuilders: SupporterCategoryProps = {
