@@ -5,6 +5,7 @@ import { Tooltip } from "react-tooltip";
 import { FastAverageColor } from "fast-average-color";
 import { EnsSolidIcon } from "../1 - atoms/icons/ens-solid-icon";
 import { Profile } from "@/data/ensProfiles";
+import { useId } from "react";
 
 interface AvatarWithTooltipProps {
   profile: Profile;
@@ -19,8 +20,8 @@ export const AvatarWithTooltip = ({
   width = 80,
 }: AvatarWithTooltipProps) => {
   const [imageFailed, setImageFailed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
+  const [isHovered, setIsHovered] = useState(false);
   const imageRef = useRef(null);
   const fac = new FastAverageColor();
 
@@ -35,21 +36,9 @@ export const AvatarWithTooltip = ({
           console.error(e);
         });
     }
-  }, [imageRef]);
+  }, [imageRef, fac]);
 
-  /*
-    Whenever we render more than one AvatarWithTooltip component, 
-    we need to make sure that the randomIdIntegrator is unique for each component.
-    Otherwise, the tooltips will confuse themselves because they will have the same ID.
-  */
-  const [randomIdIntegrator, setRandomIdGenerated] = useState("");
-  useEffect(() => {
-    const now = new Date();
-
-    const veryUnlikeRandomId = now.getTime() * Math.random();
-
-    setRandomIdGenerated(veryUnlikeRandomId.toString());
-  }, [imageFailed]);
+  const tooltipID = useId();
 
   const imgSrc = imageFailed
     ? "/images/no-avatar.png"
@@ -65,7 +54,7 @@ export const AvatarWithTooltip = ({
         alt={profile.ensName}
         data-tip
         data-for={profile.ensName}
-        data-tooltip-id={`${profile.ensName}-${randomIdIntegrator}`}
+        data-tooltip-id={`${profile.ensName}-${tooltipID}`}
         width={width}
         height={width}
         onMouseEnter={() => {
@@ -85,7 +74,7 @@ export const AvatarWithTooltip = ({
       <Tooltip
         clickable
         place="top"
-        id={`${profile.ensName}-${randomIdIntegrator}`}
+        id={`${profile.ensName}-${tooltipID}`}
         delayShow={200}
         delayHide={0}
         opacity={1}
