@@ -38,6 +38,15 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
     },
   ],
   [
+    "0x82eB45562F991329ED2867F43fc60F0Ba52C3Dab",
+    {
+      ensName: "validator.eth",
+      displayName: "Kevin Gaspar",
+      title: "Community and Ecosystem Lead at ENS",
+      twitterProfile: "https://twitter.com/ValidatorEth",
+    },
+  ],
+  [
     "0x7a3d05c70581bD345fe117c06e45f9669205384f",
     {
       ensName: "rainbowwallet.eth",

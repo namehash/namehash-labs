@@ -24,9 +24,9 @@ export const ServiceProviderBadge = (
         height="43.5415"
         rx="21.7708"
         stroke="#DBDBDB"
-        stroke-width="0.458482"
+        strokeWidth="0.458482"
       />
-      <g clip-path="url(#clip0_5306_7300)">
+      <g clipPath="url(#clip0_5306_7300)">
         <path
           d="M14.4666 19.8652C14.7642 20.501 15.5084 21.7728 15.5084 21.7728L24.0291 7.59668L15.7317 13.4317C15.248 13.7683 14.8387 14.2172 14.541 14.7408C13.7596 16.3492 13.7596 18.2194 14.4666 19.8652Z"
           fill="url(#paint0_linear_5306_7300)"
@@ -50,8 +50,8 @@ export const ServiceProviderBadge = (
         <path
           d="M20.6328 23.185L23.3837 25.9359L28.427 19.9756"
           stroke="black"
-          stroke-width="1.83393"
-          stroke-linecap="square"
+          strokeWidth="1.83393"
+          strokeLinecap="square"
         />
       </g>
       <path
@@ -71,9 +71,9 @@ export const ServiceProviderBadge = (
           y2="19.8077"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.58" stop-color="#A0A8D4" />
-          <stop offset="0.73" stop-color="#8791C7" />
-          <stop offset="0.91" stop-color="#6470B4" />
+          <stop offset="0.58" stopColor="#A0A8D4" />
+          <stop offset="0.73" stopColor="#8791C7" />
+          <stop offset="0.91" stopColor="#6470B4" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_5306_7300"
@@ -83,9 +83,9 @@ export const ServiceProviderBadge = (
           y2="25.6789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.58" stop-color="#A0A8D4" />
-          <stop offset="0.73" stop-color="#8791C7" />
-          <stop offset="0.91" stop-color="#6470B4" />
+          <stop offset="0.58" stopColor="#A0A8D4" />
+          <stop offset="0.73" stopColor="#8791C7" />
+          <stop offset="0.91" stopColor="#6470B4" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_5306_7300"
@@ -95,10 +95,10 @@ export const ServiceProviderBadge = (
           y2="37.9687"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#513EFF" />
-          <stop offset="0.18" stop-color="#5157FF" />
-          <stop offset="0.57" stop-color="#5298FF" />
-          <stop offset="1" stop-color="#52E5FF" />
+          <stop stopColor="#513EFF" />
+          <stop offset="0.18" stopColor="#5157FF" />
+          <stop offset="0.57" stopColor="#5298FF" />
+          <stop offset="1" stopColor="#52E5FF" />
         </linearGradient>
         <clipPath id="clip0_5306_7300">
           <rect
