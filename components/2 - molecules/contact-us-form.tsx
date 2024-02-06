@@ -39,6 +39,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
     const [validationErrors, setValidationErrors] = useState<ValidationErrors>(validationErrorsInitialState);
 
     const submitForm = async (e: FormEvent) => {
+        setErrorMessage("")
         e.preventDefault();
         setIsLoading(true);
 
@@ -140,7 +141,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
 
 
     return (
-        <form onSubmit={submitForm} className="h-full w-full">
+        <form onSubmit={submitForm} className="h-full w-full" noValidate>
             <div className="mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative">
                 <div>
                     <h3 className="text-2xl font-semibold">{title}</h3>
