@@ -166,8 +166,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                         </div>
                     ) : (
                         <>
-                            {isLoading && <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"><LoadingIndicator /></div>}
-                            <div className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative ${isLoading && "opacity-0"}`}>
+                            <div className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative`}>
                                 {errorMessage && (
                                     <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
                                         <XCircleIcon className="text-red-400 w-5 h-5" />
@@ -189,6 +188,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                         <input
                                             id="name"
                                             type="text"
+                                            disabled={isLoading}
                                             name={FormFields.Name}
                                             autoComplete="given-name"
                                             onChange={handleInputChange}
@@ -217,6 +217,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                     <input
                                         id="email"
                                         type="email"
+                                        disabled={isLoading}
                                         onChange={handleInputChange}
                                         autoComplete="email"
                                         name={FormFields.Email}
@@ -247,6 +248,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                         <input
                                             type="text"
                                             id="telegram"
+                                            disabled={isLoading}
                                             onChange={handleInputChange}
                                             autoComplete="tel"
                                             name={FormFields.Telegram}
@@ -269,6 +271,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                     <textarea
                                         rows={4}
                                         id="message"
+                                        disabled={isLoading}
                                         onChange={handleInputChange}
                                         defaultValue={""}
                                         name={FormFields.Message}
@@ -289,10 +292,11 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                 <input type="hidden" id="source" name="source" value="" />
                                 <div className="flex h-full justify-end items-end">
                                     <button
+                                        disabled={isLoading}
                                         type="submit"
-                                        className="rounded-lg bg-black px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto transition-colors duration-300"
+                                        className={cc([`rounded-lg px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto duration-300 bg-black transition-all`])}
                                     >
-                                        Send message
+                                        {isLoading ? "Sending...": "Send message"}
                                     </button>
                                 </div>
                             </ div>
