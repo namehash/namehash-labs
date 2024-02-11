@@ -59,7 +59,7 @@ export const TeamMemberComponent = (member: MemberProps) => {
           }}
         />
         <p
-          className="sm:text-[19px] text-[13px] font-bold text-white absolute bottom-3 left-5"
+          className="sm:text-[19px] text-[13px] font-bold text-white absolute bottom-3 left-5 ens-webfont"
           style={{
             textShadow:
               "0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 6px rgba(0, 0, 0, 0.5)",

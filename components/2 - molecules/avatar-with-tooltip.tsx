@@ -95,7 +95,7 @@ export const AvatarWithTooltip = ({
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex gap-1 items-center ">
-              <p className="font-semibold text-lg transition-all duration-200 mr-1">
+              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont">
                 {profile.ensName}
               </p>
 
