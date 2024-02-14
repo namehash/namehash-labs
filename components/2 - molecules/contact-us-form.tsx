@@ -132,6 +132,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name } = e.target;
         setValidationErrors({ ...validationErrors, [name]: '' });
+        setErrorMessage('')
     };
 
     useEffect(() => {
