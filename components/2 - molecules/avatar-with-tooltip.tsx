@@ -63,7 +63,7 @@ export const AvatarWithTooltip = ({
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`ml-[2.5%] rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+        className={`ml-[2.5%] rounded-[12px] ${imageSizeString} bg-white ${className} hover:animate-scaleAvatar animate-scaleDownAvatar hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
         onError={() => setImageFailed(true)}
         style={{
           borderRadius: "12.31px",
@@ -74,13 +74,13 @@ export const AvatarWithTooltip = ({
       <Tooltip
         clickable
         place="top"
+        openEvents={{ mouseenter: true, focus: true }}
+        closeEvents={{ mouseleave: true, blur: true }}
+        className="z-50 bg-black !rounded-[8px] !p-0"
         id={`${profile.ensName}-${tooltipID}`}
         delayShow={200}
         delayHide={0}
         opacity={1}
-        className="z-50 bg-black !rounded-[8px] !p-0"
-        openEvents={{ mouseenter: true, focus: true }}
-        closeEvents={{ mouseleave: true, blur: true }}
       >
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
