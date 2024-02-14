@@ -133,11 +133,11 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
           </div>
 
           <p className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
-            <p>
+            <span>
               Made with
               <span className="text-[#EF4444] mx-1">{"❤️"}</span>
               by
-            </p>
+            </span>
             <a
               className="text-black underline xSmall:underline-offset-[4px] xSmall:transition-all xSmall:duration-200 xSmall:hover:underline-offset-[2px]"
               href={"https://namehashlabs.org"}
