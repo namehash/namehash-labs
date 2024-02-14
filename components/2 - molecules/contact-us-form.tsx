@@ -87,6 +87,8 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
     const sendData = async (data: ContactFormDataProps) => {
         const apiUrl = process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL;
 
+        console.log("api url ", apiUrl)
+
         // Check if the environment variable is defined
         if (!apiUrl) {
             throw new Error('The NEXT_PUBLIC_CONTACT_FORM_API_URL environment variable is not defined.');
