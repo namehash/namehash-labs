@@ -119,7 +119,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
         } catch (error) {
             if (error instanceof TypeError) {
                 // Likely a network error
-                console.error("Network error: ", error.message);
+                console.error("Network error: ", error);
                 setErrorMessage("Connection lost. Please check your connection and try again.");
             } else if (error instanceof Error) {
                 setErrorMessage(error.message);
