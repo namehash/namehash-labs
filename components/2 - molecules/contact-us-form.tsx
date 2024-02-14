@@ -3,8 +3,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import LoadingIndicator from "../1 - atoms/loading-indicator";
-import { FormDataProps } from "@/lib/types/FormDataProps";
-import { formSchema } from "@/lib/schemas/formSchema";
+import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
+import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
 import * as Yup from 'yup';
 
 enum FormFields {
@@ -45,7 +45,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
 
         const formData: FormData = new FormData(e.target as HTMLFormElement);
 
-        const data: FormDataProps = {
+        const data: ContactFormDataProps = {
             name: formData.get(FormFields.Name)?.toString().trim() || "",
             email: formData.get(FormFields.Email)?.toString().trim() || "",
             telegram: formData.get(FormFields.Telegram)?.toString().trim() || "",
@@ -55,7 +55,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
 
         try {
             // Validate form data against the schema
-            await formSchema.validate(data, { abortEarly: false });
+            await contactFormSchema.validate(data, { abortEarly: false });
             setValidationErrors(validationErrorsInitialState); // Reset validation errors on successful validation
 
             // Proceed with form submission if validation is successful
@@ -84,7 +84,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
         }
     };
 
-    const sendData = async (data: FormDataProps) => {
+    const sendData = async (data: ContactFormDataProps) => {
         const apiUrl = process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL;
 
         // Check if the environment variable is defined

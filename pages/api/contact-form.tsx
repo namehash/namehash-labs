@@ -1,5 +1,5 @@
-import { formSchema } from "@/lib/schemas/formSchema";
-import { FormDataProps } from "@/lib/types/FormDataProps";
+import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
+import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as Yup from 'yup';
 
@@ -38,9 +38,9 @@ export default async function handler(
 }
 
 // Validation function
-async function validateFormData(data: FormDataProps): Promise<Yup.ValidationError | null> {
+async function validateFormData(data: ContactFormDataProps): Promise<Yup.ValidationError | null> {
   try {
-    await formSchema.validate(data, { abortEarly: false });
+    await contactFormSchema.validate(data, { abortEarly: false });
     return null; // No errors, return null
   } catch (error) {
     if (error instanceof Yup.ValidationError) {
@@ -51,7 +51,7 @@ async function validateFormData(data: FormDataProps): Promise<Yup.ValidationErro
 }
 
 async function sendToSlackWebhook(data: any) {
-  const slackWebhookUrl = process.env.FORM_SUBMISSION_SLACK_WEBHOOK;
+  const slackWebhookUrl = process.env.CONTACT_FORM_SUBMISSION_SLACK_WEBHOOK;
 
   // Check if the environment variable is defined
   if (!slackWebhookUrl) {
@@ -67,7 +67,7 @@ async function sendToSlackWebhook(data: any) {
   });
 }
 
-const buildSlackWebhookRequest = (data: FormDataProps) => {
+const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
   const backendUrl = `https://${process.env.VERCEL_URL}/api/contact-form`;
 
   const nameDisplay = `*Name*: ${data.name}`

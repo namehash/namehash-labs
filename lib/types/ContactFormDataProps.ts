@@ -1,4 +1,4 @@
-export interface FormDataProps {
+export interface ContactFormDataProps {
     name: string,
     email: string,
     telegram: string,
