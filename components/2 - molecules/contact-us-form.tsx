@@ -297,7 +297,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
                                     <button
                                         disabled={isLoading}
                                         type="submit"
-                                        className={cc([`rounded-lg px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto duration-300 transition-all`, isLoading ? "bg-gray-500" : "bg-black" ])}
+                                        className={cc([`rounded-lg px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto duration-300 transition-all bg-black`, isLoading && "opacity-50"])}
                                     >
                                         {isLoading ? "Sending...": "Send message"}
                                     </button>
