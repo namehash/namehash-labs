@@ -91,6 +91,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
 
         // Check if the environment variable is defined
         if (!apiUrl) {
+            setErrorMessage('The NEXT_PUBLIC_CONTACT_FORM_API_URL environment variable is not defined.')
             throw new Error('The NEXT_PUBLIC_CONTACT_FORM_API_URL environment variable is not defined.');
         }
 
