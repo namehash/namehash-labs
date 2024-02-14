@@ -1,4 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export default function Document() {
   return (
@@ -37,7 +40,7 @@ export default function Document() {
         />
         <meta name="next-size-adjust" />
       </Head>
-      <body>
+      <body className={inter.variable}>
         <Main />
         <NextScript />
       </body>
