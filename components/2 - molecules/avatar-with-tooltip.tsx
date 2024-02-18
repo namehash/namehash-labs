@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { FastAverageColor } from "fast-average-color";
