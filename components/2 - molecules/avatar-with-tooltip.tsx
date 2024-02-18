@@ -49,6 +49,22 @@ export const AvatarWithTooltip = ({
 
   return (
     <div>
+      {/* 
+        Whenever a user interacts with this component, two things happen:
+        1. The avatar scales up (on mouse over) and down (on mouse leave)
+        2. The tooltip is displayed (on mouse over) and hidden (on mouse leave)
+
+        These behaviors are reflected in mobile with a tap gesture instead of a hover gesture.
+
+        Since the avatar scaling could move the tooltip up and down while it is being displayed AND
+        we need to make sure that the tooltip is displayed at the correct position, without layout shifts,
+        two animations called: animate-scaleAvatar and animate-scaleDownAvatar are used to ensure that the tooltip
+        is displayed right after the avatar scaling event has ended, which means that these animations won't
+        conflict and thus, won't cause Ui inconsistencies. 
+
+        You can find these animations application in the <Image> component below and its configuration in Tailwind Config file.
+        You can find the Tooltip specs in the Tooltip component below and its configuration in Tooltip's props.
+      */}
       <Image
         src={imgSrc}
         alt={profile.ensName}
