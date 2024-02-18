@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -58,10 +58,9 @@ export const JoinOurTeamSection = () => {
         </div>
       </div>
       <div className="lg:ml-[85px] mt-6 mx-auto flex justify-center">
-        <Image
-          quality={100}
+        <img
+          src="/images/join-our-team.svg"
           alt="Join our team image"
-          src="/images/join-our-team.png"
           className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
           height={800}
           width={1166}
