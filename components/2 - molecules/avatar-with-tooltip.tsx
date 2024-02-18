@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -6,6 +7,7 @@ import { FastAverageColor } from "fast-average-color";
 import { EnsSolidIcon } from "../1 - atoms/icons/ens-solid-icon";
 import { Profile } from "@/data/ensProfiles";
 import { useId } from "react";
+import cc from "classcat";
 
 interface AvatarWithTooltipProps {
   /* 
@@ -80,14 +82,12 @@ export const AvatarWithTooltip = ({
 
   return (
     <div>
-      <Image
+      <img
+        data-tip
         src={avatarSrc}
         alt={profile.ensName}
-        data-tip
         data-for={profile.ensName}
         data-tooltip-id={`${profile.ensName}-${tooltipID}`}
-        width={size}
-        height={size}
         onMouseEnter={() => {
           setIsHovered(true);
         }}
@@ -116,12 +116,10 @@ export const AvatarWithTooltip = ({
       >
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
-            <Image
+            <img
               src={avatarSrc}
-              width={size}
-              height={size}
               alt={profile.ensName}
-              className={`h-20 w-20 rounded-[8px]`}
+              className={cc([AvatarSizeStyling[size], "rounded-lg"])}
               onError={() => setFailedToLoadCachedAvatar(true)}
             />
           </div>
@@ -146,11 +144,10 @@ export const AvatarWithTooltip = ({
               {profile.twitterProfile && (
                 <a href={profile.twitterProfile} target="_blank">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    viewBox="0 0 24 24"
                     fill="none"
+                    viewBox="0 0 24 24"
                     className="group"
                   >
                     <path
