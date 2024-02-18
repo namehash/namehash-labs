@@ -2,7 +2,7 @@ export interface Profile {
   title: string;
   ensName: string;
   displayName?: string;
-  twitterProfile: string;
+  twitterProfile?: string;
 }
 
 export const getCachedProfile = (ensName: string): Profile => {
@@ -365,6 +365,121 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
       title: "DAO Governance",
       ensName: "james.eth",
       twitterProfile: "https://twitter.com/blockchainjames",
+    },
+  ],
+  [
+    "0x1a199654959140E5c1A2F4135fAA7Ba2748939C5",
+    {
+      title: "Founder at NameHash Labs",
+      ensName: "lightwalker.eth",
+      twitterProfile: "https://twitter.com/lightwalker_eth",
+    },
+  ],
+  [
+    "0x9A41C5549Bcc7d3F8D80e639714a4823de559134",
+    {
+      title: "Founder at NameHash Labs",
+      ensName: "caldonia.eth",
+      twitterProfile: "https://twitter.com/caldonia_eth",
+    },
+  ],
+  [
+    "0x35b3Ab43ebE7709F4aef1a9c3E6D1f99Be343128",
+    {
+      title: "Engineering",
+      ensName: "kwrobel.eth",
+      twitterProfile: "https://twitter.com/kwrobel_eth",
+    },
+  ],
+  [
+    "0xf81bc66316A3f2A60Adc258F97F61dFcBdd23Bb1",
+    {
+      title: "Engineering",
+      ensName: "notrab.eth",
+      displayName: "Jamie Barton",
+      twitterProfile: "https://twitter.com/notrab",
+    },
+  ],
+  [
+    "0x6D99E3D9287C0e7f39d24472a066B4DE24Bfe657",
+    {
+      title: "UX/UI Design",
+      ensName: "theloner.eth",
+      twitterProfile: "https://twitter.com/theloner_eth",
+    },
+  ],
+  [
+    "0xFAFaC5F0571aa0F12A156FFdCD37E8a7dd694c4F",
+    {
+      title: "Engineering",
+      ensName: "frankind.eth",
+      twitterProfile: "https://twitter.com/frankind_eth",
+    },
+  ],
+  [
+    "0x6148bB313D42f2B72f8992f739a15dF984236F23",
+    {
+      title: "Engineering",
+      ensName: "karbowski.eth",
+      displayName: "Jakub Karbowski",
+    },
+  ],
+  [
+    "0x1E7F4DF4Abe4bd01E0D7271AF11A2607969bB5b2",
+    {
+      title: "Engineering",
+      ensName: "goader.eth",
+      displayName: "Mykola Haltiuk",
+    },
+  ],
+  [
+    "0x7d14899c8a26cCA70E8e1A51c3558a5DB1219B15",
+    {
+      title: "Engineering",
+      ensName: "apohllo.eth",
+    },
+  ],
+  [
+    "0xdf696B8a034416b4725793388ed8A232195C1ce9",
+    {
+      title: "Engineering",
+      ensName: "byczong.eth",
+    },
+  ],
+  [
+    "0x89F8e4020c0dd384F13c288bc5743F963F9D8fdF",
+    {
+      title: "Engineering",
+      ensName: "edulennert.eth",
+    },
+  ],
+  [
+    "0x26A1BC2b06DD438669094bD68f1E2481F47FEC5b",
+    {
+      title: "Engineering",
+      ensName: "y3drk.eth",
+    },
+  ],
+  [
+    "0x69A193cf78a6CBb48084797A69164ca409EBb285",
+    {
+      title: "Engineering",
+      ensName: "sebban.eth",
+    },
+  ],
+  [
+    "0xE0E6c173E79E040D6B9f8160Ce4771b127982cA5",
+    {
+      title: "Engineering",
+      ensName: "ilfurioso.eth",
+    },
+  ],
+  [
+    "0xB6616C9eA0AbE063d3c4433691e8361FFb482099",
+    {
+      title: "Outreach",
+      ensName: "santapolukord.eth",
+      displayName: "Santa Polukord",
     },
   ],
 ]);

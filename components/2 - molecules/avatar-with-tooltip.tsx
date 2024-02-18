@@ -8,18 +8,40 @@ import { Profile } from "@/data/ensProfiles";
 import { useId } from "react";
 
 interface AvatarWithTooltipProps {
-  profile: Profile;
+  /* 
+    This param is set to "true" by default. In case no query should be 
+    done to ENS API to fetch the avatar if it's not cached, set this to "false".
+  */
+  loadAvatarFromENSIfNotCached?: boolean;
   className?: string;
-  width?: number;
+  profile: Profile;
+  size?: AvatarSize;
 }
+
+export enum AvatarSize {
+  SMALL = 80,
+  MEDIUM = 120,
+}
+
+const AvatarSizeStyling = {
+  [AvatarSize.SMALL]: "w-20 h-20",
+  [AvatarSize.MEDIUM]: "w-[120px] h-auto",
+};
+
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
 export const AvatarWithTooltip = ({
-  profile,
+  loadAvatarFromENSIfNotCached = true,
+  size = AvatarSize.SMALL,
   className = "",
-  width = 80,
+  profile,
 }: AvatarWithTooltipProps) => {
-  const [imageFailed, setImageFailed] = useState(false);
+  const [failedToLoadCachedAvatar, setFailedToLoadCachedAvatar] = useState<
+    undefined | boolean
+  >(undefined);
+  const [avatarSrc, setAvatarSrc] = useState(
+    `/images/avatars/${profile.ensName}.png`
+  );
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [isHovered, setIsHovered] = useState(false);
   const imageRef = useRef(null);
@@ -40,31 +62,40 @@ export const AvatarWithTooltip = ({
 
   const tooltipID = useId();
 
-  const imgSrc = imageFailed
-    ? "/images/no-avatar.png"
-    : `/images/avatars/${profile.ensName}.png`;
-
-  const imageSizeString =
-    width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto ";
+  useEffect(() => {
+    if (loadAvatarFromENSIfNotCached) {
+      if (
+        typeof failedToLoadCachedAvatar !== "undefined" &&
+        failedToLoadCachedAvatar
+      ) {
+        // Try to load the avatar from ENS if it's not cached
+        setAvatarSrc(
+          `https://metadata.ens.domains/mainnet/avatar/${profile.ensName}`
+        );
+      }
+    } else if (typeof failedToLoadCachedAvatar !== "undefined") {
+      setAvatarSrc("/images/no-avatar.png");
+    }
+  }, [failedToLoadCachedAvatar]);
 
   return (
     <div>
       <Image
-        src={imgSrc}
+        src={avatarSrc}
         alt={profile.ensName}
         data-tip
         data-for={profile.ensName}
         data-tooltip-id={`${profile.ensName}-${tooltipID}`}
-        width={width}
-        height={width}
+        width={size}
+        height={size}
         onMouseEnter={() => {
           setIsHovered(true);
         }}
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`ml-[2.5%] rounded-[12px] ${imageSizeString} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
-        onError={() => setImageFailed(true)}
+        className={`ml-[2.5%] rounded-[12px] ${AvatarSizeStyling[size]} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+        onError={() => setFailedToLoadCachedAvatar(true)}
         style={{
           borderRadius: "12.31px",
           boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
@@ -81,16 +112,17 @@ export const AvatarWithTooltip = ({
         className="z-50 bg-black !rounded-[8px] !p-0"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
+        noArrow={true}
       >
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
             <Image
-              src={imgSrc}
-              width={width}
-              height={width}
+              src={avatarSrc}
+              width={size}
+              height={size}
               alt={profile.ensName}
               className={`h-20 w-20 rounded-[8px]`}
-              onError={() => setImageFailed(true)}
+              onError={() => setFailedToLoadCachedAvatar(true)}
             />
           </div>
           <div className="flex flex-col gap-1">

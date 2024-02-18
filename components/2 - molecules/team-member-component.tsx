@@ -31,7 +31,7 @@ export const TeamMemberComponent = (member: MemberProps) => {
   }, [imageRef]);
 
   return (
-    <div className="flex flex-col gap-3" key={member.name}>
+    <div className="flex flex-col" key={member.name}>
       <a
         href={`https://app.ens.domains/${member.name}`}
         target="_blank"
@@ -51,24 +51,26 @@ export const TeamMemberComponent = (member: MemberProps) => {
           className="rounded-[12px] w-full border-0"
           ref={imageRef}
         />
-        <EnsIcon
-          className="absolute top-5 left-5 h-7 w-7 sm:w-auto sm:h-auto"
-          style={{
-            textShadow:
-              "0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 6px rgba(0, 0, 0, 0.5)",
-          }}
-        />
-        <p
-          className="sm:text-[19px] text-[13px] font-bold text-white absolute bottom-3 left-5"
-          style={{
-            textShadow:
-              "0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 6px rgba(0, 0, 0, 0.5)",
-          }}
-        >
-          {member.name}
-        </p>
+        <div className="hidden">
+          <EnsIcon
+            className="absolute top-5 left-5 h-7 w-7 sm:w-auto sm:h-auto"
+            style={{
+              textShadow:
+                "0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 6px rgba(0, 0, 0, 0.5)",
+            }}
+          />
+          <p
+            className="sm:text-[19px] text-[13px] font-bold text-white absolute bottom-3 left-5"
+            style={{
+              textShadow:
+                "0px 2px 4px rgba(0, 0, 0, 0.4), 0px 4px 6px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            {member.name}
+          </p>
+        </div>
       </a>
-      <p className="text-lg leading-7 font-semibold">{member.role}</p>
+      <p className="hidden text-lg leading-7 font-semibold">{member.role}</p>
     </div>
   );
 };
