@@ -1,6 +1,6 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { AvatarWithTooltip } from "./avatar-with-tooltip";
+import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
@@ -152,9 +152,9 @@ const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative">
       <div className="flex gap-4">
-        <AvatarWithTooltip profile={profiles[0]} width={80} />
-        <AvatarWithTooltip profile={profiles[1]} width={80} />
-        <AvatarWithTooltip profile={profiles[2]} width={80} />
+        <AvatarWithTooltip profile={profiles[0]} size={AvatarSize.SMALL} />
+        <AvatarWithTooltip profile={profiles[1]} size={AvatarSize.SMALL} />
+        <AvatarWithTooltip profile={profiles[2]} size={AvatarSize.SMALL} />
       </div>
     </div>
   );

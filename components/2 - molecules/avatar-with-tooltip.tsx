@@ -94,7 +94,7 @@ export const AvatarWithTooltip = ({
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`ml-[2.5%] rounded-[12px] ${AvatarSizeStyling[size]} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
+        className={`ml-[2.5%] rounded-[12px] ${AvatarSizeStyling[size]} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-[rgba(0,0,0,0.1)] border transition-all duration-200`}
         onError={() => setFailedToLoadCachedAvatar(true)}
         style={{
           borderRadius: "12.31px",
