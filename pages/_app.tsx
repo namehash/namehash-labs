@@ -1,7 +1,11 @@
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";

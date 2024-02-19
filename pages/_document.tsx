@@ -4,10 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <meta
           name="description"
           content="NameHash Labs builds open source public goods that drive the global adoption of ENS."
