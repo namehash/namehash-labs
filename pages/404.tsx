@@ -13,11 +13,14 @@ const Custom404 = () => {
           <h3 className="text-4xl leading-10 font-bold mb-4 ">
             Page not found
           </h3>
-          <p className="text-sm leading-6 font-normal text-gray-500">
+          <div
+            role="text"
+            className="text-sm leading-6 font-normal text-gray-500"
+          >
             <Balancer>
               We can&apos;t seem to find the page you&apos;re looking for
             </Balancer>
-          </p>
+          </div>
           <div className="flex items-center justify-center mt-5">
             <Link
               href="/"

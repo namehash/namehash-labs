@@ -33,7 +33,10 @@ export const TeamSection = () => {
           style={{ aspectRatio: "1 / 1" }}
         >
           <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
-          <p className="text-sm text-center leading-5 font-normal text-gray-500 px-2">
+          <div
+            role="text"
+            className="text-sm text-center leading-5 font-normal text-gray-500 px-2"
+          >
             Check out our{" "}
             <Link
               onClick={(e) => {
@@ -45,7 +48,7 @@ export const TeamSection = () => {
             >
               open roles
             </Link>
-          </p>
+          </div>
         </div>
       </div>
     </section>
