@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -23,7 +24,7 @@ const config: Config = {
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       },
     },
     keyframes: {
