@@ -68,7 +68,7 @@ async function sendToSlackWebhook(data: any) {
 }
 
 const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
-  const backendUrl = `https://${process.env.VERCEL_URL}/api/contact-form`;
+  const backendUrl = process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || '/api/contact-form';
 
   const nameDisplay = `*Name*: ${data.name}`
   const emailDisplay = `*Email*: ${data.email}`

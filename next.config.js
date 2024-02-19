@@ -5,9 +5,6 @@ const nextConfig = {
     domains: ["metadata.ens.domains"],
     formats: ['image/avif', 'image/webp'],
   },
-  env: {
-    NEXT_PUBLIC_CONTACT_FORM_API_URL: process.env.VERCEL_URL && !process.env.NEXT_PUBLIC_CONTACT_FORM_ENV_API_URL ? `https://${process.env.VERCEL_URL}/api/contact-form` : process.env.NEXT_PUBLIC_CONTACT_FORM_ENV_API_URL,
-  },
   async headers() {
     return [
         {
