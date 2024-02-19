@@ -1,7 +1,7 @@
 import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
 import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
 import { NextApiRequest, NextApiResponse } from "next";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   try {
     const formData = req.body;
-    const parsedFormData = JSON.parse(formData)
+    const parsedFormData = JSON.parse(formData);
 
     const validationError = await validateFormData(parsedFormData);
 
@@ -29,7 +29,9 @@ export default async function handler(
       res.status(200).json({ message: "Form data sent successfully" });
     } else {
       // Handle any errors from the destination service
-      res.status(destinationResponse.status).json({ error: "Error sending form data to the destination service" });
+      res
+        .status(destinationResponse.status)
+        .json({ error: "Error sending form data to the destination service" });
     }
   } catch (error) {
     console.error(error);
@@ -38,7 +40,9 @@ export default async function handler(
 }
 
 // Validation function
-async function validateFormData(data: ContactFormDataProps): Promise<Yup.ValidationError | null> {
+async function validateFormData(
+  data: ContactFormDataProps
+): Promise<Yup.ValidationError | null> {
   try {
     await contactFormSchema.validate(data, { abortEarly: false });
     return null; // No errors, return null
@@ -55,67 +59,68 @@ async function sendToSlackWebhook(data: any) {
 
   // Check if the environment variable is defined
   if (!slackWebhookUrl) {
-    throw new Error('The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined.');
+    throw new Error(
+      "The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined."
+    );
   }
 
   return await fetch(slackWebhookUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Accept': 'application/json, text/plain, */*',
+      Accept: "application/json, text/plain, */*",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 }
 
 const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
-  const backendUrl = process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || '/api/contact-form';
+  const backendUrl =
+    process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || "/api/contact-form";
 
-  const nameDisplay = `*Name*: ${data.name}`
-  const emailDisplay = `*Email*: ${data.email}`
-  const telegramDisplay = `*Telegram*: ${data.telegram}`
-  const messageDisplay = `*Message*: ${data.message}`
-  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${backendUrl}`
+  const nameDisplay = `*Name*: ${data.name}`;
+  const emailDisplay = `*Email*: ${data.email}`;
+  const telegramDisplay = `*Telegram*: ${data.telegram}`;
+  const messageDisplay = `*Message*: ${data.message}`;
+  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${backendUrl}`;
 
   return {
-    "blocks": [
+    blocks: [
       {
-        "type": "section",
-        "text": {
-          "type": "plain_text",
-          "text": sourceDisplay,
-          "emoji": true
-        }
+        type: "section",
+        text: {
+          type: "plain_text",
+          text: sourceDisplay,
+          emoji: true,
+        },
       },
       {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": nameDisplay
-        }
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: nameDisplay,
+        },
       },
       {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": emailDisplay
-        }
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: emailDisplay,
+        },
       },
       {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": telegramDisplay
-        }
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: telegramDisplay,
+        },
       },
       {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": messageDisplay
-        }
-      }
-    ]
-  }
-}
-
-
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: messageDisplay,
+        },
+      },
+    ],
+  };
+};
