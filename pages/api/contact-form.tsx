@@ -75,7 +75,7 @@ async function sendToSlackWebhook(data: any) {
 
 const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
   const backendUrl =
-    process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || "/api/contact-form";
+    process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || "{Default base url}/api/contact-form - NEXT_PUBLIC_CONTACT_FORM_API_URL environment varibale not set";
 
   const nameDisplay = `*Name*: ${data.name}`;
   const emailDisplay = `*Email*: ${data.email}`;
