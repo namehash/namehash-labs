@@ -104,3 +104,24 @@ html {
 .rewind .swiper-button-prev:hover {
   background-color: #f9fafb;
 }
+
+/* Override autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For Firefox */
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus,
+input:-moz-autofill:active {
+    box-shadow: 0 0 0 30px white inset !important;
+    text-fill-color: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
