@@ -103,7 +103,7 @@ export const ContactUsForm = ({title}: ContactUsFormProps) => {
 
         const timeoutPromise = new Promise<Response>((resolve, reject) => {
             setTimeout(() => {
-                reject(new Error('It seems your search is taking a long time to load. Try again later.'));
+                reject(new Error('It seems your request is taking longer than usual. Try again later.'));
             }, 10000);
         });
 
