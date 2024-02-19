@@ -214,6 +214,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
                     type="text"
                     disabled={isLoading}
                     name={FormFields.Name}
+                    autoComplete="off"
                     onChange={handleInputChange}
                     className={cc([
                       "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
@@ -242,6 +243,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
                   type="email"
                   disabled={isLoading}
                   onChange={handleInputChange}
+                  autoComplete="off"
                   name={FormFields.Email}
                   className={cc([
                     "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border focus:border-gray-600 hover:border-gray-400 border-gray-300 placeholder:text-gray-400 outline-none sm:text-sm sm:leading-6",
@@ -270,6 +272,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
                   <input
                     type="text"
                     id="telegram"
+                    autoComplete="off"
                     disabled={isLoading}
                     onChange={handleInputChange}
                     name={FormFields.Telegram}
