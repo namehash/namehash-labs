@@ -168,167 +168,178 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
           <h3 className="text-2xl font-semibold">{title}</h3>
         </div>
 
-        {successfulFormSubmit ? (
-          <div className="w-full h-full flex flex-col items-center justify-center">
-            <div className="p-3 bg-green-100 rounded-full mb-6">
-              <CheckIcon className="text-green-400 w-6 h-6" />
-            </div>
-            <p className="text-lg font-semibold">Your message was sent</p>
-            <p className="text-sm text-gray-500 mt-2">
-              We have received your message and will get back to you soon.
-            </p>
-            <button
-              onClick={() => setSuccessfulFormSubmit(false)}
-              className="mt-5 bg-black hover:bg-gray-800 transition-colors duration-200 px-4 py-2 rounded-md shadow-sm text-white text-sm font-medium"
-            >
-              Send another message
-            </button>
+        <div
+          className={cc([
+            "w-full h-full flex flex-col items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300",
+            successfulFormSubmit ? "opacity-100" : "opacity-0 z-[-1]",
+          ])}
+        >
+          <div className="p-3 bg-green-100 rounded-full mb-6">
+            <CheckIcon className="text-green-400 w-6 h-6" />
           </div>
-        ) : (
-          <>
-            <div
-              className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative`}
-            >
-              {errorMessage && (
-                <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
-                  <div className="w-5">
-                    <XCircleIcon className="text-red-400 h-5 w-5" />
-                  </div>
+          <p className="text-lg font-semibold">Your message was sent</p>
+          <p className="text-sm text-gray-500 mt-2 text-center">
+            We have received your message and will get back to you soon.
+          </p>
+          <button
+            onClick={() => {
+              setSuccessfulFormSubmit(false);
+            }}
+            type="reset"
+            className="mt-5 bg-black hover:bg-gray-800 transition-colors duration-200 px-4 py-2 rounded-md shadow-sm text-white text-sm font-medium"
+          >
+            Send another message
+          </button>
+        </div>
 
-                  <p className="text-red-800 font-medium text-sm">
-                    {errorMessage}
-                  </p>
-                </span>
-              )}
-
-              <div className="gap-1">
-                <label
-                  htmlFor="name"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Name
-                </label>
-                <div className="w-full">
-                  <input
-                    id="name"
-                    type="text"
-                    disabled={isLoading}
-                    name={FormFields.Name}
-                    autoComplete="off"
-                    onChange={handleInputChange}
-                    className={cc([
-                      "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
-                      {
-                        "border-red-300": validationErrors[FormFields.Name],
-                      },
-                    ])}
-                  />
+        <div
+          className={cc([
+            "transition-all duration-300",
+            successfulFormSubmit ? "opacity-0 z-[-1]" : "opacity-100",
+          ])}
+        >
+          <div
+            className={`mx-auto lg:mr-0 gap-y-5 w-full h-full gap-5 flex flex-col relative`}
+          >
+            {errorMessage && (
+              <span className="flex space-x-3 items-center p-4 rounded-md border border-red-100 bg-red-50">
+                <div className="w-5">
+                  <XCircleIcon className="text-red-400 h-5 w-5" />
                 </div>
 
-                {validationErrors[FormFields.Name] && (
-                  <span className="mt-2 text-sm font-normal text-red-600">
-                    {validationErrors[FormFields.Name]}
-                  </span>
-                )}
-              </div>
-              <div className="gap-1">
-                <label
-                  htmlFor="email"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Email
-                </label>
+                <p className="text-red-800 font-medium text-sm">
+                  {errorMessage}
+                </p>
+              </span>
+            )}
+
+            <div className="gap-1">
+              <label
+                htmlFor="name"
+                className="block text-sm leading-5 font-medium text-gray-500"
+              >
+                Name
+              </label>
+              <div className="w-full">
                 <input
-                  id="email"
-                  type="email"
+                  id="name"
+                  type="text"
                   disabled={isLoading}
-                  onChange={handleInputChange}
+                  name={FormFields.Name}
                   autoComplete="off"
-                  name={FormFields.Email}
-                  className={cc([
-                    "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border focus:border-gray-600 hover:border-gray-400 border-gray-300 placeholder:text-gray-400 outline-none sm:text-sm sm:leading-6",
-                    {
-                      "border-red-300": validationErrors[FormFields.Email],
-                    },
-                  ])}
-                />
-                {validationErrors[FormFields.Email] && (
-                  <span className="mt-2 text-sm font-normal text-red-600">
-                    {validationErrors[FormFields.Email]}
-                  </span>
-                )}
-              </div>
-              <div className="gap-1">
-                <label
-                  htmlFor="telegram"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Telegram (optional)
-                </label>
-                <div className="relative">
-                  <span className="text-sm leading-5 font-medium text-gray-500 absolute left-2 top-2.5">
-                    @
-                  </span>
-                  <input
-                    type="text"
-                    id="telegram"
-                    autoComplete="off"
-                    disabled={isLoading}
-                    onChange={handleInputChange}
-                    name={FormFields.Telegram}
-                    className="block w-full rounded-md pr-3.5 pl-6 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6"
-                  />
-                  {validationErrors[FormFields.Telegram] && (
-                    <span className="mt-2 text-sm font-normal text-red-600">
-                      {validationErrors[FormFields.Telegram]}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className="gap-1">
-                <label
-                  htmlFor="message"
-                  className="block text-sm leading-5 font-medium text-gray-500"
-                >
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  id="message"
-                  disabled={isLoading}
                   onChange={handleInputChange}
-                  defaultValue={""}
-                  name={FormFields.Message}
                   className={cc([
                     "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
                     {
-                      "border-red-300": validationErrors[FormFields.Message],
+                      "border-red-300": validationErrors[FormFields.Name],
                     },
                   ])}
                 />
+              </div>
 
-                {validationErrors[FormFields.Message] && (
+              {validationErrors[FormFields.Name] && (
+                <span className="mt-2 text-sm font-normal text-red-600">
+                  {validationErrors[FormFields.Name]}
+                </span>
+              )}
+            </div>
+            <div className="gap-1">
+              <label
+                htmlFor="email"
+                className="block text-sm leading-5 font-medium text-gray-500"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                disabled={isLoading}
+                onChange={handleInputChange}
+                autoComplete="off"
+                name={FormFields.Email}
+                className={cc([
+                  "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border focus:border-gray-600 hover:border-gray-400 border-gray-300 placeholder:text-gray-400 outline-none sm:text-sm sm:leading-6",
+                  {
+                    "border-red-300": validationErrors[FormFields.Email],
+                  },
+                ])}
+              />
+              {validationErrors[FormFields.Email] && (
+                <span className="mt-2 text-sm font-normal text-red-600">
+                  {validationErrors[FormFields.Email]}
+                </span>
+              )}
+            </div>
+            <div className="gap-1">
+              <label
+                htmlFor="telegram"
+                className="block text-sm leading-5 font-medium text-gray-500"
+              >
+                Telegram (optional)
+              </label>
+              <div className="relative">
+                <span className="text-sm leading-5 font-medium text-gray-500 absolute left-2 top-2.5">
+                  @
+                </span>
+                <input
+                  type="text"
+                  id="telegram"
+                  autoComplete="off"
+                  disabled={isLoading}
+                  onChange={handleInputChange}
+                  name={FormFields.Telegram}
+                  className="block w-full rounded-md pr-3.5 pl-6 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6"
+                />
+                {validationErrors[FormFields.Telegram] && (
                   <span className="mt-2 text-sm font-normal text-red-600">
-                    {validationErrors[FormFields.Message]}
+                    {validationErrors[FormFields.Telegram]}
                   </span>
                 )}
               </div>
-              <input type="hidden" id="source" name="source" value="" />
-              <div className="flex h-full justify-end items-end">
-                <button
-                  disabled={isLoading}
-                  type="submit"
-                  className={cc([
-                    `rounded-lg px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto duration-300 transition-all bg-black`,
-                    isLoading && "opacity-50",
-                  ])}
-                >
-                  {isLoading ? "Sending..." : "Send message"}
-                </button>
-              </div>
             </div>
-          </>
-        )}
+            <div className="gap-1">
+              <label
+                htmlFor="message"
+                className="block text-sm leading-5 font-medium text-gray-500"
+              >
+                Message
+              </label>
+              <textarea
+                rows={4}
+                id="message"
+                disabled={isLoading}
+                onChange={handleInputChange}
+                defaultValue={""}
+                name={FormFields.Message}
+                className={cc([
+                  "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
+                  {
+                    "border-red-300": validationErrors[FormFields.Message],
+                  },
+                ])}
+              />
+
+              {validationErrors[FormFields.Message] && (
+                <span className="mt-2 text-sm font-normal text-red-600">
+                  {validationErrors[FormFields.Message]}
+                </span>
+              )}
+            </div>
+            <input type="hidden" id="source" name="source" value="" />
+            <div className="flex h-full justify-end items-end">
+              <button
+                disabled={isLoading}
+                type="submit"
+                className={cc([
+                  `rounded-lg px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-gray-800 w-full lg:w-auto duration-300 transition-all bg-black`,
+                  isLoading && "opacity-50",
+                ])}
+              >
+                {isLoading ? "Sending..." : "Send message"}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   );
