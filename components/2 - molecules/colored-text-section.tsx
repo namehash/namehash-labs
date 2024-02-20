@@ -6,7 +6,8 @@ export const ColoredText = () => {
       className="lg:px-[110px] px-5 py-[108px] border-b border-gray-200 w-full"
       id="ensOnboardingSection"
     >
-      <p
+      <div
+        role="text"
         style={{
           background: "linear-gradient(180deg, #289FB9 0%, #8740A0 100%)",
           WebkitBackgroundClip: "text",
@@ -19,7 +20,7 @@ export const ColoredText = () => {
           <span className="whitespace-nowrap">millions of people</span> use
           every day.
         </Balancer>
-      </p>
+      </div>
     </section>
   );
 };

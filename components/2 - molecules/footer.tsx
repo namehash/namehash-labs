@@ -132,19 +132,19 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             </a>
           </div>
 
-          <p className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
-            <p>
+          <div className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
+            <span>
               Made with
               <span className="text-[#EF4444] mx-1">{"❤️"}</span>
               by
-            </p>
+            </span>
             <a
               className="text-black underline xSmall:underline-offset-[4px] xSmall:transition-all xSmall:duration-200 xSmall:hover:underline-offset-[2px]"
               href={"https://namehashlabs.org"}
             >
               NameHash Labs
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>

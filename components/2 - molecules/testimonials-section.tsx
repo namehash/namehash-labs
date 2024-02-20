@@ -213,11 +213,12 @@ export const TestimonialsSection = () => {
                 <SwiperSlide key={index}>
                   <div className="w-full flex flex-col gap-10">
                     <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
-                      <p
+                      <div
+                        role="text"
                         className={`text-[30px] font-light text-center leading-[44px] m-auto`}
                       >
                         <Balancer>{testimonial.text}</Balancer>
-                      </p>
+                      </div>
                     </div>
 
                     <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
@@ -226,7 +227,7 @@ export const TestimonialsSection = () => {
                       </div>
 
                       <div className="flex flex-col shrink">
-                        <p className="text-2xl leading-8 font-semibold">
+                        <p className="text-2xl leading-8 font-semibold ens-webfont">
                           {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
