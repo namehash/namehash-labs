@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { FastAverageColor } from "fast-average-color";
 import { EnsSolidIcon, TwitterIcon } from "../1 - atoms/";
@@ -60,7 +60,14 @@ export const AvatarWithTooltip = ({
   };
 
   const tooltipID = useId();
-  const avatarID = "image-" + tooltipID;
+
+  const [avatarID, setAvatarID] = useState("");
+
+  useEffect(() => {
+    if (tooltipID) {
+      setAvatarID("image-" + tooltipID);
+    }
+  }, [tooltipID]);
 
   useEffect(() => {
     if (successfullyLoadedAvatar) {
@@ -70,7 +77,7 @@ export const AvatarWithTooltip = ({
 
   useEffect(() => {
     queryAvatarFromLocalServer();
-  }, []);
+  }, [avatarID]);
 
   const queryAvatarFromLocalServer = () => {
     let error = false;
@@ -137,9 +144,13 @@ export const AvatarWithTooltip = ({
 
     const imgElm = document.getElementById(avatarID);
 
-    if (imgElm) (imgElm as HTMLImageElement).src = src;
+    if (imgElm) {
+      imgElm.addEventListener("load", () => {
+        setSuccessfullyLoadedAvatar(true);
+      });
 
-    setSuccessfullyLoadedAvatar(true);
+      (imgElm as HTMLImageElement).src = src;
+    }
   };
 
   return (
