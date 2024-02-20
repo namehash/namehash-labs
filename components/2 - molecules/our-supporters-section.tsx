@@ -154,8 +154,8 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
-    <div className="flex relative">
-      <div className="flex gap-4">
+    <div className="w-full flex relative">
+      <div className="w-full flex justify-center gap-4">
         <AvatarWithTooltip profile={profiles[0]} size={AvatarSize.SMALL} />
         <AvatarWithTooltip profile={profiles[1]} size={AvatarSize.SMALL} />
         <AvatarWithTooltip profile={profiles[2]} size={AvatarSize.SMALL} />

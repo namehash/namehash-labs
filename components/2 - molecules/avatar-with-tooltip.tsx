@@ -9,11 +9,6 @@ import { useId } from "react";
 import cc from "classcat";
 
 interface AvatarWithTooltipProps {
-  /* 
-    This param is set to "true" by default. In case no query should be 
-    done to ENS API to fetch the avatar if it's not cached, set this to "false".
-  */
-  loadAvatarFromENSIfNotCached?: boolean;
   className?: string;
   profile: Profile;
   size?: AvatarSize;
@@ -25,7 +20,7 @@ export enum AvatarSize {
 }
 
 const AvatarSizeStyling = {
-  [AvatarSize.SMALL]: "w-20 h-20",
+  [AvatarSize.SMALL]: "min-w-[80px] w-20 h-20",
   [AvatarSize.MEDIUM]: "w-20 h-20 lg:w-[120px] lg:h-[120px]",
 };
 
@@ -33,27 +28,23 @@ const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 const FALLBACK_AVATAR_URL = "/images/no-avatar.png";
 
 export const AvatarWithTooltip = ({
-  loadAvatarFromENSIfNotCached = true,
   size = AvatarSize.MEDIUM,
   className = "",
   profile,
 }: AvatarWithTooltipProps) => {
-  const [failedToLoadCachedAvatar, setFailedToLoadCachedAvatar] = useState<
-    undefined | boolean
-  >(undefined);
-  const [avatarSrc, setAvatarSrc] = useState(
-    `/images/avatars/${profile.ensName}.png`
-  );
+  const CACHED_AVATAR_SRC = `/images/avatars/${profile.ensName}.png`;
+  const ENS_AVATAR_API_SRC = `https://metadata.ens.domains/mainnet/avatar/${profile.ensName}`;
+
+  const [avatarSrc, setAvatarSrc] = useState(CACHED_AVATAR_SRC);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
     useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const imageRef = useRef(null);
   const fac = new FastAverageColor();
 
   useEffect(() => {
     updateShadowColor();
-  }, [successfullyLoadedAvatar, failedToLoadCachedAvatar]);
+  }, [successfullyLoadedAvatar]);
 
   const updateShadowColor = () => {
     if (avatarSrc && successfullyLoadedAvatar) {
@@ -65,28 +56,11 @@ export const AvatarWithTooltip = ({
         .catch((e) => {
           console.error(e);
         });
-    } else if (avatarSrc === FALLBACK_AVATAR_URL) {
-      setShadowColor(DEFAULT_AVATAR_SHADOW);
     }
   };
 
   const tooltipID = useId();
-
-  useEffect(() => {
-    if (loadAvatarFromENSIfNotCached) {
-      if (
-        typeof failedToLoadCachedAvatar !== "undefined" &&
-        failedToLoadCachedAvatar
-      ) {
-        // Try to load the avatar from ENS if it's not cached
-        setAvatarSrc(
-          `https://metadata.ens.domains/mainnet/avatar/${profile.ensName}`
-        );
-      }
-    } else if (typeof failedToLoadCachedAvatar !== "undefined") {
-      setAvatarSrc(FALLBACK_AVATAR_URL);
-    }
-  }, [failedToLoadCachedAvatar]);
+  const avatarID = "image-" + tooltipID;
 
   useEffect(() => {
     if (successfullyLoadedAvatar) {
@@ -94,11 +68,85 @@ export const AvatarWithTooltip = ({
     }
   }, [successfullyLoadedAvatar]);
 
+  useEffect(() => {
+    queryAvatarFromLocalServer();
+  }, []);
+
+  const queryAvatarFromLocalServer = () => {
+    let error = false;
+
+    fetch(CACHED_AVATAR_SRC)
+      .then((response) => {
+        if (response.ok) {
+          updateAvatarSrc(CACHED_AVATAR_SRC);
+        } else {
+          queryAvatarFromENS();
+        }
+      })
+      .catch(() => {
+        error = true;
+      });
+
+    if (error) {
+      queryAvatarFromENS();
+    }
+  };
+
+  const queryAvatarFromENS = () => {
+    let error = false;
+
+    fetch(ENS_AVATAR_API_SRC)
+      .then((response) => {
+        if (response.ok) {
+          updateAvatarSrc(ENS_AVATAR_API_SRC);
+        } else {
+          error = true;
+        }
+      })
+      .catch(() => {
+        error = true;
+      });
+
+    if (error) {
+      queryFallbackAvatar();
+    }
+  };
+
+  const queryFallbackAvatar = () => {
+    let error = false;
+
+    fetch(FALLBACK_AVATAR_URL)
+      .then((response) => {
+        if (response.ok) {
+          updateAvatarSrc(FALLBACK_AVATAR_URL);
+        } else {
+          error = true;
+        }
+      })
+      .catch((error) => {
+        error = true;
+      });
+
+    if (error) {
+      throw new Error("Failed to load fallback avatar");
+    }
+  };
+
+  const updateAvatarSrc = (src: string) => {
+    setAvatarSrc(src);
+
+    const imgElm = document.getElementById(avatarID);
+
+    if (imgElm) (imgElm as HTMLImageElement).src = src;
+
+    setSuccessfullyLoadedAvatar(true);
+  };
+
   return (
     <>
       <img
         data-tip
-        src={avatarSrc}
+        id={avatarID}
         alt={profile.ensName}
         data-for={profile.ensName}
         data-tooltip-id={`${profile.ensName}-${tooltipID}`}
@@ -112,28 +160,15 @@ export const AvatarWithTooltip = ({
           className,
           AvatarSizeStyling[size],
           {
-            "opacity-0 invisible absolute left-[-9999px] top-[-9999px]":
+            "opacity-0 bg-gray-200 invisible absolute animate-pulse":
               !successfullyLoadedAvatar,
           },
-          "tooltip-target hover:scale-105 hover:z-50 transition-all duration-200 ml-[2.5%] rounded-xl border-[rgba(0,0,0,0.1)] border",
+          "tooltip-target hover:scale-105 hover:z-50 transition duration-200 ml-[2.5%] rounded-xl border-[rgba(0,0,0,0.1)] border",
         ])}
-        onError={() => {
-          if (!failedToLoadCachedAvatar) {
-            setFailedToLoadCachedAvatar(true);
-          }
-
-          setSuccessfullyLoadedAvatar(false);
-        }}
-        onLoad={() => {
-          setTimeout(() => {
-            setSuccessfullyLoadedAvatar(true);
-          }, 0);
-        }}
         style={{
           borderRadius: "12.31px",
           boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
         }}
-        ref={imageRef}
       />
 
       <div
@@ -142,8 +177,7 @@ export const AvatarWithTooltip = ({
           AvatarSizeStyling[size],
           "bg-gray-100 animate-pulse rounded-xl ml-[2.5%] border-[rgba(0,0,0,0.1)] border",
           {
-            "opacity-0 invisible absolute left-[-9999px] top-[-9999px]":
-              successfullyLoadedAvatar,
+            "opacity-0 invisible absolute": successfullyLoadedAvatar,
           },
         ])}
       ></div>

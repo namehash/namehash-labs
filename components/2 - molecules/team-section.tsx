@@ -29,7 +29,7 @@ export const TeamSection = () => {
   return (
     <section
       id="meetOurTeamSection"
-      className="py-10 px-5 border-b border-gray-200 xl:flex max-w-[1280px] xl:w-full xl:justify-between lg:px-0 lg:border-none"
+      className="py-10 border-b border-gray-200 xl:flex px-5 md:px-20 lg:px-[112px] xl:w-full xl:justify-between lg:border-none"
     >
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px] xl:max-w-[448px] xl:justify-start xl:items-start">
         <PreSectionText>WHO WE ARE</PreSectionText>
