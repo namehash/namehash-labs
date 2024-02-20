@@ -80,8 +80,6 @@ export const AvatarWithTooltip = ({
   }, [avatarID]);
 
   const queryAvatarFromLocalServer = () => {
-    let error = false;
-
     fetch(CACHED_AVATAR_SRC)
       .then((response) => {
         if (response.ok) {
@@ -91,52 +89,37 @@ export const AvatarWithTooltip = ({
         }
       })
       .catch(() => {
-        error = true;
+        queryAvatarFromENS();
       });
-
-    if (error) {
-      queryAvatarFromENS();
-    }
   };
 
   const queryAvatarFromENS = () => {
-    let error = false;
-
     fetch(ENS_AVATAR_API_SRC)
       .then((response) => {
         if (response.ok) {
           updateAvatarSrc(ENS_AVATAR_API_SRC);
         } else {
-          error = true;
+          queryFallbackAvatar();
         }
       })
       .catch(() => {
-        error = true;
+        queryFallbackAvatar();
       });
-
-    if (error) {
-      queryFallbackAvatar();
-    }
   };
 
   const queryFallbackAvatar = () => {
-    let error = false;
-
     fetch(FALLBACK_AVATAR_URL)
       .then((response) => {
         if (response.ok) {
+          console.log("Could query fallback avatar ", FALLBACK_AVATAR_URL);
           updateAvatarSrc(FALLBACK_AVATAR_URL);
         } else {
-          error = true;
+          throw new Error("Failed to load fallback avatar");
         }
       })
-      .catch((error) => {
-        error = true;
+      .catch(() => {
+        throw new Error("Failed to load fallback avatar");
       });
-
-    if (error) {
-      throw new Error("Failed to load fallback avatar");
-    }
   };
 
   const updateAvatarSrc = (src: string) => {
