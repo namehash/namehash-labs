@@ -26,14 +26,15 @@ export enum AvatarSize {
 
 const AvatarSizeStyling = {
   [AvatarSize.SMALL]: "w-20 h-20",
-  [AvatarSize.MEDIUM]: "w-[120px] h-auto",
+  [AvatarSize.MEDIUM]: "w-20 h-20 lg:w-[120px] lg:h-[120px]",
 };
 
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
+const FALLBACK_AVATAR_URL = "/images/no-avatar.png";
 
 export const AvatarWithTooltip = ({
   loadAvatarFromENSIfNotCached = true,
-  size = AvatarSize.SMALL,
+  size = AvatarSize.MEDIUM,
   className = "",
   profile,
 }: AvatarWithTooltipProps) => {
@@ -44,22 +45,30 @@ export const AvatarWithTooltip = ({
     `/images/avatars/${profile.ensName}.png`
   );
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
+  const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
+    useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const imageRef = useRef(null);
   const fac = new FastAverageColor();
 
   useEffect(() => {
-    if (imageRef.current) {
+    updateShadowColor();
+  }, [successfullyLoadedAvatar, failedToLoadCachedAvatar]);
+
+  const updateShadowColor = () => {
+    if (avatarSrc && successfullyLoadedAvatar) {
       fac
-        .getColorAsync(imageRef.current)
+        .getColorAsync(avatarSrc)
         .then((color) => {
           setShadowColor(color.rgba);
         })
         .catch((e) => {
           console.error(e);
         });
+    } else if (avatarSrc === FALLBACK_AVATAR_URL) {
+      setShadowColor(DEFAULT_AVATAR_SHADOW);
     }
-  }, [imageRef, fac]);
+  };
 
   const tooltipID = useId();
 
@@ -75,12 +84,18 @@ export const AvatarWithTooltip = ({
         );
       }
     } else if (typeof failedToLoadCachedAvatar !== "undefined") {
-      setAvatarSrc("/images/no-avatar.png");
+      setAvatarSrc(FALLBACK_AVATAR_URL);
     }
   }, [failedToLoadCachedAvatar]);
 
+  useEffect(() => {
+    if (successfullyLoadedAvatar) {
+      updateShadowColor();
+    }
+  }, [successfullyLoadedAvatar]);
+
   return (
-    <div>
+    <>
       <img
         data-tip
         src={avatarSrc}
@@ -93,14 +108,46 @@ export const AvatarWithTooltip = ({
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`ml-[2.5%] rounded-[12px] ${AvatarSizeStyling[size]} bg-white ${className} hover:scale-105 hover:z-50 tooltip-target border-[rgba(0,0,0,0.1)] border transition-all duration-200`}
-        onError={() => setFailedToLoadCachedAvatar(true)}
+        className={cc([
+          className,
+          AvatarSizeStyling[size],
+          {
+            "opacity-0 invisible absolute left-[-9999px] top-[-9999px]":
+              !successfullyLoadedAvatar,
+          },
+          "tooltip-target hover:scale-105 hover:z-50 transition-all duration-200 ml-[2.5%] rounded-xl border-[rgba(0,0,0,0.1)] border",
+        ])}
+        onError={() => {
+          if (!failedToLoadCachedAvatar) {
+            setFailedToLoadCachedAvatar(true);
+          }
+
+          setSuccessfullyLoadedAvatar(false);
+        }}
+        onLoad={() => {
+          setTimeout(() => {
+            setSuccessfullyLoadedAvatar(true);
+          }, 0);
+        }}
         style={{
           borderRadius: "12.31px",
           boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
         }}
         ref={imageRef}
       />
+
+      <div
+        className={cc([
+          className,
+          AvatarSizeStyling[size],
+          "bg-gray-100 animate-pulse rounded-xl ml-[2.5%] border-[rgba(0,0,0,0.1)] border",
+          {
+            "opacity-0 invisible absolute left-[-9999px] top-[-9999px]":
+              successfullyLoadedAvatar,
+          },
+        ])}
+      ></div>
+
       <Tooltip
         clickable
         place="top"
@@ -122,7 +169,6 @@ export const AvatarWithTooltip = ({
                 AvatarSizeStyling[AvatarSize.SMALL],
                 "rounded-lg",
               ])}
-              onError={() => setFailedToLoadCachedAvatar(true)}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -158,6 +204,6 @@ export const AvatarWithTooltip = ({
           </div>
         </div>
       </Tooltip>
-    </div>
+    </>
   );
 };

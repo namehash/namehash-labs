@@ -72,7 +72,7 @@ export default function Home() {
               />
             </section>
             <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
-              <div className="flex flex-col md:flex-row items-start justify-center max-w-[1216px]">
+              <div className="flex flex-col md:flex-row items-start justify-center max-w-[1280px]">
                 {items.map((item, index) => {
                   return (
                     <Item

@@ -25,7 +25,7 @@ export const JoinOurTeamSection = () => {
 
   return (
     <section
-      id="join-our-team"
+      id="joinOurTeam"
       className="flex flex-col lg:flex-row items-center px-5 pb-5 pt-[60px] mx-auto lg:max-w-[1024px] xl:max-w-[1280px] max-w-[500px] md:max-w-[700px] lg:py-[86px]"
     >
       <div className="text-center lg:text-left">

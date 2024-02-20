@@ -1,12 +1,10 @@
 import {
-  Footer,
   HeroSection,
   OurPrinciplesSection,
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
 import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
-import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";

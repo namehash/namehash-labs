@@ -11,7 +11,7 @@ export const OurPrinciplesSection = () => {
     >
       <PreSectionText>What Guides us</PreSectionText>
       <SectionTitle>Our principles</SectionTitle>
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1216px]">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-10 mt-20 place-content-stretch max-w-[1280px]">
         {principles.map((item) => {
           return (
             <div key={item.title}>

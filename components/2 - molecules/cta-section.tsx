@@ -69,9 +69,12 @@ const Cta = ({
       <div className="flex flex-col items-center justify-between h-full max-w-[508px] z-20">
         <div className="w-full">
           <h3 className="text-3xl leading-9 font-bold text-center">{title} </h3>
-          <p className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center max-w-[508px] px-6">
+          <div
+            role="text"
+            className="text-gray-500 text-lg leading-8 font-normal mt-4 mb-6 text-center max-w-[508px] px-6"
+          >
             <Balancer>{description}</Balancer>
-          </p>
+          </div>
         </div>
         {buttonUrl ? (
           <a

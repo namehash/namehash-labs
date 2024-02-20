@@ -3,7 +3,6 @@ import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
 import { Balancer } from "react-wrap-balancer";
 import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
-import { useScreenSize } from "@/lib/client/hooks";
 import { getCachedProfile } from "@/data/ensProfiles";
 
 const namehashLabsTeam = {
@@ -27,12 +26,10 @@ const namehashLabsTeam = {
 };
 
 export const TeamSection = () => {
-  const { isDesktop } = useScreenSize();
-
   return (
     <section
       id="meetOurTeamSection"
-      className="py-10 px-5 border-b border-gray-200 xl:flex max-w-[1216px] lg:px-0 lg:border-none"
+      className="py-10 px-5 border-b border-gray-200 xl:flex max-w-[1280px] xl:w-full xl:justify-between lg:px-0 lg:border-none"
     >
       <div className="flex flex-col max-[635px] items-center justify-center mb-[60px] xl:max-w-[448px] xl:justify-start xl:items-start">
         <PreSectionText>WHO WE ARE</PreSectionText>
@@ -45,17 +42,17 @@ export const TeamSection = () => {
           </Balancer>
         </SectionText>
         <a
-          href="#join-our-team"
+          href="#joinOurTeam"
           className="bg-black text-white text-base font-medium rounded-lg px-[17px] py-[9px] hover:bg-gray-800 transition"
         >
           Join our team
         </a>
       </div>
-      <div className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 sm:grid-cols-2 place-items-center lg:gap-x-auto gap-6 lg:gap-8 lg:max-w-[800px] lg:mx-auto xl:w-[1216px]">
+      <div className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 sm:grid-cols-3 place-items-center lg:gap-x-auto gap-6 lg:gap-8 lg:max-w-[800px] lg:ml-auto xl:max-w-[1280px]">
         {namehashLabsTeam.profiles.map((member) => {
           return (
             <AvatarWithTooltip
-              size={isDesktop ? AvatarSize.MEDIUM : AvatarSize.SMALL}
+              size={AvatarSize.MEDIUM}
               key={member.ensName}
               profile={member}
             />

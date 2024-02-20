@@ -22,7 +22,7 @@ export const OurSuportersSection = () => {
         </SectionText>
       </div>
 
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1280px]">
         <SupporterCategory {...ensFoundation} />
         <SupporterCategory {...walletBuilders} />
         <SupporterCategory {...web3ProtocolBuilders} />
@@ -130,18 +130,22 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
       <AvatarWithTooltip
         profile={profiles[1]}
+        size={AvatarSize.SMALL}
         className="absolute top-0 right-[122px] z-10"
       />
       <AvatarWithTooltip
         profile={profiles[3]}
+        size={AvatarSize.SMALL}
         className="absolute top-0 right-0 z-20"
       />
       <AvatarWithTooltip
         profile={profiles[0]}
+        size={AvatarSize.SMALL}
         className="absolute bottom-0 left-0 "
       />
       <AvatarWithTooltip
         profile={profiles[2]}
+        size={AvatarSize.SMALL}
         className="absolute bottom-0 left-[122px] z-10"
       />
     </div>

@@ -21,7 +21,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
       className="lg:px-[112px] px-5 flex items-center justify-center w-full border-t border-gray-200"
       {...props}
     >
-      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1216px]">
+      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1280px]">
         <div className="w-full flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-5">
             <NameHashLabsLogo />
@@ -132,19 +132,17 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             </a>
           </div>
 
-          <p className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
-            <p>
-              Made with
-              <span className="text-[#EF4444] mx-1">{"❤️"}</span>
-              by
-            </p>
+          <div className="flex space-x-1 not-italic font-normal text-gray-500 text-sm xSmall:font-light">
+            Made with
+            <p className="text-[#EF4444] mx-1">{"❤️"}</p>
+            by
             <a
               className="text-black underline xSmall:underline-offset-[4px] xSmall:transition-all xSmall:duration-200 xSmall:hover:underline-offset-[2px]"
               href={"https://namehashlabs.org"}
             >
               NameHash Labs
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>
