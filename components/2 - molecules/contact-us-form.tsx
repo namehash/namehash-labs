@@ -100,7 +100,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
       body: JSON.stringify(data),
     });
 
-    // represents a 10 seconds timeout limit
+    // 10 seconds timeout limit
     const timeoutLimit = 10000
 
     const timeoutPromise = new Promise<Response>((resolve, reject) => {
