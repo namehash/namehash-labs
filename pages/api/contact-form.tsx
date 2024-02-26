@@ -1,4 +1,5 @@
 import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
+import { origin } from "@/lib/shared/origin";
 import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as Yup from "yup";
@@ -74,9 +75,7 @@ async function sendToSlackWebhook(data: any) {
 }
 
 const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
-  const backendUrl =
-    process.env.NEXT_PUBLIC_CONTACT_FORM_API_URL || "{Default base url}/api/contact-form - NEXT_PUBLIC_CONTACT_FORM_API_URL environment varibale not set";
-
+  const backendUrl = `${origin}/api/contact-form`
   const nameDisplay = `*Name*: ${data.name}`;
   const emailDisplay = `*Email*: ${data.email}`;
   const telegramDisplay = `*Telegram*: ${data.telegram}`;
