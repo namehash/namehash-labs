@@ -1,7 +1,8 @@
 import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
-import { origin } from "@/lib/shared/origin";
+import { host, origin } from "@/lib/shared/origin";
 import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
 import { NextApiRequest, NextApiResponse } from "next";
+import { hostname } from "os";
 import * as Yup from "yup";
 
 export default async function handler(
@@ -75,12 +76,13 @@ async function sendToSlackWebhook(data: any) {
 }
 
 const buildSlackWebhookRequest = (data: ContactFormDataProps) => {
-  const backendUrl = `${origin}/api/contact-form`
   const nameDisplay = `*Name*: ${data.name}`;
   const emailDisplay = `*Email*: ${data.email}`;
   const telegramDisplay = `*Telegram*: ${data.telegram}`;
   const messageDisplay = `*Message*: ${data.message}`;
-  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${backendUrl}`;
+  const sourceDisplay = `:memo: New message from frontend: ${data.source} forwarded by backend: ${host}`;
+
+  console.log("host : ", host, " hostname : ", hostname)
 
   return {
     blocks: [
