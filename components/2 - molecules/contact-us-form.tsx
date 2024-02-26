@@ -117,9 +117,8 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
       const response = await Promise.race([fetchPromise, timeoutPromise]);
 
       if (!response.ok) {
-        console.log("response ", response);
         throw new Error(
-          "Connection lost. Please check your connection and try again."
+          "There was a server error trying to send a message. Try again later."
         );
       }
 
