@@ -31,7 +31,7 @@ export default async function handler(
     } else {
       // Handle any errors from the destination service
       res
-        .status(destinationResponse.status)
+        .status(500)
         .json({ error: "Error sending form data to the destination service" });
     }
   } catch (error) {

@@ -100,6 +100,9 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
       body: JSON.stringify(data),
     });
 
+    // represents a 10 seconds timeout limit
+    const timeoutLimit = 10000
+
     const timeoutPromise = new Promise<Response>((resolve, reject) => {
       setTimeout(() => {
         reject(
@@ -107,7 +110,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
             "It seems your request is taking longer than usual. Try again later."
           )
         );
-      }, 10000);
+      }, timeoutLimit);
     });
 
     try {
