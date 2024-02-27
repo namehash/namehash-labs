@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment Variables
+
+This project requires environment variables to run correctly. These variables are used to configure various aspects of the application, such as external API connections and application settings.
+
+Check .example.env for more details
+
+
+### Setting Up Environment Variables
+
+To set these environment variables, make a copy of the `.example.env` named .env.local and to fill in the real environment variable values.
+
 ## Getting Started
 
 First, run the development server:

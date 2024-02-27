@@ -1,15 +1,9 @@
 import {
-  Footer,
   HeroSection,
   OurPrinciplesSection,
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
-import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
-import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
-import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 import Head from "next/head";
 import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
 import { useRouter } from "next/router";
@@ -18,25 +12,10 @@ import { TestimonialsSection } from "@/components/2 - molecules/testimonials-sec
 import { Layout } from "@/components/4 - templates/layout";
 import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
+import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
+import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
 
 export default function Home() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi();
-      cal("ui", {
-        cssVarsPerTheme: {
-          light: {
-            "--brand-color": "#000000",
-          },
-          dark: {
-            "--brand-color": "#000000",
-          },
-        },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    })();
-  }, []);
 
   const router = useRouter();
 
