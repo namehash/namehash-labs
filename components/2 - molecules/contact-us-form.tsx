@@ -118,7 +118,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
 
       if (!response.ok) {
         throw new Error(
-          "There was a server error trying to send a message. Try again later."
+          "There was a server error trying to send a message. Please try again later."
         );
       }
 
