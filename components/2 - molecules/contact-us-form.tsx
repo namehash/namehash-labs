@@ -107,7 +107,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
       setTimeout(() => {
         reject(
           new Error(
-            "It seems your request is taking longer than usual. Try again later."
+            "It seems your request is taking longer than usual. Please try again later."
           )
         );
       }, timeoutLimit);
