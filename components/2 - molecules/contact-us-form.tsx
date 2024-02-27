@@ -101,7 +101,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
     });
 
     // 10 seconds timeout limit
-    const timeoutLimit = 10000
+    const timeoutLimit = 10000;
 
     const timeoutPromise = new Promise<Response>((resolve, reject) => {
       setTimeout(() => {
@@ -280,7 +280,12 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
                   disabled={isLoading}
                   onChange={handleInputChange}
                   name={FormFields.Telegram}
-                  className="block w-full rounded-md pr-3.5 pl-6 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6"
+                  className={cc([
+                    "block w-full rounded-md pr-3.5 pl-6 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
+                    {
+                      "border-red-300": validationErrors[FormFields.Telegram],
+                    },
+                  ])}
                 />
                 {validationErrors[FormFields.Telegram] && (
                   <span className="mt-2 text-sm font-normal text-red-600">
