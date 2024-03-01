@@ -157,11 +157,13 @@ export const AvatarWithTooltip = ({
             "opacity-0 bg-gray-200 invisible absolute animate-pulse":
               !successfullyLoadedAvatar,
           },
-          "tooltip-target hover:scale-105 hover:z-50 transition duration-200 ml-[2.5%] rounded-xl border-[rgba(0,0,0,0.1)] border",
+          "tooltip-target hover:scale-105 hover:z-50 transition duration-200 ml-[2.5%] rounded-xl",
         ])}
         style={{
           borderRadius: "12.31px",
           boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
+          outline: "1px solid rgba(0,0,0,0.1)",
+          outlineOffset: "-1px",
         }}
       />
 
