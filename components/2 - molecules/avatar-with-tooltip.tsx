@@ -12,6 +12,7 @@ interface AvatarWithTooltipProps {
   className?: string;
   profile: Profile;
   size?: AvatarSize;
+  avatarSrc: string;
   avatarUrlOptions: string[];
 }
 
@@ -31,14 +32,8 @@ export const AvatarWithTooltip = ({
   size = AvatarSize.MEDIUM,
   className = "",
   profile,
-  avatarUrlOptions,
+  avatarSrc,
 }: AvatarWithTooltipProps) => {
-  if (avatarUrlOptions.length === 0) {
-    throw new Error("Avatar URL options cannot be empty");
-  }
-
-  const [avatarUrlUsed, setAvatarUrlUsed] = useState(0);
-  const [avatarSrc, setAvatarSrc] = useState(avatarUrlOptions[avatarUrlUsed]);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
     useState(false);
@@ -79,40 +74,10 @@ export const AvatarWithTooltip = ({
   }, [successfullyLoadedAvatar]);
 
   useEffect(() => {
-    queryAvatarFromNewSource();
-  }, [avatarID]);
-
-  const queryAvatarFromNewSource = () => {
-    if (avatarUrlUsed > avatarUrlOptions.length) {
-      throw new Error(
-        "None of the provided avatar URLs returned a valid response."
-      );
-    }
-
-    fetch(avatarUrlOptions[avatarUrlUsed])
-      .then((response) => {
-        if (response.ok) {
-          updateAvatarSrc(avatarUrlOptions[avatarUrlUsed]);
-        } else {
-          console.error(response);
-
-          setAvatarUrlUsed(avatarUrlUsed + 1);
-
-          queryAvatarFromNewSource();
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-
-        setAvatarUrlUsed(avatarUrlUsed + 1);
-
-        queryAvatarFromNewSource();
-      });
-  };
+    updateAvatarSrc(avatarSrc);
+  }, [avatarSrc]);
 
   const updateAvatarSrc = (src: string) => {
-    setAvatarSrc(src);
-
     const imgElm = document.getElementById(avatarID);
 
     if (imgElm) {
