@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
-import { getNameKitAvatarSrcs } from "@/lib/client/avatar";
+import { EnsAvatar } from ".";
 
 const testimonials: Testimonial[] = [
   {
@@ -224,10 +224,7 @@ export const TestimonialsSection = () => {
 
                     <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
                       <div className="shrink-0">
-                        <AvatarWithTooltip
-                          avatarUrlOptions={getNameKitAvatarSrcs(
-                            testimonial.author
-                          )}
+                        <EnsAvatar
                           size={AvatarSize.SMALL}
                           profile={testimonial.author}
                         />

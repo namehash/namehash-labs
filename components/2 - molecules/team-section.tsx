@@ -2,9 +2,9 @@ import { PreSectionText } from "../1 - atoms/pre-section-text";
 import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
 import { Balancer } from "react-wrap-balancer";
-import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
+import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
-import { getNameKitAvatarSrcs } from "@/lib/client/avatar";
+import { EnsAvatar } from ".";
 
 const namehashLabsTeam = {
   profiles: [
@@ -52,8 +52,7 @@ export const TeamSection = () => {
       <div className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 sm:grid-cols-3 place-items-center lg:gap-x-auto gap-6 lg:gap-8 lg:max-w-[800px] lg:ml-auto xl:max-w-[1280px]">
         {namehashLabsTeam.profiles.map((member) => {
           return (
-            <AvatarWithTooltip
-              avatarUrlOptions={getNameKitAvatarSrcs(member)}
+            <EnsAvatar
               size={AvatarSize.MEDIUM}
               key={member.ensName}
               profile={member}

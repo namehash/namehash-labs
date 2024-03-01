@@ -4,7 +4,7 @@ import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
-import { getNameKitAvatarSrcs } from "@/lib/client/avatar";
+import { EnsAvatar } from ".";
 
 export const OurSuportersSection = () => {
   return (
@@ -129,26 +129,22 @@ function getRandomProfiles<Profile>(
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-      <AvatarWithTooltip
-        avatarUrlOptions={getNameKitAvatarSrcs(profiles[1])}
+      <EnsAvatar
         profile={profiles[1]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-[122px] z-10"
       />
-      <AvatarWithTooltip
-        avatarUrlOptions={getNameKitAvatarSrcs(profiles[3])}
+      <EnsAvatar
         profile={profiles[3]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-0 z-20"
       />
-      <AvatarWithTooltip
-        avatarUrlOptions={getNameKitAvatarSrcs(profiles[0])}
+      <EnsAvatar
         profile={profiles[0]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-0 "
       />
-      <AvatarWithTooltip
-        avatarUrlOptions={getNameKitAvatarSrcs(profiles[2])}
+      <EnsAvatar
         profile={profiles[2]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-[122px] z-10"
@@ -161,21 +157,9 @@ const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="w-full flex relative">
       <div className="w-full flex justify-center gap-4">
-        <AvatarWithTooltip
-          avatarUrlOptions={getNameKitAvatarSrcs(profiles[0])}
-          profile={profiles[0]}
-          size={AvatarSize.SMALL}
-        />
-        <AvatarWithTooltip
-          avatarUrlOptions={getNameKitAvatarSrcs(profiles[1])}
-          profile={profiles[1]}
-          size={AvatarSize.SMALL}
-        />
-        <AvatarWithTooltip
-          avatarUrlOptions={getNameKitAvatarSrcs(profiles[2])}
-          profile={profiles[2]}
-          size={AvatarSize.SMALL}
-        />
+        <EnsAvatar profile={profiles[0]} size={AvatarSize.SMALL} />
+        <EnsAvatar profile={profiles[1]} size={AvatarSize.SMALL} />
+        <EnsAvatar profile={profiles[2]} size={AvatarSize.SMALL} />
       </div>
     </div>
   );
