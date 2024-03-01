@@ -12,6 +12,7 @@ interface AvatarWithTooltipProps {
   className?: string;
   profile: Profile;
   size?: AvatarSize;
+  avatarUrlOptions: string[];
 }
 
 export enum AvatarSize {
@@ -25,17 +26,19 @@ const AvatarSizeStyling = {
 };
 
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
-const FALLBACK_AVATAR_URL = "/images/no-avatar.png";
 
 export const AvatarWithTooltip = ({
   size = AvatarSize.MEDIUM,
   className = "",
   profile,
+  avatarUrlOptions,
 }: AvatarWithTooltipProps) => {
-  const CACHED_AVATAR_SRC = `/images/avatars/${profile.ensName}.png`;
-  const ENS_AVATAR_API_SRC = `https://metadata.ens.domains/mainnet/avatar/${profile.ensName}`;
+  if (avatarUrlOptions.length === 0) {
+    throw new Error("Avatar URL options cannot be empty");
+  }
 
-  const [avatarSrc, setAvatarSrc] = useState(CACHED_AVATAR_SRC);
+  const [avatarUrlUsed, setAvatarUrlUsed] = useState(0);
+  const [avatarSrc, setAvatarSrc] = useState(avatarUrlOptions[avatarUrlUsed]);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
     useState(false);
@@ -76,49 +79,34 @@ export const AvatarWithTooltip = ({
   }, [successfullyLoadedAvatar]);
 
   useEffect(() => {
-    queryAvatarFromLocalServer();
+    queryAvatarFromNewSource();
   }, [avatarID]);
 
-  const queryAvatarFromLocalServer = () => {
-    fetch(CACHED_AVATAR_SRC)
-      .then((response) => {
-        if (response.ok) {
-          updateAvatarSrc(CACHED_AVATAR_SRC);
-        } else {
-          queryAvatarFromENS();
-        }
-      })
-      .catch(() => {
-        queryAvatarFromENS();
-      });
-  };
+  const queryAvatarFromNewSource = () => {
+    if (avatarUrlUsed > avatarUrlOptions.length) {
+      throw new Error(
+        "None of the provided avatar URLs returned a valid response."
+      );
+    }
 
-  const queryAvatarFromENS = () => {
-    fetch(ENS_AVATAR_API_SRC)
+    fetch(avatarUrlOptions[avatarUrlUsed])
       .then((response) => {
         if (response.ok) {
-          updateAvatarSrc(ENS_AVATAR_API_SRC);
+          updateAvatarSrc(avatarUrlOptions[avatarUrlUsed]);
         } else {
-          queryFallbackAvatar();
-        }
-      })
-      .catch(() => {
-        queryFallbackAvatar();
-      });
-  };
+          console.error(response);
 
-  const queryFallbackAvatar = () => {
-    fetch(FALLBACK_AVATAR_URL)
-      .then((response) => {
-        if (response.ok) {
-          console.log("Could query fallback avatar ", FALLBACK_AVATAR_URL);
-          updateAvatarSrc(FALLBACK_AVATAR_URL);
-        } else {
-          throw new Error("Failed to load fallback avatar");
+          setAvatarUrlUsed(avatarUrlUsed + 1);
+
+          queryAvatarFromNewSource();
         }
       })
-      .catch(() => {
-        throw new Error("Failed to load fallback avatar");
+      .catch((e) => {
+        console.error(e);
+
+        setAvatarUrlUsed(avatarUrlUsed + 1);
+
+        queryAvatarFromNewSource();
       });
   };
 

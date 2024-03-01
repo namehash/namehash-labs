@@ -4,6 +4,7 @@ import { SectionTitle } from "../1 - atoms/section-title";
 import { Balancer } from "react-wrap-balancer";
 import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
+import { getNameKitAvatarSrcs } from "@/lib/client/avatar";
 
 const namehashLabsTeam = {
   profiles: [
@@ -52,6 +53,7 @@ export const TeamSection = () => {
         {namehashLabsTeam.profiles.map((member) => {
           return (
             <AvatarWithTooltip
+              avatarUrlOptions={getNameKitAvatarSrcs(member)}
               size={AvatarSize.MEDIUM}
               key={member.ensName}
               profile={member}
