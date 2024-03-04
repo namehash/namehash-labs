@@ -4,7 +4,8 @@ import { SectionTitle } from "../1 - atoms/section-title";
 import { Balancer } from "react-wrap-balancer";
 import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
-import { EnsAvatar } from ".";
+import { UltimateENSAvatar } from ".";
+import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
 
 const namehashLabsTeam = {
   profiles: [
@@ -52,7 +53,8 @@ export const TeamSection = () => {
       <div className="grid lg:grid-cols-5 grid-cols-3 md:grid-cols-5 sm:grid-cols-3 place-items-center lg:gap-x-auto gap-6 lg:gap-8 lg:max-w-[800px] lg:ml-auto xl:max-w-[1280px]">
         {namehashLabsTeam.profiles.map((member) => {
           return (
-            <EnsAvatar
+            <UltimateENSAvatar
+              avatarQueries={getNameKitAvatarCallbacks(member)}
               size={AvatarSize.MEDIUM}
               key={member.ensName}
               profile={member}

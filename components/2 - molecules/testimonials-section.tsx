@@ -6,10 +6,11 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { AvatarSize } from "./avatar-with-tooltip";
 import { Navigation, Autoplay } from "swiper/modules";
-import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
-import { EnsAvatar } from ".";
+import { UltimateENSAvatar } from ".";
+import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
 
 const testimonials: Testimonial[] = [
   {
@@ -224,9 +225,12 @@ export const TestimonialsSection = () => {
 
                     <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
                       <div className="shrink-0">
-                        <EnsAvatar
+                        <UltimateENSAvatar
                           size={AvatarSize.SMALL}
                           profile={testimonial.author}
+                          avatarQueries={getNameKitAvatarCallbacks(
+                            testimonial.author
+                          )}
                         />
                       </div>
 

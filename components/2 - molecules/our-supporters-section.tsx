@@ -1,10 +1,10 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
-import { EnsAvatar } from ".";
+import { AvatarSize, UltimateENSAvatar } from ".";
+import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
 
 export const OurSuportersSection = () => {
   return (
@@ -129,22 +129,26 @@ function getRandomProfiles<Profile>(
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-      <EnsAvatar
+      <UltimateENSAvatar
+        avatarQueries={getNameKitAvatarCallbacks(profiles[1])}
         profile={profiles[1]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-[122px] z-10"
       />
-      <EnsAvatar
+      <UltimateENSAvatar
+        avatarQueries={getNameKitAvatarCallbacks(profiles[3])}
         profile={profiles[3]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-0 z-20"
       />
-      <EnsAvatar
+      <UltimateENSAvatar
+        avatarQueries={getNameKitAvatarCallbacks(profiles[0])}
         profile={profiles[0]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-0 "
       />
-      <EnsAvatar
+      <UltimateENSAvatar
+        avatarQueries={getNameKitAvatarCallbacks(profiles[2])}
         profile={profiles[2]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-[122px] z-10"
@@ -157,9 +161,21 @@ const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="w-full flex relative">
       <div className="w-full flex justify-center gap-4">
-        <EnsAvatar profile={profiles[0]} size={AvatarSize.SMALL} />
-        <EnsAvatar profile={profiles[1]} size={AvatarSize.SMALL} />
-        <EnsAvatar profile={profiles[2]} size={AvatarSize.SMALL} />
+        <UltimateENSAvatar
+          avatarQueries={getNameKitAvatarCallbacks(profiles[0])}
+          profile={profiles[0]}
+          size={AvatarSize.SMALL}
+        />
+        <UltimateENSAvatar
+          avatarQueries={getNameKitAvatarCallbacks(profiles[1])}
+          profile={profiles[1]}
+          size={AvatarSize.SMALL}
+        />
+        <UltimateENSAvatar
+          avatarQueries={getNameKitAvatarCallbacks(profiles[2])}
+          profile={profiles[2]}
+          size={AvatarSize.SMALL}
+        />
       </div>
     </div>
   );

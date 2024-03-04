@@ -7,13 +7,13 @@ import { EnsSolidIcon, TwitterIcon } from "../1 - atoms/";
 import { Profile } from "@/data/ensProfiles";
 import { useId } from "react";
 import cc from "classcat";
+import { URL } from "url";
 
 interface AvatarWithTooltipProps {
   className?: string;
   profile: Profile;
   size?: AvatarSize;
-  avatarSrc: string;
-  avatarUrlOptions: string[];
+  avatarSrc: URL | null;
 }
 
 export enum AvatarSize {
@@ -47,7 +47,7 @@ export const AvatarWithTooltip = ({
   const updateShadowColor = () => {
     if (avatarSrc && successfullyLoadedAvatar) {
       fac
-        .getColorAsync(avatarSrc)
+        .getColorAsync(avatarSrc.toString())
         .then((color) => {
           setShadowColor(color.rgba);
         })
@@ -74,18 +74,29 @@ export const AvatarWithTooltip = ({
   }, [successfullyLoadedAvatar]);
 
   useEffect(() => {
-    updateAvatarSrc(avatarSrc);
+    if (avatarSrc !== null) {
+      updateAvatarSrc(avatarSrc);
+    }
   }, [avatarSrc]);
 
-  const updateAvatarSrc = (src: string) => {
+  const updateAvatarSrc = (src: URL) => {
     const imgElm = document.getElementById(avatarID);
+    const tooltipImgElm = document.getElementById(avatarID + "-tooltip-image");
 
     if (imgElm) {
       imgElm.addEventListener("load", () => {
         setSuccessfullyLoadedAvatar(true);
       });
 
-      (imgElm as HTMLImageElement).src = src;
+      (imgElm as HTMLImageElement).src = src.toString();
+    }
+
+    if (tooltipImgElm) {
+      tooltipImgElm.addEventListener("load", () => {
+        setSuccessfullyLoadedAvatar(true);
+      });
+
+      (tooltipImgElm as HTMLImageElement).src = src.toString();
     }
   };
 
@@ -146,7 +157,7 @@ export const AvatarWithTooltip = ({
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
             <img
-              src={avatarSrc}
+              id={avatarID + "-tooltip-image"}
               alt={profile.ensName}
               className={cc([
                 AvatarSizeStyling[AvatarSize.SMALL],
