@@ -3,6 +3,7 @@ import { PreSectionText, SectionTitle } from "../1 - atoms";
 import { QuoteIcon } from "../1 - atoms/icons/quote-icon";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Virtual } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,7 +11,7 @@ import { AvatarSize } from "./avatar-with-tooltip";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
 import { UltimateENSAvatar } from ".";
-import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
+import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
 
 const testimonials: Testimonial[] = [
   {
@@ -199,8 +200,9 @@ export const TestimonialsSection = () => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            virtual={true}
             navigation={true}
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation, Autoplay, Virtual]}
             onSlideChange={handleSlideChange}
             className="rewind w-full"
             loop
@@ -212,7 +214,10 @@ export const TestimonialsSection = () => {
           >
             {testimonials.map((testimonial, index) => {
               return (
-                <SwiperSlide key={index}>
+                <SwiperSlide
+                  key={testimonial.author.ensName}
+                  virtualIndex={index}
+                >
                   <div className="w-full flex flex-col gap-10">
                     <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
                       <div
@@ -228,7 +233,7 @@ export const TestimonialsSection = () => {
                         <UltimateENSAvatar
                           size={AvatarSize.SMALL}
                           profile={testimonial.author}
-                          avatarQueries={getNameKitAvatarCallbacks(
+                          avatarQueries={getNameHashLabsAvatarCallbacks(
                             testimonial.author
                           )}
                         />

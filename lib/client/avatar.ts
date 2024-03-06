@@ -1,3 +1,13 @@
+export type AvatarQueryModel = ({
+  logLevel,
+  props,
+}?: any) => Promise<any | null>;
+
+export enum LogLevel {
+  INFO = "info",
+  ERROR = "error",
+  INFO_AND_ERROR = "info_and_error",
+}
 export const getDynamicENSAvatarCallback: AvatarQueryModel = async (
   addressOrEnsName: string
 ) => {
@@ -15,17 +25,6 @@ export const getDynamicENSAvatarCallback: AvatarQueryModel = async (
       throw new Error(error);
     });
 };
-
-export enum LogLevel {
-  INFO = "info",
-  ERROR = "error",
-  INFO_AND_ERROR = "info_and_error",
-}
-
-export type AvatarQueryModel = ({
-  logLevel,
-  props,
-}?: any) => Promise<any | null>;
 
 export const queryMultipleEndpointsToGetAvatar = async ({
   avatarQueries,
