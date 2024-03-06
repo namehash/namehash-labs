@@ -122,7 +122,7 @@ export const queryMultipleEndpointsToGetAvatar = async ({
     }
   } else {
     if (logLevel === LogLevel.INFO || logLevel === LogLevel.INFO_AND_ERROR) {
-      console.error("Failed to query any of the provided avatar endpoints");
+      console.error("Failed to query all of the provided avatar endpoints");
     }
   }
 
