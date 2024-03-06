@@ -7,7 +7,6 @@ import {
   LogLevel,
   queryMultipleEndpointsToGetAvatar,
 } from "@/lib/client/avatar";
-import { URL } from "url";
 
 interface UltimateENSAvatarProps {
   profile: Profile;
@@ -21,7 +20,7 @@ export const UltimateENSAvatar = ({
   profile,
   className = "",
   size = AvatarSize.MEDIUM,
-  queriesLogLevel = LogLevel.INFO_AND_ERROR,
+  queriesLogLevel,
   avatarQueries,
 }: UltimateENSAvatarProps) => {
   if (!avatarQueries?.length)
@@ -29,20 +28,20 @@ export const UltimateENSAvatar = ({
       "At least one Avatar Query must be provided in order to fetch an Avatar image."
     );
 
-  const [avatarSrc, setAvatarSrc] = useState<URL | null>(null);
+  const [avatarResponse, setAvatarResponse] = useState<Response | null>(null);
 
   useEffect(() => {
     queryMultipleEndpointsToGetAvatar({
       avatarQueries,
       logLevel: queriesLogLevel,
     }).then((result) => {
-      setAvatarSrc(result);
+      setAvatarResponse(result);
     });
   }, [avatarQueries]);
 
   return (
     <AvatarWithTooltip
-      avatarSrc={avatarSrc}
+      avatarQueryResponse={avatarResponse}
       className={className}
       profile={profile}
       size={size}

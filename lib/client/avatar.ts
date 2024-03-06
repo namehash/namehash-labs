@@ -1,5 +1,4 @@
 import { Profile } from "@/data/ensProfiles";
-import { URL } from "url";
 
 // Local Avatar utils
 const getCachedAvatarCallback: AvatarQueryModel = async (
@@ -8,15 +7,15 @@ const getCachedAvatarCallback: AvatarQueryModel = async (
   return fetch(`/images/avatars/${addressOrEnsName}.png`)
     .then((res) => {
       if (res.ok) {
-        return new URL(res.url);
+        return res;
       } else {
-        console.error(res);
-        return null;
+        throw new Error(
+          `Failed to fetch cached avatar for ${addressOrEnsName}`
+        );
       }
     })
     .catch((error) => {
-      console.error(error);
-      return null;
+      throw new Error(error);
     });
 };
 
@@ -24,15 +23,13 @@ const getFallbackAvatarCallback: AvatarQueryModel = async () => {
   return fetch("/images/no-avatar.png")
     .then((res) => {
       if (res.ok) {
-        return new URL(res.url);
+        return res;
       } else {
-        console.error(res);
-        return null;
+        throw new Error(`Failed to fetch fallback avatar`);
       }
     })
     .catch((error) => {
-      console.error(error);
-      return null;
+      throw new Error(error);
     });
 };
 
@@ -41,13 +38,13 @@ export const getNameKitAvatarCallbacks = (
 ): AvatarQueryModel[] => {
   return [
     async () => await getCachedAvatarCallback(profile.ensName),
-    async () => await getUltimateENSAvatarCallback(profile.ensName),
+    async () => await getENSAvatar(profile.ensName),
     async () => await getFallbackAvatarCallback(),
   ];
 };
 
 // NameKit's library Avatar utils
-export const getUltimateENSAvatarCallback: AvatarQueryModel = async (
+export const getENSAvatar: AvatarQueryModel = async (
   addressOrEnsName: string
 ) => {
   return fetch(
@@ -55,15 +52,13 @@ export const getUltimateENSAvatarCallback: AvatarQueryModel = async (
   )
     .then((res) => {
       if (res.ok) {
-        return new URL(res.url);
+        return res;
       } else {
-        console.error(res);
-        return null;
+        throw new Error(`Failed to fetch ENS avatar for ${addressOrEnsName}`);
       }
     })
     .catch((error) => {
-      console.error(error);
-      return null;
+      throw new Error(error);
     });
 };
 
@@ -76,7 +71,7 @@ export enum LogLevel {
 export type AvatarQueryModel = ({
   logLevel,
   props,
-}?: any) => Promise<URL | null>;
+}?: any) => Promise<any | null>;
 
 export const queryMultipleEndpointsToGetAvatar = async ({
   avatarQueries,
@@ -84,10 +79,9 @@ export const queryMultipleEndpointsToGetAvatar = async ({
 }: {
   avatarQueries: AvatarQueryModel[];
   logLevel?: LogLevel;
-}): Promise<URL | null> => {
+}): Promise<Response | null> => {
   let queryCallbackIndex = 0;
-  let successfulQuerySRC: URL | null = null;
-
+  let successfulQuerySRC: Response | null = null;
   while (
     successfulQuerySRC === null &&
     queryCallbackIndex < avatarQueries.length
@@ -96,9 +90,9 @@ export const queryMultipleEndpointsToGetAvatar = async ({
       console.log("Fetching ", avatarQueries[queryCallbackIndex]);
     }
 
-    successfulQuerySRC = await avatarQueries[queryCallbackIndex]();
-
-    if (!successfulQuerySRC) {
+    try {
+      successfulQuerySRC = await avatarQueries[queryCallbackIndex]();
+    } catch (error) {
       if (logLevel === LogLevel.ERROR || logLevel === LogLevel.INFO_AND_ERROR) {
         console.error(
           "Failed to query ",

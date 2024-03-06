@@ -13,7 +13,7 @@ interface AvatarWithTooltipProps {
   className?: string;
   profile: Profile;
   size?: AvatarSize;
-  avatarSrc: URL | null;
+  avatarQueryResponse: Response | null;
 }
 
 export enum AvatarSize {
@@ -32,7 +32,7 @@ export const AvatarWithTooltip = ({
   size = AvatarSize.MEDIUM,
   className = "",
   profile,
-  avatarSrc,
+  avatarQueryResponse,
 }: AvatarWithTooltipProps) => {
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
@@ -45,9 +45,9 @@ export const AvatarWithTooltip = ({
   }, [successfullyLoadedAvatar]);
 
   const updateShadowColor = () => {
-    if (avatarSrc && successfullyLoadedAvatar) {
+    if (avatarQueryResponse && successfullyLoadedAvatar) {
       fac
-        .getColorAsync(avatarSrc.toString())
+        .getColorAsync(avatarQueryResponse.url)
         .then((color) => {
           setShadowColor(color.rgba);
         })
@@ -74,29 +74,19 @@ export const AvatarWithTooltip = ({
   }, [successfullyLoadedAvatar]);
 
   useEffect(() => {
-    if (avatarSrc !== null) {
-      updateAvatarSrc(avatarSrc);
+    if (avatarQueryResponse !== null) {
+      updateAvatarImageSrcAttribute(avatarQueryResponse);
     }
-  }, [avatarSrc]);
+  }, [avatarQueryResponse]);
 
-  const updateAvatarSrc = (src: URL) => {
+  const updateAvatarImageSrcAttribute = (src: Response) => {
     const imgElm = document.getElementById(avatarID);
-    const tooltipImgElm = document.getElementById(avatarID + "-tooltip-image");
+    (imgElm as HTMLImageElement).src = src.url;
 
     if (imgElm) {
       imgElm.addEventListener("load", () => {
         setSuccessfullyLoadedAvatar(true);
       });
-
-      (imgElm as HTMLImageElement).src = src.toString();
-    }
-
-    if (tooltipImgElm) {
-      tooltipImgElm.addEventListener("load", () => {
-        setSuccessfullyLoadedAvatar(true);
-      });
-
-      (tooltipImgElm as HTMLImageElement).src = src.toString();
     }
   };
 
@@ -157,7 +147,7 @@ export const AvatarWithTooltip = ({
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
             <img
-              id={avatarID + "-tooltip-image"}
+              src={avatarQueryResponse?.toString()}
               alt={profile.ensName}
               className={cc([
                 AvatarSizeStyling[AvatarSize.SMALL],
