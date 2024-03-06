@@ -5,7 +5,7 @@ import { Balancer } from "react-wrap-balancer";
 import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
 import { UltimateENSAvatar } from ".";
-import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
+import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
 
 const namehashLabsTeam = {
   profiles: [
@@ -54,7 +54,7 @@ export const TeamSection = () => {
         {namehashLabsTeam.profiles.map((member) => {
           return (
             <UltimateENSAvatar
-              avatarQueries={getNameKitAvatarCallbacks(member)}
+              avatarQueries={getNameHashLabsAvatarCallbacks(member)}
               size={AvatarSize.MEDIUM}
               key={member.ensName}
               profile={member}

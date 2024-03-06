@@ -4,7 +4,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
 import { AvatarSize, UltimateENSAvatar } from ".";
-import { getNameKitAvatarCallbacks } from "@/lib/client/avatar";
+import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
 
 export const OurSuportersSection = () => {
   return (
@@ -130,25 +130,25 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
       <UltimateENSAvatar
-        avatarQueries={getNameKitAvatarCallbacks(profiles[1])}
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[1])}
         profile={profiles[1]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-[122px] z-10"
       />
       <UltimateENSAvatar
-        avatarQueries={getNameKitAvatarCallbacks(profiles[3])}
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[3])}
         profile={profiles[3]}
         size={AvatarSize.SMALL}
         className="absolute top-0 right-0 z-20"
       />
       <UltimateENSAvatar
-        avatarQueries={getNameKitAvatarCallbacks(profiles[0])}
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[0])}
         profile={profiles[0]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-0 "
       />
       <UltimateENSAvatar
-        avatarQueries={getNameKitAvatarCallbacks(profiles[2])}
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[2])}
         profile={profiles[2]}
         size={AvatarSize.SMALL}
         className="absolute bottom-0 left-[122px] z-10"
@@ -162,17 +162,17 @@ const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
     <div className="w-full flex relative">
       <div className="w-full flex justify-center gap-4">
         <UltimateENSAvatar
-          avatarQueries={getNameKitAvatarCallbacks(profiles[0])}
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[0])}
           profile={profiles[0]}
           size={AvatarSize.SMALL}
         />
         <UltimateENSAvatar
-          avatarQueries={getNameKitAvatarCallbacks(profiles[1])}
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[1])}
           profile={profiles[1]}
           size={AvatarSize.SMALL}
         />
         <UltimateENSAvatar
-          avatarQueries={getNameKitAvatarCallbacks(profiles[2])}
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[2])}
           profile={profiles[2]}
           size={AvatarSize.SMALL}
         />
