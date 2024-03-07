@@ -106,7 +106,7 @@ export const AvatarWithTooltip = ({
           className,
           AvatarSizeStyling[size],
           {
-            "opacity-0 bg-gray-200 invisible absolute animate-pulse":
+            "opacity-0 bg-gray-200 invisible absolute animate-loadingScaleDownAvatar":
               !successfullyLoadedAvatar,
           },
           "tooltip-target hover:z-50 duration-200 ml-[2.5%] rounded-xl hover:animate-scaleAvatar animate-scaleDownAvatar transition",

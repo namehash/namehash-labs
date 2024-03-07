@@ -36,6 +36,11 @@ const config: Config = {
         "0%": { transform: "scale(1.05)" },
         "100%": { transform: "scale(1)" },
       },
+      loadingScaleDownAvatar: {
+        "0%": { transform: "scale(1.05)", opacity: "1" },
+        "50%": { transform: "scale(1.025)", opacity: "0.5" },
+        "100%": { transform: "scale(1)", opacity: "1" },
+      },
       widen: {
         "0%": { width: "0%" },
         "100%": { width: "100%" },
