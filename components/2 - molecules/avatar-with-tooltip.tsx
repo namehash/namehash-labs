@@ -74,6 +74,22 @@ export const AvatarWithTooltip = ({
 
   return (
     <>
+      {/* 
+        Whenever a user interacts with this component, two things happen:
+        1. The avatar scales up (on mouse over) and down (on mouse leave)
+        2. The tooltip is displayed (on mouse over) and hidden (on mouse leave)
+
+        These behaviors are reflected in mobile with a tap gesture instead of a hover gesture.
+
+        Since the avatar scaling could move the tooltip up and down while it is being displayed AND
+        we need to make sure that the tooltip is displayed at the correct position, without layout shifts,
+        two animations called: animate-scaleAvatar and animate-scaleDownAvatar are used to ensure that the tooltip
+        is displayed right after the avatar scaling event has ended, which means that these animations won't
+        conflict and thus, won't cause Ui inconsistencies. 
+
+        You can find these animations application in the <Image> component below and its configuration in Tailwind Config file.
+        You can find the Tooltip specs in the Tooltip component below and its configuration in Tooltip's props.
+      */}
       <img
         data-tip
         ref={imageRef}
@@ -93,7 +109,7 @@ export const AvatarWithTooltip = ({
             "opacity-0 bg-gray-200 invisible absolute animate-pulse":
               !successfullyLoadedAvatar,
           },
-          "tooltip-target hover:scale-105 hover:z-50 transition duration-200 ml-[2.5%] rounded-xl",
+          "tooltip-target hover:z-50 duration-200 ml-[2.5%] rounded-xl hover:animate-scaleAvatar animate-scaleDownAvatar transition",
         ])}
         style={{
           borderRadius: "12.31px",
@@ -139,7 +155,7 @@ export const AvatarWithTooltip = ({
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex gap-1 items-center ">
-              <p className="font-semibold text-lg transition-all duration-200 mr-1">
+              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont">
                 {profile.ensName}
               </p>
 

@@ -1,3 +1,5 @@
+import "@namehash/ens-webfont";
+
 import {
   HeroSection,
   OurPrinciplesSection,

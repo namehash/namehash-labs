@@ -72,10 +72,8 @@ interface ProfilesContainerProps {
 const AdditionalSupportersContainer = () => {
   return (
     <div className="flex items-center justify-center flex-col gap-4 bg-white py-8 px-10 border border-gray-200 rounded-[8px] order-last lg:order-none">
-      <p className="text-lg leading-6 font-semibold text-center ">ENS DAO</p>
-      <p className="font-semibold text-center text-[50px] leading-[30px] ">
-        💖
-      </p>
+      <p className="text-lg leading-6 font-semibold text-center">ENS DAO</p>
+      <p className="font-semibold text-center text-[50px] leading-[30px]">💖</p>
       <p className="text-lg leading-6 font-normal text-gray-500">
         and so many others
       </p>

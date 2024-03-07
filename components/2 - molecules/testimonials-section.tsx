@@ -240,7 +240,7 @@ export const TestimonialsSection = () => {
                       </div>
 
                       <div className="flex flex-col shrink">
-                        <p className="text-2xl leading-8 font-semibold">
+                        <p className="text-2xl leading-8 font-semibold ens-webfont">
                           {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
