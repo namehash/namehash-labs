@@ -12,7 +12,11 @@ export const getDynamicENSAvatarCallback: AvatarQueryModel = async (
   addressOrEnsName: string
 ) => {
   return fetch(
-    `https://metadata.ens.domains/mainnet/avatar/${addressOrEnsName}`
+    `https://metadata.ens.domains/mainnet/avatar/${addressOrEnsName}`,
+    {
+      method: "GET",
+      mode: "no-cors",
+    }
   )
     .then((res) => {
       if (res.ok) {

@@ -61,7 +61,7 @@ export const AvatarWithTooltip = ({
   };
 
   const updateShadowColor = () => {
-    if (avatarQueryResponse && successfullyLoadedAvatar) {
+    if (successfullyLoadedAvatar && imageRef.current) {
       const color = fac.getColor(imageRef.current);
 
       setShadowColor(color.rgba);

@@ -4,7 +4,10 @@ import { AvatarQueryModel, getDynamicENSAvatarCallback } from "./avatar";
 const getCachedAvatarCallback: AvatarQueryModel = async (
   addressOrEnsName: string
 ) => {
-  return fetch(`/images/avatars/${addressOrEnsName}.png`)
+  return fetch(`/images/avatars/${addressOrEnsName}.png`, {
+    method: "GET",
+    mode: "no-cors",
+  })
     .then((res) => {
       if (res.ok) {
         return res;
@@ -22,7 +25,10 @@ const getCachedAvatarCallback: AvatarQueryModel = async (
 const getFallbackAvatarCallback: AvatarQueryModel = async (
   addressOrEnsName: string
 ) => {
-  return fetch("/images/no-avatar.png")
+  return fetch("/images/no-avatar.png", {
+    method: "GET",
+    mode: "no-cors",
+  })
     .then((res) => {
       if (res.ok) {
         return res;
