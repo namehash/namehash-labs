@@ -40,38 +40,7 @@ export const AvatarWithTooltip = ({
   const [isHovered, setIsHovered] = useState(false);
   const fac = new FastAverageColor();
 
-  useEffect(() => {
-    updateShadowColor();
-  }, [successfullyLoadedAvatar]);
-
-  const updateShadowColor = () => {
-    if (avatarQueryResponse && successfullyLoadedAvatar) {
-      fac
-        .getColorAsync(avatarQueryResponse.url)
-        .then((color) => {
-          setShadowColor(color.rgba);
-        })
-        .catch((e) => {
-          console.error(e);
-        });
-    }
-  };
-
-  const tooltipID = useId();
-
-  const [avatarID, setAvatarID] = useState("");
-
-  useEffect(() => {
-    if (tooltipID) {
-      setAvatarID("image-" + tooltipID);
-    }
-  }, [tooltipID]);
-
-  useEffect(() => {
-    if (successfullyLoadedAvatar) {
-      updateShadowColor();
-    }
-  }, [successfullyLoadedAvatar]);
+  const avatarID = "image-" + useId();
 
   useEffect(() => {
     if (avatarQueryResponse !== null) {
@@ -79,25 +48,38 @@ export const AvatarWithTooltip = ({
     }
   }, [avatarQueryResponse]);
 
-  const updateAvatarImageSrcAttribute = (src: Response) => {
-    const imgElm = document.getElementById(avatarID);
-    (imgElm as HTMLImageElement).src = src.url;
+  const imageRef = React.useRef<HTMLImageElement>(null);
 
-    if (imgElm) {
-      imgElm.addEventListener("load", () => {
+  const updateAvatarImageSrcAttribute = (src: Response) => {
+    if (imageRef.current) {
+      imageRef.current.src = src.url;
+
+      imageRef.current.addEventListener("load", () => {
         setSuccessfullyLoadedAvatar(true);
       });
     }
   };
 
+  const updateShadowColor = () => {
+    if (avatarQueryResponse && successfullyLoadedAvatar) {
+      const color = fac.getColor(imageRef.current);
+
+      setShadowColor(color.rgba);
+    }
+  };
+
+  useEffect(() => {
+    updateShadowColor();
+  }, [successfullyLoadedAvatar]);
+
   return (
     <>
       <img
         data-tip
-        id={avatarID}
+        ref={imageRef}
         alt={profile.ensName}
         data-for={profile.ensName}
-        data-tooltip-id={`${profile.ensName}-${tooltipID}`}
+        data-tooltip-id={`${profile.ensName}-${avatarID}`}
         onMouseEnter={() => {
           setIsHovered(true);
         }}
@@ -135,10 +117,10 @@ export const AvatarWithTooltip = ({
       <Tooltip
         clickable
         place="top"
-        id={`${profile.ensName}-${tooltipID}`}
-        delayShow={200}
-        delayHide={0}
         opacity={1}
+        delayHide={0}
+        delayShow={200}
+        id={`${profile.ensName}-${avatarID}`}
         className="z-50 bg-black !rounded-[8px] !p-0"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
@@ -147,8 +129,8 @@ export const AvatarWithTooltip = ({
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
             <img
-              src={avatarQueryResponse?.toString()}
               alt={profile.ensName}
+              src={avatarQueryResponse?.url}
               className={cc([
                 AvatarSizeStyling[AvatarSize.SMALL],
                 "rounded-lg",
