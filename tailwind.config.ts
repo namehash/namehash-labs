@@ -30,7 +30,8 @@ const config: Config = {
     keyframes: {
       scaleAvatar: {
         "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(1.05)" },
+        "50%": { transform: "scale(1.025)", zIndex: "50" },
+        "100%": { transform: "scale(1.05)", zIndex: "50" },
       },
       scaleDownAvatar: {
         "0%": { transform: "scale(1.05)" },
