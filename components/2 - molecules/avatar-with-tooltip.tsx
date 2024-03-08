@@ -53,6 +53,7 @@ export const AvatarWithTooltip = ({
   const updateAvatarImageSrcAttribute = (src: Response) => {
     if (imageRef.current) {
       imageRef.current.src = src.url;
+      imageRef.current.crossOrigin = "anonymous";
 
       imageRef.current.addEventListener("load", () => {
         setSuccessfullyLoadedAvatar(true);
@@ -112,6 +113,7 @@ export const AvatarWithTooltip = ({
           "tooltip-target ml-[2.5%] rounded-xl transition",
           {
             "animate-scaleAvatar": isHovered,
+            "animate-scaleDownAvatar": !isHovered,
           },
         ])}
         style={{

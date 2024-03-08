@@ -29,9 +29,13 @@ const config: Config = {
     },
     keyframes: {
       scaleAvatar: {
-        "0%": { transform: "scale(1)" },
+        "0%": { transform: "scale(1)", zIndex: "50" },
         "50%": { transform: "scale(1.025)", zIndex: "50" },
         "100%": { transform: "scale(1.05)", zIndex: "50" },
+      },
+      scaleDownAvatar: {
+        "0%": { transform: "scale(1.05)" },
+        "100%": { transform: "scale(1)" },
       },
       loadingScaleDownAvatar: {
         "0%": { transform: "scale(1.05)", opacity: "1" },
