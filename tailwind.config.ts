@@ -33,10 +33,6 @@ const config: Config = {
         "50%": { transform: "scale(1.025)", zIndex: "50" },
         "100%": { transform: "scale(1.05)", zIndex: "50" },
       },
-      scaleDownAvatar: {
-        "0%": { transform: "scale(1.05)" },
-        "100%": { transform: "scale(1)" },
-      },
       loadingScaleDownAvatar: {
         "0%": { transform: "scale(1.05)", opacity: "1" },
         "50%": { transform: "scale(1.025)", opacity: "0.5" },

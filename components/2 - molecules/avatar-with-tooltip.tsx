@@ -112,7 +112,6 @@ export const AvatarWithTooltip = ({
           "tooltip-target ml-[2.5%] rounded-xl transition",
           {
             "animate-scaleAvatar": isHovered,
-            "animate-scaleDownAvatar": !isHovered,
           },
         ])}
         style={{
