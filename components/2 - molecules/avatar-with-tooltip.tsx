@@ -109,7 +109,11 @@ export const AvatarWithTooltip = ({
             "opacity-0 bg-gray-200 invisible absolute animate-loadingScaleDownAvatar":
               !successfullyLoadedAvatar,
           },
-          "tooltip-target ml-[2.5%] rounded-xl hover:animate-scaleAvatar animate-scaleDownAvatar transition",
+          "tooltip-target ml-[2.5%] rounded-xl transition",
+          {
+            "animate-scaleAvatar": isHovered,
+            "animate-scaleDownAvatar": !isHovered,
+          },
         ])}
         style={{
           borderRadius: "12.31px",
