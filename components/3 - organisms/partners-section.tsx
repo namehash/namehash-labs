@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Balancer from "react-wrap-balancer";
-import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+import { SectionText, SectionTitle } from "../1 - atoms";
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
 import { BlockfulLogo } from "../1 - atoms/icons/blockful-logo";
 import { EnelpolLogo } from "../1 - atoms/icons/enelpol-logo";
@@ -8,20 +8,20 @@ import { ContactUsForm } from "../2 - molecules/contact-us-form";
 
 export const PartnersPage = () => {
   return (
-    <section className="w-full max-w-[1216px] py-20 px-5">
+    <section className="w-full max-w-[1216px] pt-20 lg:pb-20 pb-5 px-5">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
-      <div className="lg:mt-[100px] lg:mb-[120px] mt-[60px] mb-[60px]">
-        <PreSectionText className="text-start ">
-          Let’s work together
-        </PreSectionText>
-        <h1 className="font-bold text-[52px] ">Partners</h1>
+      <div className="flex flex-col items-start lg:gap-3 gap-2 lg:mt-[100px] lg:pb-[120px] py-[60px]">
+        <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
+          Let&apos;s work together
+        </p>
+        <h1 className="font-bold text-[52px] leading-[52px]">Partners</h1>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-3 py-20 border-t">
-        <h3 className="text-4xl leading-10 font-bold">
+      <div className="flex flex-col lg:items-center items-start justify-center gap-3 lg:py-20 py-10 border-t">
+        <h3 className="text-4xl leading-10 font-bold text-start">
           Let&apos;s work together
         </h3>
-        <p className="text-lg leading-7 font-normal text-gray-500 max-w-[635px] text-center">
+        <p className="text-lg leading-7 font-normal text-gray-500 max-w-[635px] lg:text-center">
           We seek collaborations with other skilled teams and individuals who
           are passionate about helping ENS grow
         </p>
@@ -33,7 +33,7 @@ export const PartnersPage = () => {
         ))}
       </div>
 
-      <div className="w-full flex pt-20 flex-col lg:flex-row m-auto gap-10 max-w-7xl">
+      <div className="w-full flex lg:pt-20 pt-10 flex-col lg:flex-row m-auto gap-10 max-w-7xl">
         <div className="lg:w-1/2 w-full flex flex-col gap-3 items-start">
           <SectionTitle className="text-3xl lg:text-4xl font-bold">
             Become our partner
@@ -61,15 +61,15 @@ interface PartnerCardProps {
 
 const PartnerCard = ({ title, text, websiteUrl }: PartnerCardProps) => {
   return (
-    <div className="flex flex-col items-start gap-6 justify-between py-8 px-10 border border-gray-300 rounded-[8px]">
-      <div className="flex flex-col items-start gap-6">
+    <div className="flex flex-col items-start gap-6 justify-between lg:py-8 lg:px-10 px-5 py-6 border border-gray-300 rounded-[8px]">
+      <div className="flex flex-col items-start lg:gap-6 gap-4">
         {title}
         <p className="text-lg leading-7 font-normal text-gray-500">{text}</p>
       </div>
       <a
         target="_blank"
         href={websiteUrl}
-        className="py-2 px-4 rounded-[8px] border border-gray-300 shadow-sm hover:bg-gray-100 transition-colors duration-200"
+        className="py-2 px-4 lg:w-auto text-center w-full rounded-[8px] border border-gray-300 shadow-sm hover:bg-gray-100 transition-colors duration-200"
       >
         Visit website
       </a>

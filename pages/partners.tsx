@@ -1,4 +1,4 @@
-import { PartnersPage } from "@/components/3 - organisms/contact-us-section";
+import { PartnersPage } from "@/components/3 - organisms/partners-section";
 import { Layout } from "@/components/4 - templates/layout";
 
 export default function Contact() {
