@@ -14,7 +14,7 @@ export default async function handler(
 ) {
   try {
     const file_data = await promises.readFile(
-      path.join(process.cwd(), "/public/animation/apps-animation.json"),
+      path.join(process.cwd(), "/public/animations/apps-animation.json"),
       "utf8"
     );
 
