@@ -37,11 +37,6 @@ const config: Config = {
         "0%": { transform: "scale(1.05)" },
         "100%": { transform: "scale(1)" },
       },
-      loadingScaleDownAvatar: {
-        "0%": { transform: "scale(1.05)", opacity: "1" },
-        "50%": { transform: "scale(1.025)", opacity: "0.5" },
-        "100%": { transform: "scale(1)", opacity: "1" },
-      },
       widen: {
         "0%": { width: "0%" },
         "100%": { width: "100%" },
@@ -69,7 +64,7 @@ const config: Config = {
     },
     animation: {
       fadeIn: "fadeIn 1s linear forwards",
-      scaleAvatar: "scaleAvatar 0.2s linear forwards",
+      scaleAvatar: "0.2s scaleAvatar 0s linear forwards",
       scaleDownAvatar: "scaleDownAvatar 0.45s linear forwards",
       spinSlow: "rotate360 150s linear infinite",
       slideIn: "slideIn 0.5s ease-out",
