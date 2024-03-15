@@ -1,24 +1,31 @@
-export type AvatarQueryModel = ({
-  logLevel,
-  props,
-}?: any) => Promise<any | null>;
+import { parseName } from "@namehash/nameparser";
+
+type QueryParams = {
+  avatarQueries: AvatarQueryModel[];
+  logLevel?: LogLevel;
+};
+
+export type AvatarQueryModel = () => Promise<Response | null>;
 
 export enum LogLevel {
   INFO = "info",
   ERROR = "error",
   INFO_AND_ERROR = "info_and_error",
 }
-export const getDynamicENSAvatarCallback: AvatarQueryModel = async (
-  addressOrEnsName: string
-) => {
-  return fetch(
-    `https://metadata.ens.domains/mainnet/avatar/${addressOrEnsName}`
-  )
+export const getDynamicENSAvatarCallback = async (ensName: string) => {
+  let parsedName;
+  try {
+    parsedName = parseName(ensName);
+  } catch (error) {
+    throw new Error(String(error));
+  }
+
+  return fetch(`https://metadata.ens.domains/mainnet/avatar/${ensName}`)
     .then((res) => {
       if (res.ok) {
         return res;
       } else {
-        throw new Error(`Failed to fetch ENS avatar for ${addressOrEnsName}`);
+        throw new Error(`Failed to fetch ENS avatar for ${ensName}`);
       }
     })
     .catch((error) => {
@@ -29,14 +36,11 @@ export const getDynamicENSAvatarCallback: AvatarQueryModel = async (
 export const queryMultipleEndpointsToGetAvatar = async ({
   avatarQueries,
   logLevel,
-}: {
-  avatarQueries: AvatarQueryModel[];
-  logLevel?: LogLevel;
-}): Promise<Response | null> => {
+}: QueryParams): Promise<Response | null> => {
   let queryCallbackIndex = 0;
-  let successfulQuerySRC: Response | null = null;
+  let successfulQueryRes: Response | null = null;
   while (
-    successfulQuerySRC === null &&
+    successfulQueryRes === null &&
     queryCallbackIndex < avatarQueries.length
   ) {
     if (logLevel === LogLevel.INFO || logLevel === LogLevel.INFO_AND_ERROR) {
@@ -44,7 +48,7 @@ export const queryMultipleEndpointsToGetAvatar = async ({
     }
 
     try {
-      successfulQuerySRC = await avatarQueries[queryCallbackIndex]();
+      successfulQueryRes = await avatarQueries[queryCallbackIndex]();
     } catch (error) {
       if (logLevel === LogLevel.ERROR || logLevel === LogLevel.INFO_AND_ERROR) {
         console.error(
@@ -58,13 +62,13 @@ export const queryMultipleEndpointsToGetAvatar = async ({
     queryCallbackIndex++;
   }
 
-  if (successfulQuerySRC) {
+  if (successfulQueryRes) {
     if (logLevel === LogLevel.INFO || logLevel === LogLevel.INFO_AND_ERROR) {
       console.log(
         "Successfully queried ",
         avatarQueries[queryCallbackIndex],
         ", response: ",
-        successfulQuerySRC
+        successfulQueryRes
       );
     }
   } else {
@@ -73,5 +77,5 @@ export const queryMultipleEndpointsToGetAvatar = async ({
     }
   }
 
-  return successfulQuerySRC;
+  return successfulQueryRes;
 };

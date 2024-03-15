@@ -1,10 +1,16 @@
 import { Profile } from "@/data/ensProfiles";
 import { AvatarQueryModel, getDynamicENSAvatarCallback } from "./avatar";
+import { parseName } from "@namehash/nameparser";
 
-const getCachedAvatarCallback: AvatarQueryModel = async (
-  addressOrEnsName: string
-) => {
-  return fetch(`/images/avatars/${addressOrEnsName}.png`, {
+const getCachedAvatarCallback = async (ensName: string) => {
+  let parsedName;
+  try {
+    parsedName = parseName(ensName);
+  } catch (error) {
+    throw new Error(String(error));
+  }
+
+  return fetch(`/images/avatars/${ensName}.png`, {
     method: "GET",
     mode: "no-cors",
   })
@@ -12,9 +18,7 @@ const getCachedAvatarCallback: AvatarQueryModel = async (
       if (res.ok) {
         return res;
       } else {
-        throw new Error(
-          `Failed to fetch cached avatar for ${addressOrEnsName}`
-        );
+        throw new Error(`Failed to fetch cached avatar for ${ensName}`);
       }
     })
     .catch((error) => {
@@ -22,9 +26,14 @@ const getCachedAvatarCallback: AvatarQueryModel = async (
     });
 };
 
-const getFallbackAvatarCallback: AvatarQueryModel = async (
-  addressOrEnsName: string
-) => {
+const getFallbackAvatarCallback = async (ensName: string) => {
+  let parsedName;
+  try {
+    parsedName = parseName(ensName);
+  } catch (error) {
+    throw new Error(String(error));
+  }
+
   return fetch("/images/no-avatar.png", {
     method: "GET",
     mode: "no-cors",
@@ -33,9 +42,7 @@ const getFallbackAvatarCallback: AvatarQueryModel = async (
       if (res.ok) {
         return res;
       } else {
-        throw new Error(
-          `Failed to fetch fallback avatar for ${addressOrEnsName}`
-        );
+        throw new Error(`Failed to fetch fallback avatar for ${ensName}`);
       }
     })
     .catch((error) => {
@@ -49,6 +56,6 @@ export const getNameHashLabsAvatarCallbacks = (
   return [
     async () => await getCachedAvatarCallback(profile.ensName),
     async () => await getDynamicENSAvatarCallback(profile.ensName),
-    async () => await getFallbackAvatarCallback(),
+    async () => await getFallbackAvatarCallback(profile.ensName),
   ];
 };

@@ -131,13 +131,13 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
         avatarQueries={getNameHashLabsAvatarCallbacks(profiles[1])}
         profile={profiles[1]}
         size={AvatarSize.SMALL}
-        className="absolute top-0 right-[122px] z-10"
+        className="absolute top-0 right-[122px]"
       />
       <UltimateENSAvatar
         avatarQueries={getNameHashLabsAvatarCallbacks(profiles[3])}
         profile={profiles[3]}
         size={AvatarSize.SMALL}
-        className="absolute top-0 right-0 z-20"
+        className="absolute top-0 right-0"
       />
       <UltimateENSAvatar
         avatarQueries={getNameHashLabsAvatarCallbacks(profiles[0])}
@@ -149,7 +149,7 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
         avatarQueries={getNameHashLabsAvatarCallbacks(profiles[2])}
         profile={profiles[2]}
         size={AvatarSize.SMALL}
-        className="absolute bottom-0 left-[122px] z-10"
+        className="absolute bottom-0 left-[122px]"
       />
     </div>
   );
