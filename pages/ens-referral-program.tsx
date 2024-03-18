@@ -52,25 +52,28 @@ export default function Home() {
       </Head>
       <main className="flex flex-col items-center justify-between">
         <Layout>
-          <div className="mt-20">
-            <section className="bg-gray-50 w-full">
-              <Product2
-                title="ENS Referral Program"
-                subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
-                illustration={
-                  <Image
-                    quality={100}
-                    width={568}
-                    height={360}
-                    className="w-full h-auto"
-                    src="/images/ens-incentive.png"
-                    alt="hero"
-                  />
-                }
-                greenLabelText="Proposal pending"
-                buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
-              />
-            </section>
+          <div className="mt-20 w-full">
+            <div className="w-full px-5 bg-gray-50 flex items-center justify-center">
+              <section className=" w-full max-w-[1216px]">
+                <Product2
+                  title="ENS Referral Program"
+                  subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
+                  illustration={
+                    <Image
+                      quality={100}
+                      width={568}
+                      height={360}
+                      className="w-full h-auto"
+                      src="/images/ens-incentive.png"
+                      alt="hero"
+                    />
+                  }
+                  greenLabelText="Proposal pending"
+                  buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
+                />
+              </section>
+            </div>
+
             <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
               <div className="flex flex-col md:flex-row items-start justify-center max-w-[1216px]">
                 {items.map((item, index) => {
