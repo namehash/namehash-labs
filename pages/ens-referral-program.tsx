@@ -3,13 +3,14 @@ import { getCalApi } from "@calcom/embed-react";
 import Image from "next/image";
 import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
-import { HeadlineBanner, ExternalLinkIcon } from "@/components/1 - atoms";
+import { ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
 import { Product2 } from "@/components/2 - molecules/product-component -2";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { origin } from "@/lib/shared/origin";
 import { Layout } from "@/components/4 - templates/layout";
+import { GithubIcon } from "@/components/1 - atoms/icons/github-icon";
 
 export default function Home() {
   useEffect(() => {
@@ -52,38 +53,51 @@ export default function Home() {
       </Head>
       <main className="flex flex-col items-center justify-between">
         <Layout>
-          <div className="mt-20">
-            <section className="bg-gray-50 w-full">
-              <Product2
-                title="ENS Referral Program"
-                subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
-                illustration={
-                  <Image
-                    quality={100}
-                    width={568}
-                    height={360}
-                    className="w-full h-auto"
-                    src="/images/ens-incentive.png"
-                    alt="hero"
-                  />
-                }
-                greenLabelText="Proposal pending"
-                buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
-              />
-            </section>
+          <div className="mt-20 w-full">
+            <div className="w-full px-5 bg-gray-50 flex items-center justify-center">
+              <section className="w-full max-w-[1216px]">
+                <Product2
+                  title="ENS Referral Program"
+                  subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
+                  illustration={
+                    <Image
+                      quality={100}
+                      width={568}
+                      height={360}
+                      className="w-full h-auto"
+                      src="/images/ens-incentive.png"
+                      alt="hero"
+                    />
+                  }
+                  greenLabelText="Proposal pending"
+                  buttonUrl="https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing"
+                />
+              </section>
+            </div>
+
             <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
-              <div className="flex flex-col md:flex-row items-start justify-center max-w-[1216px]">
+              <div className="grid lg:grid-cols-3 grid-cols-1 items-start lg:divide-y-0 divide-y lg:divide-x justify-center max-w-[1216px]">
                 {items.map((item, index) => {
                   return (
-                    <Item
+                    <div
+                      className={cc([
+                        "w-full h-full flex lg:px-10 lg:py-0 py-10",
+                        index % 3 === 0 && "lg:pl-0 pt-0",
+                        index % 3 === 2 && "lg:pr-0 pb-0",
+                      ])}
                       key={item.title}
-                      icon={item.icon}
-                      title={item.title}
-                      text={item.text}
-                      buttonUrl={item.buttonUrl}
-                      greenLabelText={item.greenLabelText}
-                      isInverted={index % 2 === 1}
-                    />
+                    >
+                      <Item
+                        key={item.title}
+                        icon={item.icon}
+                        title={item.title}
+                        text={item.text}
+                        buttonUrl={item.buttonUrl}
+                        buttonText={item.buttonText}
+                        greenLabelText={item.greenLabelText}
+                        isInverted={index % 3 === 2}
+                      />
+                    </div>
                   );
                 })}
               </div>
@@ -101,6 +115,7 @@ export interface ItemProps {
   text: string;
   isInverted?: boolean;
   buttonUrl?: string;
+  buttonText?: string;
   greenLabelText?: string;
 }
 
@@ -110,15 +125,13 @@ const Item = ({
   text,
   isInverted,
   buttonUrl,
+  buttonText,
   greenLabelText,
 }: ItemProps) => {
   return (
     <div
       className={cc([
-        "flex flex-col gap-6 items-start justify-center w-full md:w-1/2 border-gray-200",
-        isInverted
-          ? "md:border-l md:pl-[60px] pt-10 md:pt-0 "
-          : "md:border-r md:pr-[60px] pb-10 md:pb-0 border-b md:border-b-0",
+        "flex flex-col gap-6 items-start justify-start w-full h-full border-gray-200",
       ])}
     >
       <div className="w-[52px] flex items-center justify-center h-[52px] border border-gray-200 rounded-full">
@@ -129,14 +142,14 @@ const Item = ({
           <h3 className="text-3xl leading-9 font-bold text-start">{title}</h3>
 
           {greenLabelText && (
-            <div
+            <span
               className="px-3 py-0.5 bg-green-100 border border-green-100 rounded-full"
               style={{ whiteSpace: "nowrap" }}
             >
               <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
                 {greenLabelText}
               </p>
-            </div>
+            </span>
           )}
         </div>
         <p className="text-lg leading-7 font-normal text-gray-500">{text}</p>
@@ -147,7 +160,7 @@ const Item = ({
           target="_blank"
           href={buttonUrl}
         >
-          Review the temp check
+          {buttonText}
           <ExternalLinkIcon className="text-black w-5 h-5" />
         </a>
       )}
@@ -160,6 +173,7 @@ const items: ItemProps[] = [
     icon: <DocumentTextIcon className="h-6 w-6 text-gray-400 m-auto" />,
     title: "Abstract Proposal Document",
     text: "Review the design rationale for important decisions in how a proposed ENS Referral Program might function.",
+    buttonText: "Review the temp check",
     buttonUrl:
       "https://docs.google.com/document/d/1srqcho7PFyMBUDQTxxlH_eZqrt5x_EEB-PF2LfpYvIg/edit?usp=sharing",
   },
@@ -168,5 +182,12 @@ const items: ItemProps[] = [
     title: "Interactive Design Prototype",
     text: "Navigate the proposed UI for an ENS Referral Program portal website. Designs include how to become a referrer, reviewing detailed referrer metrics, withdrawing rewards, and overall program administration.",
     greenLabelText: "Coming soon",
+  },
+  {
+    icon: <GithubIcon className="h-6 w-6 text-gray-400 m-auto" />,
+    title: "R&D Prototype",
+    text: "R&D Prototype for .eth referrals implemented using ZK and Axiom.",
+    buttonText: "View in GitHub",
+    buttonUrl: "https://github.com/namehash/ens-referrals",
   },
 ];
