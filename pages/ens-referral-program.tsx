@@ -188,6 +188,6 @@ const items: ItemProps[] = [
     title: "R&D Prototype",
     text: "R&D Prototype for .eth referrals implemented using ZK and Axiom.",
     buttonText: "View in GitHub",
-    buttonUrl: "https://github.com/namehash",
+    buttonUrl: "https://github.com/namehash/ens-referrals",
   },
 ];
