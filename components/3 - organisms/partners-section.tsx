@@ -95,7 +95,7 @@ const partners: PartnerCardProps[] = [
     title: <EnelpolLogo className="h-8" />,
     text: (
       <Balancer>
-        We teamed up with Enelpol to create better name suggestions for NameKit
+        We teamed up with Enelpol for their deep expertise with Natural Language Processing (NLP), Machine Learning, big data analysis, Unicode, and fonts. Our collaborations are improving the safety of the ENS community and helping ENS grow.
         and organize collections in NameGraph. Using their Natural Language
         Processing (NLP) skills and understanding of Unicode and fonts, Enelpol
         helped improve NameGuard&apos;s features.
