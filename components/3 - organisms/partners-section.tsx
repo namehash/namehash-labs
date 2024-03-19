@@ -84,7 +84,13 @@ const partners: PartnerCardProps[] = [
       <Balancer>
         When it came time to build smart contracts for NameKit we chose to
         collaborate with Blockful for their expertise in ENS. Together we{" "}
-        <span className="underline whitespace-nowrap">designed a solution</span>{" "}
+        <a
+          href="https://github.com/namehash/namekit-contracts"
+          target="_blank"
+          className="underline whitespace-nowrap"
+        >
+          designed a solution
+        </a>{" "}
         that creates more financial incentives for wallets and dApps to
         encourage registrations and renewals of .eth names and help ENS grow.
       </Balancer>
@@ -95,10 +101,12 @@ const partners: PartnerCardProps[] = [
     title: <EnelpolLogo className="h-8" />,
     text: (
       <Balancer>
-        We teamed up with Enelpol for their deep expertise with Natural Language Processing (NLP), Machine Learning, big data analysis, Unicode, and fonts. Our collaborations are improving the safety of the ENS community and helping ENS grow.
-        and organize collections in NameGraph. Using their Natural Language
-        Processing (NLP) skills and understanding of Unicode and fonts, Enelpol
-        helped improve NameGuard&apos;s features.
+        We teamed up with Enelpol for their deep expertise with Natural Language
+        Processing (NLP), Machine Learning, big data analysis, Unicode, and
+        fonts. Our collaborations are improving the safety of the ENS community
+        and helping ENS grow. and organize collections in NameGraph. Using their
+        Natural Language Processing (NLP) skills and understanding of Unicode
+        and fonts, Enelpol helped improve NameGuard&apos;s features.
       </Balancer>
     ),
     websiteUrl: "http://enelpol.com/",
