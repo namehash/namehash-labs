@@ -9,7 +9,7 @@ import { AxiomLogo } from "../1 - atoms/icons/axiom-logo";
 
 export const PartnersPage = () => {
   return (
-    <section className="w-full max-w-[1216px] pt-20 lg:pb-20 pb-5 px-5">
+    <section className="w-full max-w-[1256px] pt-20 lg:pb-20 pb-5 px-5">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
       <div className="flex flex-col items-start lg:gap-3 gap-2 lg:mt-[100px] lg:pb-[120px] py-[60px]">
         <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
@@ -116,7 +116,7 @@ const partners: PartnerCardProps[] = [
       <Balancer>
         We’re collaborating with Axiom on an{" "}
         <a
-          href="https://github.com/namehash/namekit-contracts"
+          href="https://github.com/namehash/ens-referrals"
           target="_blank"
           className="underline whitespace-nowrap hover:text-black transition-colors duration-200"
         >
