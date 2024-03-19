@@ -143,7 +143,7 @@ const Item = ({
       </div>
       {!!buttonUrl && (
         <a
-          className="px-4 py-2 flex items-center justify-center gap-3 border border-gray-200 rounded-[8px] hover:bg-gray-100 transition-colors duration-200"
+          className="px-4 py-2 flex items-center justify-center gap-3 border border-gray-200 rounded-[8px] hover:bg-gray-50 transition-colors duration-200"
           target="_blank"
           href={buttonUrl}
         >

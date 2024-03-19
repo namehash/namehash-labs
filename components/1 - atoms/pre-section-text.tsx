@@ -9,11 +9,12 @@ export const PreSectionText = ({
   ...props
 }: PreSectionTextProps) => {
   return (
-    <p
+    <div
+      role="text"
       className={`text-xs font-medium leading-4 uppercase tracking-tight text-gray-500 text-center ${className}`}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 };

@@ -9,11 +9,13 @@ export const SectionTitle = ({
   ...props
 }: SectionTitleProps) => {
   return (
-    <p
+    <div
+      role="heading"
+      aria-level={3}
       className={`lg:text-4xl text-3xl lg:leading-10 leading-9 font-bold text-center ${className}`}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 };
