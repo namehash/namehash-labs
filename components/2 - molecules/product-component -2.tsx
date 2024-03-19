@@ -40,7 +40,7 @@ export const Product2 = ({
           },
         ])}
       >
-        <div className="lg:w-1/2 w-full flex items-start justify-start ">
+        <div className="lg:w-1/2 w-full flex items-start justify-center lg:justify-start ">
           <div className="flex-col inline-flex gap-5 lg:max-w-[568px]">
             {greenLabelText && (
               <div className="flex items-center justify-center lg:justify-start">
