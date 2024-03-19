@@ -1,9 +1,12 @@
+import "@namehash/ens-webfont";
 import {
   HeroSection,
   OurPrinciplesSection,
   ProductsSection,
   TeamSection,
 } from "@/components/2 - molecules";
+import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
+import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
 import Head from "next/head";
 import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
 import { useRouter } from "next/router";
@@ -12,11 +15,9 @@ import { TestimonialsSection } from "@/components/2 - molecules/testimonials-sec
 import { Layout } from "@/components/4 - templates/layout";
 import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
-import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
-import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
+import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 
 export default function Home() {
-
   const router = useRouter();
 
   return (
@@ -47,6 +48,7 @@ export default function Home() {
         <TestimonialsSection />
         <OurPrinciplesSection />
         <TeamSection />
+        <CollaborationPartnersSection />
         <JoinOurTeamSection />
         <FinancialSupportSection />
       </Layout>

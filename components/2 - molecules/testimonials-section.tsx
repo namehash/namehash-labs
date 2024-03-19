@@ -7,7 +7,8 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
-import { ProfilePicture } from "./authorProfilePicture";
+import { AvatarWithTooltip } from "./avatar-with-tooltip";
+import { Profile, getCachedProfile } from "@/data/ensProfiles";
 
 const testimonials: Testimonial[] = [
   {
@@ -20,10 +21,7 @@ const testimonials: Testimonial[] = [
         well by existing solutions.”
       </>
     ),
-    author: {
-      title: "Lead developer of ENS & EF Alumni",
-      ensName: "nick.eth",
-    },
+    author: getCachedProfile("nick.eth"),
   },
   {
     text: (
@@ -35,10 +33,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">I was blown away</span>.&quot;
       </>
     ),
-    author: {
-      title: "Co-founder of ENS & EF Alumni",
-      ensName: "avsa.eth",
-    },
+    author: getCachedProfile("avsa.eth"),
   },
   {
     text: (
@@ -50,10 +45,7 @@ const testimonials: Testimonial[] = [
         into the future.&quot;
       </>
     ),
-    author: {
-      title: "Founder of EFP & Creator of SIWE",
-      ensName: "brantly.eth",
-    },
+    author: getCachedProfile("brantly.eth"),
   },
   {
     text: (
@@ -66,10 +58,7 @@ const testimonials: Testimonial[] = [
         <span className="font-semibold">well-laid-out roadmap</span> ...&quot;
       </>
     ),
-    author: {
-      title: "DAO Governance",
-      ensName: "james.eth",
-    },
+    author: getCachedProfile("james.eth"),
   },
   {
     text: (
@@ -79,10 +68,7 @@ const testimonials: Testimonial[] = [
         related toolsets ...&quot;
       </>
     ),
-    author: {
-      title: "Developer at ENS Labs",
-      ensName: "matoken.eth",
-    },
+    author: getCachedProfile("matoken.eth"),
   },
   {
     text: (
@@ -94,10 +80,7 @@ const testimonials: Testimonial[] = [
         ...&quot;
       </>
     ),
-    author: {
-      title: "ENS DAO Steward",
-      ensName: "simona.eth",
-    },
+    author: getCachedProfile("simona.eth"),
   },
   {
     text: (
@@ -109,15 +92,12 @@ const testimonials: Testimonial[] = [
         method for ENS referrals.&quot;
       </>
     ),
-    author: {
-      title: "ENS DAO Steward",
-      ensName: "coltron.eth",
-    },
+    author: getCachedProfile("coltron.eth"),
   },
 ];
 
 export interface Testimonial {
-  author: Author;
+  author: Profile;
   text: React.ReactNode;
 }
 
@@ -189,8 +169,6 @@ export const TestimonialsSection = () => {
     }
   };
 
-  const swiperContainerRef = useRef(null);
-
   return (
     <section
       className="lg:px-[110px] px-5 py-[108px] w-full"
@@ -212,6 +190,8 @@ export const TestimonialsSection = () => {
           ></div>
 
           <QuoteIcon />
+
+          {/* Part of the styles of the below component lives inside styles/globals.css */}
           <Swiper
             id="slider-projects"
             onSwiper={(swiper) => {
@@ -233,20 +213,21 @@ export const TestimonialsSection = () => {
                 <SwiperSlide key={index}>
                   <div className="w-full flex flex-col gap-10">
                     <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
-                      <p
+                      <div
+                        role="text"
                         className={`text-[30px] font-light text-center leading-[44px] m-auto`}
                       >
                         <Balancer>{testimonial.text}</Balancer>
-                      </p>
+                      </div>
                     </div>
 
-                    <div
-                      className={`flex gap-5 w-full items-center justify-center`}
-                    >
-                      <ProfilePicture author={testimonial.author} />
+                    <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
+                      <div className="shrink-0">
+                        <AvatarWithTooltip profile={testimonial.author} />
+                      </div>
 
-                      <div className="flex flex-col">
-                        <p className="text-2xl leading-8 font-semibold">
+                      <div className="flex flex-col shrink">
+                        <p className="text-2xl leading-8 font-semibold ens-webfont">
                           {testimonial.author.ensName}
                         </p>
                         <p className="text-lg leading-7 font-normal text-gray-500">
