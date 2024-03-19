@@ -10,7 +10,7 @@ export const AxiomLogo = (props: SVGProps<SVGSVGElement>) => {
       fill="none"
       {...props}
     >
-      <g clip-path="url(#clip0_7425_4248)">
+      <g clipPath="url(#clip0_7425_4248)">
         <path
           d="M74.0353 9.31405H73.0354L64.3223 26.2698H68.1558L69.7656 23.1243H76.8418L78.332 26.2698H82.1114L74.0353 9.31405ZM71.5221 19.73L73.4523 15.957L75.232 19.73H71.5221Z"
           fill="black"
