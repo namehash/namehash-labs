@@ -62,7 +62,7 @@ interface PartnerCardProps {
 
 const PartnerCard = ({ title, text, websiteUrl }: PartnerCardProps) => {
   return (
-    <div className="flex flex-col items-start gap-6 justify-between lg:py-8 lg:px-10 px-5 py-6 border border-gray-300 rounded-[8px]">
+    <div className="flex flex-col items-start gap-6 justify-between lg:py-8 lg:px-10 px-5 py-6 border border-gray-200 rounded-[8px]">
       <div className="flex flex-col items-start lg:gap-6 gap-4">
         {title}
         <p className="text-lg leading-7 font-normal text-gray-500">{text}</p>
