@@ -25,10 +25,6 @@ const footerResources = [
     href: "/contact",
   },
   {
-    name: "Events",
-    href: "/events",
-  },
-  {
     name: "Brand assets",
     href: "/brand-assets",
   },
