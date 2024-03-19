@@ -5,6 +5,7 @@ import { ColorfulBg } from "../1 - atoms/colorful-bg";
 import { BlockfulLogo } from "../1 - atoms/icons/blockful-logo";
 import { EnelpolLogo } from "../1 - atoms/icons/enelpol-logo";
 import { ContactUsForm } from "../2 - molecules/contact-us-form";
+import { AxiomLogo } from "../1 - atoms/icons/axiom-logo";
 
 export const PartnersPage = () => {
   return (
@@ -27,7 +28,7 @@ export const PartnersPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {partners.map((partner) => (
           <PartnerCard key={partner.websiteUrl} {...partner} />
         ))}
@@ -87,7 +88,7 @@ const partners: PartnerCardProps[] = [
         <a
           href="https://github.com/namehash/namekit-contracts"
           target="_blank"
-          className="underline whitespace-nowrap"
+          className="underline whitespace-nowrap hover:text-black transition-colors duration-200"
         >
           designed a solution
         </a>{" "}
@@ -104,11 +105,28 @@ const partners: PartnerCardProps[] = [
         We teamed up with Enelpol for their deep expertise with Natural Language
         Processing (NLP), Machine Learning, big data analysis, Unicode, and
         fonts. Our collaborations are improving the safety of the ENS community
-        and helping ENS grow. and organize collections in NameGraph. Using their
-        Natural Language Processing (NLP) skills and understanding of Unicode
-        and fonts, Enelpol helped improve NameGuard&apos;s features.
+        and helping ENS grow.
       </Balancer>
     ),
     websiteUrl: "http://enelpol.com/",
+  },
+  {
+    title: <AxiomLogo className="h-8" />,
+    text: (
+      <Balancer>
+        We’re collaborating with Axiom on an{" "}
+        <a
+          href="https://github.com/namehash/namekit-contracts"
+          target="_blank"
+          className="underline whitespace-nowrap hover:text-black transition-colors duration-200"
+        >
+          ENS Referral program prototype
+        </a>
+        . This R&D effort explores how ZK-proofs and Axiom&apos;s ZK-coprocessor
+        technology can achieve better economic incentives for all parties,
+        including the ENS DAO, referrers, and referred persons.
+      </Balancer>
+    ),
+    websiteUrl: "https://www.axiom.xyz/",
   },
 ];
