@@ -37,7 +37,6 @@ export const AvatarWithTooltip = ({
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
   const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
     useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const fac = new FastAverageColor();
 
   const avatarID = "image-" + useId();
@@ -73,6 +72,53 @@ export const AvatarWithTooltip = ({
     updateShadowColor();
   }, [successfullyLoadedAvatar]);
 
+  /* 
+    Start of Avatar scaling logic ⬇️
+
+    isHovered: boolean - Holds the state of the hover event over the Avatar image
+    blockHoverInteraction: boolean - Wether the hover event happened in a timestamp between now and AVATAR_SCALING_TIMEOUT ago
+    isAvatarScaled: boolean - Wether the Avatar image is scaled up or not in the Ui
+  */
+  const AVATAR_SCALING_TIMEOUT = 300;
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [blockHoverInteraction, setBlockHoverInteraction] = useState(false);
+  const [isAvatarScaled, setIsAvatarScaled] = useState(false);
+
+  useEffect(() => {
+    if (blockHoverInteraction) {
+      return;
+    }
+
+    setIsAvatarScaled(isHovered);
+  }, [isHovered]);
+  useEffect(() => {
+    if (isAvatarScaled) {
+      setBlockHoverInteraction(true);
+    }
+  }, [isAvatarScaled]);
+  useEffect(() => {
+    if (blockHoverInteraction) {
+      setTimeout(() => {
+        setBlockHoverInteraction(false);
+      }, AVATAR_SCALING_TIMEOUT);
+    } else {
+      if (isHovered !== isAvatarScaled) {
+        setIsAvatarScaled(isHovered);
+      }
+    }
+  }, [blockHoverInteraction]);
+  /*
+    Since some browsers do not correctly trigger mouse events when the target element is scaling up or down,
+    the above logic was created to guarantee that the Avatar scaling event is correctly triggered and that the
+    Ui always reflects a smooth transition between a scaled up and a scaled down Avatar image. This logic 
+    separates the hover event from the Ui scaling animation by using a timeout to block the hover event
+    from triggering the scaling animation. This way, the misunderdatings between the browser mouse
+    events and a scaling Avatar are avoided and the Ui is always consistent.
+
+    End of Avatar scaling logic ⬆️
+  */
+
   return (
     <>
       {/* 
@@ -96,13 +142,9 @@ export const AvatarWithTooltip = ({
         ref={imageRef}
         alt={profile.ensName}
         data-for={profile.ensName}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         data-tooltip-id={`${profile.ensName}-${avatarID}`}
-        onMouseEnter={() => {
-          setIsHovered(true);
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false);
-        }}
         className={cc([
           className,
           AvatarSizeStyling[size],
@@ -112,18 +154,17 @@ export const AvatarWithTooltip = ({
           },
           "tooltip-target ml-[2.5%] rounded-xl transition",
           {
-            "animate-scaleAvatar": isHovered,
-            "animate-scaleDownAvatar": !isHovered,
+            "animate-scaleAvatar": isAvatarScaled,
+            "animate-scaleDownAvatar": !isAvatarScaled,
           },
         ])}
         style={{
           borderRadius: "12.31px",
-          boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
+          boxShadow: `0 ${isAvatarScaled ? "6px 12px" : "0"} ${shadowColor}`,
           outline: "1px solid rgba(0,0,0,0.1)",
           outlineOffset: "-1px",
         }}
       />
-
       <div
         className={cc([
           className,
