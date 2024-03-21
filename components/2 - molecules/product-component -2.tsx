@@ -29,18 +29,18 @@ export const Product2 = ({
   return (
     <section
       className={cc([
-        "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
+        "lg:py-5 pt-10 pb-5 w-full flex items-center justify-between",
       ])}
     >
       <div
         className={cc([
-          "w-full flex flex-col items-center lg:flex-row max-w-[1300px]",
+          "w-full flex flex-col items-center lg:flex-row",
           {
             "lg:flex-row-reverse": isInverted,
           },
         ])}
       >
-        <div className="lg:w-1/2 w-full flex items-start justify-center ">
+        <div className="lg:w-1/2 w-full flex items-start justify-center lg:justify-start">
           <div className="flex-col inline-flex gap-5 lg:max-w-[568px]">
             {greenLabelText && (
               <div className="flex items-center justify-center lg:justify-start">
@@ -63,7 +63,7 @@ export const Product2 = ({
                 {title}
               </h2>
             </div>
-            <SectionText className="lg:text-start text-center w-full font-thin	">
+            <SectionText className="lg:text-start text-center w-full text-lg leading-7 font-normal">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (

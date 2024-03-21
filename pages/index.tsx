@@ -18,6 +18,7 @@ import { TestimonialsSection } from "@/components/2 - molecules/testimonials-sec
 import { Layout } from "@/components/4 - templates/layout";
 import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
+import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 
 export default function Home() {
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function Home() {
         <TestimonialsSection />
         <OurPrinciplesSection />
         <TeamSection />
+        <CollaborationPartnersSection />
         <JoinOurTeamSection />
         <FinancialSupportSection />
       </Layout>
