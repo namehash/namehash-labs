@@ -183,7 +183,7 @@ export const AvatarWithTooltip = ({
         delayHide={0}
         delayShow={200}
         id={`${profile.ensName}-${avatarID}`}
-        className="z-50 bg-black !rounded-[8px] !p-0"
+        className="z-50 bg-black !rounded-[8px] !p-0 overflow-hidden"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
         noArrow={true}
@@ -200,8 +200,8 @@ export const AvatarWithTooltip = ({
             />
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex gap-1 items-center ">
-              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont">
+            <div className="flex gap-1 items-center">
+              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont line-clamp-1 break-all">
                 {profile.ensName}
               </p>
 

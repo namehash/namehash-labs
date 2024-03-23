@@ -3,7 +3,6 @@ import { PreSectionText, SectionTitle } from "../1 - atoms";
 import { QuoteIcon } from "../1 - atoms/icons/quote-icon";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import { Virtual } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -200,9 +199,8 @@ export const TestimonialsSection = () => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-            virtual={true}
             navigation={true}
-            modules={[Navigation, Autoplay, Virtual]}
+            modules={[Navigation, Autoplay]}
             onSlideChange={handleSlideChange}
             className="rewind w-full"
             loop
@@ -214,10 +212,7 @@ export const TestimonialsSection = () => {
           >
             {testimonials.map((testimonial, index) => {
               return (
-                <SwiperSlide
-                  key={testimonial.author.ensName}
-                  virtualIndex={index}
-                >
+                <SwiperSlide key={testimonial.author.ensName}>
                   <div className="w-full flex flex-col gap-10">
                     <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
                       <div

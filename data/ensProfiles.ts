@@ -13,7 +13,7 @@ export const getCachedProfile = (ensName: string): Profile => {
   }
 
   if (!ensNameProfile)
-    throw new Error("ENS Profile not already cached for name: " + ensName);
+    throw new Error("No cached ENS Profile for name: " + ensName);
 
   return ensNameProfile;
 };

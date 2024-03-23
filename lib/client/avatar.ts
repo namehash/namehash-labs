@@ -1,5 +1,3 @@
-import { parseName } from "@namehash/nameparser";
-
 type QueryParams = {
   avatarQueries: AvatarQueryModel[];
   logLevel?: LogLevel;
@@ -13,13 +11,6 @@ export enum LogLevel {
   INFO_AND_ERROR = "info_and_error",
 }
 export const getDynamicENSAvatarCallback = async (ensName: string) => {
-  let parsedName;
-  try {
-    parsedName = parseName(ensName);
-  } catch (error) {
-    throw new Error(String(error));
-  }
-
   return fetch(`https://metadata.ens.domains/mainnet/avatar/${ensName}`)
     .then((res) => {
       if (res.ok) {
