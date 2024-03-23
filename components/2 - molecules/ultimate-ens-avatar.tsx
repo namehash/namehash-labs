@@ -8,7 +8,6 @@ import {
   queryMultipleEndpointsToGetAvatar,
 } from "@/lib/client/avatar";
 import { ens_normalize } from "@adraffy/ens-normalize";
-import { parseName } from "@namehash/nameparser";
 
 interface UltimateENSAvatarProps {
   profile: Profile;
