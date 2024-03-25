@@ -16,6 +16,7 @@
     "fast-average-color": "^9.4.0",
     "lottie-react": "^2.4.0",
     "next": "14.0.1",
+    "next-seo": "^6.5.0",
     "nextjs-cors": "^2.2.0",
     "react": "^18",
     "react-dom": "^18",
