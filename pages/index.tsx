@@ -1,5 +1,4 @@
 import "@namehash/ens-webfont";
-
 import {
   HeroSection,
   OurPrinciplesSection,
@@ -8,8 +7,6 @@ import {
 } from "@/components/2 - molecules";
 import { IntroducingNamekit } from "@/components/2 - molecules/introducing-namekit";
 import { TheVisionSection } from "@/components/2 - molecules/the-vision-section";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
 import { useRouter } from "next/router";
 import { TestimonialsSection } from "@/components/2 - molecules/testimonials-section";
@@ -20,24 +17,6 @@ import { CollaborationPartnersSection } from "@/components/2 - molecules/collabo
 import { SEO } from "@/components/1 - atoms/seo";
 
 export default function Home() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi();
-      cal("ui", {
-        cssVarsPerTheme: {
-          light: {
-            "--brand-color": "#000000",
-          },
-          dark: {
-            "--brand-color": "#000000",
-          },
-        },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    })();
-  }, []);
-
   const router = useRouter();
 
   return (

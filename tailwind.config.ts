@@ -28,6 +28,10 @@ const config: Config = {
       },
     },
     keyframes: {
+      spin: {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
+      },
       scaleAvatar: {
         "0%": { transform: "scale(1)" },
         "100%": { transform: "scale(1.05)" },
@@ -69,6 +73,7 @@ const config: Config = {
       slideIn: "slideIn 0.5s ease-out",
       slideOut: "slideOut 0.5s ease-in",
       widen: "widen 5s linear forwards",
+      spin: "spin 1s linear infinite",
     },
   },
   plugins: [],

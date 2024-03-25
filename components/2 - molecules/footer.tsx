@@ -1,6 +1,6 @@
 import { NameHashLabsLogo, ServiceProviderBadge } from "../1 - atoms";
 
-const FooterProducts = [
+const footerProducts = [
   {
     name: "NameKit",
     href: "https://namekit.io",
@@ -15,6 +15,21 @@ const FooterProducts = [
   },
 ];
 
+const footerResources = [
+  {
+    name: "Partners",
+    href: "/partners",
+  },
+  {
+    name: "Contact us",
+    href: "/contact",
+  },
+  {
+    name: "Brand assets",
+    href: "/brand-assets",
+  },
+];
+
 export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <section
@@ -22,7 +37,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
       {...props}
     >
       <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1216px]">
-        <div className="w-full flex flex-col lg:flex-row lg:justify-between">
+        <div className="w-full gap-5 flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-5">
             <NameHashLabsLogo />
 
@@ -35,19 +50,38 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <ServiceProviderBadge />
           </div>
 
-          <ul className="flex flex-col ">
-            <h4 className="mt-8 mb-2 text-sm font-semibold">Products</h4>
-            {FooterProducts.map((product) => {
-              return (
-                <li
-                  key={product.name}
-                  className="my-2 text-sm font-light text-gray-500 hover:underline transition"
-                >
-                  <a href={product.href}>{product.name}</a>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="flex justify-start">
+            <ul className="flex  flex-col w-[228px] pr-5">
+              <h4 className="mb-2 text-sm font-semibold">Products</h4>
+              {footerProducts.map((product) => {
+                return (
+                  <li
+                    key={product.name}
+                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
+                  >
+                    <a href={product.href} target="_blank">
+                      {product.name}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            <ul className="flex flex-col w-[228px]">
+              <h4 className="mb-2 text-sm font-semibold">Resources</h4>
+              {footerResources.map((resource) => {
+                return (
+                  <li
+                    key={resource.name}
+                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
+                  >
+                    <a href={resource.href} target="_blank">
+                      {resource.name}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <div className="lg:border-t lg:border-gray-200 w-full flex flex-col lg:flex-row lg:justify-between gap-5 pt-5">
