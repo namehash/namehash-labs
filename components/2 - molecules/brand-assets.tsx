@@ -32,7 +32,7 @@ export const BrandAssets = () => {
             <a
               target="_blank"
               href={"https://github.com/namehash/brand-assets"}
-              className="flex gap-3 flex-wrap bg-black rounded-[8px] text-white shadow-sm text-base leading-6 py-2 px-4 font-medium hover:bg-gray-800 transition-colors duration-200 "
+              className="flex gap-3 bg-black rounded-[8px] whitespace-nowrap text-white shadow-sm text-base leading-6 py-2 px-4 font-medium hover:bg-gray-800 transition-colors duration-200 flex-nowrap"
             >
               Download on Github <ExternalLinkIcon className="w-5 h-5" />
             </a>
