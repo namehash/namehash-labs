@@ -7,7 +7,6 @@ import {
   LogLevel,
   queryMultipleEndpointsToGetAvatar,
 } from "@/lib/client/avatar";
-import { ens_normalize } from "@adraffy/ens-normalize";
 
 interface UltimateENSAvatarProps {
   profile: Profile;
@@ -28,8 +27,6 @@ export const UltimateENSAvatar = ({
     throw new Error(
       "At least one Avatar Query must be provided in order to fetch an Avatar image."
     );
-
-  ens_normalize(profile.ensName);
 
   const [avatarResponse, setAvatarResponse] = useState<Response | null>(null);
 
