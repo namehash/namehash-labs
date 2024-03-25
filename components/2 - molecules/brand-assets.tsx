@@ -38,8 +38,10 @@ export const BrandAssets = () => {
             </a>
           </div>
           <a
-            href="/assets/brand-assets-main.zip"
-            download="brand-assets.zip"
+            target="_blank"
+            href={
+              "https://github.com/namehash/brand-assets/archive/refs/heads/main.zip"
+            }
             className="max-w-[588px] lg:flex-shrink-0 relative group hover:cursor-pointer"
           >
             <Image
