@@ -2,19 +2,20 @@
 import Image from "next/image";
 import { ExternalLinkIcon, PreSectionText } from "../1 - atoms";
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
+import { ColorfulDownloadIcon } from "../1 - atoms/icons/colorful-download-icon";
 
 export const BrandAssets = () => {
   return (
-    <section className="w-full max-w-[1216px] py-20 px-5 h-full">
+    <section className="w-full max-w-[1216px] py-20 px-5 lg:px-[112px] h-full">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
-      <div className="flex flex-col lg:mt-[100px] lg:mb-[120px] mt-[60px] mb-[60px] gap-3">
+      <div className="flex flex-col lg:mt-[100px] lg:mb-[120px] mt-[60px] mb-[60px] gap-3 ">
         <PreSectionText className="text-start ">Logos & MORE</PreSectionText>
         <h1 className="font-bold lg:text-[52px] text-4xl leading-10">
           Brand assets
         </h1>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center border-t border-gray-200 py-20">
+      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center border-t border-gray-200 py-20 ">
         <div className="flex flex-col items-start gap-6">
           <div className="flex flex-col gap-3">
             <h3 className="text-3xl leading-9 lg:text-4xl lg:leading-10 font-bold">
@@ -46,8 +47,8 @@ export const BrandAssets = () => {
             src={"/images/brand-assets-card.png"}
             alt={"Brand assets image"}
           />
-          <div className="absolute flex items-center justify-center text-3xl left-1/2 bottom-[10%] shadow-lg w-[100px] h-[100px] bg-white rounded-full group-hover:scale-105 transition-all duration-200 ">
-            ⬇️
+          <div className="absolute flex items-center justify-center text-3xl left-1/2 bottom-[10%] shadow-lg w-[100px] h-[100px] bg-white rounded-full group-hover:scale-110 border-gray-200 border transition-all duration-200 ">
+            <ColorfulDownloadIcon />
           </div>
         </a>
       </div>
