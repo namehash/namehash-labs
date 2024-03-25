@@ -46,7 +46,7 @@ export const BrandAssets = () => {
               width={588}
               height={500}
               src={"/images/brand-assets-card.png"}
-              alt={"Brand assets image"}
+              alt={"Download NameHash Labs Brand Assets"}
             />
             <div className="absolute flex items-center justify-center text-3xl left-1/2 bottom-[10%] shadow-lg w-[100px] h-[100px] bg-white rounded-full group-hover:scale-110 border-gray-200 border transition-all duration-200 ">
               <ColorfulDownloadIcon />
