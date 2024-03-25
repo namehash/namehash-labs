@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { origin } from "@/lib/shared/origin";
 import { Layout } from "@/components/4 - templates/layout";
 import { GithubIcon } from "@/components/1 - atoms/icons/github-icon";
+import { SEO } from "@/components/1 - atoms/seo";
 
 export default function Home() {
   useEffect(() => {
@@ -35,22 +36,14 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <meta
-          name="twitter:image"
-          content="https://namehashlabs.org/images/ens-referral-program-og-image-twitter.png"
-        />
-        <meta
-          property="og:image"
-          content="https://namehashlabs.org/images/ens-referral-program-og-image.png"
-        />
-        <meta
-          property="og:image:alt"
-          content="NameHash Labs - ENS Referral Program Proposal"
-        />
-
-        <meta property="og:url" content={origin + router.pathname} />
-      </Head>
+      <SEO
+        title="ENS Referral Program Proposal"
+        description="Join the discussion about an ENS Referral Program and help ENS grow."
+        keywords="ens, web3, eth, referral program"
+        ogImagePath="/images/ens-referral-program-og-image.png"
+        ogImageAlt="ENS Referral Program Proposal"
+        twitterImagePath="/images/ens-referral-program-og-image-twitter.png"
+      />
       <main className="flex flex-col items-center justify-between">
         <Layout>
           <div className="mt-20 w-full">
