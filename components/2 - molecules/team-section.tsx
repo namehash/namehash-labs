@@ -6,7 +6,6 @@ import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
 import { UltimateENSAvatar } from ".";
 import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
-import Link from "next/link";
 
 const namehashLabsTeam = {
   profiles: [
