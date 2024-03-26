@@ -13,7 +13,7 @@ export const ColoredText = () => {
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
         }}
-        className="text-transparent lg:text-4xl lg:leading-[52px] text-[24px] leading-[32px] font-semibold text-center max-w-[1216px] m-auto"
+        className="text-transparent lg:text-4xl lg:leading-[52px] text-[24px] leading-[32px] font-semibold text-center max-w-[1280px] m-auto"
       >
         <Balancer>
           We bring ENS onboarding directly into wallets and dApps that{" "}

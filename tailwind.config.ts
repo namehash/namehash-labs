@@ -29,8 +29,9 @@ const config: Config = {
     },
     keyframes: {
       scaleAvatar: {
-        "0%": { transform: "scale(1)" },
-        "100%": { transform: "scale(1.05)" },
+        "0%": { transform: "scale(1)", zIndex: "50" },
+        "50%": { transform: "scale(1.025)", zIndex: "50" },
+        "100%": { transform: "scale(1.05)", zIndex: "50" },
       },
       scaleDownAvatar: {
         "0%": { transform: "scale(1.05)" },
@@ -63,7 +64,7 @@ const config: Config = {
     },
     animation: {
       fadeIn: "fadeIn 1s linear forwards",
-      scaleAvatar: "scaleAvatar 0.2s linear forwards",
+      scaleAvatar: "0.2s scaleAvatar 0s linear forwards",
       scaleDownAvatar: "scaleDownAvatar 0.45s linear forwards",
       spinSlow: "rotate360 150s linear infinite",
       slideIn: "slideIn 0.5s ease-out",

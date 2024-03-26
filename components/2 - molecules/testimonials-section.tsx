@@ -6,9 +6,11 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { AvatarSize } from "./avatar-with-tooltip";
 import { Navigation, Autoplay } from "swiper/modules";
-import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
+import { UltimateENSAvatar } from ".";
+import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
 
 const testimonials: Testimonial[] = [
   {
@@ -174,7 +176,7 @@ export const TestimonialsSection = () => {
       className="lg:px-[110px] px-5 py-[108px] w-full"
       id="ensOnboardingSection"
     >
-      <div className="w-full flex flex-col items-center gap-20 max-w-[1216px] m-auto">
+      <div className="w-full flex flex-col items-center gap-20 max-w-[1280px] m-auto">
         <div className="flex flex-col items-center gap-3">
           <PreSectionText>WHAT PEOPLE ARE SAYING</PreSectionText>
           <SectionTitle>Testimonials</SectionTitle>
@@ -210,7 +212,7 @@ export const TestimonialsSection = () => {
           >
             {testimonials.map((testimonial, index) => {
               return (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={testimonial.author.ensName}>
                   <div className="w-full flex flex-col gap-10">
                     <div className="flex justify-between gap-10 items-center w-full relative lg:px-20">
                       <div
@@ -223,7 +225,13 @@ export const TestimonialsSection = () => {
 
                     <div className="flex gap-5 w-full mx-auto items-center justify-center sm:max-w-[350px] md:max-w-[2000px]">
                       <div className="shrink-0">
-                        <AvatarWithTooltip profile={testimonial.author} />
+                        <UltimateENSAvatar
+                          size={AvatarSize.SMALL}
+                          profile={testimonial.author}
+                          avatarQueries={getNameHashLabsAvatarCallbacks(
+                            testimonial.author
+                          )}
+                        />
                       </div>
 
                       <div className="flex flex-col shrink">

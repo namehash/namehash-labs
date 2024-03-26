@@ -10,3 +10,5 @@ export * from "./headline-banner";
 export * from "./cal-button";
 export * from "./icons/beans-bg";
 export * from "./icons/service-provider-badge";
+export * from "./icons/ens-solid-icon";
+export * from "./icons/twitter-icon";

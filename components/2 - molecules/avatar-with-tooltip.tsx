@@ -1,54 +1,126 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { FastAverageColor } from "fast-average-color";
-import { EnsSolidIcon } from "../1 - atoms/icons/ens-solid-icon";
+import { EnsSolidIcon, TwitterIcon } from "../1 - atoms/";
 import { Profile } from "@/data/ensProfiles";
 import { useId } from "react";
+import cc from "classcat";
+import { URL } from "url";
 
 interface AvatarWithTooltipProps {
-  profile: Profile;
   className?: string;
-  width?: number;
+  profile: Profile;
+  size?: AvatarSize;
+  avatarQueryResponse: Response | null;
 }
+
+export enum AvatarSize {
+  SMALL = 80,
+  MEDIUM = 120,
+}
+
+const AvatarSizeStyling = {
+  [AvatarSize.SMALL]: "min-w-[80px] w-20 h-20",
+  [AvatarSize.MEDIUM]: "w-20 h-20 lg:w-[120px] lg:h-[120px]",
+};
+
 const DEFAULT_AVATAR_SHADOW = "rgba(0, 0, 0, 0.4)";
 
 export const AvatarWithTooltip = ({
-  profile,
+  size = AvatarSize.MEDIUM,
   className = "",
-  width = 80,
+  profile,
+  avatarQueryResponse,
 }: AvatarWithTooltipProps) => {
-  const [imageFailed, setImageFailed] = useState(false);
   const [shadowColor, setShadowColor] = useState(DEFAULT_AVATAR_SHADOW);
-  const [isHovered, setIsHovered] = useState(false);
-  const imageRef = useRef(null);
+  const [successfullyLoadedAvatar, setSuccessfullyLoadedAvatar] =
+    useState(false);
   const fac = new FastAverageColor();
 
+  const avatarID = "image-" + useId();
+
   useEffect(() => {
-    if (imageRef.current) {
-      fac
-        .getColorAsync(imageRef.current)
-        .then((color) => {
-          setShadowColor(color.rgba);
-        })
-        .catch((e) => {
-          console.error(e);
-        });
+    if (avatarQueryResponse !== null) {
+      updateAvatarImageSrcAttribute(avatarQueryResponse);
     }
-  }, [imageRef, fac]);
+  }, [avatarQueryResponse]);
 
-  const tooltipID = useId();
+  const imageRef = React.useRef<HTMLImageElement>(null);
 
-  const imgSrc = imageFailed
-    ? "/images/no-avatar.png"
-    : `/images/avatars/${profile.ensName}.png`;
+  const updateAvatarImageSrcAttribute = (src: Response) => {
+    if (imageRef.current) {
+      imageRef.current.src = src.url;
+      imageRef.current.crossOrigin = "anonymous";
 
-  const imageSizeString =
-    width === 80 ? "w-[80px] h-[80px]" : "w-[120px] h-auto ";
+      imageRef.current.addEventListener("load", () => {
+        setSuccessfullyLoadedAvatar(true);
+      });
+    }
+  };
+
+  const updateShadowColor = () => {
+    if (successfullyLoadedAvatar && imageRef.current) {
+      const color = fac.getColor(imageRef.current);
+
+      setShadowColor(color.rgba);
+    }
+  };
+
+  useEffect(() => {
+    updateShadowColor();
+  }, [successfullyLoadedAvatar]);
+
+  /* 
+    Start of Avatar scaling logic ⬇️
+
+    isHovered: boolean - Holds the state of the hover event over the Avatar image
+    blockHoverInteraction: boolean - Wether the hover event happened in a timestamp between now and AVATAR_SCALING_TIMEOUT ago
+    isAvatarScaled: boolean - Wether the Avatar image is scaled up or not in the Ui
+  */
+  const AVATAR_SCALING_TIMEOUT = 300;
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [blockHoverInteraction, setBlockHoverInteraction] = useState(false);
+  const [isAvatarScaled, setIsAvatarScaled] = useState(false);
+
+  useEffect(() => {
+    if (blockHoverInteraction) {
+      return;
+    }
+
+    setIsAvatarScaled(isHovered);
+  }, [isHovered]);
+  useEffect(() => {
+    if (isAvatarScaled) {
+      setBlockHoverInteraction(true);
+    }
+  }, [isAvatarScaled]);
+  useEffect(() => {
+    if (blockHoverInteraction) {
+      setTimeout(() => {
+        setBlockHoverInteraction(false);
+      }, AVATAR_SCALING_TIMEOUT);
+    } else {
+      if (isHovered !== isAvatarScaled) {
+        setIsAvatarScaled(isHovered);
+      }
+    }
+  }, [blockHoverInteraction]);
+  /*
+    Since some browsers do not correctly trigger mouse events when the target element is scaling up or down,
+    the above logic was created to guarantee that the Avatar scaling event is correctly triggered and that the
+    Ui always reflects a smooth transition between a scaled up and a scaled down Avatar image. This logic 
+    separates the hover event from the Ui scaling animation by using a timeout to block the hover event
+    from triggering the scaling animation. This way, the misunderdatings between the browser mouse
+    events and a scaling Avatar are avoided and the Ui is always consistent.
+
+    End of Avatar scaling logic ⬆️
+  */
 
   return (
-    <div>
+    <>
       {/* 
         Whenever a user interacts with this component, two things happen:
         1. The avatar scales up (on mouse over) and down (on mouse leave)
@@ -65,72 +137,74 @@ export const AvatarWithTooltip = ({
         You can find these animations application in the <Image> component below and its configuration in Tailwind Config file.
         You can find the Tooltip specs in the Tooltip component below and its configuration in Tooltip's props.
       */}
-      <Image
-        src={imgSrc}
-        alt={profile.ensName}
+      <img
         data-tip
+        ref={imageRef}
+        alt={profile.ensName}
         data-for={profile.ensName}
-        data-tooltip-id={`${profile.ensName}-${tooltipID}`}
-        width={width}
-        height={width}
-        onMouseEnter={() => {
-          setIsHovered(true);
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false);
-        }}
-        className={`ml-[2.5%] rounded-[12px] ${imageSizeString} bg-white ${className} hover:animate-scaleAvatar animate-scaleDownAvatar hover:z-50 tooltip-target border-gray-300 border transition-all duration-200`}
-        onError={() => setImageFailed(true)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        data-tooltip-id={`${profile.ensName}-${avatarID}`}
+        className={cc([
+          className,
+          AvatarSizeStyling[size],
+          {
+            "opacity-0 bg-gray-200 invisible absolute animate-loadingScaleDownAvatar":
+              !successfullyLoadedAvatar,
+          },
+          "tooltip-target ml-[2.5%] rounded-xl transition",
+          {
+            "animate-scaleAvatar": isAvatarScaled,
+            "animate-scaleDownAvatar": !isAvatarScaled,
+          },
+        ])}
         style={{
           borderRadius: "12.31px",
-          boxShadow: `0 ${isHovered ? "6px 12px" : "0"} ${shadowColor}`,
+          boxShadow: `0 ${isAvatarScaled ? "6px 12px" : "0"} ${shadowColor}`,
+          outline: "1px solid rgba(0,0,0,0.1)",
+          outlineOffset: "-1px",
         }}
-        ref={imageRef}
       />
+      <div
+        className={cc([
+          className,
+          AvatarSizeStyling[size],
+          "bg-gray-100 animate-pulse rounded-xl ml-[2.5%] border-[rgba(0,0,0,0.1)] border",
+          {
+            "opacity-0 invisible absolute": successfullyLoadedAvatar,
+          },
+        ])}
+      ></div>
+
       <Tooltip
         clickable
         place="top"
+        opacity={1}
+        delayHide={0}
+        delayShow={200}
+        id={`${profile.ensName}-${avatarID}`}
+        className="z-50 bg-black !rounded-[8px] !p-0 overflow-hidden"
         openEvents={{ mouseenter: true, focus: true }}
         closeEvents={{ mouseleave: true, blur: true }}
-        className="z-50 bg-black !rounded-[8px] !p-0"
-        id={`${profile.ensName}-${tooltipID}`}
-        delayShow={200}
-        delayHide={0}
-        opacity={1}
+        noArrow={true}
       >
         <div className="flex gap-4 max-w-[375px] md:max-w-[400px] p-4 items-stretch">
           <div className="shrink-0 flex flex-grow transition-all duration-200">
-            <Image
-              src={imgSrc}
-              width={width}
-              height={width}
+            <img
               alt={profile.ensName}
-              className={`h-20 w-20 rounded-[8px]`}
-              onError={() => setImageFailed(true)}
+              src={avatarQueryResponse?.url}
+              className={cc([
+                AvatarSizeStyling[AvatarSize.SMALL],
+                "rounded-lg",
+              ])}
             />
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex gap-1 items-center ">
-              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont">
+            <div className="flex gap-1 items-center">
+              <p className="font-semibold text-lg transition-all duration-200 mr-1 ens-webfont line-clamp-1 break-all">
                 {profile.ensName}
               </p>
 
-              <a href={profile.twitterProfile} target="_blank">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="group"
-                >
-                  <path
-                    fill="#AFAFAF"
-                    d="M13.5222 10.7749L19.4785 4H18.0671L12.8952 9.88256L8.76437 4H4L10.2466 12.8955L4 20H5.41155L10.8732 13.7878L15.2356 20H20L13.5218 10.7749H13.5222ZM11.5889 12.9738L10.956 12.0881L5.92015 5.03974H8.0882L12.1522 10.728L12.7851 11.6137L18.0677 19.0075H15.8997L11.5889 12.9742V12.9738Z"
-                    className="fill-current text-gray-400 group-hover:text-white transition-color duration-200"
-                  />
-                </svg>
-              </a>
               <a
                 href={`https://app.ens.domains/${profile.ensName}`}
                 target="_blank"
@@ -142,6 +216,12 @@ export const AvatarWithTooltip = ({
                   width={24}
                 />
               </a>
+
+              {profile.twitterProfile && (
+                <a href={profile.twitterProfile} target="_blank">
+                  <TwitterIcon />
+                </a>
+              )}
             </div>
             {profile.displayName && (
               <p className="text-sm font-normal">{profile.displayName}</p>
@@ -152,6 +232,6 @@ export const AvatarWithTooltip = ({
           </div>
         </div>
       </Tooltip>
-    </div>
+    </>
   );
 };
