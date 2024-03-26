@@ -59,9 +59,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     key={product.name}
                     className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                   >
-                    <a href={product.href} target="_blank">
-                      {product.name}
-                    </a>
+                    <a href={product.href}>{product.name}</a>
                   </li>
                 );
               })}
@@ -74,9 +72,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     key={resource.name}
                     className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                   >
-                    <a href={resource.href} target="_blank">
-                      {resource.name}
-                    </a>
+                    <a href={resource.href}>{resource.name}</a>
                   </li>
                 );
               })}
