@@ -1,4 +1,4 @@
-# [namehashlabs.org](namehashlabs.org)
+# namehashlabs.org
 
 This repository contains all of the code for the [namehashlabs.org](https://namehashlabs.org) website. The website is built using [Next.js](https://nextjs.org), and is deployed to Vercel.
 
