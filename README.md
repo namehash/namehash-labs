@@ -15,7 +15,7 @@ Members of the NameHash team on Vercel may optionally use the [Vercel CLI](https
 
 ## Deploy
 
-This repository is connected to the Vercel project [`namehashlabs-website`](https://vercel.com/namehash/namehashlabs-website), and any pull request automatically receives a preview environment. When a PR is merged, the production instance is automatically updated.
+This repository is connected to the Vercel project [`namehashlabs-website`](https://vercel.com/namehash/namehashlabs-website), and any pull request automatically receives a preview environment. When a PR is merged to the main branch, the production instance is automatically updated.
 
 ## License
 
