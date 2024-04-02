@@ -21,7 +21,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
       className="lg:px-[112px] px-5 flex items-center justify-center w-full border-t border-gray-200"
       {...props}
     >
-      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1216px]">
+      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1280px]">
         <div className="w-full flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-5">
             <NameHashLabsLogo />

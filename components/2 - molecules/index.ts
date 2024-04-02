@@ -6,3 +6,5 @@ export * from "./cta-section";
 export * from "./products-section";
 export * from "./team-section";
 export * from "./footer";
+export * from "./avatar-with-tooltip";
+export * from "./ultimate-ens-avatar";
