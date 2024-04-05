@@ -11,7 +11,7 @@ const footerProducts = [
   },
   {
     name: "ENS Referral Program",
-    href: "https://namehashlabs.org/ens-referral-program",
+    href: "/ens-referral-program",
   },
 ];
 
@@ -59,7 +59,12 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     key={product.name}
                     className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                   >
-                    <a href={product.href}>{product.name}</a>
+                    <a
+                      target={product.href.startsWith("/") ? "_self" : "_blank"}
+                      href={product.href}
+                    >
+                      {product.name}
+                    </a>
                   </li>
                 );
               })}
@@ -72,7 +77,14 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     key={resource.name}
                     className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                   >
-                    <a href={resource.href}>{resource.name}</a>
+                    <a
+                      target={
+                        resource.href.startsWith("/") ? "_self" : "_blank"
+                      }
+                      href={resource.href}
+                    >
+                      {resource.name}
+                    </a>
                   </li>
                 );
               })}
