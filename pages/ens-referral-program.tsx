@@ -62,8 +62,8 @@ export default function Home() {
                   illustration={
                     <Image
                       quality={100}
-                      width={568}
-                      height={360}
+                      width={1056}
+                      height={820}
                       className="w-full h-auto max-w-[600px]"
                       src="/images/ens-incentive.png"
                       alt="hero"
