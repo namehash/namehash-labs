@@ -12,8 +12,8 @@ const Custom404 = () => {
       <Layout>
         <section className="px-5 h-screen w-full flex flex-col relative items-center justify-center overflow-hidden landscape:mt-20 tall:landscape:mt-0">
           <div className="flex flex-col items-center  max-w-[600px] z-20 animate-fadeIn">
-            <Title404 className="w-full max-w-[500px] mb-[60px] landscape:mb-0 tall:landscape:mb-0" />
-            <h3 className="text-4xl leading-10 font-bold mb-4 ">
+            <Title404 className="w-full max-w-[500px] mb-[60px]" />
+            <h3 className="text-4xl leading-10 font-bold mb-3">
               Page not found
             </h3>
             <div
