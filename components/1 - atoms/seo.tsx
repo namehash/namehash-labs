@@ -11,10 +11,18 @@ type Props = {
   ogImageAlt?: string;
   ogImagePath?: string;
   twitterImagePath?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  twitterImageWidth?: number;
+  twitterImageHeight?: number;
 };
 
 export function SEO({
   title,
+  ogImageWidth,
+  ogImageHeight,
+  twitterImageWidth,
+  twitterImageHeight,
   description,
   keywords,
   noindex = false,
@@ -42,8 +50,8 @@ export function SEO({
           ? [
               {
                 url: ogImageUrl,
-                width: 1200,
-                height: 630,
+                width: ogImageWidth || 1260,
+                height: ogImageHeight || 630,
                 alt: ogImageAlt,
                 type: "image/png",
               },
@@ -58,6 +66,18 @@ export function SEO({
               property: "twitter:image",
               content: twitterImageUrl,
             },
+            ...(twitterImageWidth && twitterImageHeight
+              ? [
+                  {
+                    property: "twitter:image:width",
+                    content: twitterImageWidth.toString(),
+                  },
+                  {
+                    property: "twitter:image:height",
+                    content: twitterImageHeight.toString(),
+                  },
+                ]
+              : []),
           ]
         : []),
       {

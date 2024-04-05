@@ -12,6 +12,10 @@ export default function Contact() {
         ogImagePath="/images/contact-og-image.png"
         ogImageAlt="NameHash Labs - Contact Us"
         twitterImagePath="/images/contact-og-image-twitter.png"
+        ogImageWidth={1260}
+        ogImageHeight={630}
+        twitterImageWidth={4096}
+        twitterImageHeight={2048}
       />
       <ContactSection />
     </Layout>

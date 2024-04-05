@@ -27,6 +27,10 @@ export default function Home() {
         ogImagePath="/images/og-image.png"
         ogImageAlt="NameHash Labs - Helping ENS Grow"
         twitterImagePath="/images/og-image-twitter.png"
+        // ogImageWidth={1260}
+        // ogImageHeight={630}
+        // twitterImageWidth={4096}
+        // twitterImageHeight={2048}
       />
       <Layout>
         <HeroSection />

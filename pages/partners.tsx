@@ -12,6 +12,10 @@ export default function Partners() {
         ogImagePath="/images/partners-og-image.png"
         ogImageAlt="NameHash Labs - Partners"
         twitterImagePath="/images/partners-og-image-twitter.png"
+        ogImageWidth={1260}
+        ogImageHeight={630}
+        twitterImageWidth={4096}
+        twitterImageHeight={2048}
       />
       <PartnersPage />
     </Layout>

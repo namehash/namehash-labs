@@ -41,6 +41,10 @@ export default function Home() {
         ogImagePath="/images/ens-referral-program-og-image.png"
         ogImageAlt="ENS Referral Program Proposal"
         twitterImagePath="/images/ens-referral-program-og-image-twitter.png"
+        ogImageWidth={1260}
+        ogImageHeight={630}
+        twitterImageWidth={4096}
+        twitterImageHeight={2048}
       />
       <main className="flex flex-col items-center justify-between">
         <Layout>
