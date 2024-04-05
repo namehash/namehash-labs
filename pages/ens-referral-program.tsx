@@ -5,13 +5,11 @@ import { DocumentTextIcon } from "@heroicons/react/24/solid";
 import cc from "classcat";
 import { ExternalLinkIcon } from "@/components/1 - atoms";
 import { FigmaIcon } from "@/components/1 - atoms/icons/figma-icon";
-import { Product2 } from "@/components/2 - molecules/product-component -2";
-import Head from "next/head";
 import { useRouter } from "next/router";
-import { origin } from "@/lib/shared/origin";
 import { Layout } from "@/components/4 - templates/layout";
 import { GithubIcon } from "@/components/1 - atoms/icons/github-icon";
 import { SEO } from "@/components/1 - atoms/seo";
+import { ProductComponent } from "@/components/2 - molecules/product-component";
 
 export default function Home() {
   useEffect(() => {
@@ -49,7 +47,7 @@ export default function Home() {
           <div className="mt-20 w-full">
             <div className="w-full px-5 bg-gray-50 flex items-center justify-center">
               <section className="w-full max-w-[1216px]">
-                <Product2
+                <ProductComponent
                   title="ENS Referral Program"
                   subtitle="The power of a protocol lies not only in its technology, but in the strength of its community. Passionate about ENS? Become an ENS Referrer, help grow ENS, and start earning."
                   illustration={

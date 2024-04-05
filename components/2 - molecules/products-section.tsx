@@ -25,7 +25,7 @@ interface ProductProps {
   withoutExternalLinkIconInCTA?: boolean;
 }
 
-export const Product = ({
+const Product = ({
   sectionId,
   label,
   title,
