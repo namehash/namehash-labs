@@ -13,7 +13,6 @@ import { TestimonialsSection } from "@/components/2 - molecules/testimonials-sec
 import { Layout } from "@/components/4 - templates/layout";
 import { OurSuportersSection } from "@/components/2 - molecules/our-supporters-section";
 import { FinancialSupportSection } from "@/components/2 - molecules/financial-support-section";
-import { CollaborationPartnersSection } from "@/components/2 - molecules/collaboration-partners-section";
 import { SEO } from "@/components/1 - atoms/seo";
 
 export default function Home() {
@@ -38,7 +37,6 @@ export default function Home() {
         <TestimonialsSection />
         <OurPrinciplesSection />
         <TeamSection />
-        <CollaborationPartnersSection />
         <JoinOurTeamSection />
         <FinancialSupportSection />
       </Layout>
