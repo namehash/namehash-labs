@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { NameHashLabsLogo, CalButton } from "../1 - atoms";
 import { origin } from "@/lib/shared/origin";
+import MobileMenu from "./mobile-menu";
 
 export const Header = () => {
   return (
@@ -19,7 +20,7 @@ export const Header = () => {
           </Link>
           <Link
             href={origin + "/#joinOurTeam"}
-            className="px-[16px] py-[9px] bg-white text-black border border-gray-300 rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-50 transition-colors duration-200"
+            className="hidden sm:inline px-[16px] py-[9px] bg-white text-black border border-gray-300 rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-50 transition-colors duration-200"
             style={{
               boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
             }}
@@ -29,6 +30,7 @@ export const Header = () => {
           <CalButton className="hidden sm:inline px-[16px] py-[9px] bg-black text-white border border-black rounded-[8px] text-sm leading-5 font-medium hover:bg-gray-800 transition-colors duration-200">
             Schedule a call
           </CalButton>
+          <MobileMenu />
         </div>
       </div>
     </nav>
