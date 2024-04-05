@@ -11,7 +11,7 @@ export default function Contact() {
         keywords="ens, web3, eth, namehash, contact"
         ogImagePath="/images/contact-og-image.png"
         ogImageAlt="NameHash Labs - Contact Us"
-        twitterImagePath="/images/contact-og-image.png"
+        twitterImagePath="/images/contact-og-image-twitter.png"
       />
       <ContactSection />
     </Layout>

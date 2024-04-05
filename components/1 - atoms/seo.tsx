@@ -2,16 +2,6 @@ import { origin } from "../../lib/shared/origin";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
-// usage example:
-// <SEO
-//   title="NameKit - Engaging ENS user journeys made easy"
-//   description="Easily integrate rich ENS user journeys into your wallet or web3 app. Customize NameKit to match your brand and UI."
-//   keywords="ens, web3, eth, namekit, SDK, API, UI"
-//   ogImagePath="/images/namekit/og-image.png"
-//   ogImageAlt="NameKit - Engaging ENS user journeys made easy"
-//   twitterImagePath="/images/namekit/og-image-twitter.png"
-// />
-
 type Props = {
   title?: string;
   description?: string;
