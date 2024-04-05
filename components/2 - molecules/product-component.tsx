@@ -3,10 +3,6 @@ import { ExternalLinkIcon, SectionText } from "../1 - atoms";
 import cc from "classcat";
 
 export interface ProductProps {
-  label: {
-    icon: React.ReactElement;
-    title: string;
-  };
   title: string;
   subtitle: string;
   illustration: React.ReactElement;
@@ -16,8 +12,7 @@ export interface ProductProps {
   greenLabelText?: string;
 }
 
-export const Product = ({
-  label,
+export const ProductComponent = ({
   title,
   subtitle,
   illustration,
@@ -29,25 +24,31 @@ export const Product = ({
   return (
     <section
       className={cc([
-        "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
+        "lg:py-5 pt-10 pb-5 w-full flex items-center justify-between",
       ])}
     >
       <div
         className={cc([
-          "w-full flex flex-col items-center lg:flex-row max-w-[1300px] bg-gray-50 rounded-[20px] p-[32px]",
+          "w-full flex flex-col items-center lg:flex-row",
           {
             "lg:flex-row-reverse": isInverted,
           },
         ])}
       >
-        <div className="lg:w-1/2 w-full flex items-start justify-center ">
+        <div className="lg:w-1/2 w-full flex items-start justify-center lg:justify-start">
           <div className="flex-col inline-flex gap-5 lg:max-w-[568px]">
-            <div className="justify-center lg:justify-start flex">
-              <div className="gap-2 bg-black inline-flex items-center bg-opacity-5 px-4 py-2 rounded-[20px]">
-                {label.icon}
-                <p className="text-sm leading-5 font-medium">{label.title}</p>
+            {greenLabelText && (
+              <div className="flex items-center justify-center lg:justify-start">
+                <div
+                  className="px-4 py-2 bg-green-100 border border-green-100 rounded-full"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  <p className="text-sm leading-[18px] font-medium text-green-800 font-variant-normal">
+                    {greenLabelText}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="flex flex-wrap gap-3 items-center justify-center lg:justify-start">
               <h2
@@ -56,20 +57,8 @@ export const Product = ({
               >
                 {title}
               </h2>
-              {greenLabelText && (
-                <div className="">
-                  <div
-                    className="px-3 py-0.5 bg-green-100 border border-green-100 rounded-full"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    <p className="text-sm leading-5 font-medium text-green-800 font-variant-normal">
-                      {greenLabelText}
-                    </p>
-                  </div>
-                </div>
-              )}
             </div>
-            <SectionText className="lg:text-start text-center w-full font-thin	">
+            <SectionText className="lg:text-start text-center w-full text-lg leading-7 font-normal">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
@@ -79,7 +68,7 @@ export const Product = ({
                   target="_blank"
                   className="border rounded-[8px] bg-black text-white px-4 py-2 transition-colors duration-200 hover:bg-gray-800 inline-flex items-center justify-center"
                 >
-                  Learn more
+                  Join the discussion
                   <div className="ml-3 w-5 h-5">
                     <ExternalLinkIcon />
                   </div>
