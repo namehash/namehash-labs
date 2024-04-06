@@ -187,7 +187,7 @@ const items: ItemProps[] = [
     icon: <GithubIcon className="h-6 w-6 text-gray-400 m-auto" />,
     title: "R&D Prototype",
     text: "R&D Prototype for .eth referrals implemented using ZK and Axiom.",
-    buttonText: "View in GitHub",
+    buttonText: "View on GitHub",
     buttonUrl: "https://github.com/namehash/ens-referrals",
   },
 ];
