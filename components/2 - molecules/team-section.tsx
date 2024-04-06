@@ -39,10 +39,6 @@ export const TeamSection = () => {
           >
             Check out our{" "}
             <Link
-              onClick={(e) => {
-                e.preventDefault();
-                window?.scrollTo(0, Number.MAX_SAFE_INTEGER);
-              }}
               href="/#joinOurTeam"
               className="text-gray-500 underline hover:text-black transition-colors duration-200"
             >
