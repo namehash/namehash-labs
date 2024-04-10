@@ -26,7 +26,7 @@ const MobileMenu = () => {
   return (
     <div className="z-50">
       {/* Hamburguer button  */}
-      <button className="block lg:hidden p-2" onClick={() => toggleMenu()}>
+      <button className="block md:hidden" onClick={() => toggleMenu()}>
         <Bars3Icon className="w-6 h-6 text-black" />
       </button>
 
@@ -44,9 +44,9 @@ const MobileMenu = () => {
             </button>
           </div>
 
-          <nav className="flex flex-col justify-center flex-grow">
+          <nav className="flex flex-col justify-center flex-grow gap-1 mx-5">
             <Link
-              className="block p-4 text-white text-sm hover:bg-gray-100"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100"
               href="/ens-referral-program"
               onClick={() => {
                 toggleMenu();
@@ -60,13 +60,13 @@ const MobileMenu = () => {
                 toggleMenu();
                 enableScroll();
               }}
-              className="block p-4 text-white text-sm hover:bg-gray-100"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100"
               href="/#joinOurTeam"
             >
               Open positions
             </Link>
 
-            <CalButton className="block p-4 text-white text-sm hover:bg-gray-100 text-left">
+            <CalButton className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100 text-left">
               Schedule a call
             </CalButton>
           </nav>
