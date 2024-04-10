@@ -6,6 +6,7 @@ import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
 import { UltimateENSAvatar } from ".";
 import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
+import Link from "next/link";
 
 const namehashLabsTeam = {
   profiles: [
@@ -61,6 +62,24 @@ export const TeamSection = () => {
             />
           );
         })}
+        <div
+          className="px-2 text-center w-full border lg:max-w-[212px] rounded-[12px] border-dashed border-gray-300 flex flex-col items-center justify-center"
+          style={{ aspectRatio: "1 / 1" }}
+        >
+          <p className="text-lg leading-6 font-semibold">Wanna be here?</p>
+          <div
+            role="text"
+            className="text-sm text-center leading-5 font-normal text-gray-500 px-2"
+          >
+            Check out our{" "}
+            <Link
+              href="/#joinOurTeam"
+              className="text-gray-500 underline hover:text-black transition-colors duration-200"
+            >
+              open roles
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

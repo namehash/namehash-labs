@@ -9,16 +9,16 @@ import { AxiomLogo } from "../1 - atoms/icons/axiom-logo";
 
 export const PartnersPage = () => {
   return (
-    <section className="w-full max-w-[1256px] pt-20 lg:pb-20 pb-5 px-5">
+    <section className="w-full pt-20 lg:pb-20 pb-5 px-5 lg:px-[112px]">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
-      <div className="flex flex-col items-start lg:gap-3 gap-2 lg:mt-[100px] lg:pb-[120px] py-[60px]">
+      <div className="flex flex-col items-start lg:gap-3 gap-2 lg:mt-[100px] lg:pb-[120px] py-[60px] m-auto max-w-[1216px]">
         <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
           Let&apos;s work together
         </p>
         <h1 className="font-bold text-[52px] leading-[52px]">Partners</h1>
       </div>
 
-      <div className="flex flex-col lg:items-center items-start justify-center gap-3 lg:py-20 py-10 border-t">
+      <div className="flex flex-col lg:items-center items-start justify-center gap-3 lg:py-20 py-10 border-t m-auto max-w-[1216px]">
         <h3 className="text-4xl leading-10 font-bold text-start">
           Let&apos;s work together
         </h3>
@@ -28,13 +28,13 @@ export const PartnersPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1216px] m-auto">
         {partners.map((partner) => (
           <PartnerCard key={partner.websiteUrl} {...partner} />
         ))}
       </div>
 
-      <div className="w-full flex lg:pt-20 pt-10 flex-col lg:flex-row m-auto gap-10 max-w-7xl">
+      <div className="w-full flex lg:pt-20 pt-10 flex-col lg:flex-row m-auto gap-10 max-w-[1216px]">
         <div className="lg:w-1/2 w-full flex flex-col gap-3 items-start">
           <SectionTitle className="text-3xl lg:text-4xl font-bold">
             Become our partner

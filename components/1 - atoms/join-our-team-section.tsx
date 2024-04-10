@@ -7,18 +7,18 @@ export const JoinOurTeamSection = () => {
   const router = useRouter();
 
   useEffect(() => {
+    // Check if the URL contains the specific hash
     if (router.asPath.includes("#joinOurTeam")) {
-      window.scrollTo(0, Number.MAX_SAFE_INTEGER);
-
-      // The need of this timeout is due to
-      // the fact the first scrollTo is not
-      // actually working to the bottom of the
-      // page on page load. It might be related
-      // to the fact that the page is not fully
-      // loaded yet. This second scrollTo is
-      // here to fix this issue.
+      // Use setTimeout to wait for the page to load fully.
+      // This delay ensures that all elements are rendered and positioned.
       setTimeout(() => {
-        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
+        // Find the element by its ID or other selectors.
+        const section = document.getElementById("joinOurTeam");
+
+        if (section) {
+          // Scrolls the `#joinOurTeam` section into view
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }, 1000);
     }
   }, [router]);
@@ -26,7 +26,7 @@ export const JoinOurTeamSection = () => {
   return (
     <section
       id="joinOurTeam"
-      className="flex flex-col lg:flex-row items-center px-5 pb-5 pt-[60px] md:px-20 mx-auto lg:px-[112px] lg:py-[86px]"
+      className="flex flex-col lg:flex-row items-center px-5 pb-5 pt-[60px] mx-auto lg:max-w-[1024px] xl:max-w-[1280px] max-w-[500px] md:max-w-[700px] lg:py-[86px]"
     >
       <div className="text-center lg:text-left">
         <h3 className="mb-3 text-xs font-medium text-gray-500">
