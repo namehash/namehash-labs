@@ -49,7 +49,7 @@ export default function Home() {
       <main className="flex flex-col items-center justify-between">
         <Layout>
           <div className="mt-20 w-full">
-            <div className="w-full px-5 bg-gray-50 flex items-center justify-center">
+            <div className="w-full px-5 lg:px-[112px] bg-gray-50 flex items-center justify-center">
               <section className="w-full max-w-[1216px]">
                 <ProductComponent
                   title="ENS Referral Program"
@@ -57,9 +57,9 @@ export default function Home() {
                   illustration={
                     <Image
                       quality={100}
-                      width={568}
-                      height={360}
-                      className="w-full h-auto"
+                      width={1056}
+                      height={820}
+                      className="w-full h-auto max-w-[600px]"
                       src="/images/ens-incentive.png"
                       alt="hero"
                     />
@@ -70,7 +70,7 @@ export default function Home() {
               </section>
             </div>
 
-            <section className="px-5 py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
+            <section className="px-5 lg:px-[112px] py-20 w-full flex flex-col relative items-center justify-center overflow-hidden">
               <div className="grid lg:grid-cols-3 grid-cols-1 items-start lg:divide-y-0 divide-y lg:divide-x justify-center max-w-[1216px]">
                 {items.map((item, index) => {
                   return (
@@ -182,7 +182,7 @@ const items: ItemProps[] = [
     icon: <GithubIcon className="h-6 w-6 text-gray-400 m-auto" />,
     title: "R&D Prototype",
     text: "R&D Prototype for .eth referrals implemented using ZK and Axiom.",
-    buttonText: "View in GitHub",
+    buttonText: "View on GitHub",
     buttonUrl: "https://github.com/namehash/ens-referrals",
   },
 ];
