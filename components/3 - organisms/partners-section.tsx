@@ -46,7 +46,7 @@ export const PartnersPage = () => {
             contributing to the expansion of ENS.
           </SectionText>
         </div>
-        <div className="lg:w-1/2 w-full bg-gray-50 py-8 px-10 border rounded-[8px] flex justify-center items-center">
+        <div className="lg:w-1/2 w-full bg-gray-50 py-4 px-4 lg:py-8 lg:px-10 border rounded-[8px] flex justify-center items-center">
           <ContactUsForm title="Discuss a partnership" />
         </div>
       </div>

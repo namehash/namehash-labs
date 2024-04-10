@@ -1,20 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import { CalButton, PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
+import {
+  CalButton,
+  PreSectionText,
+  SectionText,
+  SectionTitle,
+} from "../1 - atoms";
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
 import { ContactUsForm } from "./contact-us-form";
-
 
 export const ContactSection = () => {
   return (
     <section className="w-full max-w-[1216px] py-20 px-5">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
       <div className="lg:mt-[100px] lg:mb-[120px] mt-[60px] mb-[60px]">
-        <PreSectionText className="text-start ">
-          Get in touch
-        </PreSectionText>
-        <h1 className="font-bold text-[52px] ">
-          Contact
-        </h1>
+        <PreSectionText className="text-start ">Get in touch</PreSectionText>
+        <h1 className="font-bold text-[52px] ">Contact</h1>
       </div>
 
       <div className="w-full flex lg:flex-row flex-col justify-between items-center rounded-[8px] bg-gradient-to-r lg:px-10 lg:py-8 p-5 mb-20 from-[#2D2D2D] to-black">
@@ -23,7 +23,8 @@ export const ContactSection = () => {
             Discuss an integration
           </h3>
           <p className="text-lg leading-7 font-normal text-gray-500">
-            Schedule a call with us to discuss integration with any of our products
+            Schedule a call with us to discuss integration with any of our
+            products
           </p>
         </div>
         <CalButton className="px-[25px] py-[13px] rounded-[8px] bg-white flex hover:bg-gray-100 transition-colors duration-200 w-full justify-center lg:w-auto">
@@ -46,8 +47,8 @@ export const ContactSection = () => {
             alt="Paper Airplane Icon"
           />
         </div>
-        <div className="lg:w-1/2 w-full bg-gray-50 py-8 px-10 border rounded-[8px] flex justify-center items-center">
-          <ContactUsForm title="Send a message"/>
+        <div className="lg:w-1/2 w-full bg-gray-50 py-4 px-4 lg:py-8 lg:px-10 border rounded-[8px] flex justify-center items-center">
+          <ContactUsForm title="Send a message" />
         </div>
       </div>
     </section>
