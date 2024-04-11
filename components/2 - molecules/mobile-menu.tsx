@@ -44,9 +44,9 @@ const MobileMenu = () => {
             </button>
           </div>
 
-          <nav className="flex flex-col justify-center flex-grow gap-1 mx-5">
+          <nav className="flex flex-col justify-center flex-grow gap-1 mx-2">
             <Link
-              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px]"
               href="/ens-referral-program"
               onClick={() => {
                 toggleMenu();
@@ -60,13 +60,13 @@ const MobileMenu = () => {
                 toggleMenu();
                 enableScroll();
               }}
-              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px]"
               href="/#joinOurTeam"
             >
               Open positions
             </Link>
 
-            <CalButton className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-100 text-left">
+            <CalButton className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px] text-left">
               Schedule a call
             </CalButton>
           </nav>
