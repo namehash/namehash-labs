@@ -34,7 +34,7 @@ html {
   margin: auto;
   width: 28px;
   height: 28px;
-  background-image: url("/svgs/chevron-left.svg");
+  background-image: url(/svgs/chevron-left.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -47,7 +47,7 @@ html {
   margin: auto;
   width: 28px;
   height: 28px;
-  background-image: url("/svgs/chevron-right.svg");
+  background-image: url(/svgs/chevron-right.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

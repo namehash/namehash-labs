@@ -9,11 +9,12 @@ export const SectionText = ({
   ...props
 }: SectionTextProps) => {
   return (
-    <p
+    <div
+      role="text"
       className={`text-gray-500 text-lg leading-7 font-light  ${className}`}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 };

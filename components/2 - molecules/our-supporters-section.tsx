@@ -1,9 +1,10 @@
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
-import { AvatarWithTooltip } from "./avatar-with-tooltip";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Profile, getCachedProfile } from "@/data/ensProfiles";
+import { AvatarSize, UltimateENSAvatar } from ".";
+import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
 
 export const OurSuportersSection = () => {
   return (
@@ -22,7 +23,7 @@ export const OurSuportersSection = () => {
         </SectionText>
       </div>
 
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1280px]">
         <SupporterCategory {...ensFoundation} />
         <SupporterCategory {...walletBuilders} />
         <SupporterCategory {...web3ProtocolBuilders} />
@@ -126,21 +127,29 @@ function getRandomProfiles<Profile>(
 const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
     <div className="flex relative pr-[62px] h-[120px] b w-[265px] items-center justify-center">
-      <AvatarWithTooltip
+      <UltimateENSAvatar
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[1])}
         profile={profiles[1]}
-        className="absolute top-0 right-[122px] z-10"
+        size={AvatarSize.SMALL}
+        className="absolute top-0 right-[122px]"
       />
-      <AvatarWithTooltip
+      <UltimateENSAvatar
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[3])}
         profile={profiles[3]}
-        className="absolute top-0 right-0 z-20"
+        size={AvatarSize.SMALL}
+        className="absolute top-0 right-0"
       />
-      <AvatarWithTooltip
+      <UltimateENSAvatar
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[0])}
         profile={profiles[0]}
+        size={AvatarSize.SMALL}
         className="absolute bottom-0 left-0 "
       />
-      <AvatarWithTooltip
+      <UltimateENSAvatar
+        avatarQueries={getNameHashLabsAvatarCallbacks(profiles[2])}
         profile={profiles[2]}
-        className="absolute bottom-0 left-[122px] z-10"
+        size={AvatarSize.SMALL}
+        className="absolute bottom-0 left-[122px]"
       />
     </div>
   );
@@ -148,11 +157,23 @@ const FourSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
 
 const ThreeSupportersContainer = ({ profiles }: ProfilesContainerProps) => {
   return (
-    <div className="flex relative">
-      <div className="flex gap-4">
-        <AvatarWithTooltip profile={profiles[0]} width={80} />
-        <AvatarWithTooltip profile={profiles[1]} width={80} />
-        <AvatarWithTooltip profile={profiles[2]} width={80} />
+    <div className="w-full flex relative">
+      <div className="w-full flex justify-center gap-4">
+        <UltimateENSAvatar
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[0])}
+          profile={profiles[0]}
+          size={AvatarSize.SMALL}
+        />
+        <UltimateENSAvatar
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[1])}
+          profile={profiles[1]}
+          size={AvatarSize.SMALL}
+        />
+        <UltimateENSAvatar
+          avatarQueries={getNameHashLabsAvatarCallbacks(profiles[2])}
+          profile={profiles[2]}
+          size={AvatarSize.SMALL}
+        />
       </div>
     </div>
   );
