@@ -86,7 +86,7 @@ const Product = ({
                 </div>
               )}
             </div>
-            <SectionText className="lg:text-start text-center w-full font-thin	">
+            <SectionText className="lg:text-start text-center w-full">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (

@@ -147,7 +147,7 @@ const Item = ({
             </span>
           )}
         </div>
-        <p className="text-lg leading-7 font-normal text-gray-500">{text}</p>
+        <p className="text-lg leading-7 font-light text-gray-500">{text}</p>
       </div>
       {!!buttonUrl && (
         <a

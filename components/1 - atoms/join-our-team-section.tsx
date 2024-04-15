@@ -33,7 +33,7 @@ export const JoinOurTeamSection = () => {
           LOOKING FOR GROUP{" "}
         </h3>
         <h2 className="text-3xl lg:text-4xl font-bold mb-3">Join our team</h2>
-        <div className="mb-6 text-lg text-gray-500">
+        <div className="mb-6 text-lg text-gray-500 font-light">
           <p>
             Work on leading open-source technologies for the ENS Protocol and
             make an impact on the future of identity.

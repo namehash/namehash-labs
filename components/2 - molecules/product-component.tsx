@@ -58,7 +58,7 @@ export const ProductComponent = ({
                 {title}
               </h2>
             </div>
-            <SectionText className="lg:text-start text-center w-full text-lg leading-7 font-normal">
+            <SectionText className="lg:text-start text-center w-full text-lg leading-7 font-light">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
