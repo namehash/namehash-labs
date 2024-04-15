@@ -7,12 +7,18 @@ export interface Profile {
   twitterProfile?: string;
 }
 
-export function buildProfile(params: {ensName: string, title: string, displayName?: string, twitterProfile?: string}): Profile {
+export function buildProfile(params: {
+  ensName: string;
+  title: string;
+  displayName?: string;
+  twitterProfile?: string;
+}): Profile {
   return {
     ensName: ens_normalize(params.ensName), // guarantee the ensName of all Profile objects is normalized
     title: params.title,
     displayName: params.displayName,
-    twitterProfile: params.twitterProfile };
+    twitterProfile: params.twitterProfile,
+  };
 }
 
 export const getCachedProfile = (ensName: string): Profile => {
@@ -90,7 +96,7 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
     buildProfile({
       ensName: "spencecoin.eth",
       title:
-      "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
+        "Director of Marketing and Strategic Initiatives at Metamask and Consensys",
       displayName: "Jordan Spence",
       twitterProfile: "https://twitter.com/spencecoin",
     }),
@@ -100,7 +106,7 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
     buildProfile({
       ensName: "brantly.eth",
       title:
-      "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
+        "Building Ethereum Follow Protocol & Creator of Sign-In w/ Ethereum",
       displayName: "Brantly Millegan",
       twitterProfile: "https://twitter.com/BrantlyMillegan",
     }),
@@ -117,7 +123,7 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
     "0xBdB41BfF7E828E2DC2d15EB67257455db818F1DC",
     buildProfile({
       ensName: "cory.eth",
-      title: "Founder OpenAvatar & Co-founder of Ethereum Follow Protocol",
+      title: "Founder of OpenAvatar",
       displayName: "Cory Gabrielsen",
       twitterProfile: "https://twitter.com/cory_eth",
     }),
@@ -136,7 +142,7 @@ const EnsProfiles = new Map<`0x${string}`, Profile>([
     buildProfile({
       ensName: "griff.eth",
       title:
-      "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode & DECENTRAL",
+        "Cofounder Giveth, CommonsStack, GeneralMagic, Dappnode & DECENTRAL",
       displayName: "Griff Green",
       twitterProfile: "https://twitter.com/thegrifft",
     }),
