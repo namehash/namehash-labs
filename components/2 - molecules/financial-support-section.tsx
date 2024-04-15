@@ -18,7 +18,7 @@ export const FinancialSupportSection = () => {
           role="text"
           className="text-2xl leading-8 font-semibold text-center"
         >
-          <Balancer>Our work receives generous financial support from</Balancer>
+          <Balancer>Our work receives generous support from ENS</Balancer>
         </div>
         <a
           target="_blank"
