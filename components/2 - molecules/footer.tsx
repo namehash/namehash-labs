@@ -41,7 +41,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
           <div className="flex flex-col gap-5">
             <NameHashLabsLogo />
 
-            <p className="text-sm font-light text-gray-500 max-w-[339px]">
+            <p className="text-sm font-light text-gray-500 max-w-[339px] leading-6">
               Founded in 2022, Namehash Labs is a technology organization
               dedicated to infrastructure-level solutions that helps the
               Ethereum Name Service (ENS) Protocol grow.
