@@ -11,7 +11,7 @@ export const PreSectionText = ({
   return (
     <div
       role="text"
-      className={`text-xs font-medium leading-4 uppercase tracking-tight text-gray-500 text-center ${className}`}
+      className={`text-xs font-medium leading-4 uppercase text-gray-500 text-center tracking-wide ${className}`}
       {...props}
     >
       {children}

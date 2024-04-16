@@ -23,7 +23,7 @@ export const OurSuportersSection = () => {
         </SectionText>
       </div>
 
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1280px]">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-20 place-content-stretch w-full max-w-[1216px]">
         <SupporterCategory {...ensFoundation} />
         <SupporterCategory {...walletBuilders} />
         <SupporterCategory {...web3ProtocolBuilders} />

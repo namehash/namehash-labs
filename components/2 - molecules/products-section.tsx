@@ -25,7 +25,7 @@ interface ProductProps {
   withoutExternalLinkIconInCTA?: boolean;
 }
 
-export const Product = ({
+const Product = ({
   sectionId,
   label,
   title,
@@ -41,13 +41,13 @@ export const Product = ({
   return (
     <section
       className={cc([
-        "lg:py-5 lg:px-[120px] pt-10 pb-5 px-5 w-full flex items-center justify-center",
+        "lg:px-[120px] px-5 w-full flex items-center justify-center",
       ])}
       id={sectionId}
     >
       <div
         className={cc([
-          "w-full flex flex-col items-center lg:flex-row max-w-[1300px] bg-gray-50 rounded-[20px] p-[32px]",
+          "w-full flex flex-col items-center lg:flex-row max-w-[1216px] bg-gray-50 rounded-[20px] p-[32px]",
           {
             "lg:flex-row-reverse": isInverted,
           },
@@ -86,7 +86,7 @@ export const Product = ({
                 </div>
               )}
             </div>
-            <SectionText className="lg:text-start text-center w-full font-thin	">
+            <SectionText className="lg:text-start text-center w-full">
               <Balancer>{subtitle}</Balancer>
             </SectionText>
             {buttonUrl && (
@@ -116,7 +116,7 @@ export const Product = ({
 
 export const ProductsSection = () => {
   return (
-    <>
+    <div className="lg:py-20 py-10 flex flex-col gap-10 w-full">
       {products.map((product, index) => (
         <Product
           key={product.title}
@@ -133,7 +133,7 @@ export const ProductsSection = () => {
           withoutExternalLinkIconInCTA={product.withoutExternalLinkIconInCTA}
         />
       ))}
-    </>
+    </div>
   );
 };
 

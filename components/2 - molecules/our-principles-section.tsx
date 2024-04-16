@@ -7,24 +7,26 @@ export const OurPrinciplesSection = () => {
   return (
     <section
       id="ourPrinciplesSection"
-      className="lg:px-[112px] w-full flex flex-col items-center justify-center px-10 md:px-20 py-20"
+      className="lg:px-[112px] w-full px-5 md:px-20 py-20"
     >
-      <PreSectionText>What Guides us</PreSectionText>
-      <SectionTitle>Our principles</SectionTitle>
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-10 mt-20 place-content-stretch">
-        {principles.map((item) => {
-          return (
-            <div key={item.title}>
-              <div className="p-4 border border-gray-200 rounded-full inline-flex items-center justify-center">
-                {item.icon}
+      <div className="flex flex-col items-center justify-center max-w-[1216px] m-auto">
+        <PreSectionText>What Guides us</PreSectionText>
+        <SectionTitle className="my-3">Our principles</SectionTitle>
+        <div className="grid lg:grid-cols-4 grid-cols-1 gap-10 mt-20 place-content-stretch">
+          {principles.map((item) => {
+            return (
+              <div key={item.title}>
+                <div className="p-4 border border-gray-200 rounded-full inline-flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <p className="text-2xl leading-8 font-semibold mt-5 mb-3">
+                  {item.title}
+                </p>
+                <SectionText>{item.description}</SectionText>
               </div>
-              <p className="text-2xl leading-8 font-semibold mt-5 mb-3">
-                {item.title}
-              </p>
-              <SectionText>{item.description}</SectionText>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

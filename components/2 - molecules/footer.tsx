@@ -1,6 +1,6 @@
 import { NameHashLabsLogo, ServiceProviderBadge } from "../1 - atoms";
 
-const FooterProducts = [
+const footerProducts = [
   {
     name: "NameKit",
     href: "https://namekit.io",
@@ -11,7 +11,22 @@ const FooterProducts = [
   },
   {
     name: "ENS Referral Program",
-    href: "https://namehashlabs.org/ens-referral-program",
+    href: "/ens-referral-program",
+  },
+];
+
+const footerResources = [
+  {
+    name: "Partners",
+    href: "/partners",
+  },
+  {
+    name: "Contact us",
+    href: "/contact",
+  },
+  {
+    name: "Brand assets",
+    href: "/brand-assets",
   },
 ];
 
@@ -21,12 +36,12 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
       className="lg:px-[112px] px-5 flex items-center justify-center w-full border-t border-gray-200"
       {...props}
     >
-      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1280px]">
-        <div className="w-full flex flex-col lg:flex-row lg:justify-between">
+      <div className="pt-8 pb-5 flex flex-col gap-10 items-start justify-between w-full max-w-[1216px]">
+        <div className="w-full gap-5 flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-5">
             <NameHashLabsLogo />
 
-            <p className="text-sm font-light text-gray-500 max-w-[339px]">
+            <p className="text-sm font-light text-gray-500 max-w-[339px] leading-6">
               Founded in 2022, Namehash Labs is a technology organization
               dedicated to infrastructure-level solutions that helps the
               Ethereum Name Service (ENS) Protocol grow.
@@ -35,19 +50,46 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <ServiceProviderBadge />
           </div>
 
-          <ul className="flex flex-col ">
-            <h4 className="mt-8 mb-2 text-sm font-semibold">Products</h4>
-            {FooterProducts.map((product) => {
-              return (
-                <li
-                  key={product.name}
-                  className="my-2 text-sm font-light text-gray-500 hover:underline transition"
-                >
-                  <a href={product.href}>{product.name}</a>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="flex justify-start">
+            <ul className="flex  flex-col w-[228px] pr-5">
+              <h4 className="mb-2 text-sm font-semibold">Products</h4>
+              {footerProducts.map((product) => {
+                return (
+                  <li
+                    key={product.name}
+                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
+                  >
+                    <a
+                      target={product.href.startsWith("/") ? "_self" : "_blank"}
+                      href={product.href}
+                    >
+                      {product.name}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            <ul className="flex flex-col w-[228px]">
+              <h4 className="mb-2 text-sm font-semibold">Resources</h4>
+              {footerResources.map((resource) => {
+                return (
+                  <li
+                    key={resource.name}
+                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
+                  >
+                    <a
+                      target={
+                        resource.href.startsWith("/") ? "_self" : "_blank"
+                      }
+                      href={resource.href}
+                    >
+                      {resource.name}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <div className="lg:border-t lg:border-gray-200 w-full flex flex-col lg:flex-row lg:justify-between gap-5 pt-5">
