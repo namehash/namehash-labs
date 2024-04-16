@@ -176,7 +176,7 @@ export const TestimonialsSection = () => {
       className="lg:px-[110px] px-5 py-[108px] w-full"
       id="ensOnboardingSection"
     >
-      <div className="w-full flex flex-col items-center gap-20 max-w-[1280px] m-auto">
+      <div className="w-full flex flex-col items-center gap-20 max-w-[1216px] m-auto">
         <div className="flex flex-col items-center gap-3">
           <PreSectionText>WHAT PEOPLE ARE SAYING</PreSectionText>
           <SectionTitle>Testimonials</SectionTitle>
