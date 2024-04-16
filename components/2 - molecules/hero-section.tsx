@@ -18,7 +18,7 @@ export const HeroSection = () => {
         </div>
         <div className="flex items-center justify-center mt-10">
           <CalButton className="bg-black cursor-pointer py-[13px] hover:bg-gray-800 transition-colors duration-200 px-[25px] border rounded-[8px] flex text-sm leading-5 font-medium lg:text-base lg:leading-6 text-white">
-            Schedule a call
+            Integrate with ENS
           </CalButton>
         </div>
       </div>
