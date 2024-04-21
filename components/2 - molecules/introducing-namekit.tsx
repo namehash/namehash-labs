@@ -1,3 +1,5 @@
+"use client";
+
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 import Lottie from "lottie-react";

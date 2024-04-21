@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import { FormEvent, useEffect, useState } from "react";
 import { CheckIcon, XCircleIcon } from "@heroicons/react/24/solid";
@@ -35,7 +37,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successfulFormSubmit, setSuccessfulFormSubmit] = useState(false);
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>(
-    validationErrorsInitialState
+    validationErrorsInitialState,
   );
 
   const submitForm = async (e: FormEvent) => {
@@ -79,7 +81,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
         }
 
         setErrorMessage(
-          "One or more fields have an error. Please check and try again."
+          "One or more fields have an error. Please check and try again.",
         );
         setValidationErrors(errors);
       }
@@ -107,8 +109,8 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
       setTimeout(() => {
         reject(
           new Error(
-            "It seems your request is taking longer than usual. Please try again later."
-          )
+            "It seems your request is taking longer than usual. Please try again later.",
+          ),
         );
       }, timeoutLimit);
     });
@@ -118,7 +120,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
 
       if (!response.ok) {
         throw new Error(
-          "There was a server error trying to send a message. Please try again later."
+          "There was a server error trying to send a message. Please try again later.",
         );
       }
 
@@ -128,7 +130,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
         // Likely a network error
         console.error("Network error: ", error);
         setErrorMessage(
-          "Connection lost. Please check your connection and try again."
+          "Connection lost. Please check your connection and try again.",
         );
       } else if (error instanceof Error) {
         setErrorMessage(error.message);
@@ -139,7 +141,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name } = e.target;
     setValidationErrors({ ...validationErrors, [name]: "" });

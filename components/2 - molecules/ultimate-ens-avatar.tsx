@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Profile } from "@/data/ensProfiles";
 import { AvatarSize, AvatarWithTooltip } from "./avatar-with-tooltip";
@@ -25,7 +27,7 @@ export const UltimateENSAvatar = ({
 }: UltimateENSAvatarProps) => {
   if (!avatarQueries?.length)
     throw new Error(
-      "At least one Avatar Query must be provided in order to fetch an Avatar image."
+      "At least one Avatar Query must be provided in order to fetch an Avatar image.",
     );
 
   const [avatarResponse, setAvatarResponse] = useState<Response | null>(null);

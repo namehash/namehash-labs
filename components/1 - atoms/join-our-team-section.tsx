@@ -1,14 +1,16 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export const JoinOurTeamSection = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     // Check if the URL contains the specific hash
-    if (router.asPath.includes("#joinOurTeam")) {
+    if (pathname?.includes("#joinOurTeam")) {
       // Use setTimeout to wait for the page to load fully.
       // This delay ensures that all elements are rendered and positioned.
       setTimeout(() => {
@@ -21,7 +23,7 @@ export const JoinOurTeamSection = () => {
         }
       }, 1000);
     }
-  }, [router]);
+  }, [pathname]);
 
   return (
     <section

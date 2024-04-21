@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
@@ -72,7 +74,7 @@ export const AvatarWithTooltip = ({
     updateShadowColor();
   }, [successfullyLoadedAvatar]);
 
-  /* 
+  /*
     Start of Avatar scaling logic ⬇️
 
     isHovered: boolean - Holds the state of the hover event over the Avatar image
@@ -111,7 +113,7 @@ export const AvatarWithTooltip = ({
   /*
     Since some browsers do not correctly trigger mouse events when the target element is scaling up or down,
     the above logic was created to guarantee that the Avatar scaling event is correctly triggered and that the
-    Ui always reflects a smooth transition between a scaled up and a scaled down Avatar image. This logic 
+    Ui always reflects a smooth transition between a scaled up and a scaled down Avatar image. This logic
     separates the hover event from the Ui scaling animation by using a timeout to block the hover event
     from triggering the scaling animation. This way, the misunderdatings between the browser mouse
     events and a scaling Avatar are avoided and the Ui is always consistent.
@@ -121,7 +123,7 @@ export const AvatarWithTooltip = ({
 
   return (
     <>
-      {/* 
+      {/*
         Whenever a user interacts with this component, two things happen:
         1. The avatar scales up (on mouse over) and down (on mouse leave)
         2. The tooltip is displayed (on mouse over) and hidden (on mouse leave)
@@ -132,7 +134,7 @@ export const AvatarWithTooltip = ({
         we need to make sure that the tooltip is displayed at the correct position, without layout shifts,
         two animations called: animate-scaleAvatar and animate-scaleDownAvatar are used to ensure that the tooltip
         is displayed right after the avatar scaling event has ended, which means that these animations won't
-        conflict and thus, won't cause Ui inconsistencies. 
+        conflict and thus, won't cause Ui inconsistencies.
 
         You can find these animations application in the <Image> component below and its configuration in Tailwind Config file.
         You can find the Tooltip specs in the Tooltip component below and its configuration in Tooltip's props.
