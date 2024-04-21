@@ -308,7 +308,7 @@ export const ContactUsForm = ({ title }: ContactUsFormProps) => {
                 id="message"
                 disabled={isLoading}
                 onChange={handleInputChange}
-                defaultValue={""}
+                defaultValue=""
                 name={FormFields.Message}
                 className={cc([
                   "block w-full rounded-md px-3.5 py-2 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-gray-600 hover:border-gray-400 outline-none sm:text-sm sm:leading-6",
