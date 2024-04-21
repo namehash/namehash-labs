@@ -15,25 +15,7 @@ export const metadata: Metadata = {
   keywords: ["ens", "web3", "eth", "referral program"],
 };
 
-export default function Home() {
-  // useEffect(() => {
-  //   (async function () {
-  //     const cal = await getCalApi();
-  //     cal("ui", {
-  //       cssVarsPerTheme: {
-  //         light: {
-  //           "--brand-color": "#000000",
-  //         },
-  //         dark: {
-  //           "--brand-color": "#000000",
-  //         },
-  //       },
-  //       hideEventTypeDetails: false,
-  //       layout: "month_view",
-  //     });
-  //   })();
-  // }, []);
-
+export default function Page() {
   return (
     <main className="flex flex-col items-center justify-between">
       <div className="mt-20 w-full">
