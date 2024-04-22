@@ -30,8 +30,17 @@ export const JoinOurTeamSection = () => {
       id="joinOurTeam"
       className="px-5 lg:px-[112px] pb-5 pt-[60px] mx-auto lg:py-[86px]"
     >
-      <div className="m-auto max-w-[1216px] flex flex-col lg:flex-row items-center ">
-        <div className="text-center lg:text-left">
+      <div className="m-auto max-w-[1216px] flex flex-col lg:flex-row justify-between items-center ">
+        <div className="mt-6 mx-auto flex justify-center">
+          <img
+            src="/images/join-our-team.svg"
+            alt="Join our team image"
+            className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
+            height={800}
+            width={1166}
+          />
+        </div>
+        <div className="text-center lg:text-left lg:ml-20">
           <h3 className="mb-3 text-xs font-medium text-gray-500">
             LOOKING FOR GROUP
           </h3>
@@ -59,15 +68,6 @@ export const JoinOurTeamSection = () => {
             <br />
             <p>We look forward to hearing from you.</p>
           </div>
-        </div>
-        <div className="lg:ml-[85px] mt-6 mx-auto flex justify-center">
-          <img
-            src="/images/join-our-team.svg"
-            alt="Join our team image"
-            className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
-            height={800}
-            width={1166}
-          />
         </div>
       </div>
     </section>
