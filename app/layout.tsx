@@ -16,7 +16,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "NameHash Labs - Helping ENS Grow for ENS";
+const title = "NameHash Labs - Helping ENS Grow";
 const description =
   "NameHash Labs builds open source public goods that drive the global adoption of ENS.";
 const keywords = ["ens", "web3", "eth", "nameguard", "namekit", "namehash"];
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     ...NamehashMetadata.defaultMetdata.openGraph,
     title,
     description,
+    url: new URL("https://namehashlabs.org"),
   },
   twitter: {
     ...NamehashMetadata.defaultMetdata.twitter,
