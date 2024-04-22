@@ -1,3 +1,5 @@
+"use client";
+
 import { PreSectionText } from "../1 - atoms/pre-section-text";
 import { SectionText } from "../1 - atoms/section-text";
 import { SectionTitle } from "../1 - atoms/section-title";
@@ -6,7 +8,6 @@ import { AvatarSize } from "./avatar-with-tooltip";
 import { getCachedProfile } from "@/data/ensProfiles";
 import { UltimateENSAvatar } from ".";
 import { getNameHashLabsAvatarCallbacks } from "@/lib/client/nh-labs-avatar";
-import Link from "next/link";
 
 const namehashLabsTeam = {
   profiles: [

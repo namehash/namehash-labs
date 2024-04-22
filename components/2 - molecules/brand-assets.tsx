@@ -31,7 +31,7 @@ export const BrandAssets = () => {
             </div>
             <a
               target="_blank"
-              href={"https://github.com/namehash/brand-assets"}
+              href="https://github.com/namehash/brand-assets"
               className="flex gap-3 bg-black rounded-[8px] whitespace-nowrap text-white shadow-sm text-base leading-6 py-2 px-4 font-medium hover:bg-gray-800 transition-colors duration-200 flex-nowrap"
             >
               Download on Github <ExternalLinkIcon className="w-5 h-5" />
@@ -47,8 +47,8 @@ export const BrandAssets = () => {
             <Image
               width={588}
               height={500}
-              src={"/images/brand-assets.png"}
-              alt={"Download NameHash Labs Brand Assets"}
+              src="/images/brand-assets.png"
+              alt="Download NameHash Labs Brand Assets"
             />
             <div className="absolute flex items-center justify-center text-3xl left-1/2 bottom-[10%] shadow-lg w-[100px] h-[100px] bg-white rounded-full group-hover:scale-110 border-gray-200 border transition-all duration-200 ">
               <ColorfulDownloadIcon />

@@ -1,3 +1,5 @@
+"use client";
+
 import { Balancer } from "react-wrap-balancer";
 import { PreSectionText, SectionTitle } from "../1 - atoms";
 import { QuoteIcon } from "../1 - atoms/icons/quote-icon";
@@ -229,7 +231,7 @@ export const TestimonialsSection = () => {
                           size={AvatarSize.SMALL}
                           profile={testimonial.author}
                           avatarQueries={getNameHashLabsAvatarCallbacks(
-                            testimonial.author
+                            testimonial.author,
                           )}
                         />
                       </div>

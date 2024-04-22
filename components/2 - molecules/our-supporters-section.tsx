@@ -1,3 +1,5 @@
+"use client";
+
 import { PreSectionText, SectionText, SectionTitle } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
@@ -91,7 +93,7 @@ const AdditionalSupportersContainer = () => {
 
 function getRandomProfiles<Profile>(
   array: Profile[],
-  count: number = 4
+  count: number = 4,
 ): Profile[] {
   // Shallow copy the array to avoid modifying the original array
   if (array.length === 4) {

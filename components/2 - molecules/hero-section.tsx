@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronDown, CalButton, BeansBg } from "../1 - atoms";
 import { Balancer } from "react-wrap-balancer";
 

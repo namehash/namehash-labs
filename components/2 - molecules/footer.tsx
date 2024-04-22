@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NameHashLabsLogo, ServiceProviderBadge } from "../1 - atoms";
 
 const footerProducts = [
@@ -180,12 +181,12 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
               <span className="text-[#EF4444] mx-1">{"❤️"}</span>
               by
             </span>
-            <a
+            <Link
               className="text-black underline xSmall:underline-offset-[4px] xSmall:transition-all xSmall:duration-200 xSmall:hover:underline-offset-[2px]"
-              href={"https://namehashlabs.org"}
+              href="/"
             >
               NameHash Labs
-            </a>
+            </Link>
           </div>
         </div>
       </div>
