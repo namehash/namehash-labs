@@ -10,7 +10,7 @@ export const CareerPage = () => {
   return (
     <section className="w-full pt-20 lg:pb-20 pb-5 px-5 lg:px-[112px]">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
-      <div className="flex items-center justify-between w-full max-w-[1216px] border-b m-auto lg:mt-[100px] lg:pb-[120px] py-[60px]">
+      <div className="flex lg:flex-row flex-col items-start lg:items-center gap-[60px] lg:gap-0 justify-between w-full max-w-[1216px] border-b m-auto lg:mt-[100px] lg:pb-[120px] py-[60px]">
         <div className="flex flex-col items-start lg:gap-3 gap-2">
           <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
             Join the team
@@ -24,11 +24,11 @@ export const CareerPage = () => {
           alt="Picture of the author"
         />
       </div>
-      <div className="justify-between w-full flex lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
-        <div className="w-full max-w-[676px] flex flex-col gap-10">
+      <div className="justify-between w-full flex lg:flex-row flex-col lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
+        <div className="w-full lg:max-w-[676px] flex flex-col gap-10">
           <div className="w-full flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold">Description</h3>
-            <p className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+            <p className="text-lg leading-8 font-normal text-gray-500">
               NameHash Labs is a technology organization specializing in
               crafting open-source, blockchain-driven software solutions for the
               ENS Protocol. We are dedicated to creating groundbreaking
@@ -58,25 +58,25 @@ export const CareerPage = () => {
               What You&apos;ll Do
             </h3>
             <ul className="list-disc pl-4">
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Work closely with the design team, fellow engineers, and the
                 product team to rapidly deliver new offerings and a great UX
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Develop and plan technical direction of new offerings
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Write readable, maintainable code that is built to scale.
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Stay up-to-date on technical options and help select the right
                 technology for each task.
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Be fully data driven and inform decisions and analyze
                 performance using data.
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Collaborate with other engineers and review code
               </li>
             </ul>
@@ -84,25 +84,25 @@ export const CareerPage = () => {
           <div className="w-full flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold">Qualifications</h3>
             <ul className="list-disc pl-4">
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 5+ years of blockchain experience, 3+ years of experience with
                 testing Elixir applications. Any experience with Rust and
                 CosmWasm is a bonus;
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Relevant experience in quality assurance including planning,
                 design, implementation, deployment, and maintenance of manual
                 and automated tests;
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Deep understanding of blockchain technology, experience in smart
                 contracts deployment and testing;
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Detailed documentation skills, especially when reproducing bugs
                 or describing new features;
               </li>
-              <li className="text-lg leading-8 font-normal text-gray-500 max-w-[676px]">
+              <li className="text-lg leading-8 font-normal text-gray-500">
                 Performance and security testing experience is a plus.
               </li>
             </ul>
@@ -131,7 +131,7 @@ export const CareerPage = () => {
         </div>
       </div>
       <div className="flex lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
-        <div className="w-full flex justify-between items-center px-10 py-8 bg-gradient-to-l from-black to-gray-800 rounded-[12px]">
+        <div className="w-full flex flex-col lg:flex-row gap-4 justify-between items-center px-10 py-8 bg-gradient-to-l from-black to-gray-800 rounded-[12px]">
           <div className="max-w-[840px]">
             <h3 className="text-2xl leading-8 font-semibold text-white">
               Join our team
@@ -145,7 +145,9 @@ export const CareerPage = () => {
             href="mailto:hello@namehashlabs.org"
             className="px-[25px] cursor-pointer flex items-center gap-3 py-[13px] rounded-[8px] bg-white flex-nowrap hover:bg-gray-100 transition-colors duration-200 w-full justify-center lg:w-auto"
           >
-            <p className="text-base leading-6 font-medium">Email Us</p>
+            <p className="text-base leading-6 font-medium whitespace-nowrap">
+              Email Us
+            </p>
             <ExternalLinkIcon className="w-5 h-5" />
           </a>
         </div>
