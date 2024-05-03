@@ -4,6 +4,7 @@ import { JoinOurTeamSection } from "../1 - atoms/join-our-team-section";
 
 import Image from "next/image";
 import { RoleCard } from "../2 - molecules/role-card";
+import { ExternalLinkIcon } from "../1 - atoms";
 
 export const CareerPage = () => {
   return (
@@ -127,6 +128,26 @@ export const CareerPage = () => {
             details={["Engineering", "Remote"]}
             additionalStyle="min-w-[440px]"
           />
+        </div>
+      </div>
+      <div className="flex lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
+        <div className="w-full flex justify-between items-center px-10 py-8 bg-gradient-to-l from-black to-gray-800 rounded-[12px]">
+          <div className="max-w-[840px]">
+            <h3 className="text-2xl leading-8 font-semibold text-white">
+              Join our team
+            </h3>
+            <p className="text-lg leading-7 font-normal text-gray-500">
+              Interested? Send an email with your CV and a few sentences about
+              why you wanna join NameHash Labs to hello@namehashlabs.org
+            </p>
+          </div>
+          <a
+            href="mailto:hello@namehashlabs.org"
+            className="px-[25px] cursor-pointer flex items-center gap-3 py-[13px] rounded-[8px] bg-white flex-nowrap hover:bg-gray-100 transition-colors duration-200 w-full justify-center lg:w-auto"
+          >
+            <p className="text-base leading-6 font-medium">Email Us</p>
+            <ExternalLinkIcon className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>
