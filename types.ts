@@ -1,10 +1,18 @@
+import { SVGProps } from "react";
+
+export interface Category {
+  name: string;
+  avatar: string;
+  icon: React.ComponentType<SVGProps<SVGSVGElement>>;
+}
+
 export interface Role {
   slug: string;
-  category: string;
+  category: Category;
   title: string;
   team: string;
   location: string;
-  description: string;
+  description: JSX.Element;
 }
 
 export interface RolesData {

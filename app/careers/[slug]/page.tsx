@@ -1,7 +1,8 @@
 import { Role, RolesData } from "../../../types";
 
-import rolesData from "../../../data/careers.json";
+import rolesData from "../../../data/rolesData";
 import { CareerPage } from "@/components/3 - organisms/career-page";
+import { RolePage } from "@/components/3 - organisms/role-page";
 
 interface Props {
   params: { slug: string };
@@ -19,15 +20,8 @@ export default function Page({ params }: Props) {
   }
 
   return (
-    <section className="w-full pt-20 lg:pb-20 pb-5 px-5 lg:px-[112px]">
-      <div className="m-auto w-full max-w-[1216px] mt-20">
-        <h1>{role.title}</h1>
-        <p>{role.description}</p>
-        <p>{`Category: ${role.category}`}</p>
-        <p>{`Team: ${role.team}`}</p>
-        <p>{`Location: ${role.location}`}</p>
-      </div>
-      <CareerPage />
+    <section className="w-full lg:pb-20 pb-5 px-5 lg:px-[112px]">
+      <RolePage {...role} />
     </section>
   );
 }
