@@ -8,8 +8,8 @@ You must clone this repository, install the dependencies with NPM before you can
 
 1. `git clone https://github.com/namehash/namehash-labs.git`
 2. `cd namehashlabs-labs`
-3. `npm install`
-4. `npm run dev`
+3. `pnpm install`
+4. `pnpm dev`
 
 Members of the NameHash team on Vercel may optionally use the [Vercel CLI](https://vercel.com/docs/cli) to run `vc link` to attach the local environment with the Vercel project to fetch any required environment variables.
 
