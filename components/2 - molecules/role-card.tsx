@@ -14,7 +14,7 @@ export const RoleCard = ({
       href={`/careers/${href}`}
       className={`w-full cursor-pointer border border-gray-200 rounded-xl p-5 flex flex-col gap-5 items-start hover:bg-gray-50 transition-colors duration-300 ${additionalStyle}`}
     >
-      <div className="border border-gray-200 p-[14px] rounded-full flex">
+      <div className="border border-gray-200 bg-white p-[14px] rounded-full flex">
         {<Icon className="h-6 w-6 text-gray-400" />}
       </div>
       <div className="flex flex-col gap-4">
