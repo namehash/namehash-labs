@@ -1,7 +1,13 @@
-// rolesData.tsx
 import React from "react";
 import { RolesData } from "./../types";
-import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
+import {
+  BugAntIcon,
+  CodeBracketSquareIcon,
+  Cog6ToothIcon,
+  MegaphoneIcon,
+  PaintBrushIcon,
+  StarIcon,
+} from "@heroicons/react/24/outline";
 
 const rolesData: RolesData = {
   roles: [
@@ -10,9 +16,10 @@ const rolesData: RolesData = {
       category: {
         icon: CodeBracketSquareIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/frontend",
       },
       title: "Frontend",
+      details: ["Engineering", "Remote"],
       team: "Engineering",
       location: "Remote",
       description: (
@@ -104,11 +111,13 @@ const rolesData: RolesData = {
     {
       slug: "backend",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: Cog6ToothIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/backend",
       },
       title: "Backend",
+      details: ["Engineering", "Remote"],
+
       team: "Engineering",
       location: "Remote",
       description: (
@@ -146,11 +155,13 @@ const rolesData: RolesData = {
     {
       slug: "design",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: PaintBrushIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/design",
       },
       title: "Design",
+      details: ["Engineering", "Remote"],
+
       team: "Creative",
       location: "Remote",
       description: (
@@ -172,11 +183,13 @@ const rolesData: RolesData = {
     {
       slug: "qualityassurance",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: BugAntIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/quality-assurance",
       },
       title: "Quality Assurance",
+      details: ["Engineering", "Remote"],
+
       team: "Engineering",
       location: "Remote",
       description: (
@@ -197,11 +210,12 @@ const rolesData: RolesData = {
     {
       slug: "contracts",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: BugAntIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/contracts",
       },
       title: "Contracts Specialist",
+      details: ["Engineering", "Remote"],
       team: "Legal",
       location: "Remote",
       description: (
@@ -224,11 +238,12 @@ const rolesData: RolesData = {
     {
       slug: "marketing",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: MegaphoneIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/marketing",
       },
       title: "Marketing Director",
+      details: ["Growth", "Remote"],
       team: "Marketing",
       location: "Remote",
       description: (
@@ -251,11 +266,12 @@ const rolesData: RolesData = {
     {
       slug: "general",
       category: {
-        icon: CodeBracketSquareIcon,
+        icon: StarIcon,
         name: "Frontend",
-        avatar: "/images/frontend",
+        avatar: "/images/careers/general",
       },
-      title: "General Manager",
+      title: "General",
+      details: ["Any team", "Remote"],
       team: "Operations",
       location: "Remote",
       description: (
@@ -263,13 +279,13 @@ const rolesData: RolesData = {
           <div className="w-full flex flex-col gap-4">
             <h3 className="text-2xl leading-8 font-bold">Position Summary</h3>
             <p className="text-lg leading-8 font-normal text-gray-500">
-              As the General Manager at NameHash Labs, you will oversee various
-              administrative functions and ensure all business operations run
-              smoothly. Your role will require a blend of leadership and
-              versatility as you manage staff, oversee projects, and ensure
-              compliance with company policies. Your ability to adapt and manage
-              multiple responsibilities simultaneously will be key to
-              maintaining our efficiency and effectiveness as an organization.
+              As the General at NameHash Labs, you will oversee various
+              functions and ensure all operations run smoothly. Your role will
+              require a blend of leadership and versatility as you manage staff,
+              oversee projects, and ensure compliance with company policies.
+              Your ability to adapt and manage multiple responsibilities
+              simultaneously will be key to maintaining our efficiency and
+              effectiveness as an organization.
             </p>
           </div>
         </div>

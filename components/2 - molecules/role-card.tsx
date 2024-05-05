@@ -1,14 +1,17 @@
 import { MapPinIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import { RoleCardProps } from "../3 - organisms/careers-page";
+import { SVGProps } from "react";
+import Link from "next/link";
 
 export const RoleCard = ({
   icon: Icon,
   title,
   details,
   additionalStyle,
+  href,
 }: RoleCardProps) => {
   return (
-    <a
+    <Link
+      href={`/careers/${href}`}
       className={`w-full cursor-pointer border border-gray-200 rounded-xl p-5 flex flex-col gap-5 items-start hover:bg-gray-50 transition-colors duration-300 ${additionalStyle}`}
     >
       <div className="border border-gray-200 p-[14px] rounded-full flex">
@@ -31,6 +34,14 @@ export const RoleCard = ({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
+
+export interface RoleCardProps {
+  icon: React.ComponentType<SVGProps<SVGSVGElement>>;
+  title: string;
+  details: [string, string];
+  additionalStyle?: string;
+  href: string;
+}

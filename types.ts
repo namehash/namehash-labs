@@ -10,6 +10,7 @@ export interface Role {
   slug: string;
   category: Category;
   title: string;
+  details: [string, string];
   team: string;
   location: string;
   description: JSX.Element;

@@ -1,17 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { Cog6ToothIcon } from "@heroicons/react/20/solid";
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
 import { JoinOurTeamSection } from "../1 - atoms/join-our-team-section";
-import { MapPinIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import {
-  BugAntIcon,
-  CodeBracketSquareIcon,
-  MegaphoneIcon,
-  PaintBrushIcon,
-  StarIcon,
-} from "@heroicons/react/24/solid";
-import { SVGProps } from "react";
 import { RoleCard } from "../2 - molecules/role-card";
+import rolesData from "@/data/rolesData";
 
 export const CareersPage = () => {
   return (
@@ -30,13 +21,14 @@ export const CareersPage = () => {
         <h3 className="text-4xl leading-10 font-bold">Open Roles</h3>
 
         <div className="grid grid-cols-3 w-full gap-5">
-          {rolesList.map((role) => {
+          {rolesData.roles.map((role) => {
             return (
               <RoleCard
                 key={role.title}
-                icon={role.icon}
+                icon={role.category.icon}
                 title={role.title}
                 details={role.details}
+                href={role.slug}
               />
             );
           })}
@@ -45,48 +37,3 @@ export const CareersPage = () => {
     </section>
   );
 };
-
-const rolesList: RoleCardProps[] = [
-  {
-    icon: CodeBracketSquareIcon,
-    title: "Frontend",
-    details: ["Engineering", "Remote"],
-  },
-  {
-    icon: Cog6ToothIcon,
-    title: "Backend",
-    details: ["Engineering", "Remote"],
-  },
-  {
-    icon: PaintBrushIcon,
-    title: "Design",
-    details: ["Engineering", "Remote"],
-  },
-  {
-    icon: BugAntIcon,
-    title: "Quality Assurance",
-    details: ["Engineering", "Remote"],
-  },
-  {
-    icon: BugAntIcon,
-    title: "Contracts",
-    details: ["Engineering", "Remote"],
-  },
-  {
-    icon: MegaphoneIcon,
-    title: "Marketing",
-    details: ["Growth", "Remote"],
-  },
-  {
-    icon: StarIcon,
-    title: "General Application",
-    details: ["Any team", "Remote"],
-  },
-];
-
-export interface RoleCardProps {
-  icon: React.ComponentType<SVGProps<SVGSVGElement>>;
-  title: string;
-  details: [string, string];
-  additionalStyle?: string;
-}

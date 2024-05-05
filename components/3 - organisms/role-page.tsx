@@ -1,58 +1,64 @@
-import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
 
 import Image from "next/image";
 import { RoleCard } from "../2 - molecules/role-card";
 import { ExternalLinkIcon } from "../1 - atoms";
 import { Role } from "@/types";
+import rolesData from "@/data/rolesData";
+
+function getRandomItems(arr: Role[], numItems: number) {
+  const shuffled = arr.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, numItems);
+}
 
 export const RolePage = ({
-  slug,
   category,
   title,
   team,
   location,
   description,
 }: Role) => {
+  const filteredRoles = rolesData.roles.filter((item) => {
+    return item.title != title;
+  });
+
+  const shuffledRoles = getRandomItems(filteredRoles, 3);
+
   return (
-    <section className="w-full pt-20 lg:pb-20 pb-5 px-5 lg:px-[112px]">
+    <section className="w-full pt-20 lg:pb-20 pb-5">
       <ColorfulBg className="absolute top-0 left-0 w-full z-[-1]" />
-      <div className="flex lg:flex-row flex-col items-start lg:items-center gap-[60px] lg:gap-0 justify-between w-full max-w-[1216px] border-b m-auto lg:mt-[100px] lg:pb-[120px] py-[60px]">
+      <div className="flex lg:flex-row flex-col items-start lg:items-center gap-[60px] lg:gap-4 justify-between w-full max-w-[1216px] border-b m-auto lg:mt-[100px] lg:pb-[120px] py-[60px]">
         <div className="flex flex-col items-start lg:gap-3 gap-2">
           <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
             Join the team
           </p>
           <h1 className="font-bold text-[52px] leading-[52px]">{title}</h1>
         </div>
-        <Image
-          src="/images/career-card-frontend.png"
-          width={500}
-          height={500}
-          alt="Picture of the author"
-        />
+        <div>
+          <Image
+            src={`${category.avatar}.png`}
+            width={642}
+            height={205}
+            alt="Picture of the author"
+          />
+        </div>
       </div>
       <div className="justify-between w-full flex lg:flex-row flex-col lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
         {description}
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl leading-8 font-bold">More roles</h3>
-          <RoleCard
-            icon={CodeBracketSquareIcon}
-            title="Frontend"
-            details={["Engineering", "Remote"]}
-            additionalStyle="min-w-[440px]"
-          />
-          <RoleCard
-            icon={CodeBracketSquareIcon}
-            title="Frontend"
-            details={["Engineering", "Remote"]}
-            additionalStyle="min-w-[440px]"
-          />
-          <RoleCard
-            icon={CodeBracketSquareIcon}
-            title="Frontend"
-            details={["Engineering", "Remote"]}
-            additionalStyle="min-w-[440px]"
-          />
+          {shuffledRoles.map((role) => {
+            return (
+              <RoleCard
+                key={role.title}
+                icon={role.category.icon}
+                title={role.title}
+                details={role.details}
+                additionalStyle="lg:min-w-[440px]"
+                href={role.slug}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="flex lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
