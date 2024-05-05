@@ -1,30 +1,8 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import Image from "next/image";
 
 export const JoinOurTeamSection = () => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    // Check if the URL contains the specific hash
-    if (pathname?.includes("#joinOurTeam")) {
-      // Use setTimeout to wait for the page to load fully.
-      // This delay ensures that all elements are rendered and positioned.
-      setTimeout(() => {
-        // Find the element by its ID or other selectors.
-        const section = document.getElementById("joinOurTeam");
-
-        if (section) {
-          // Scrolls the `#joinOurTeam` section into view
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 1000);
-    }
-  }, [pathname]);
-
   return (
     <section
       id="joinOurTeam"
@@ -32,7 +10,7 @@ export const JoinOurTeamSection = () => {
     >
       <div className="m-auto max-w-[1216px] flex flex-col lg:flex-row justify-between items-center ">
         <div className="mt-6 mx-auto flex justify-center">
-          <img
+          <Image
             src="/images/join-our-team.svg"
             alt="Join our team image"
             className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"

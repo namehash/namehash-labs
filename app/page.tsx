@@ -30,7 +30,6 @@ export default function Page() {
       <TestimonialsSection />
       <OurPrinciplesSection />
       <TeamSection />
-      <JoinOurTeamSection />
       <FinancialSupportSection />
     </main>
   );

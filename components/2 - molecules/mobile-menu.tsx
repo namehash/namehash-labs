@@ -61,7 +61,7 @@ const MobileMenu = () => {
                 enableScroll();
               }}
               className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px]"
-              href="/#joinOurTeam"
+              href="/careers"
             >
               Open positions
             </Link>
