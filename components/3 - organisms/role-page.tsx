@@ -4,6 +4,7 @@ import { RoleCard } from "../2 - molecules/role-card";
 import { ExternalLinkIcon } from "../1 - atoms";
 import { Role } from "@/types";
 import { getRelatedRoles } from "@/lib/utils/careers";
+import Link from "next/link";
 
 const MAX_RELATED_ROLES = 3;
 
@@ -32,7 +33,9 @@ export const RolePage = (role: Role) => {
       <div className="justify-between w-full flex lg:flex-row flex-col lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
         {role.description}
         <div className="flex flex-col gap-5">
-          <h3 className="text-2xl leading-8 font-bold">More roles</h3>
+          {!!relatedRoles.length && (
+            <h3 className="text-2xl leading-8 font-bold">More roles</h3>
+          )}
           {relatedRoles.map((role) => {
             return (
               <RoleCard
@@ -52,7 +55,13 @@ export const RolePage = (role: Role) => {
             </h3>
             <p className="text-lg leading-7 font-normal text-gray-500">
               Interested? Send an email with your CV and a few sentences about
-              why you wanna join NameHash Labs to hello@namehashlabs.org
+              why you wanna join NameHash Labs to{" "}
+              <Link
+                href="mailto:hello@namehashlabs.org"
+                className="underline hover:text-white duration-200"
+              >
+                hello@namehashlabs.org
+              </Link>
             </p>
           </div>
           <a
