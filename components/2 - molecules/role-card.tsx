@@ -5,9 +5,10 @@ import Link from "next/link";
 export const RoleCard = ({
   icon: Icon,
   title,
-  details,
   additionalStyle,
   href,
+  categoryName,
+  location,
 }: RoleCardProps) => {
   return (
     <Link
@@ -23,13 +24,13 @@ export const RoleCard = ({
           <div className="flex gap-3">
             <UserGroupIcon className="h-6 w-6 text-gray-400" />
             <p className="text-lg leading-7 font-normal text-gray-500">
-              {details[0]}
+              {categoryName}
             </p>
           </div>
           <div className="flex gap-3">
             <MapPinIcon className="h-6 w-6 text-gray-400" />
             <p className="text-lg leading-7 font-normal text-gray-500">
-              {details[1]}
+              {location}
             </p>
           </div>
         </div>
@@ -41,7 +42,8 @@ export const RoleCard = ({
 export interface RoleCardProps {
   icon: React.ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
-  details: [string, string];
+  categoryName: string;
+  location: string;
   additionalStyle?: string;
   href: string;
 }

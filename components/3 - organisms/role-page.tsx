@@ -53,9 +53,10 @@ export const RolePage = ({
                 key={role.title}
                 icon={role.category.icon}
                 title={role.title}
-                details={role.details}
                 additionalStyle="lg:min-w-[440px]"
                 href={role.slug}
+                categoryName={role.category.name}
+                location={role.location}
               />
             );
           })}

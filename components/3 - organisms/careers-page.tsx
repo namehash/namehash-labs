@@ -27,8 +27,9 @@ export const CareersPage = () => {
                 key={role.title}
                 icon={role.category.icon}
                 title={role.title}
-                details={role.details}
                 href={role.slug}
+                categoryName={role.category.name}
+                location={role.location}
               />
             );
           })}

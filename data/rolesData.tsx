@@ -19,7 +19,6 @@ const rolesData: RolesData = {
         avatar: "/images/careers/frontend",
       },
       title: "Frontend",
-      details: ["Engineering", "Remote"],
       team: "Engineering",
       location: "Remote",
       description: (
