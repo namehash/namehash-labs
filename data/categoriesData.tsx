@@ -1,3 +1,4 @@
+import { EtherIcon } from "@/components/1 - atoms/icons/ether-icon";
 import { Category } from "./../types";
 import {
   BugAntIcon,
@@ -39,7 +40,7 @@ const CategoriesData: Record<RoleCategory, Category> = {
     avatar: "/images/careers/quality-assurance",
   },
   contracts: {
-    icon: BugAntIcon,
+    icon: EtherIcon,
     name: "Contracts",
     avatar: "/images/careers/contracts",
   },
