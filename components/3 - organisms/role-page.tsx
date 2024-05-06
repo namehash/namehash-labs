@@ -1,28 +1,14 @@
 import { ColorfulBg } from "../1 - atoms/colorful-bg";
-
 import Image from "next/image";
 import { RoleCard } from "../2 - molecules/role-card";
 import { ExternalLinkIcon } from "../1 - atoms";
 import { Role } from "@/types";
-import rolesData from "@/data/rolesData";
+import { getRelatedRoles } from "@/lib/utils/careers";
 
-function getRandomItems(arr: Role[], numItems: number) {
-  const shuffled = arr.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, numItems);
-}
+const MAX_RELATED_ROLES = 3;
 
-export const RolePage = ({
-  category,
-  title,
-  team,
-  location,
-  description,
-}: Role) => {
-  const filteredRoles = rolesData.roles.filter((item) => {
-    return item.title != title;
-  });
-
-  const shuffledRoles = getRandomItems(filteredRoles, 3);
+export const RolePage = (role: Role) => {
+  const relatedRoles = getRelatedRoles(role, MAX_RELATED_ROLES);
 
   return (
     <section className="w-full pt-20 lg:pb-20 pb-5">
@@ -32,31 +18,27 @@ export const RolePage = ({
           <p className="text-xs leading-4 font-medium tracking-wide uppercase text-gray-500">
             Join the team
           </p>
-          <h1 className="font-bold text-[52px] leading-[52px]">{title}</h1>
+          <h1 className="font-bold text-[52px] leading-[52px]">{role.title}</h1>
         </div>
         <div>
           <Image
-            src={`${category.avatar}.png`}
+            src={`${role.category.avatar}.png`}
             width={642}
             height={205}
-            alt="Picture of the author"
+            alt="category avatar"
           />
         </div>
       </div>
       <div className="justify-between w-full flex lg:flex-row flex-col lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
-        {description}
+        {role.description}
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl leading-8 font-bold">More roles</h3>
-          {shuffledRoles.map((role) => {
+          {relatedRoles.map((role) => {
             return (
               <RoleCard
                 key={role.title}
-                icon={role.category.icon}
-                title={role.title}
+                role={role}
                 additionalStyle="lg:min-w-[440px]"
-                href={role.slug}
-                categoryName={role.category.name}
-                location={role.location}
               />
             );
           })}

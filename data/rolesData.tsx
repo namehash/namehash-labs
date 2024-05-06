@@ -1,23 +1,12 @@
 import React from "react";
 import { RolesData } from "./../types";
-import {
-  BugAntIcon,
-  CodeBracketSquareIcon,
-  Cog6ToothIcon,
-  MegaphoneIcon,
-  PaintBrushIcon,
-  StarIcon,
-} from "@heroicons/react/24/outline";
+import CategoriesData from "./categoriesData";
 
 const rolesData: RolesData = {
   roles: [
     {
       slug: "frontend",
-      category: {
-        icon: CodeBracketSquareIcon,
-        name: "Frontend",
-        avatar: "/images/careers/frontend",
-      },
+      category: CategoriesData.frontend,
       title: "Frontend",
       team: "Engineering",
       location: "Remote",
@@ -109,14 +98,8 @@ const rolesData: RolesData = {
     },
     {
       slug: "backend",
-      category: {
-        icon: Cog6ToothIcon,
-        name: "Frontend",
-        avatar: "/images/careers/backend",
-      },
+      category: CategoriesData.backend,
       title: "Backend",
-      details: ["Engineering", "Remote"],
-
       team: "Engineering",
       location: "Remote",
       description: (
@@ -153,14 +136,8 @@ const rolesData: RolesData = {
     },
     {
       slug: "design",
-      category: {
-        icon: PaintBrushIcon,
-        name: "Frontend",
-        avatar: "/images/careers/design",
-      },
+      category: CategoriesData.design,
       title: "Design",
-      details: ["Engineering", "Remote"],
-
       team: "Creative",
       location: "Remote",
       description: (
@@ -181,13 +158,8 @@ const rolesData: RolesData = {
     },
     {
       slug: "qualityassurance",
-      category: {
-        icon: BugAntIcon,
-        name: "Frontend",
-        avatar: "/images/careers/quality-assurance",
-      },
+      category: CategoriesData.qualityassurance,
       title: "Quality Assurance",
-      details: ["Engineering", "Remote"],
 
       team: "Engineering",
       location: "Remote",
@@ -208,13 +180,8 @@ const rolesData: RolesData = {
     },
     {
       slug: "contracts",
-      category: {
-        icon: BugAntIcon,
-        name: "Frontend",
-        avatar: "/images/careers/contracts",
-      },
+      category: CategoriesData.contracts,
       title: "Contracts Specialist",
-      details: ["Engineering", "Remote"],
       team: "Legal",
       location: "Remote",
       description: (
@@ -236,13 +203,9 @@ const rolesData: RolesData = {
     },
     {
       slug: "marketing",
-      category: {
-        icon: MegaphoneIcon,
-        name: "Frontend",
-        avatar: "/images/careers/marketing",
-      },
+      category: CategoriesData.marketing,
       title: "Marketing Director",
-      details: ["Growth", "Remote"],
+
       team: "Marketing",
       location: "Remote",
       description: (
@@ -264,13 +227,8 @@ const rolesData: RolesData = {
     },
     {
       slug: "general",
-      category: {
-        icon: StarIcon,
-        name: "Frontend",
-        avatar: "/images/careers/general",
-      },
+      category: CategoriesData.general,
       title: "General",
-      details: ["Any team", "Remote"],
       team: "Operations",
       location: "Remote",
       description: (

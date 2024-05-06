@@ -22,16 +22,7 @@ export const CareersPage = () => {
 
         <div className="grid grid-cols-3 w-full gap-5">
           {rolesData.roles.map((role) => {
-            return (
-              <RoleCard
-                key={role.title}
-                icon={role.category.icon}
-                title={role.title}
-                href={role.slug}
-                categoryName={role.category.name}
-                location={role.location}
-              />
-            );
+            return <RoleCard key={role.title} role={role} />;
           })}
         </div>
       </div>
