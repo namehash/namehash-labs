@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const allowedOrigins = ["https://acme.com", "https://my-app.org"];
+const allowedOrigins = [
+  "https://namehashlabs.org",
+  "https://www.nameguard.io",
+  "https://www.namekit.io",
+];
 
 const corsOptions = {
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
