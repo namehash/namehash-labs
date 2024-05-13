@@ -1,8 +1,8 @@
 import React from "react";
-import { RolesData } from "./../types";
-import CategoriesData from "./categoriesData";
+import { OpenRoles } from "./../types";
+import CategoriesData from "./roleCategoryData";
 
-const rolesData: RolesData = {
+const rolesData: OpenRoles = {
   roles: [
     {
       slug: "frontend",

@@ -5,11 +5,16 @@ import { ExternalLinkIcon } from "../1 - atoms";
 import { Role } from "@/types";
 import { getRelatedRoles } from "@/lib/utils/careers";
 import Link from "next/link";
+import rolesData from "@/data/rolesData";
 
 const MAX_RELATED_ROLES = 3;
 
 export const RolePage = (role: Role) => {
-  const relatedRoles = getRelatedRoles(role, MAX_RELATED_ROLES);
+  const relatedRoles = getRelatedRoles(
+    role,
+    rolesData.roles,
+    MAX_RELATED_ROLES
+  );
 
   return (
     <section className="w-full pt-20 lg:pb-20 pb-5">
@@ -23,7 +28,7 @@ export const RolePage = (role: Role) => {
         </div>
         <div>
           <Image
-            src={`${role.category.avatar}.png`}
+            src={`${role.category.banner}.png`}
             width={642}
             height={205}
             alt="category avatar"

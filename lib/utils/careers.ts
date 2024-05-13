@@ -14,9 +14,13 @@ import { Role } from "@/types";
  * @returns An array of Role objects that are related to the input role, randomly selected and limited to 'maxRelatedRoles' elements.
  */
 
-export const getRelatedRoles = (role: Role, maxRelatedRoles: number) => {
-  const filteredRoles = rolesData.roles.filter((item) => {
-    return item.title != role.title;
+export const getRelatedRoles = (
+  role: Role,
+  allOpenRoles: Role[],
+  maxRelatedRoles: number
+) => {
+  const filteredRoles = allOpenRoles.filter((item) => {
+    return item.title !== role.title;
   });
   const sortedRoles = filteredRoles.sort(() => 0.5 - Math.random());
   return sortedRoles.slice(0, maxRelatedRoles);

@@ -1,5 +1,5 @@
 import { EtherIcon } from "@/components/1 - atoms/icons/ether-icon";
-import { Category } from "./../types";
+import { RoleCategory } from "../types";
 import {
   BugAntIcon,
   CodeBracketSquareIcon,
@@ -9,7 +9,7 @@ import {
   StarIcon,
 } from "@heroicons/react/24/outline";
 
-type RoleCategory =
+type RoleCategories =
   | "frontend"
   | "backend"
   | "design"
@@ -18,41 +18,41 @@ type RoleCategory =
   | "marketing"
   | "general";
 
-const CategoriesData: Record<RoleCategory, Category> = {
+const CategoriesData: Record<RoleCategories, RoleCategory> = {
   frontend: {
     icon: CodeBracketSquareIcon,
     name: "Frontend",
-    avatar: "/images/careers/frontend",
+    banner: "/images/careers/frontend",
   },
   backend: {
     icon: Cog6ToothIcon,
     name: "Backend",
-    avatar: "/images/careers/backend",
+    banner: "/images/careers/backend",
   },
   design: {
     icon: PaintBrushIcon,
     name: "Design",
-    avatar: "/images/careers/design",
+    banner: "/images/careers/design",
   },
   qualityassurance: {
     icon: BugAntIcon,
     name: "Quality Assurance",
-    avatar: "/images/careers/quality-assurance",
+    banner: "/images/careers/quality-assurance",
   },
   contracts: {
     icon: EtherIcon,
     name: "Contracts",
-    avatar: "/images/careers/contracts",
+    banner: "/images/careers/contracts",
   },
   marketing: {
     icon: MegaphoneIcon,
     name: "Marketing",
-    avatar: "/images/careers/marketing",
+    banner: "/images/careers/marketing",
   },
   general: {
     icon: StarIcon,
     name: "General",
-    avatar: "/images/careers/general",
+    banner: "/images/careers/general",
   },
 };
 
