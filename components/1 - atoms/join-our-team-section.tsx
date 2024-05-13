@@ -12,7 +12,7 @@ export const JoinOurTeamSection = () => {
         <div className="mt-6 mx-auto flex justify-center">
           <Image
             src="/images/join-our-team.svg"
-            alt="Join our team image"
+            alt="Join our team"
             className="w-[335px] h-[231px] md:!min-w-[368px] md:!h-[254px] xl:!min-w-[588px] xl:!h-[400px]"
             height={800}
             width={1166}
