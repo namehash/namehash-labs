@@ -1,8 +1,8 @@
-import { SVGProps } from "react";
+import { ReactElement, SVGProps } from "react";
 
 export interface RoleCategory {
   name: string;
-  banner: string;
+  banner: ReactElement;
   icon: React.ComponentType<SVGProps<SVGSVGElement>>;
 }
 

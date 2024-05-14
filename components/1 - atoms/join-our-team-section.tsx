@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Balancer from "react-wrap-balancer";
 
 export const JoinOurTeamSection = () => {
   return (
@@ -30,17 +31,19 @@ export const JoinOurTeamSection = () => {
             </p>
             <br />
             <div className="inline space-x-1">
-              <p className="inline">
-                We&apos;re actively seeking talented people of all backgrounds
-                to apply to join our team. Interested? Send an email with your
-                details to
-              </p>
-              <a
-                href="mailto:hello@namehashlabs.org"
-                className="underline hover:text-black transition-colors duration-200"
-              >
-                hello@namehashlabs.org
-              </a>
+              <Balancer>
+                <p className="inline">
+                  We&apos;re actively seeking talented people of all backgrounds
+                  to apply to join our team. Interested? Send an email with your
+                  details to{" "}
+                </p>
+                <a
+                  href="mailto:hello@namehashlabs.org"
+                  className="underline hover:text-black transition-colors duration-200"
+                >
+                  hello@namehashlabs.org
+                </a>
+              </Balancer>
             </div>
             <br />
             <br />

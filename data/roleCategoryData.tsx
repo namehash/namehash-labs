@@ -8,6 +8,15 @@ import {
   PaintBrushIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
+import {
+  BackendBanner,
+  ContractsBanner,
+  DesignBanner,
+  FrontendBanner,
+  MarketingBanner,
+  QualityAssuranceBanner,
+  TalentBanner,
+} from "@/components/1 - atoms";
 
 type RoleCategories =
   | "frontend"
@@ -22,37 +31,37 @@ const CategoriesData: Record<RoleCategories, RoleCategory> = {
   frontend: {
     icon: CodeBracketSquareIcon,
     name: "Frontend",
-    banner: "/images/careers/frontend",
+    banner: <FrontendBanner />,
   },
   backend: {
     icon: Cog6ToothIcon,
     name: "Backend",
-    banner: "/images/careers/backend",
+    banner: <BackendBanner />,
   },
   design: {
     icon: PaintBrushIcon,
     name: "Design",
-    banner: "/images/careers/design",
+    banner: <DesignBanner />,
   },
   qualityassurance: {
     icon: BugAntIcon,
     name: "Quality Assurance",
-    banner: "/images/careers/quality-assurance",
+    banner: <QualityAssuranceBanner />,
   },
   contracts: {
     icon: EtherIcon,
     name: "Contracts",
-    banner: "/images/careers/contracts",
+    banner: <ContractsBanner />,
   },
   marketing: {
     icon: MegaphoneIcon,
     name: "Marketing",
-    banner: "/images/careers/marketing",
+    banner: <MarketingBanner />,
   },
   general: {
     icon: StarIcon,
     name: "General",
-    banner: "/images/careers/general",
+    banner: <TalentBanner />,
   },
 };
 

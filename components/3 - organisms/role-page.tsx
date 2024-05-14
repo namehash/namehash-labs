@@ -6,6 +6,7 @@ import { Role } from "@/types";
 import { getRelatedRoles } from "@/lib/utils/careers";
 import Link from "next/link";
 import rolesData from "@/data/rolesData";
+import { FrontendBanner } from "../1 - atoms/career-banners/frontend-banner";
 
 const MAX_RELATED_ROLES = 3;
 
@@ -26,14 +27,7 @@ export const RolePage = (role: Role) => {
           </p>
           <h1 className="font-bold text-[52px] leading-[52px]">{role.title}</h1>
         </div>
-        <div>
-          <Image
-            src={`${role.category.banner}.png`}
-            width={642}
-            height={205}
-            alt={`Join the ${role.category.name} team`}
-          />
-        </div>
+        <div>{role.category.banner}</div>
       </div>
       <div className="justify-between w-full flex lg:flex-row flex-col lg:pt-20 pt-10 m-auto gap-10 max-w-[1216px]">
         {role.description}
