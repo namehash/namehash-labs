@@ -31,7 +31,7 @@ export const RolePage = (role: Role) => {
             src={`${role.category.banner}.png`}
             width={642}
             height={205}
-            alt="category avatar"
+            alt={`Join the ${role.category.name} team`}
           />
         </div>
       </div>
@@ -46,7 +46,7 @@ export const RolePage = (role: Role) => {
               <RoleCard
                 key={role.title}
                 role={role}
-                additionalStyle="lg:min-w-[440px]"
+                roleCardClassName="lg:min-w-[440px]"
               />
             );
           })}
