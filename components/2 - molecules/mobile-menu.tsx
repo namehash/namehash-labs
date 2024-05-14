@@ -38,15 +38,36 @@ const MobileMenu = () => {
       >
         <div className="flex flex-col h-full">
           <div className="flex w-full justify-between items-center p-4">
-            <NameHashLabsLogo className="text-white" />
-            <button className="p-4" onClick={() => toggleMenu()}>
+            <Link
+              href="/"
+              onClick={() => {
+                toggleMenu();
+                enableScroll();
+              }}
+            >
+              <NameHashLabsLogo className="text-white" />
+            </Link>
+            <button
+              className="p-3 hover:bg-white hover:bg-opacity-10 rounded-[6px] transition-colors duration-200"
+              onClick={() => toggleMenu()}
+            >
               <XMarkIcon className="w-5 h-5 text-white" />
             </button>
           </div>
 
           <nav className="flex flex-col justify-center flex-grow gap-1 mx-2">
             <Link
-              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px]"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-opacity-10 hover:bg-white transition-color duration-300 px-3 rounded-[8px]"
+              href="/"
+              onClick={() => {
+                toggleMenu();
+                enableScroll();
+              }}
+            >
+              Home
+            </Link>
+            <Link
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-opacity-10 hover:bg-white transition-color duration-300 px-3 rounded-[8px]"
               href="/ens-referral-program"
               onClick={() => {
                 toggleMenu();
@@ -60,13 +81,13 @@ const MobileMenu = () => {
                 toggleMenu();
                 enableScroll();
               }}
-              className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px]"
+              className="block text-base leading-6 font-medium py-2 text-white hover:bg-opacity-10 hover:bg-white transition-color duration-300 px-3 rounded-[8px]"
               href="/#joinOurTeam"
             >
               Open positions
             </Link>
 
-            <CalButton className="block text-base leading-6 font-medium py-2 text-white hover:bg-gray-800 transition-color duration-300 px-2 rounded-[8px] text-left">
+            <CalButton className="block text-base leading-6 font-medium py-2 text-white hover:bg-opacity-10 hover:bg-white transition-color duration-300 px-3 rounded-[8px] text-left">
               Schedule a call
             </CalButton>
           </nav>
