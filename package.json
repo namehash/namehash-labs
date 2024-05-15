@@ -41,6 +41,6 @@
     "vitest": "^1.6.0"
   },
   "engines": {
-    "node": "21.x"
+    "node": "18.x"
   }
 }
