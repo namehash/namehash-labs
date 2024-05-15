@@ -14,6 +14,7 @@ export const RolePage = (role: Role) => {
   const relatedRoles = getRelatedRoles(
     role,
     rolesData.roles,
+    true,
     MAX_RELATED_ROLES
   );
 
