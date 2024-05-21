@@ -97,9 +97,47 @@ const rolesData: OpenRoles = {
       ),
     },
     {
-      slug: "backend",
+      slug: "backend-1",
       category: CategoriesData.backend,
-      title: "Backend",
+      title: "Backend 1",
+      team: "Engineering",
+      location: "Remote",
+      description: (
+        <div className="w-full lg:max-w-[676px] flex flex-col gap-10">
+          <div className="w-full flex flex-col gap-4">
+            <h3 className="text-2xl leading-8 font-bold">Description</h3>
+            <p className="text-lg leading-8 font-normal text-gray-500">
+              NameHash Labs is a technology organization specializing in
+              crafting open-source, blockchain-driven software solutions for the
+              ENS Protocol. We are dedicated to creating groundbreaking
+              infrastructure solutions and tooling that will revolutionize web3,
+              and bring the benefits of owning a decentralized identity to
+              people across the world. Having cultivated a thriving diverse
+              culture, our team is kind, welcoming and passionate about what we
+              are building. We actively seek out and retain the most talented
+              individuals from across the world with NameHash Labs team members
+              located across three continents. We appreciate every moment we get
+              to work and have fun together.
+              <br />
+              <br />
+              The infrastructure and tooling that NameHash Labs brings to ENS
+              will help the community accelerate towards mainstream adoption,
+              and allow the core functionalities of Web3 names to then drive the
+              next phase of growth including payments, identity, and social.
+              When hiring candidates, we look for signals that a candidate will
+              thrive in our culture, where work feels like play, feedback is
+              embraced, and growth is a constant. If you’re excited to work at a
+              company that is building and shaping the future of online
+              identity, reach out by mailing us or via Twitter DMs.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      slug: "backend-2",
+      category: CategoriesData.backend,
+      title: "Backend 2",
       team: "Engineering",
       location: "Remote",
       description: (

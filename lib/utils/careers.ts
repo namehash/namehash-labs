@@ -1,32 +1,71 @@
-import rolesData from "@/data/rolesData";
 import { Role } from "@/types";
 
 /**
- * Retrieves a random subset of roles that are related to a specified role from a predefined dataset.
+ * Gets the distinct set of roles from a list of roles.
+ * Uses each role's slug to determine uniqueness.
+ * 
+ * @param roles The list of roles to filter.
+ * @param slugs An optional list of slugs to also exclude from the results.
+ * @returns The distinct set of roles.
+ */
+export const getDistinctRoles = (roles: Role[], slugs?: string[]): Role[] => {
+  const seenSlugs = new Set<string>(slugs ? slugs : []);
+  return roles.filter(role => {
+    if (seenSlugs.has(role.slug)) {
+      return false;
+    } else {
+      seenSlugs.add(role.slug);
+      return true;
+    }
+  });
+}
+
+/**
+ * Gets distinct roles in `allOpenRoles` that are distinct from `role` but most related to `role`.
+ * 
+ * Related roles are defined as roles in the same category as `role`, followed by roles
+ * in different categories.
+ * 
+ * Distinct roles are defined as roles with distinct `slug` values.
  *
- * @param role The role object to exclude from the returned list. This ensures that the specified role is not included in the results.
- * @param allOpenRoles An array of Role objects representing all available roles. This array should not contain duplicates.
- * @param maxRelatedRoles The maximum number of related roles to return. If this number is greater than the length of allOpenRoles
- * minus one (to account for the excluded role), the actual number of returned roles will be the length of allOpenRoles minus one.
- * @returns An array of Role objects that are related to the input role, randomly selected and limited to 'maxRelatedRoles' elements.
- * The returned array may contain fewer than 'maxRelatedRoles' elements if there are not enough roles in allOpenRoles.
+ * @param role The `Role` to get related roles for.
+ * @param allOpenRoles All the roles that are open.
+ * @param shuffle Whether to shuffle the returned roles. If `false` the results are
+ *                determinstic. If `true` then the results are shuffled with a strict bias
+ *                for roles in the same category as `role`.
+ * @param maxRelatedRoles The maximum number of roles to return.
+ * @returns A list of 0 to `maxRelatedRoles` distinct roles (as determined by their `slug`)
+ *          that also excludes the provided `role`.
  */
 
 export const getRelatedRoles = (
   role: Role,
   allOpenRoles: Role[],
+  shuffle: boolean,
   maxRelatedRoles: number
 ): Role[] => {
-  // Filter out the specified role
-  const filteredRoles = allOpenRoles.filter(
-    (item) => item.title !== role.title
+  
+  // filter out the specified role and any duplicates in allOpenRoles
+  const distinctRoles = getDistinctRoles(allOpenRoles, [role.slug]);
+
+  // shuffle the remaining roles
+  const shuffledRoles = shuffle ? shuffleArray(distinctRoles) : distinctRoles;
+
+  // get all roles in the same category as the specified role
+  const sameCategoryRoles = shuffledRoles.filter(
+    (item) => item.category.name === role.category.name
   );
 
-  // Shuffle the remaining roles
-  const shuffledRoles = shuffleArray(filteredRoles);
+  // get all roles in a different category as the specified role
+  const differentCategoryRoles = shuffledRoles.filter(
+    (item) => item.category.name !== role.category.name
+  );
 
-  // Return the first 'maxRelatedRoles' elements from the shuffled list
-  return shuffledRoles.slice(0, maxRelatedRoles);
+  // combine the two sets of roles, ensuring that the same category roles come first
+  const relatedRoles = [...sameCategoryRoles, ...differentCategoryRoles];
+
+  // Return the first 'maxRelatedRoles' elements
+  return relatedRoles.slice(0, maxRelatedRoles);
 };
 
 /**
