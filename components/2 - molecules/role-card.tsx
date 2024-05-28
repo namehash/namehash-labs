@@ -1,10 +1,9 @@
 import { MapPinIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import { SVGProps } from "react";
 import Link from "next/link";
 import { Role } from "@/types";
 
 interface RoleCardProps {
-  roleCardClassName?: string;
+  additionalClassNames?: string;
   role: Role;
 }
 
@@ -14,7 +13,7 @@ export const RoleCard = (props: RoleCardProps) => {
   return (
     <Link
       href={`/careers/${role.slug}`}
-      className={`w-full cursor-pointer border border-gray-200 rounded-xl p-5 flex flex-col gap-5 items-start hover:bg-gray-50 transition-colors duration-300 ${props.roleCardClassName}`}
+      className={`w-full cursor-pointer border border-gray-200 rounded-xl p-5 flex flex-col gap-5 items-start hover:bg-gray-50 transition-colors duration-300 ${props.additionalClassNames}`}
     >
       <div className="border border-gray-200 bg-white p-[14px] rounded-full flex">
         {<Icon className="h-6 w-6 text-gray-400" />}

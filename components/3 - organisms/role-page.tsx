@@ -41,7 +41,7 @@ export const RolePage = (role: Role) => {
               <RoleCard
                 key={role.title}
                 role={role}
-                roleCardClassName="lg:min-w-[440px]"
+                additionalClassNames="lg:min-w-[440px]"
               />
             );
           })}

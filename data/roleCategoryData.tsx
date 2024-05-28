@@ -19,7 +19,7 @@ import {
   TalentBanner,
 } from "@/components/1 - atoms";
 
-type RoleCategories =
+type RoleCategoryCode =
   | "frontend"
   | "backend"
   | "design"
@@ -28,7 +28,7 @@ type RoleCategories =
   | "marketing"
   | "general";
 
-const CategoriesData: Record<RoleCategories, RoleCategory> = {
+const CategoriesData: Record<RoleCategoryCode, RoleCategory> = {
   frontend: {
     icon: CodeBracketSquareIcon,
     name: "Frontend",
