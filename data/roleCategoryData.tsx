@@ -14,6 +14,7 @@ import {
   ContractsBanner,
   DesignBanner,
   FrontendBanner,
+  FullstackBanner,
   MarketingBanner,
   QualityAssuranceBanner,
   TalentBanner,
@@ -26,6 +27,7 @@ type RoleCategories =
   | "qualityassurance"
   | "contracts"
   | "marketing"
+  | "fullstack"
   | "general";
 
 const CategoriesData: Record<RoleCategories, RoleCategory> = {
@@ -58,6 +60,11 @@ const CategoriesData: Record<RoleCategories, RoleCategory> = {
     icon: MegaphoneIcon,
     name: "Marketing",
     banner: <MarketingBanner />,
+  },
+  fullstack: {
+    icon: StarIcon,
+    name: "Full Stack",
+    banner: <FullstackBanner />,
   },
   general: {
     icon: StarIcon,
