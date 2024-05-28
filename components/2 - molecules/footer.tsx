@@ -18,12 +18,12 @@ const footerProducts = [
 
 const footerResources = [
   {
-    name: "Partners",
-    href: "/partners",
-  },
-  {
     name: "Contact us",
     href: "/contact",
+  },
+  {
+    name: "Partners",
+    href: "/partners",
   },
   {
     name: "Brand assets",
