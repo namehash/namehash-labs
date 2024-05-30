@@ -198,7 +198,6 @@ const rolesData: OpenRoles = {
       slug: "qualityassurance",
       category: CategoriesData.qualityassurance,
       title: "Quality Assurance",
-
       team: "Engineering",
       location: "Remote",
       description: (
@@ -258,6 +257,30 @@ const rolesData: OpenRoles = {
               public relations. Your creativity and innovative thinking will
               drive our brand to new heights and help solidify our position as
               leaders in the blockchain industry.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      slug: "fullstack",
+      category: CategoriesData.fullstack,
+      title: "Full Stack",
+      team: "Engineering",
+      location: "Remote",
+      description: (
+        <div className="w-full lg:max-w-[676px] flex flex-col gap-10">
+          <div className="w-full flex flex-col gap-4">
+            <h3 className="text-2xl leading-8 font-bold">Position Summary</h3>
+            <p className="text-lg leading-8 font-normal text-gray-500">
+              As a Full Stack Engineer at NameHash Labs, you will play a crucial
+              role in ensuring the seamless operation of our technical projects.
+              This position requires a combination of technical expertise and
+              leadership skills, as you will be responsible for managing
+              development teams, overseeing project execution, and ensuring
+              adherence to company standards. Your versatility and ability to
+              handle multiple tasks concurrently will be essential in
+              maintaining our organization&apos;s efficiency and effectiveness.
             </p>
           </div>
         </div>
