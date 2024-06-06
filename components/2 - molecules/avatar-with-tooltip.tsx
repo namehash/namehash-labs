@@ -221,7 +221,7 @@ export const AvatarWithTooltip = ({
 
               {profile.twitterProfile && (
                 <a href={profile.twitterProfile} target="_blank">
-                  <TwitterIcon />
+                  <TwitterIcon className="fill-current text-gray-400 hover:text-white transition-color duration-200" />
                 </a>
               )}
             </div>

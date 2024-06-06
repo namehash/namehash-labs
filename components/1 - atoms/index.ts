@@ -12,3 +12,7 @@ export * from "./icons/beans-bg";
 export * from "./icons/service-provider-badge";
 export * from "./icons/ens-solid-icon";
 export * from "./icons/twitter-icon";
+export * from "./icons/email-icon";
+export * from "./icons/telegram-icon";
+export * from "./icons/github-icon";
+export * from "./icons/farcaster-icon";
