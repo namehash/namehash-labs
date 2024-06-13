@@ -30,6 +30,10 @@ const footerResources = [
     href: "/contact",
   },
   {
+    name: "Careers",
+    href: "/careers",
+  },
+  {
     name: "Partners",
     href: "/partners",
   },
