@@ -20,3 +20,7 @@ export * from "./career-banners/fullstack-banner";
 export * from "./career-banners/contracts-banner";
 export * from "./career-banners/talent-banner";
 export * from "./career-banners/marketing-banner";
+export * from "./icons/email-icon";
+export * from "./icons/telegram-icon";
+export * from "./icons/github-icon";
+export * from "./icons/farcaster-icon";
