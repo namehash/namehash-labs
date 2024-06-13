@@ -47,7 +47,7 @@ export const TeamSection = () => {
             </Balancer>
           </SectionText>
           <a
-            href="#joinOurTeam"
+            href="/careers"
             className="bg-black text-white text-base font-medium rounded-lg px-[17px] py-[9px] hover:bg-gray-800 transition"
           >
             Join our team
