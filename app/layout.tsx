@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: new URL("https://namehashlabs.org"),
+    siteName: "NameHash Labs",
   },
   twitter: {
     ...NamehashMetadata.defaultMetdata.twitter,
