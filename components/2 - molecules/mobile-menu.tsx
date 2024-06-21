@@ -52,6 +52,7 @@ const MobileMenu = () => {
               onClick={() => toggleMenu()}
             >
               <XMarkIcon className="w-5 h-5 text-white" />
+              <span className="sr-only">Toggle menu</span>
             </button>
           </div>
 

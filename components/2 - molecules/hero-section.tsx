@@ -62,6 +62,7 @@ export const HeroSection = () => {
         className="px-20 py-2.5 z-20 border rounded-full border-gray-300 bg-white absolute bottom-10 landscape:bottom-0 tall:landscape:bottom-0 hover:bg-gray-100 transition-colors duration-200"
       >
         <ChevronDown />
+        <span className="sr-only">Scroll to the next section</span>
       </button>
     </div>
   );
