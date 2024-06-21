@@ -24,6 +24,7 @@ export const FinancialSupportSection = () => {
         <div className="flex gap-3 items-center justify-center">
           <a
             target="_blank"
+            aria-label="ENS"
             href="https://ensdao.org/"
             className="py-[9px] px-[25px] bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-200 rounded-[8px] border border-gray-200"
           >
@@ -31,6 +32,7 @@ export const FinancialSupportSection = () => {
           </a>
           <a
             target="_blank"
+            aria-label="GitCoin"
             href="https://www.gitcoin.co/"
             className="py-[9px] px-[25px] bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-200 rounded-[8px] border border-gray-200"
           >
