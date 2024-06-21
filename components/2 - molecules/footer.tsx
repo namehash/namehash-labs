@@ -116,7 +116,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://twitter.com/NamehashLabs"
               target="_blank"
-              aria-label="Twitter link"
+              aria-label="Twitter Link"
             >
               <TwitterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -124,7 +124,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://github.com/namehash"
               target="_blank"
-              aria-label="Github link"
+              aria-label="Github Link"
             >
               <GithubIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -132,7 +132,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://warpcast.com/namehash"
               target="_blank"
-              aria-label="Farcaster link"
+              aria-label="Farcaster Link"
             >
               <FarcasterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -140,12 +140,12 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://t.me/namehash"
               target="_blank"
-              aria-label="Telegram link"
+              aria-label="Telegram Link"
             >
               <TelegramIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="mailto:hello@namehashlabs.org">
+            <a href="mailto:hello@namehashlabs.org" aria-label="Email Link">
               <EmailIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
           </div>
