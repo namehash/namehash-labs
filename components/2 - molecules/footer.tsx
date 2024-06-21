@@ -113,19 +113,35 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
           </p>
 
           <div className="flex gap-3">
-            <a href="https://twitter.com/NamehashLabs" target="_blank">
+            <a
+              href="https://twitter.com/NamehashLabs"
+              target="_blank"
+              aria-label="Twitter link"
+            >
               <TwitterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://github.com/namehash" target="_blank">
+            <a
+              href="https://github.com/namehash"
+              target="_blank"
+              aria-label="Github link"
+            >
               <GithubIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://warpcast.com/namehash" target="_blank">
+            <a
+              href="https://warpcast.com/namehash"
+              target="_blank"
+              aria-label="Farcaster link"
+            >
               <FarcasterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://t.me/namehash" target="_blank">
+            <a
+              href="https://t.me/namehash"
+              target="_blank"
+              aria-label="Telegram link"
+            >
               <TelegramIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
