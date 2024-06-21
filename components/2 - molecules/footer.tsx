@@ -61,7 +61,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
 
           <div className="flex justify-start">
             <div className="flex flex-col w-[228px] pr-5">
-              <h4 className="mb-2 text-sm font-semibold">Products</h4>
+              <span className="mb-2 text-sm font-semibold">Products</span>
               <ul className="flex flex-col">
                 {footerProducts.map((product) => {
                   return (
@@ -83,7 +83,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
               </ul>
             </div>
             <div className="flex flex-col w-[228px]">
-              <h4 className="mb-2 text-sm font-semibold">Resources</h4>
+              <span className="mb-2 text-sm font-semibold">Resources</span>
               <ul className="flex flex-col">
                 {footerResources.map((resource) => {
                   return (

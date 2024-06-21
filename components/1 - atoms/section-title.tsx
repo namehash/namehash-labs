@@ -11,7 +11,7 @@ export const SectionTitle = ({
   return (
     <div
       role="heading"
-      aria-level={3}
+      aria-level={2}
       className={`lg:text-4xl text-3xl lg:leading-10 leading-9 font-bold text-center ${className}`}
       {...props}
     >
