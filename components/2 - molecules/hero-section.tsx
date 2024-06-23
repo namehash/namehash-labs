@@ -5,7 +5,7 @@ import { Balancer } from "react-wrap-balancer";
 
 export const HeroSection = () => {
   return (
-    <div className="z-10 bg-white h-screen w-full flex flex-col relative items-center justify-center landscape:mt-20 tall:landscape:mt-0">
+    <div className="z-10 bg-white overflow-hidden h-screen w-full flex flex-col relative items-center justify-center landscape:mt-20 tall:landscape:mt-0">
       <div className="flex flex-col items-center max-w-[600px] z-20 animate-fadeIn">
         <h1 className="lg:text-[100px] text-5xl text-center font-bold lg:leading-[120px]">
           Helping ENS grow
