@@ -210,6 +210,7 @@ export const AvatarWithTooltip = ({
               <a
                 href={`https://app.ens.domains/${profile.ensName}`}
                 target="_blank"
+                aria-label={"ENS profile"}
               >
                 <EnsSolidIcon
                   className="hover:brightness-200 transition"
@@ -220,7 +221,11 @@ export const AvatarWithTooltip = ({
               </a>
 
               {profile.twitterProfile && (
-                <a href={profile.twitterProfile} target="_blank">
+                <a
+                  href={profile.twitterProfile}
+                  target="_blank"
+                  aria-label={"Twitter profile"}
+                >
                   <TwitterIcon className="fill-current text-gray-400 hover:text-white transition-color duration-200" />
                 </a>
               )}

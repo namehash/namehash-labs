@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans`}>
-        <div className="w-full overflow-hidden">
+        <div className="w-full">
           <HeadlineBanner />
           <div className="w-full flex flex-col relative items-center justify-center">
             <div className="absolute top-0 left-0 w-full z-40">
