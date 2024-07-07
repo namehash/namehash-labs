@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   keywords: ["ens", "web3", "eth", "namehash", "careers"],
 };
 
+const isRolesListEmpty = !rolesData.roles.length;
+
 export default function Page() {
   return (
     <section className="w-full pt-20 lg:pb-20 pb-5 px-5 lg:px-[112px]">
@@ -24,15 +26,17 @@ export default function Page() {
 
       <JoinOurTeamSection />
 
-      <div className="w-full flex lg:pt-20 pt-10 flex-col m-auto gap-10 max-w-[1216px]">
-        <h3 className="text-4xl leading-10 font-bold">Open Roles</h3>
+      {!isRolesListEmpty && (
+        <div className="w-full flex lg:pt-20 pt-10 flex-col m-auto gap-10 max-w-[1216px]">
+          <h3 className="text-4xl leading-10 font-bold">Open Roles</h3>
 
-        <div className="grid grid-cols-3 w-full gap-5">
-          {rolesData.roles.map((role) => {
-            return <RoleCard key={role.title} role={role} />;
-          })}
+          <div className="grid grid-cols-3 w-full gap-5">
+            {rolesData.roles.map((role) => {
+              return <RoleCard key={role.title} role={role} />;
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
