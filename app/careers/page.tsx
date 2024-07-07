@@ -30,7 +30,7 @@ export default function Page() {
         <div className="w-full flex lg:pt-20 pt-10 flex-col m-auto gap-10 max-w-[1216px]">
           <h3 className="text-4xl leading-10 font-bold">Open Roles</h3>
 
-          <div className="grid grid-cols-3 w-full gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-5">
             {rolesData.roles.map((role) => {
               return <RoleCard key={role.title} role={role} />;
             })}

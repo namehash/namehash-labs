@@ -1,4 +1,3 @@
-import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
 import {
   HeroSection,
   OurPrinciplesSection,
