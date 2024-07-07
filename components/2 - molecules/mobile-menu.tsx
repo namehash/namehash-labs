@@ -40,6 +40,7 @@ const MobileMenu = () => {
           <div className="flex w-full justify-between items-center p-4">
             <Link
               href="/"
+              aria-label="Home page link"
               onClick={() => {
                 toggleMenu();
                 enableScroll();
@@ -52,6 +53,7 @@ const MobileMenu = () => {
               onClick={() => toggleMenu()}
             >
               <XMarkIcon className="w-5 h-5 text-white" />
+              <span className="sr-only">Toggle menu</span>
             </button>
           </div>
 

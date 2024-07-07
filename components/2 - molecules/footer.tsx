@@ -64,44 +64,50 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
           </div>
 
           <div className="flex justify-start">
-            <ul className="flex  flex-col w-[228px] pr-5">
-              <h4 className="mb-2 text-sm font-semibold">Products</h4>
-              {footerProducts.map((product) => {
-                return (
-                  <li
-                    key={product.name}
-                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
-                  >
-                    <a
-                      target={product.href.startsWith("/") ? "_self" : "_blank"}
-                      href={product.href}
+            <div className="flex flex-col w-[228px] pr-5">
+              <span className="mb-2 text-sm font-semibold">Products</span>
+              <ul className="flex flex-col">
+                {footerProducts.map((product) => {
+                  return (
+                    <li
+                      key={product.name}
+                      className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                     >
-                      {product.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="flex flex-col w-[228px]">
-              <h4 className="mb-2 text-sm font-semibold">Resources</h4>
-              {footerResources.map((resource) => {
-                return (
-                  <li
-                    key={resource.name}
-                    className="my-2 text-sm font-light text-gray-500 hover:underline transition"
-                  >
-                    <a
-                      target={
-                        resource.href.startsWith("/") ? "_self" : "_blank"
-                      }
-                      href={resource.href}
+                      <a
+                        target={
+                          product.href.startsWith("/") ? "_self" : "_blank"
+                        }
+                        href={product.href}
+                      >
+                        {product.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="flex flex-col w-[228px]">
+              <span className="mb-2 text-sm font-semibold">Resources</span>
+              <ul className="flex flex-col">
+                {footerResources.map((resource) => {
+                  return (
+                    <li
+                      key={resource.name}
+                      className="my-2 text-sm font-light text-gray-500 hover:underline transition"
                     >
-                      {resource.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+                      <a
+                        target={
+                          resource.href.startsWith("/") ? "_self" : "_blank"
+                        }
+                        href={resource.href}
+                      >
+                        {resource.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -111,23 +117,39 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
           </p>
 
           <div className="flex gap-3">
-            <a href="https://twitter.com/NamehashLabs" target="_blank">
+            <a
+              href="https://twitter.com/NamehashLabs"
+              target="_blank"
+              aria-label="Twitter Link"
+            >
               <TwitterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://github.com/namehash" target="_blank">
+            <a
+              href="https://github.com/namehash"
+              target="_blank"
+              aria-label="Github Link"
+            >
               <GithubIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://warpcast.com/namehash" target="_blank">
+            <a
+              href="https://warpcast.com/namehash"
+              target="_blank"
+              aria-label="Farcaster Link"
+            >
               <FarcasterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="https://t.me/namehash" target="_blank">
+            <a
+              href="https://t.me/namehash"
+              target="_blank"
+              aria-label="Telegram Link"
+            >
               <TelegramIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="mailto:hello@namehashlabs.org">
+            <a href="mailto:hello@namehashlabs.org" aria-label="Email Link">
               <EmailIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
           </div>

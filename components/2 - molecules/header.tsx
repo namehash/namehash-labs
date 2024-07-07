@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <nav className="lg:px-[112px] px-5 w-full h-20 flex items-center justify-center border-b border-black border-opacity-10 z-20">
       <div className="w-full flex items-center justify-between py-5 max-w-[1216px]">
-        <Link href="/">
+        <Link href="/" aria-label="NameHash Labs Logo">
           <NameHashLabsLogo />
         </Link>
 

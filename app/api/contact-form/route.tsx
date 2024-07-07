@@ -1,48 +1,54 @@
 import { contactFormSchema } from "@/lib/schemas/contactFormSchema";
 import { host } from "@/lib/shared/origin";
 import { ContactFormDataProps } from "@/lib/types/ContactFormDataProps";
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextRequest, NextResponse } from "next/server";
 import * as Yup from "yup";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(request: NextRequest) {
   try {
-    const formData = req.body;
-    const parsedFormData = JSON.parse(formData);
+    const formData = await request.json();
 
-    const validationError = await validateFormData(parsedFormData);
+    const validationError = await validateFormData(formData);
 
     if (validationError) {
       // Handle the validation error
-      res.status(400).json({ error: validationError.errors });
-      return;
+
+      return NextResponse.json(
+        { error: validationError.errors },
+        { status: 400 },
+      );
     }
 
-    const formattedData = await buildSlackWebhookRequest(parsedFormData);
+    const formattedData = buildSlackWebhookRequest(formData);
 
     // Send the data to slack
     const destinationResponse = await sendToSlackWebhook(formattedData);
 
     // Check if the response from the service is successful
     if (destinationResponse.ok) {
-      res.status(200).json({ message: "Form data sent successfully" });
+      return NextResponse.json(
+        { error: "Form data sent successfully" },
+        { status: 200 },
+      );
     } else {
       // Handle any errors from the destination service
-      res
-        .status(500)
-        .json({ error: "Error sending form data to the destination service" });
+      return NextResponse.json(
+        { error: "Error sending form data to the destination service" },
+        { status: 500 },
+      );
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Error processing request" });
+    return NextResponse.json(
+      { error: "Error processing request" },
+      { status: 500 },
+    );
   }
 }
 
 // Validation function
 async function validateFormData(
-  data: ContactFormDataProps
+  data: ContactFormDataProps,
 ): Promise<Yup.ValidationError | null> {
   try {
     await contactFormSchema.validate(data, { abortEarly: false });
@@ -61,7 +67,7 @@ async function sendToSlackWebhook(data: any) {
   // Check if the environment variable is defined
   if (!slackWebhookUrl) {
     throw new Error(
-      "The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined."
+      "The FORM_SUBMISSION_SLACK_WEBHOOK environment variable is not defined.",
     );
   }
 
