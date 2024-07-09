@@ -149,7 +149,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
               <TelegramIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
 
-            <a href="mailto:hello@namehashlabs.org" aria-label="Email Link">
+            <a href="mailto:hello@namehashlabs.org" aria-label="Email">
               <EmailIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
           </div>
