@@ -120,7 +120,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://twitter.com/NamehashLabs"
               target="_blank"
-              aria-label="Twitter Link"
+              aria-label="Twitter"
             >
               <TwitterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -128,7 +128,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://github.com/namehash"
               target="_blank"
-              aria-label="Github Link"
+              aria-label="Github"
             >
               <GithubIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -136,7 +136,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://warpcast.com/namehash"
               target="_blank"
-              aria-label="Farcaster Link"
+              aria-label="Farcaster"
             >
               <FarcasterIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>
@@ -144,7 +144,7 @@ export const Footer = (props: React.HTMLAttributes<HTMLDivElement>) => {
             <a
               href="https://t.me/namehash"
               target="_blank"
-              aria-label="Telegram Link"
+              aria-label="Telegram"
             >
               <TelegramIcon className="hover:text-black text-[#AFAFAF] transition-all duration-200" />
             </a>

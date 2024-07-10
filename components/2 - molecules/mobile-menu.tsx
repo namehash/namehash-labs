@@ -40,7 +40,7 @@ const MobileMenu = () => {
           <div className="flex w-full justify-between items-center p-4">
             <Link
               href="/"
-              aria-label="Home page link"
+              aria-label="Home page"
               onClick={() => {
                 toggleMenu();
                 enableScroll();
