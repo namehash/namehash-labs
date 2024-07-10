@@ -40,7 +40,7 @@ const MobileMenu = () => {
           <div className="flex w-full justify-between items-center p-4">
             <Link
               href="/"
-              aria-label="Home page link"
+              aria-label="Home page"
               onClick={() => {
                 toggleMenu();
                 enableScroll();
@@ -84,7 +84,7 @@ const MobileMenu = () => {
                 enableScroll();
               }}
               className="block text-base leading-6 font-medium py-2 text-white hover:bg-opacity-10 hover:bg-white transition-color duration-300 px-3 rounded-[8px]"
-              href="/#joinOurTeam"
+              href="/careers"
             >
               Open positions
             </Link>

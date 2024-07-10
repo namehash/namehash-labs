@@ -1,4 +1,3 @@
-import { JoinOurTeamSection } from "@/components/1 - atoms/join-our-team-section";
 import {
   HeroSection,
   OurPrinciplesSection,
@@ -30,7 +29,6 @@ export default function Page() {
       <TestimonialsSection />
       <OurPrinciplesSection />
       <TeamSection />
-      <JoinOurTeamSection />
       <FinancialSupportSection />
     </main>
   );
